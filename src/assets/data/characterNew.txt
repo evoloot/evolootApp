@@ -1,0 +1,7068 @@
+{"frames": {
+
+"Large_Feminine_OverWorld_Body_Down1.png":
+{
+	"frame": {"x":0,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Down2.png":
+{
+	"frame": {"x":80,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Down3.png":
+{
+	"frame": {"x":200,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Left1.png":
+{
+	"frame": {"x":120,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Left2.png":
+{
+	"frame": {"x":160,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Left3.png":
+{
+	"frame": {"x":40,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Right1.png":
+{
+	"frame": {"x":2000,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Right2.png":
+{
+	"frame": {"x":1760,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Right3.png":
+{
+	"frame": {"x":1840,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Up1.png":
+{
+	"frame": {"x":1960,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Up2.png":
+{
+	"frame": {"x":1880,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Body_Up3.png":
+{
+	"frame": {"x":1920,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Down1.png":
+{
+	"frame": {"x":240,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Down2.png":
+{
+	"frame": {"x":320,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Down3.png":
+{
+	"frame": {"x":560,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Left1.png":
+{
+	"frame": {"x":640,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Left2.png":
+{
+	"frame": {"x":760,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Left3.png":
+{
+	"frame": {"x":680,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Right1.png":
+{
+	"frame": {"x":720,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Right2.png":
+{
+	"frame": {"x":600,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_EyeColour_Right3.png":
+{
+	"frame": {"x":520,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Down1.png":
+{
+	"frame": {"x":280,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Down2.png":
+{
+	"frame": {"x":360,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Down3.png":
+{
+	"frame": {"x":480,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Left1.png":
+{
+	"frame": {"x":400,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Left2.png":
+{
+	"frame": {"x":440,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Left3.png":
+{
+	"frame": {"x":1800,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Right1.png":
+{
+	"frame": {"x":1720,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Right2.png":
+{
+	"frame": {"x":920,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FaceWear_A_Right3.png":
+{
+	"frame": {"x":1000,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Down1.png":
+{
+	"frame": {"x":1120,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Down2.png":
+{
+	"frame": {"x":1040,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Down3.png":
+{
+	"frame": {"x":1080,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Left1.png":
+{
+	"frame": {"x":960,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Left2.png":
+{
+	"frame": {"x":880,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Left3.png":
+{
+	"frame": {"x":680,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Right1.png":
+{
+	"frame": {"x":760,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Right2.png":
+{
+	"frame": {"x":840,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FacialHair_A_Right3.png":
+{
+	"frame": {"x":800,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Down1.png":
+{
+	"frame": {"x":1160,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Down2.png":
+{
+	"frame": {"x":1240,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Down3.png":
+{
+	"frame": {"x":1480,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Left1.png":
+{
+	"frame": {"x":1560,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Left2.png":
+{
+	"frame": {"x":1680,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Left3.png":
+{
+	"frame": {"x":1600,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Right1.png":
+{
+	"frame": {"x":1640,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Right2.png":
+{
+	"frame": {"x":1520,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Right3.png":
+{
+	"frame": {"x":1440,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Up1.png":
+{
+	"frame": {"x":1200,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Up2.png":
+{
+	"frame": {"x":1280,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_FootWear_A_Up3.png":
+{
+	"frame": {"x":1400,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Down1.png":
+{
+	"frame": {"x":1320,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Down2.png":
+{
+	"frame": {"x":1360,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Down3.png":
+{
+	"frame": {"x":800,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Left1.png":
+{
+	"frame": {"x":880,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Left2.png":
+{
+	"frame": {"x":200,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Left3.png":
+{
+	"frame": {"x":280,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Right1.png":
+{
+	"frame": {"x":400,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Right2.png":
+{
+	"frame": {"x":320,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Right3.png":
+{
+	"frame": {"x":360,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Up1.png":
+{
+	"frame": {"x":240,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Up2.png":
+{
+	"frame": {"x":160,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hairstyle_A_Up3.png":
+{
+	"frame": {"x":1960,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Down1.png":
+{
+	"frame": {"x":0,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Down2.png":
+{
+	"frame": {"x":120,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Down3.png":
+{
+	"frame": {"x":40,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Left1.png":
+{
+	"frame": {"x":80,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Left2.png":
+{
+	"frame": {"x":440,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Left3.png":
+{
+	"frame": {"x":520,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Right1.png":
+{
+	"frame": {"x":760,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Right2.png":
+{
+	"frame": {"x":840,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Right3.png":
+{
+	"frame": {"x":960,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Up1.png":
+{
+	"frame": {"x":880,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Up2.png":
+{
+	"frame": {"x":920,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Hands_A_Up3.png":
+{
+	"frame": {"x":800,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Down1.png":
+{
+	"frame": {"x":720,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Down2.png":
+{
+	"frame": {"x":480,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Down3.png":
+{
+	"frame": {"x":560,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Left1.png":
+{
+	"frame": {"x":680,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Left2.png":
+{
+	"frame": {"x":600,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Left3.png":
+{
+	"frame": {"x":640,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Right1.png":
+{
+	"frame": {"x":2000,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Right2.png":
+{
+	"frame": {"x":1920,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Right3.png":
+{
+	"frame": {"x":1120,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Up1.png":
+{
+	"frame": {"x":1200,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Up2.png":
+{
+	"frame": {"x":1320,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_HeadWear_A_Up3.png":
+{
+	"frame": {"x":1240,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Down1.png":
+{
+	"frame": {"x":1280,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Down2.png":
+{
+	"frame": {"x":1160,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Down3.png":
+{
+	"frame": {"x":1080,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Left1.png":
+{
+	"frame": {"x":840,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Left2.png":
+{
+	"frame": {"x":920,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Left3.png":
+{
+	"frame": {"x":1040,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Right1.png":
+{
+	"frame": {"x":960,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Right2.png":
+{
+	"frame": {"x":1000,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Right3.png":
+{
+	"frame": {"x":1360,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Up1.png":
+{
+	"frame": {"x":1440,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Up2.png":
+{
+	"frame": {"x":1680,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_LowerBody_A_Up3.png":
+{
+	"frame": {"x":1760,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Down1.png":
+{
+	"frame": {"x":1880,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Down2.png":
+{
+	"frame": {"x":1800,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Down3.png":
+{
+	"frame": {"x":1840,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Left1.png":
+{
+	"frame": {"x":1720,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Left2.png":
+{
+	"frame": {"x":1640,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Left3.png":
+{
+	"frame": {"x":1400,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Right1.png":
+{
+	"frame": {"x":1480,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Right2.png":
+{
+	"frame": {"x":1600,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Right3.png":
+{
+	"frame": {"x":1520,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Up1.png":
+{
+	"frame": {"x":1560,"y":616,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Up2.png":
+{
+	"frame": {"x":720,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_UpperBody_A_Up3.png":
+{
+	"frame": {"x":640,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Down1.png":
+{
+	"frame": {"x":1720,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Down2.png":
+{
+	"frame": {"x":1800,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Down3.png":
+{
+	"frame": {"x":1920,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Left1.png":
+{
+	"frame": {"x":1840,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Left2.png":
+{
+	"frame": {"x":1880,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Left3.png":
+{
+	"frame": {"x":1760,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Right1.png":
+{
+	"frame": {"x":1680,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Right2.png":
+{
+	"frame": {"x":1440,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Right3.png":
+{
+	"frame": {"x":1520,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Up1.png":
+{
+	"frame": {"x":1640,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Up2.png":
+{
+	"frame": {"x":1560,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_LeftHanded_Up3.png":
+{
+	"frame": {"x":1600,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Down1.png":
+{
+	"frame": {"x":1960,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Down2.png":
+{
+	"frame": {"x":0,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Down3.png":
+{
+	"frame": {"x":240,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Left1.png":
+{
+	"frame": {"x":320,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Left2.png":
+{
+	"frame": {"x":440,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Left3.png":
+{
+	"frame": {"x":360,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Right1.png":
+{
+	"frame": {"x":400,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Right2.png":
+{
+	"frame": {"x":280,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Right3.png":
+{
+	"frame": {"x":200,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Up1.png":
+{
+	"frame": {"x":2000,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Up2.png":
+{
+	"frame": {"x":40,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Feminine_OverWorld_Weapon_A_RightHanded_Up3.png":
+{
+	"frame": {"x":160,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Down1.png":
+{
+	"frame": {"x":80,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Down2.png":
+{
+	"frame": {"x":120,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Down3.png":
+{
+	"frame": {"x":1480,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Left1.png":
+{
+	"frame": {"x":1400,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Left2.png":
+{
+	"frame": {"x":600,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Left3.png":
+{
+	"frame": {"x":680,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Right1.png":
+{
+	"frame": {"x":800,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Right2.png":
+{
+	"frame": {"x":720,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Right3.png":
+{
+	"frame": {"x":760,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Up1.png":
+{
+	"frame": {"x":640,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Up2.png":
+{
+	"frame": {"x":560,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Body_Up3.png":
+{
+	"frame": {"x":360,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Down1.png":
+{
+	"frame": {"x":440,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Down2.png":
+{
+	"frame": {"x":520,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Down3.png":
+{
+	"frame": {"x":480,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Left1.png":
+{
+	"frame": {"x":840,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Left2.png":
+{
+	"frame": {"x":920,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Left3.png":
+{
+	"frame": {"x":1160,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Right1.png":
+{
+	"frame": {"x":1240,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Right2.png":
+{
+	"frame": {"x":1360,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_EyeColour_Right3.png":
+{
+	"frame": {"x":1280,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Down1.png":
+{
+	"frame": {"x":1320,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Down2.png":
+{
+	"frame": {"x":1200,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Down3.png":
+{
+	"frame": {"x":1120,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Left1.png":
+{
+	"frame": {"x":880,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Left2.png":
+{
+	"frame": {"x":960,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Left3.png":
+{
+	"frame": {"x":1080,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Right1.png":
+{
+	"frame": {"x":1000,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Right2.png":
+{
+	"frame": {"x":1040,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FaceWear_A_Right3.png":
+{
+	"frame": {"x":480,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Down1.png":
+{
+	"frame": {"x":560,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Down2.png":
+{
+	"frame": {"x":1880,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Down3.png":
+{
+	"frame": {"x":1960,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Left1.png":
+{
+	"frame": {"x":40,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Left2.png":
+{
+	"frame": {"x":2000,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Left3.png":
+{
+	"frame": {"x":0,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Right1.png":
+{
+	"frame": {"x":1920,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Right2.png":
+{
+	"frame": {"x":1840,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FacialHair_A_Right3.png":
+{
+	"frame": {"x":1600,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Down1.png":
+{
+	"frame": {"x":1680,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Down2.png":
+{
+	"frame": {"x":1800,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Down3.png":
+{
+	"frame": {"x":1720,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Left1.png":
+{
+	"frame": {"x":1760,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Left2.png":
+{
+	"frame": {"x":80,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Left3.png":
+{
+	"frame": {"x":160,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Right1.png":
+{
+	"frame": {"x":400,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Right2.png":
+{
+	"frame": {"x":480,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Right3.png":
+{
+	"frame": {"x":600,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Up1.png":
+{
+	"frame": {"x":520,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Up2.png":
+{
+	"frame": {"x":560,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_FootWear_A_Up3.png":
+{
+	"frame": {"x":440,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Down1.png":
+{
+	"frame": {"x":360,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Down2.png":
+{
+	"frame": {"x":120,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Down3.png":
+{
+	"frame": {"x":200,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Left1.png":
+{
+	"frame": {"x":320,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Left2.png":
+{
+	"frame": {"x":240,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Left3.png":
+{
+	"frame": {"x":280,"y":560,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Right1.png":
+{
+	"frame": {"x":1640,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Right2.png":
+{
+	"frame": {"x":1560,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Right3.png":
+{
+	"frame": {"x":760,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Up1.png":
+{
+	"frame": {"x":840,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Up2.png":
+{
+	"frame": {"x":960,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HairStyle_A_Up3.png":
+{
+	"frame": {"x":880,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Down1.png":
+{
+	"frame": {"x":920,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Down2.png":
+{
+	"frame": {"x":800,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Down3.png":
+{
+	"frame": {"x":720,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Left1.png":
+{
+	"frame": {"x":520,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Left2.png":
+{
+	"frame": {"x":600,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Left3.png":
+{
+	"frame": {"x":680,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Right1.png":
+{
+	"frame": {"x":640,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Right2.png":
+{
+	"frame": {"x":1000,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Right3.png":
+{
+	"frame": {"x":1080,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Up1.png":
+{
+	"frame": {"x":1000,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Up2.png":
+{
+	"frame": {"x":1400,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Hands_A_Up3.png":
+{
+	"frame": {"x":1520,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Down1.png":
+{
+	"frame": {"x":1440,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Down2.png":
+{
+	"frame": {"x":1480,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Down3.png":
+{
+	"frame": {"x":1360,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Left1.png":
+{
+	"frame": {"x":1280,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Left2.png":
+{
+	"frame": {"x":1040,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Left3.png":
+{
+	"frame": {"x":1120,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Right1.png":
+{
+	"frame": {"x":1240,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Right2.png":
+{
+	"frame": {"x":1160,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Right3.png":
+{
+	"frame": {"x":1200,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Up1.png":
+{
+	"frame": {"x":400,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Up2.png":
+{
+	"frame": {"x":240,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_HeadWear_A_Up3.png":
+{
+	"frame": {"x":520,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Down1.png":
+{
+	"frame": {"x":600,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Down2.png":
+{
+	"frame": {"x":680,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Down3.png":
+{
+	"frame": {"x":640,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Left1.png":
+{
+	"frame": {"x":560,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Left2.png":
+{
+	"frame": {"x":480,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Left3.png":
+{
+	"frame": {"x":280,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Right1.png":
+{
+	"frame": {"x":360,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Right2.png":
+{
+	"frame": {"x":440,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Right3.png":
+{
+	"frame": {"x":400,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Up1.png":
+{
+	"frame": {"x":720,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Up2.png":
+{
+	"frame": {"x":800,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_LowerBody_A_Up3.png":
+{
+	"frame": {"x":1000,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Down1.png":
+{
+	"frame": {"x":1080,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Down2.png":
+{
+	"frame": {"x":1200,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Down3.png":
+{
+	"frame": {"x":1120,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Left1.png":
+{
+	"frame": {"x":1160,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Left2.png":
+{
+	"frame": {"x":1040,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Left3.png":
+{
+	"frame": {"x":960,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Right1.png":
+{
+	"frame": {"x":760,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Right2.png":
+{
+	"frame": {"x":840,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Right3.png":
+{
+	"frame": {"x":920,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Up1.png":
+{
+	"frame": {"x":880,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Up2.png":
+{
+	"frame": {"x":320,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_UpperBody_A_Up3.png":
+{
+	"frame": {"x":240,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Down1.png":
+{
+	"frame": {"x":1600,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Down2.png":
+{
+	"frame": {"x":1680,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Down3.png":
+{
+	"frame": {"x":1760,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Left1.png":
+{
+	"frame": {"x":1720,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Left2.png":
+{
+	"frame": {"x":1640,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Left3.png":
+{
+	"frame": {"x":1560,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Right1.png":
+{
+	"frame": {"x":1360,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Right2.png":
+{
+	"frame": {"x":1440,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Right3.png":
+{
+	"frame": {"x":1520,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Up1.png":
+{
+	"frame": {"x":1480,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Up2.png":
+{
+	"frame": {"x":1800,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_LeftHanded_Up3.png":
+{
+	"frame": {"x":1880,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Down1.png":
+{
+	"frame": {"x":40,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Down2.png":
+{
+	"frame": {"x":120,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Down3.png":
+{
+	"frame": {"x":200,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Left1.png":
+{
+	"frame": {"x":160,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Left2.png":
+{
+	"frame": {"x":1240,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Left3.png":
+{
+	"frame": {"x":80,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Right1.png":
+{
+	"frame": {"x":0,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Right2.png":
+{
+	"frame": {"x":1840,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Right3.png":
+{
+	"frame": {"x":1920,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Up1.png":
+{
+	"frame": {"x":2000,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Up2.png":
+{
+	"frame": {"x":1960,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Large_Masculine_OverWorld_Weapon_A_RightHanded_Up3.png":
+{
+	"frame": {"x":1400,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_Battle_Block1.png":
+{
+	"frame": {"x":61,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Block2.png":
+{
+	"frame": {"x":0,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Block3.png":
+{
+	"frame": {"x":488,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Damaged1.png":
+{
+	"frame": {"x":671,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Damaged2.png":
+{
+	"frame": {"x":854,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Damaged3.png":
+{
+	"frame": {"x":976,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Idle1.png":
+{
+	"frame": {"x":915,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Idle2.png":
+{
+	"frame": {"x":793,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Idle3.png":
+{
+	"frame": {"x":732,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Kick1.png":
+{
+	"frame": {"x":610,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Kick2.png":
+{
+	"frame": {"x":549,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Kick3.png":
+{
+	"frame": {"x":1281,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Punch-Closer1.png":
+{
+	"frame": {"x":183,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Punch-Closer2.png":
+{
+	"frame": {"x":244,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Punch-Closer3.png":
+{
+	"frame": {"x":366,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Punch-Farther1.png":
+{
+	"frame": {"x":427,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Punch-Farther2.png":
+{
+	"frame": {"x":305,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Punch-Farther3.png":
+{
+	"frame": {"x":1037,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Slash-Closer1.png":
+{
+	"frame": {"x":1220,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Slash-Closer2.png":
+{
+	"frame": {"x":1830,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Slash-Closer3.png":
+{
+	"frame": {"x":1708,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Slash-Farther1.png":
+{
+	"frame": {"x":1891,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Slash-Farther2.png":
+{
+	"frame": {"x":1952,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_Battle_Slash-Farther3.png":
+{
+	"frame": {"x":61,"y":1004,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Feminine_OverWorld_Body_Down1.png":
+{
+	"frame": {"x":1720,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Down2.png":
+{
+	"frame": {"x":1320,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Down3.png":
+{
+	"frame": {"x":1400,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Left1.png":
+{
+	"frame": {"x":1440,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Left2.png":
+{
+	"frame": {"x":1360,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Left3.png":
+{
+	"frame": {"x":1280,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Right1.png":
+{
+	"frame": {"x":1480,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Right2.png":
+{
+	"frame": {"x":1560,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Right3.png":
+{
+	"frame": {"x":1640,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Up1.png":
+{
+	"frame": {"x":1680,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Up2.png":
+{
+	"frame": {"x":1600,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Body_Up3.png":
+{
+	"frame": {"x":1520,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Down1.png":
+{
+	"frame": {"x":1760,"y":840,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Down2.png":
+{
+	"frame": {"x":1080,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Down3.png":
+{
+	"frame": {"x":360,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Left1.png":
+{
+	"frame": {"x":440,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Left2.png":
+{
+	"frame": {"x":560,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Left3.png":
+{
+	"frame": {"x":480,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Right1.png":
+{
+	"frame": {"x":520,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Right2.png":
+{
+	"frame": {"x":400,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_EyeColour_Right3.png":
+{
+	"frame": {"x":320,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Down1.png":
+{
+	"frame": {"x":80,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Down2.png":
+{
+	"frame": {"x":160,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Down3.png":
+{
+	"frame": {"x":280,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Left1.png":
+{
+	"frame": {"x":200,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Left2.png":
+{
+	"frame": {"x":1320,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Left3.png":
+{
+	"frame": {"x":600,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Right1.png":
+{
+	"frame": {"x":680,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Right2.png":
+{
+	"frame": {"x":920,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FaceWear_A_Right3.png":
+{
+	"frame": {"x":1000,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Down1.png":
+{
+	"frame": {"x":1120,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Down2.png":
+{
+	"frame": {"x":1040,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Down3.png":
+{
+	"frame": {"x":1080,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Left1.png":
+{
+	"frame": {"x":960,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Left2.png":
+{
+	"frame": {"x":880,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Left3.png":
+{
+	"frame": {"x":640,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Right1.png":
+{
+	"frame": {"x":720,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Right2.png":
+{
+	"frame": {"x":840,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FacialHair_A_Right3.png":
+{
+	"frame": {"x":760,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Down1.png":
+{
+	"frame": {"x":800,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Down2.png":
+{
+	"frame": {"x":120,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Down3.png":
+{
+	"frame": {"x":40,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Left1.png":
+{
+	"frame": {"x":1280,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Left2.png":
+{
+	"frame": {"x":1360,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Left3.png":
+{
+	"frame": {"x":1480,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Right1.png":
+{
+	"frame": {"x":1400,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Right2.png":
+{
+	"frame": {"x":1440,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Right3.png":
+{
+	"frame": {"x":1320,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Up1.png":
+{
+	"frame": {"x":1240,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Up2.png":
+{
+	"frame": {"x":1040,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_FootWear_A_Up3.png":
+{
+	"frame": {"x":1120,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Down1.png":
+{
+	"frame": {"x":1200,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Down2.png":
+{
+	"frame": {"x":1160,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Down3.png":
+{
+	"frame": {"x":1520,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Left1.png":
+{
+	"frame": {"x":1600,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Left2.png":
+{
+	"frame": {"x":1840,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Left3.png":
+{
+	"frame": {"x":1920,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Right1.png":
+{
+	"frame": {"x":0,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Right2.png":
+{
+	"frame": {"x":1960,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Right3.png":
+{
+	"frame": {"x":2000,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Up1.png":
+{
+	"frame": {"x":1880,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Up2.png":
+{
+	"frame": {"x":1800,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HairStyle_A_Up3.png":
+{
+	"frame": {"x":1560,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Down1.png":
+{
+	"frame": {"x":1640,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Down2.png":
+{
+	"frame": {"x":1760,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Down3.png":
+{
+	"frame": {"x":1680,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Left1.png":
+{
+	"frame": {"x":1720,"y":672,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Left2.png":
+{
+	"frame": {"x":1160,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Left3.png":
+{
+	"frame": {"x":1240,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Right1.png":
+{
+	"frame": {"x":520,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Right2.png":
+{
+	"frame": {"x":600,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Right3.png":
+{
+	"frame": {"x":720,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Up1.png":
+{
+	"frame": {"x":640,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Up2.png":
+{
+	"frame": {"x":680,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Hands_A_Up3.png":
+{
+	"frame": {"x":560,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Down1.png":
+{
+	"frame": {"x":480,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Down2.png":
+{
+	"frame": {"x":240,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Down3.png":
+{
+	"frame": {"x":320,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Left1.png":
+{
+	"frame": {"x":440,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Left2.png":
+{
+	"frame": {"x":360,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Left3.png":
+{
+	"frame": {"x":400,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Right1.png":
+{
+	"frame": {"x":760,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Right2.png":
+{
+	"frame": {"x":840,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Right3.png":
+{
+	"frame": {"x":1080,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Up1.png":
+{
+	"frame": {"x":1160,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Up2.png":
+{
+	"frame": {"x":1280,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_HeadWear_A_Up3.png":
+{
+	"frame": {"x":1200,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Down1.png":
+{
+	"frame": {"x":1240,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Down2.png":
+{
+	"frame": {"x":1120,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Down3.png":
+{
+	"frame": {"x":1040,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Left1.png":
+{
+	"frame": {"x":800,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Left2.png":
+{
+	"frame": {"x":880,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Left3.png":
+{
+	"frame": {"x":1000,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Right1.png":
+{
+	"frame": {"x":920,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Right2.png":
+{
+	"frame": {"x":960,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Right3.png":
+{
+	"frame": {"x":280,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Up1.png":
+{
+	"frame": {"x":200,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Up2.png":
+{
+	"frame": {"x":1440,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_LowerBody_A_Up3.png":
+{
+	"frame": {"x":1520,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Down1.png":
+{
+	"frame": {"x":1640,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Down2.png":
+{
+	"frame": {"x":1560,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Down3.png":
+{
+	"frame": {"x":1600,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Left1.png":
+{
+	"frame": {"x":1480,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Left2.png":
+{
+	"frame": {"x":1400,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Left3.png":
+{
+	"frame": {"x":1200,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Right1.png":
+{
+	"frame": {"x":1280,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Right2.png":
+{
+	"frame": {"x":1360,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Right3.png":
+{
+	"frame": {"x":1320,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Up1.png":
+{
+	"frame": {"x":1680,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Up2.png":
+{
+	"frame": {"x":1760,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_UpperBody_A_Up3.png":
+{
+	"frame": {"x":2000,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Down1.png":
+{
+	"frame": {"x":40,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Down2.png":
+{
+	"frame": {"x":160,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Down3.png":
+{
+	"frame": {"x":80,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Left1.png":
+{
+	"frame": {"x":120,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Left2.png":
+{
+	"frame": {"x":0,"y":784,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Left3.png":
+{
+	"frame": {"x":1960,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Right1.png":
+{
+	"frame": {"x":1720,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Right2.png":
+{
+	"frame": {"x":1800,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Right3.png":
+{
+	"frame": {"x":1920,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Up1.png":
+{
+	"frame": {"x":1840,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Up2.png":
+{
+	"frame": {"x":1880,"y":728,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_LeftHanded_Up3.png":
+{
+	"frame": {"x":1320,"y":504,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Down1.png":
+{
+	"frame": {"x":40,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Down2.png":
+{
+	"frame": {"x":1360,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Down3.png":
+{
+	"frame": {"x":1440,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Left1.png":
+{
+	"frame": {"x":1560,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Left2.png":
+{
+	"frame": {"x":1480,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Left3.png":
+{
+	"frame": {"x":1520,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Right1.png":
+{
+	"frame": {"x":1400,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Right2.png":
+{
+	"frame": {"x":1320,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Right3.png":
+{
+	"frame": {"x":1120,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Up1.png":
+{
+	"frame": {"x":1200,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Up2.png":
+{
+	"frame": {"x":1280,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Feminine_OverWorld_Weapon_A_RightHanded_Up3.png":
+{
+	"frame": {"x":1240,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_Battle_Block1.png":
+{
+	"frame": {"x":1159,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Block2.png":
+{
+	"frame": {"x":1281,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Block3.png":
+{
+	"frame": {"x":1220,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Damaged1.png":
+{
+	"frame": {"x":1098,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Damaged2.png":
+{
+	"frame": {"x":1037,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Damaged3.png":
+{
+	"frame": {"x":915,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Idle1.png":
+{
+	"frame": {"x":854,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Idle2.png":
+{
+	"frame": {"x":1342,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Idle3.png":
+{
+	"frame": {"x":1403,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Kick-1.png":
+{
+	"frame": {"x":1769,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Kick-2.png":
+{
+	"frame": {"x":1891,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Kick-3.png":
+{
+	"frame": {"x":1830,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Punch-Closer1.png":
+{
+	"frame": {"x":1861,"y":840,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Punch-Closer2.png":
+{
+	"frame": {"x":1922,"y":840,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Punch-Closer3.png":
+{
+	"frame": {"x":244,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Punch-Farther1.png":
+{
+	"frame": {"x":427,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Punch-Farther2.png":
+{
+	"frame": {"x":610,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Punch-Farther3.png":
+{
+	"frame": {"x":732,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Slash-Closer1.png":
+{
+	"frame": {"x":671,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Slash-Closer2.png":
+{
+	"frame": {"x":549,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Slash-Closer3.png":
+{
+	"frame": {"x":488,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Slash-Farther1.png":
+{
+	"frame": {"x":366,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Slash-Farther2.png":
+{
+	"frame": {"x":305,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_Battle_Slash-Farther3.png":
+{
+	"frame": {"x":1708,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Medium_Masculine_OverWorld_Body_Down1.png":
+{
+	"frame": {"x":1600,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Down2.png":
+{
+	"frame": {"x":1680,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Down3.png":
+{
+	"frame": {"x":1880,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Left1.png":
+{
+	"frame": {"x":1960,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Left2.png":
+{
+	"frame": {"x":40,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Left3.png":
+{
+	"frame": {"x":2000,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Right1.png":
+{
+	"frame": {"x":0,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Right2.png":
+{
+	"frame": {"x":1920,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Right3.png":
+{
+	"frame": {"x":1840,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Up1.png":
+{
+	"frame": {"x":1640,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Up2.png":
+{
+	"frame": {"x":1720,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Body_Up3.png":
+{
+	"frame": {"x":1800,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Down1.png":
+{
+	"frame": {"x":1760,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Down2.png":
+{
+	"frame": {"x":1160,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Down3.png":
+{
+	"frame": {"x":1080,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Left1.png":
+{
+	"frame": {"x":320,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Left2.png":
+{
+	"frame": {"x":400,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Left3.png":
+{
+	"frame": {"x":520,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Right1.png":
+{
+	"frame": {"x":440,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Right2.png":
+{
+	"frame": {"x":480,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_EyeColour_Right3.png":
+{
+	"frame": {"x":360,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Down1.png":
+{
+	"frame": {"x":280,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Down2.png":
+{
+	"frame": {"x":80,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Down3.png":
+{
+	"frame": {"x":160,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Left1.png":
+{
+	"frame": {"x":240,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Left2.png":
+{
+	"frame": {"x":200,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Left3.png":
+{
+	"frame": {"x":560,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Right1.png":
+{
+	"frame": {"x":640,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Right2.png":
+{
+	"frame": {"x":840,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FaceWear_A_Right3.png":
+{
+	"frame": {"x":920,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Down1.png":
+{
+	"frame": {"x":1040,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Down2.png":
+{
+	"frame": {"x":960,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Down3.png":
+{
+	"frame": {"x":1000,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Left1.png":
+{
+	"frame": {"x":880,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Left2.png":
+{
+	"frame": {"x":800,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Left3.png":
+{
+	"frame": {"x":600,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Right1.png":
+{
+	"frame": {"x":680,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Right2.png":
+{
+	"frame": {"x":760,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FacialHair_A_Right3.png":
+{
+	"frame": {"x":720,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Down1.png":
+{
+	"frame": {"x":80,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Down2.png":
+{
+	"frame": {"x":160,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Down3.png":
+{
+	"frame": {"x":1400,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Left1.png":
+{
+	"frame": {"x":1480,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Left2.png":
+{
+	"frame": {"x":1600,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Left3.png":
+{
+	"frame": {"x":1520,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Right1.png":
+{
+	"frame": {"x":1560,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Right2.png":
+{
+	"frame": {"x":1440,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Right3.png":
+{
+	"frame": {"x":1360,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Up1.png":
+{
+	"frame": {"x":1160,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Up2.png":
+{
+	"frame": {"x":1240,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_FootWear_A_Up3.png":
+{
+	"frame": {"x":1320,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Down1.png":
+{
+	"frame": {"x":1280,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Down2.png":
+{
+	"frame": {"x":1640,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Down3.png":
+{
+	"frame": {"x":1720,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Left1.png":
+{
+	"frame": {"x":1920,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Left2.png":
+{
+	"frame": {"x":2000,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Left3.png":
+{
+	"frame": {"x":80,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Right1.png":
+{
+	"frame": {"x":0,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Right2.png":
+{
+	"frame": {"x":40,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Right3.png":
+{
+	"frame": {"x":1960,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Up1.png":
+{
+	"frame": {"x":1880,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Up2.png":
+{
+	"frame": {"x":1680,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HairStyle_A_Up3.png":
+{
+	"frame": {"x":1760,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Down1.png":
+{
+	"frame": {"x":1840,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Down2.png":
+{
+	"frame": {"x":1800,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Down3.png":
+{
+	"frame": {"x":1200,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Left1.png":
+{
+	"frame": {"x":1120,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Left2.png":
+{
+	"frame": {"x":360,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Left3.png":
+{
+	"frame": {"x":440,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Right1.png":
+{
+	"frame": {"x":560,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Right2.png":
+{
+	"frame": {"x":480,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Right3.png":
+{
+	"frame": {"x":520,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Up1.png":
+{
+	"frame": {"x":400,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Up2.png":
+{
+	"frame": {"x":320,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Hands_A_Up3.png":
+{
+	"frame": {"x":120,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Down1.png":
+{
+	"frame": {"x":200,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Down2.png":
+{
+	"frame": {"x":280,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Down3.png":
+{
+	"frame": {"x":240,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Left1.png":
+{
+	"frame": {"x":600,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Left2.png":
+{
+	"frame": {"x":680,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Left3.png":
+{
+	"frame": {"x":880,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Right1.png":
+{
+	"frame": {"x":960,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Right2.png":
+{
+	"frame": {"x":1080,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Right3.png":
+{
+	"frame": {"x":1000,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Up1.png":
+{
+	"frame": {"x":1040,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Up2.png":
+{
+	"frame": {"x":920,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_HeadWear_A_Up3.png":
+{
+	"frame": {"x":840,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Down1.png":
+{
+	"frame": {"x":640,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Down2.png":
+{
+	"frame": {"x":720,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Down3.png":
+{
+	"frame": {"x":800,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Left1.png":
+{
+	"frame": {"x":760,"y":168,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Left2.png":
+{
+	"frame": {"x":120,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Left3.png":
+{
+	"frame": {"x":40,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Right1.png":
+{
+	"frame": {"x":1280,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Right2.png":
+{
+	"frame": {"x":1360,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Right3.png":
+{
+	"frame": {"x":1480,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Up1.png":
+{
+	"frame": {"x":1400,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Up2.png":
+{
+	"frame": {"x":1440,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_LowerBody_A_Up3.png":
+{
+	"frame": {"x":1320,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Down1.png":
+{
+	"frame": {"x":1240,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Down2.png":
+{
+	"frame": {"x":1040,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Down3.png":
+{
+	"frame": {"x":1120,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Left1.png":
+{
+	"frame": {"x":1200,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Left2.png":
+{
+	"frame": {"x":1160,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Left3.png":
+{
+	"frame": {"x":1520,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Right1.png":
+{
+	"frame": {"x":1600,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Right2.png":
+{
+	"frame": {"x":1800,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Right3.png":
+{
+	"frame": {"x":1880,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Up1.png":
+{
+	"frame": {"x":2000,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Up2.png":
+{
+	"frame": {"x":1920,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_UpperBody_A_Up3.png":
+{
+	"frame": {"x":1960,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Down1.png":
+{
+	"frame": {"x":1840,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Down2.png":
+{
+	"frame": {"x":1760,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Down3.png":
+{
+	"frame": {"x":1560,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Left1.png":
+{
+	"frame": {"x":1640,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Left2.png":
+{
+	"frame": {"x":1720,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Left3.png":
+{
+	"frame": {"x":1680,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Right1.png":
+{
+	"frame": {"x":1080,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Right2.png":
+{
+	"frame": {"x":1000,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Right3.png":
+{
+	"frame": {"x":240,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Up1.png":
+{
+	"frame": {"x":320,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Up2.png":
+{
+	"frame": {"x":440,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_LeftHanded_Up3.png":
+{
+	"frame": {"x":360,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Down1.png":
+{
+	"frame": {"x":400,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Down2.png":
+{
+	"frame": {"x":280,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Down3.png":
+{
+	"frame": {"x":200,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Left1.png":
+{
+	"frame": {"x":0,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Left2.png":
+{
+	"frame": {"x":80,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Left3.png":
+{
+	"frame": {"x":160,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Right1.png":
+{
+	"frame": {"x":120,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Right2.png":
+{
+	"frame": {"x":480,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Right3.png":
+{
+	"frame": {"x":560,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Up1.png":
+{
+	"frame": {"x":760,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Up2.png":
+{
+	"frame": {"x":840,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Medium_Masculine_OverWorld_Weapon_A_RightHanded_Up3.png":
+{
+	"frame": {"x":960,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Down1.png":
+{
+	"frame": {"x":880,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Down2.png":
+{
+	"frame": {"x":920,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Down3.png":
+{
+	"frame": {"x":800,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Left1.png":
+{
+	"frame": {"x":720,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Left2.png":
+{
+	"frame": {"x":520,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Left3.png":
+{
+	"frame": {"x":600,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Right1.png":
+{
+	"frame": {"x":680,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Right2.png":
+{
+	"frame": {"x":640,"y":0,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Right3.png":
+{
+	"frame": {"x":0,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Up1.png":
+{
+	"frame": {"x":80,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Up2.png":
+{
+	"frame": {"x":1320,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Body_Up3.png":
+{
+	"frame": {"x":1400,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Down1.png":
+{
+	"frame": {"x":1520,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Down2.png":
+{
+	"frame": {"x":1440,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Down3.png":
+{
+	"frame": {"x":1480,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Left1.png":
+{
+	"frame": {"x":1360,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Left2.png":
+{
+	"frame": {"x":1280,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Left3.png":
+{
+	"frame": {"x":1080,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Right1.png":
+{
+	"frame": {"x":1160,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Right2.png":
+{
+	"frame": {"x":1240,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_EyeColour_Right3.png":
+{
+	"frame": {"x":1200,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Down1.png":
+{
+	"frame": {"x":1560,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Down2.png":
+{
+	"frame": {"x":1640,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Down3.png":
+{
+	"frame": {"x":1840,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Left1.png":
+{
+	"frame": {"x":1920,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Left2.png":
+{
+	"frame": {"x":0,"y":112,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Left3.png":
+{
+	"frame": {"x":1960,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Right1.png":
+{
+	"frame": {"x":2000,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Right2.png":
+{
+	"frame": {"x":1880,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FaceWear_A_Right3.png":
+{
+	"frame": {"x":1800,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Down1.png":
+{
+	"frame": {"x":1600,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Down2.png":
+{
+	"frame": {"x":1680,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Down3.png":
+{
+	"frame": {"x":1760,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Left1.png":
+{
+	"frame": {"x":1720,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Left2.png":
+{
+	"frame": {"x":1120,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Left3.png":
+{
+	"frame": {"x":1040,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Right1.png":
+{
+	"frame": {"x":280,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Right2.png":
+{
+	"frame": {"x":360,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FacialHair_A_Right3.png":
+{
+	"frame": {"x":480,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Down1.png":
+{
+	"frame": {"x":400,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Down2.png":
+{
+	"frame": {"x":440,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Down3.png":
+{
+	"frame": {"x":320,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Left1.png":
+{
+	"frame": {"x":240,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Left2.png":
+{
+	"frame": {"x":40,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Left3.png":
+{
+	"frame": {"x":120,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Right1.png":
+{
+	"frame": {"x":200,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Right2.png":
+{
+	"frame": {"x":160,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Right3.png":
+{
+	"frame": {"x":520,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Up1.png":
+{
+	"frame": {"x":600,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Up2.png":
+{
+	"frame": {"x":800,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_FootWear_A_Up3.png":
+{
+	"frame": {"x":880,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Down1.png":
+{
+	"frame": {"x":1000,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Down2.png":
+{
+	"frame": {"x":920,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Down3.png":
+{
+	"frame": {"x":960,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Left1.png":
+{
+	"frame": {"x":840,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Left2.png":
+{
+	"frame": {"x":760,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Left3.png":
+{
+	"frame": {"x":560,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Right1.png":
+{
+	"frame": {"x":640,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Right2.png":
+{
+	"frame": {"x":720,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Right3.png":
+{
+	"frame": {"x":680,"y":56,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Up1.png":
+{
+	"frame": {"x":120,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Up2.png":
+{
+	"frame": {"x":200,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HairStyle_A_Up3.png":
+{
+	"frame": {"x":1520,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Down1.png":
+{
+	"frame": {"x":1600,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Down2.png":
+{
+	"frame": {"x":1720,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Down3.png":
+{
+	"frame": {"x":1640,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Left1.png":
+{
+	"frame": {"x":1680,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Left2.png":
+{
+	"frame": {"x":1560,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Left3.png":
+{
+	"frame": {"x":1480,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Right1.png":
+{
+	"frame": {"x":1280,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Right2.png":
+{
+	"frame": {"x":1360,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Right3.png":
+{
+	"frame": {"x":1440,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Up1.png":
+{
+	"frame": {"x":1400,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Up2.png":
+{
+	"frame": {"x":1760,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Hands_A_Up3.png":
+{
+	"frame": {"x":1840,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Down1.png":
+{
+	"frame": {"x":0,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Down2.png":
+{
+	"frame": {"x":80,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Down3.png":
+{
+	"frame": {"x":200,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Left1.png":
+{
+	"frame": {"x":120,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Left2.png":
+{
+	"frame": {"x":160,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Left3.png":
+{
+	"frame": {"x":40,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Right1.png":
+{
+	"frame": {"x":2000,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Right2.png":
+{
+	"frame": {"x":1800,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Right3.png":
+{
+	"frame": {"x":1880,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Up1.png":
+{
+	"frame": {"x":1960,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Up2.png":
+{
+	"frame": {"x":1920,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_HeadWear_A_Up3.png":
+{
+	"frame": {"x":1320,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Down1.png":
+{
+	"frame": {"x":1240,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Down2.png":
+{
+	"frame": {"x":480,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Down3.png":
+{
+	"frame": {"x":560,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Left1.png":
+{
+	"frame": {"x":680,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Left2.png":
+{
+	"frame": {"x":600,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Left3.png":
+{
+	"frame": {"x":640,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Right1.png":
+{
+	"frame": {"x":520,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Right2.png":
+{
+	"frame": {"x":440,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Right3.png":
+{
+	"frame": {"x":240,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Up1.png":
+{
+	"frame": {"x":320,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Up2.png":
+{
+	"frame": {"x":400,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_LowerBody_A_Up3.png":
+{
+	"frame": {"x":360,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Down1.png":
+{
+	"frame": {"x":720,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Down2.png":
+{
+	"frame": {"x":800,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Down3.png":
+{
+	"frame": {"x":1000,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Left1.png":
+{
+	"frame": {"x":1080,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Left2.png":
+{
+	"frame": {"x":1200,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Left3.png":
+{
+	"frame": {"x":1120,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Right1.png":
+{
+	"frame": {"x":1160,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Right2.png":
+{
+	"frame": {"x":1040,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Right3.png":
+{
+	"frame": {"x":960,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Up1.png":
+{
+	"frame": {"x":760,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Up2.png":
+{
+	"frame": {"x":840,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_UpperBody_A_Up3.png":
+{
+	"frame": {"x":920,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Down1.png":
+{
+	"frame": {"x":880,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Down2.png":
+{
+	"frame": {"x":240,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Down3.png":
+{
+	"frame": {"x":320,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Left1.png":
+{
+	"frame": {"x":1560,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Left2.png":
+{
+	"frame": {"x":1640,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Left3.png":
+{
+	"frame": {"x":1760,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Right1.png":
+{
+	"frame": {"x":1680,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Right2.png":
+{
+	"frame": {"x":1720,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Right3.png":
+{
+	"frame": {"x":1600,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Up1.png":
+{
+	"frame": {"x":1520,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Up2.png":
+{
+	"frame": {"x":1320,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_LeftHanded_Up3.png":
+{
+	"frame": {"x":1400,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Down1.png":
+{
+	"frame": {"x":1480,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Down2.png":
+{
+	"frame": {"x":1440,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Down3.png":
+{
+	"frame": {"x":1800,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Left1.png":
+{
+	"frame": {"x":1880,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Left2.png":
+{
+	"frame": {"x":80,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Left3.png":
+{
+	"frame": {"x":160,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Right1.png":
+{
+	"frame": {"x":280,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Right2.png":
+{
+	"frame": {"x":200,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Right3.png":
+{
+	"frame": {"x":240,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Up1.png":
+{
+	"frame": {"x":120,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Up2.png":
+{
+	"frame": {"x":40,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Feminine_OverWorld_Weapon_A_RightHanded_Up3.png":
+{
+	"frame": {"x":1840,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_Battle_Block1.png":
+{
+	"frame": {"x":122,"y":1004,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Block2.png":
+{
+	"frame": {"x":0,"y":1004,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Block3.png":
+{
+	"frame": {"x":1647,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Damaged1.png":
+{
+	"frame": {"x":1586,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Damaged2.png":
+{
+	"frame": {"x":1098,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Damaged3.png":
+{
+	"frame": {"x":1159,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Idle1.png":
+{
+	"frame": {"x":1952,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Idle2.png":
+{
+	"frame": {"x":1342,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Idle3.png":
+{
+	"frame": {"x":1464,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Kick1.png":
+{
+	"frame": {"x":1525,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Kick2.png":
+{
+	"frame": {"x":1403,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Kick3.png":
+{
+	"frame": {"x":122,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Punch-Closer1.png":
+{
+	"frame": {"x":1800,"y":840,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Punch-Closer2.png":
+{
+	"frame": {"x":1647,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Punch-Closer3.png":
+{
+	"frame": {"x":1464,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Punch-Farther1.png":
+{
+	"frame": {"x":1586,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Punch-Farther2.png":
+{
+	"frame": {"x":1525,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Punch-Farther3.png":
+{
+	"frame": {"x":976,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Slash-Closer1.png":
+{
+	"frame": {"x":793,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Slash-Closer2.png":
+{
+	"frame": {"x":0,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Slash-Closer3.png":
+{
+	"frame": {"x":122,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Slash-Farther1.png":
+{
+	"frame": {"x":61,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Slash-Farther2.png":
+{
+	"frame": {"x":183,"y":896,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_Battle_Slash-Farther3.png":
+{
+	"frame": {"x":1769,"y":950,"w":61,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":54},
+	"sourceSize": {"w":61,"h":54}
+},
+"Small_Masculine_OverWorld_Body_Down1.png":
+{
+	"frame": {"x":1920,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Down2.png":
+{
+	"frame": {"x":0,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Down3.png":
+{
+	"frame": {"x":1960,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Left1.png":
+{
+	"frame": {"x":2000,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Left2.png":
+{
+	"frame": {"x":1360,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Left3.png":
+{
+	"frame": {"x":1280,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Right1.png":
+{
+	"frame": {"x":520,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Right2.png":
+{
+	"frame": {"x":600,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Right3.png":
+{
+	"frame": {"x":720,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Up1.png":
+{
+	"frame": {"x":640,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Up2.png":
+{
+	"frame": {"x":680,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Body_Up3.png":
+{
+	"frame": {"x":560,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Down1.png":
+{
+	"frame": {"x":480,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Down2.png":
+{
+	"frame": {"x":280,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Down3.png":
+{
+	"frame": {"x":360,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Left1.png":
+{
+	"frame": {"x":440,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Left2.png":
+{
+	"frame": {"x":400,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Left3.png":
+{
+	"frame": {"x":760,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Right1.png":
+{
+	"frame": {"x":840,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Right2.png":
+{
+	"frame": {"x":1040,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_EyeColour_Right3.png":
+{
+	"frame": {"x":1120,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Down1.png":
+{
+	"frame": {"x":1240,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Down2.png":
+{
+	"frame": {"x":1160,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Down3.png":
+{
+	"frame": {"x":1200,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Left1.png":
+{
+	"frame": {"x":1080,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Left2.png":
+{
+	"frame": {"x":1000,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Left3.png":
+{
+	"frame": {"x":800,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Right1.png":
+{
+	"frame": {"x":880,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Right2.png":
+{
+	"frame": {"x":960,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FaceWear_A_Right3.png":
+{
+	"frame": {"x":920,"y":392,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Down1.png":
+{
+	"frame": {"x":280,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Down2.png":
+{
+	"frame": {"x":200,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Down3.png":
+{
+	"frame": {"x":1440,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Left1.png":
+{
+	"frame": {"x":1520,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Left2.png":
+{
+	"frame": {"x":1640,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Left3.png":
+{
+	"frame": {"x":1560,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Right1.png":
+{
+	"frame": {"x":1600,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Right2.png":
+{
+	"frame": {"x":1480,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FacialHair_A_Right3.png":
+{
+	"frame": {"x":1400,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Down1.png":
+{
+	"frame": {"x":1200,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Down2.png":
+{
+	"frame": {"x":1280,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Down3.png":
+{
+	"frame": {"x":1360,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Left1.png":
+{
+	"frame": {"x":1320,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Left2.png":
+{
+	"frame": {"x":1680,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Left3.png":
+{
+	"frame": {"x":1760,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Right1.png":
+{
+	"frame": {"x":1960,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Right2.png":
+{
+	"frame": {"x":0,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Right3.png":
+{
+	"frame": {"x":120,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Up1.png":
+{
+	"frame": {"x":40,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Up2.png":
+{
+	"frame": {"x":80,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_FootWear_A_Up3.png":
+{
+	"frame": {"x":2000,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Down1.png":
+{
+	"frame": {"x":1920,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Down2.png":
+{
+	"frame": {"x":1720,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Down3.png":
+{
+	"frame": {"x":1800,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Left1.png":
+{
+	"frame": {"x":1880,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Left2.png":
+{
+	"frame": {"x":1840,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Left3.png":
+{
+	"frame": {"x":1240,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Right1.png":
+{
+	"frame": {"x":1160,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Right2.png":
+{
+	"frame": {"x":400,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Right3.png":
+{
+	"frame": {"x":480,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Up1.png":
+{
+	"frame": {"x":600,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Up2.png":
+{
+	"frame": {"x":520,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HairStyle_A_Up3.png":
+{
+	"frame": {"x":560,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Down1.png":
+{
+	"frame": {"x":440,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Down2.png":
+{
+	"frame": {"x":360,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Down3.png":
+{
+	"frame": {"x":160,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Left1.png":
+{
+	"frame": {"x":240,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Left2.png":
+{
+	"frame": {"x":320,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Left3.png":
+{
+	"frame": {"x":280,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Right1.png":
+{
+	"frame": {"x":640,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Right2.png":
+{
+	"frame": {"x":720,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Right3.png":
+{
+	"frame": {"x":920,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Up1.png":
+{
+	"frame": {"x":1000,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Up2.png":
+{
+	"frame": {"x":1120,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Hands_A_Up3.png":
+{
+	"frame": {"x":1040,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Down1.png":
+{
+	"frame": {"x":1080,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Down2.png":
+{
+	"frame": {"x":960,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Down3.png":
+{
+	"frame": {"x":880,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Left1.png":
+{
+	"frame": {"x":680,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Left2.png":
+{
+	"frame": {"x":760,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Left3.png":
+{
+	"frame": {"x":840,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Right1.png":
+{
+	"frame": {"x":800,"y":224,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Right2.png":
+{
+	"frame": {"x":160,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Right3.png":
+{
+	"frame": {"x":240,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Up1.png":
+{
+	"frame": {"x":1480,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Up2.png":
+{
+	"frame": {"x":1560,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_HeadWear_A_Up3.png":
+{
+	"frame": {"x":1680,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Down1.png":
+{
+	"frame": {"x":1600,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Down2.png":
+{
+	"frame": {"x":1640,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Down3.png":
+{
+	"frame": {"x":1520,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Left1.png":
+{
+	"frame": {"x":1440,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Left2.png":
+{
+	"frame": {"x":1240,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Left3.png":
+{
+	"frame": {"x":1320,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Right1.png":
+{
+	"frame": {"x":1400,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Right2.png":
+{
+	"frame": {"x":1360,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Right3.png":
+{
+	"frame": {"x":1720,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Up1.png":
+{
+	"frame": {"x":1800,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Up2.png":
+{
+	"frame": {"x":2000,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_LowerBody_A_Up3.png":
+{
+	"frame": {"x":40,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Down1.png":
+{
+	"frame": {"x":160,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Down2.png":
+{
+	"frame": {"x":80,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Down3.png":
+{
+	"frame": {"x":120,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Left1.png":
+{
+	"frame": {"x":0,"y":336,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Left2.png":
+{
+	"frame": {"x":1960,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Left3.png":
+{
+	"frame": {"x":1760,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Right1.png":
+{
+	"frame": {"x":1840,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Right2.png":
+{
+	"frame": {"x":1920,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Right3.png":
+{
+	"frame": {"x":1880,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Up1.png":
+{
+	"frame": {"x":1280,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Up2.png":
+{
+	"frame": {"x":1200,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_UpperBody_A_Up3.png":
+{
+	"frame": {"x":440,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Down1.png":
+{
+	"frame": {"x":520,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Down2.png":
+{
+	"frame": {"x":640,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Down3.png":
+{
+	"frame": {"x":560,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Left1.png":
+{
+	"frame": {"x":600,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Left2.png":
+{
+	"frame": {"x":480,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Left3.png":
+{
+	"frame": {"x":400,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Right1.png":
+{
+	"frame": {"x":200,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Right2.png":
+{
+	"frame": {"x":280,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Right3.png":
+{
+	"frame": {"x":360,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Up1.png":
+{
+	"frame": {"x":320,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Up2.png":
+{
+	"frame": {"x":680,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_LeftHanded_Up3.png":
+{
+	"frame": {"x":760,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Down1.png":
+{
+	"frame": {"x":960,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Down2.png":
+{
+	"frame": {"x":1040,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Down3.png":
+{
+	"frame": {"x":1160,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Left1.png":
+{
+	"frame": {"x":1080,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Left2.png":
+{
+	"frame": {"x":1120,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Left3.png":
+{
+	"frame": {"x":1000,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Right1.png":
+{
+	"frame": {"x":920,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Right2.png":
+{
+	"frame": {"x":720,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Right3.png":
+{
+	"frame": {"x":800,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Up1.png":
+{
+	"frame": {"x":880,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Up2.png":
+{
+	"frame": {"x":840,"y":280,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+},
+"Small_Masculine_OverWorld_Weapon_A_RightHanded_Up3.png":
+{
+	"frame": {"x":320,"y":448,"w":40,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":56},
+	"sourceSize": {"w":40,"h":56}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "characterNew.png",
+	"format": "RGBA8888",
+	"size": {"w":2040,"h":1058},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1f788982b824ac12459f80ac9087cfb3:716898096db58860ce28b48a66e3c549:0338c256d7ebce3b02294fc7a438dffd$"
+}
+}

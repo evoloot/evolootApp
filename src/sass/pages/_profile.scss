@@ -1,0 +1,36 @@
+.profile {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, rgba($color-green-secondary, 0.1), rgba($color-green-secondary, 0.2));
+    font-size: 4rem;
+
+    &__content {
+        margin: 0 auto;
+        max-width: 80rem;
+    }
+
+    &__box {
+        padding: 2rem;
+        border: solid 3px $color-green-primary;
+        border-radius: 1rem;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__box-list {
+        list-style: none;
+    }
+
+    &__box-list-item{
+        display: flex;
+
+        p {
+            margin-right: 2rem;
+        }
+    }
+}

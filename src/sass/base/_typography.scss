@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "Fixedsyswoff";
+    src: url("../assets/fonts/fixedsys.woff") format("woff");
+
+    /*
+    font-family: "Press Start 2P";
+    src: url("../assets/fonts/PressStart2P-Regular.ttf") format("truetype");
+    */
+}
+
+@font-face {
+    font-family: "Digital";
+    src: url("../assets/fonts/digital-7.ttf") format("truetype");
+}
+
+body {
+    font-family: 'Fixedsyswoff', sans-serif;
+    font-weight: 300; /* default font weight use */
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: -.2rem;
+    text-rendering: optimizeLegibility;
+    color: $color-black;
+}
+
+.header-primary {
+    font-size: 5.5rem;
+    background: linear-gradient($color-blue-secondary,$color-blue-primary 75%);
+    letter-spacing: -.35rem;
+
+    @include backgroundGradientTextClip;
+    -webkit-text-stroke-width: .15rem;
+
+    -webkit-transform:scale(1.3, 1.1);
+    transform:scale(1.2,1.1);
+
+    @include respond(tab-port) {
+        font-size: 4.2rem;
+    }
+}
+
+.header-primary--small {
+    background: linear-gradient($color-blue-secondary,$color-blue-primary 75%);
+    letter-spacing: .3rem; 
+
+    @include backgroundGradientTextClip;
+    -webkit-text-stroke-width: .05rem;
+}
+
+
+.header-secondary {
+    background: $color-white;
+    @include backgroundGradientTextClip;
+    font-family: 'Fixedsyswoff', sans-serif;
+    letter-spacing: .3rem;  
+}
+
+.label {
+    background: linear-gradient($color-yellow-primary,$color-green-primary);
+    @include backgroundGradientTextClip;
+    
+    -webkit-text-stroke-width: .05rem;
+}
+
+.paragraph {
+    background: linear-gradient($color-yellow-primary,$color-green-primary);
+    @include backgroundGradientTextClip;
+
+    letter-spacing: -.1rem;  
+    -webkit-text-stroke-width: .05rem;
+}
+
+.paragraph--secondary {
+    background: $color-green-tertiary;
+    @include backgroundGradientTextClip;
+
+    -webkit-text-stroke-width: .015rem;
+    letter-spacing: -.05rem;
+}
+
+// NOTE - Add a paragraph secondary for long texts.

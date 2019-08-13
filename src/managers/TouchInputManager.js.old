@@ -1,0 +1,91 @@
+//////////////////////////////////////////////////////////////////////////////
+/**
+ * @by: Evoloot Enterprises Inc.
+ * @author: Victor V. Piccoli
+ * @doc: Handles/create mouse inputs.
+*/
+////////////////////////////////////////////////////////////////////////
+export class TouchInputManager {
+    constructor(game) {
+        this.game = game;
+    }
+    // usefull for mobile
+    /**
+     * - Adds a mini-controller on the Scene-Screen
+     */
+    static addScreenButtons() {
+        /*
+            this.leftArrow = this.game.add.button(0, 0, this.buttonKeys[0]);
+            this.rightArrow = this.game.add.button(0, 0, this.buttonKeys[1]);
+            this.downArrow = this.game.add.button(0, 0, this.buttonKeys[2]);
+            this.upArrow = this.game.add.button(0, 0, this.buttonKeys[3]);
+            this.actionButton = this.game.add.button(0, 0, this.buttonKeys[4]);
+            */
+    }
+    static createOnscreenControls() {
+        /*
+        tests:
+        this.leftArrow.alpha = 0.5;
+        this.rightArrow.alpha = 0.5;
+        this.actionButton.alpha = 0.5;
+        // onInputUp, when player releases button action occurs;
+        this.actionButton.events.onInputUp.add(() => {
+            console.log('Action Executed');
+        });
+        this.actionButton.events.onInputOver.add(() => {
+            this.actionButton.alpha = 1;
+        });
+        this.actionButton.events.onInputOut.add(() => {
+            this.actionButton.alpha = 0.5;
+        });
+        // left
+        this.leftArrow.events.onInputDown.add(() => {
+            this.player.customParams.isMovingLeft = true;
+        });
+        this.leftArrow.events.onInputUp.add(() => {
+            this.player.customParams.isMovingLeft = false;
+        });
+        // when button is on hover
+        this.leftArrow.events.onInputOver.add(() => {
+            this.leftArrow.alpha = 1;
+        });
+        // when button is out of hover
+        this.leftArrow.events.onInputOut.add(() => {
+            this.leftArrow.alpha = 0.5;
+        });
+        // right
+        this.rightArrow.events.onInputDown.add(() => {
+            this.player.customParams.isMovingRight = true;
+        });
+        this.rightArrow.events.onInputUp.add(() => {
+            this.player.customParams.isMovingRight = false;
+        });
+        this.rightArrow.events.onInputOver.add(() => {
+            this.rightArrow.alpha = 1;
+        });
+        this.rightArrow.events.onInputOut.add(() => {
+            this.rightArrow.alpha = 0.5;
+        });
+        */
+    }
+    /**
+     * Listen to players custom params
+     * @param speed : Player movement speed
+     */
+    static onScreenControlsListener(speed) {
+        /*
+        tests:
+        this.player.body.velocity.x = 0;
+        if (this.player.customParams.isMovingLeft) {
+            console.log('Moving Left');
+        }
+        else if (this.player.customParams.isMovingRight) {
+            console.log('Moving Right');
+        }
+        if (this.player.customParams.action && in front of something) {
+            console.log('Executing action!');
+        }
+        */
+        ////////////////////////////////////////////////////
+    }
+}

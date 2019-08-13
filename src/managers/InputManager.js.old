@@ -1,0 +1,36 @@
+//////////////////////////////////////////////////////////////////////////////
+/**
+ * @by: Evoloot Enterprises Inc.
+ * @author: Victor V. Piccoli
+ * @doc: Handles/create keyboard inputs.
+*/
+////////////////////////////////////////////////////////////////////////
+export class InputManager {
+    constructor() {
+        throw new Error("This is a static class");
+    }
+    static initialize(game) {
+        this.game = game;
+        this.keyboard = this.game.input.keyboard;
+    }
+    /**
+    * - Enable Arrow-keys to be used in the State.
+    * @returns : Phaser.CursorKeys Object.
+    */
+    static createArrows() {
+        return this.keyboard.createCursorKeys();
+    }
+    /**
+     * - Add Custom keys to be used in the State.
+     * @returns : Object containing keys.
+     */
+    static createKeyboard() {
+        return {
+            W: this.keyboard.addKey(Phaser.Keyboard.W),
+            A: this.keyboard.addKey(Phaser.Keyboard.A),
+            S: this.keyboard.addKey(Phaser.Keyboard.S),
+            D: this.keyboard.addKey(Phaser.Keyboard.D),
+            E: this.keyboard.addKey(Phaser.Keyboard.E),
+        };
+    }
+}

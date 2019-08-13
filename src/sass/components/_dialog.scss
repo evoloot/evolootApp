@@ -1,0 +1,167 @@
+.dialog {
+    position: relative;
+    width: 100%;
+    margin: 1rem auto;
+    font-size: 145%;
+
+    &__character {
+        width: 6rem;
+        margin-right: 1rem;
+        top: 2rem;
+        position: relative;
+        border-bottom: $color-green-primary solid .3rem;
+        box-shadow: 0 .2rem rgba($color-black, .1);
+    }
+
+    &__balloon {
+        display: inline-block;
+        padding: .5rem 4rem;
+        border: $color-green-primary solid .2rem;
+        border-radius: 1.5rem;
+    }
+
+    &__header {
+        position: relative;
+        display: block;
+        margin: 1rem auto;
+        text-align: center;
+        width: 75%;
+        font-size: 1.5rem;
+    }
+
+    &__explanation {
+        margin: 2rem auto;
+        width: 70%;
+        hyphens: auto;
+    }
+
+    &__checkbox-list {
+        display: block;
+    }
+
+    &__checkbox-name {
+        margin-left: 3rem;
+    }
+
+    &__checkbox--inline {
+        display: inline-block;
+
+        &:first-child {
+            margin-right: 2rem;
+            margin-left: 1rem;
+        }
+
+        &:not(:first-child) {
+            margin: 0 2.5rem;
+        }
+    }
+
+    &__checkbox-item {
+        display: block;
+    }
+
+    &__checkbox-label {
+        position: relative;
+        float: left; 
+        cursor: pointer;
+        padding-left: 1.5rem;
+        font-size: 2rem;
+        -webkit-text-stroke-width: .03rem;
+    }
+
+    &__input {
+        @include invisibleElement;
+    }
+
+    &__number-input {
+        color: $color-black;
+        -webkit-text-stroke-width: .075rem;
+    }
+
+    &__checkmark {
+        height: 3rem;
+        width: 3rem;
+        border: .5rem solid $color-green-primary;
+        border-radius: .5rem;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -.2rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            height: 1.4rem;
+            width: 1.4rem;
+            border-radius: .5rem;
+            background-color: $color-green-primary;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+    }
+
+    &__checkmark--circle {
+        height: 3rem;
+        width: 3rem;
+        border: 0.5rem solid $color-green-primary;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -0.7rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            height: 1.4rem;
+            width: 1.4rem;
+            border-radius: 50%;
+            background-color: $color-green-primary;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+    }
+
+    &__input:checked + &__checkbox-label &__checkmark::after{
+        opacity: 1;
+    }
+
+    &__checkbox-label  &__input:checked + &__checkmark--circle::after{
+        opacity: 1;
+    }
+
+
+    &__rate-title-list {
+        display: block;
+        font-size: 2rem;
+    }
+
+    &__rate-title-item {
+        display: inline-block;
+
+        &:first-child {
+            margin-right: 1.5rem;
+        }
+
+        &:not(:first-child) {
+            margin: 0 1.5rem;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__rate-item {
+        display: inline-block;
+    }
+
+}

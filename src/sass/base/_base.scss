@@ -1,0 +1,134 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit; 
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+
+    // REMEMBER: cascade, always the large ones first in desktop first
+    @include respond(medium-desktop) {
+        font-size: 62.5%; // 1rem = 10px, 10/16 = 62.5%
+    }
+
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;  // 1rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(phone) {
+        font-size: 30%;  // 1rem = 4.8px, 8/16 = 30%
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%;    // 1rem = 12, 12/16 = 75
+    }
+}
+
+body {
+    background-color: $color-white;
+    box-sizing: border-box;
+}
+
+
+// simple aspect ratio appliance 
+.container {
+    background-color: $color-white;
+    position: relative;
+    //padding-top: 56.25%;  // 16:9 aspect ratio ;D mobile only
+    height: 0;
+    //overflow: hidden;
+}
+
+#map,
+#customization,
+#arena {
+    height: 100vh;
+    width: 100vw;
+}
+
+// complex aspect ratio appliance 
+/*
+.container {
+    background-color: $color-white;
+}
+
+.container::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 56.25%; // 16:9 aspect ratio ;D 
+}
+
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}*/
+
+/* Queries
+@media only screen and (max-width: 1599px) {
+
+    p,
+    .label {
+        font-size: 2.6rem;
+    }
+
+}
+
+
+@media only screen and (max-height: 1080px) {
+    p,
+    .label {
+        -webkit-text-stroke-width: .09rem;
+    }
+
+    .tv__body {
+        margin-top: -1rem;
+      }
+}
+
+@media only screen and (max-height: 875px) {
+    p, .label {
+        font-size: 2rem;
+    }
+
+    .tv__body {
+        margin-top: -2rem;
+      }
+
+    .form-box{
+        margin: 4% 0;
+      }
+
+    .u-medium-margin-top {
+        margin-top: 4rem;
+    }
+      
+}
+
+@media only screen and (max-height: 768px) {
+   
+    .form-box{
+        margin: 3% 0;
+      }
+
+    .u-medium-margin-top {
+        margin-top: 3rem;
+    }
+
+    .overflow {
+        overflow: auto;
+    }
+}
+*/

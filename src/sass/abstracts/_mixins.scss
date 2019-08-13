@@ -1,0 +1,86 @@
+@mixin aspectRatioBox {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+@mixin clearfix { //appends a pseudo element after the element which will then clear the floats
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin centerXY {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin centerY {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin backgroundGradientTextClip {
+    background-clip: text;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin invisibleElement {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:     Phone
+601 - 900px:   Tablet Portrait
+901 - 1200px:  Tablet Landscape
+[1201 - 1800px: Desktops (Default Styles apply)]
+> 1801px:      Big Desktops
+*/
+
+/*
+$breakpoint argument choices:
+- phone 
+- tab-port  900px
+- tab-land
+- big-desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+em = 16px
+*/
+@mixin respond($breakpoint) {
+    // By width
+    // 'rem' fails in media queries, so instead use 'em'
+    @if $breakpoint == phone {
+        // 600px
+        @media (max-width: 37.5em) { @content }; // all "@content" passed where the mixin is used will be affect by this media query rule.
+    }
+    @if $breakpoint == tab-port {
+        // 900px;
+        @media (max-width: 56.25em) { @content }; 
+    }
+    @if $breakpoint == tab-land {
+        // 1200px;
+        @media (max-width: 75em) { @content }; 
+    }
+    @if $breakpoint == medium-desktop {
+        // 1600px;
+        @media (max-width: 100em) { @content }; 
+    }
+    @if $breakpoint == big-desktop {
+        // min: from 1800 and beyond
+        // 1800px;
+        @media (min-width: 112.5em) { @content }; 
+    }
+}

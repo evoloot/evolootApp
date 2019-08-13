@@ -1,0 +1,48 @@
+.search {
+    position: relative;
+    width: 50%;
+    margin: 2.5rem auto;
+    font-size: 145%;
+    outline: none;
+
+    &__field {
+        float: left;
+        width: 76%;
+        padding: 1rem 2.5rem;
+        background: rgba($color-green-secondary, .3);
+        border: $color-green-primary solid .2rem;
+        border-radius: 1rem;
+        transition: all .3s;
+
+        &:active,
+        &:focus {
+            border: rgba($color-green-tertiary, .2) solid .2rem;
+        }
+    }
+    &__field--big {
+        width: 96%;
+    }
+
+    &__select {
+        float: left;
+        width: 20%;
+        padding: .7rem;
+        text-align: center;
+        color: $color-white;
+        background: $color-green-primary;
+        border-radius: 1rem;
+        border: $color-green-primary solid 0.2rem;
+        -webkit-appearance: none;
+        font-size: 60%;
+        cursor: pointer;
+        transition: all .3s;
+
+        &:hover,
+        &:active,
+        &:focus {
+            border: $color-green-tertiary solid .2rem;
+            background: $color-green-tertiary;
+            color: $color-yellow-primary;
+        }
+    }
+}
