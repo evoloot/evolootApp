@@ -1,10 +1,4 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
-
 import { Helper } from "../utils/helper";
-
 /**
  * @by: Evoloot Enterprises Inc.
  * @author: Victor V. Piccoli
@@ -21,22 +15,15 @@ export class Building extends Phaser.Sprite {
             this.y = buildingEntrance.y;
 
             this.inputEnabled = true;
-            
-            this.events.onInputDown.add(target => {
-                this.setInteractLocation(buildingEntrance);
-            });
-
-            /*
             this.events.onInputOver.add(target => {
                 this.setInteractLocation(buildingEntrance);
-            }); */
-
+            });
             this.events.onInputOut.add(target => {
                 Helper.setBuildLocation();
             });
         }
 
-        this.islandBuildings = JSON.parse(this.game.cache.getText('island')).frames;
+        this.islandBuildings = JSON.parse(this.game.cache.getText('Island_Buildings')).frames;
 
         this.scene = scene;
 

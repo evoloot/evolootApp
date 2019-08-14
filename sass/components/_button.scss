@@ -1,0 +1,374 @@
+.button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all .3s;
+
+    &__yellow {
+        padding: .5rem;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+            transform: scale(1.1);
+        }
+    }
+
+    &__search {
+        float: left;
+        background-color: $color-green-primary;
+        font-size: 92%;
+        border-radius: 1rem;
+        margin-right: 1rem;
+        margin-left: -4rem;
+        
+        &-icon {
+            display: block;
+            background-color: $color-white;
+            padding: .7rem 1.4rem;
+
+            @include backgroundGradientTextClip;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+
+        &:hover &-icon,
+        &:focus &-icon {
+            background: $color-yellow-primary;
+            @include backgroundGradientTextClip;
+        }
+    }
+
+    &__search-item {
+        display: block;
+        width: 100%;
+
+        img {
+            height: 19rem;
+        }
+    }
+
+    &__search--hide-show {
+        position: absolute;
+        left: 100%;
+        margin-top: 3.2rem;
+        margin-left: -5rem;
+        background-color: transparent;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
+    }
+
+    &__icon--big {
+        position: relative;
+        font-size: 1200%;
+        height: 27rem;
+        background-color: $color-green-primary;
+        border-radius: 1rem;
+        box-shadow: 0 .7rem 1rem rgba($color-black, .45);
+        transition: background-color .3s ease-in;
+        width: 75%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &-icon {
+            background: $color-white;
+            padding: 1rem;
+            @include backgroundGradientTextClip;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+
+        &:hover &-icon,
+        &:focus &-icon  {
+            background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+            @include backgroundGradientTextClip;
+        }     
+        
+    }
+
+
+    &__icon {
+        position: relative;
+        width: 100%;
+        height: 22rem;
+        background-color: $color-green-primary;
+        border-radius: 1rem;
+        box-shadow: 0 .7rem 1rem rgba($color-black, .45);
+        transition: background-color .3s ease-in;
+
+        &-icon {
+            font-size: 700%;
+            float: left;
+            width: 35%;
+            margin-top: 2rem;
+            
+            background-color: $color-white;
+            @include backgroundGradientTextClip;
+        }
+
+        &--fit {
+            height: auto;
+            padding: 1.5rem 2.5rem;
+        }
+
+        &-icon--small {
+            font-size: 600%;
+            float: left;
+            width: 45%;
+            margin-top: 2rem;
+            
+            background-color: $color-white;
+            @include backgroundGradientTextClip;
+        }
+
+        &-icon--big {
+            font-size: 11vw;
+            float: left;
+            width: 40%;
+            margin-top: 2rem;
+            
+            background-color: $color-white;
+            @include backgroundGradientTextClip;
+        }
+
+        &-text {
+            font-size: 240%;
+            text-transform: uppercase;
+            float: left;
+            width: 45%;
+            margin-top: 2.5rem;
+        }
+        
+        &-text--small {
+            font-size: 190%;
+            text-transform: uppercase;
+            float: left;
+            width: 45%;
+            margin-top: 2.5rem;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+
+        &:hover &-icon,
+        &:hover &-text,
+        &:hover &-icon--small,
+        &:hover &-text--small,
+        &:focus &-icon,
+        &:focus &-text,
+        &:focus &-icon--small,
+        &:focus &-text--small {
+            background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+            @include backgroundGradientTextClip;
+        }
+    }
+
+    &__brown {
+
+        
+
+        &:hover,
+        &:focus {
+            transform: scale(1.1);
+        }
+    }
+
+    &__green {
+        float: left;
+        width: 100%;
+    }
+
+    &__green--submit {
+        position: relative;
+        width: 70%;
+        background-color: $color-green-primary;
+        border-radius: 1rem;
+        box-shadow: 0 .7rem 1rem rgba($color-black, .45);
+        transition: background-color .3s ease-in;
+        margin: 0 auto;
+        display: block;
+
+        &-text {
+            font-size: 225%;
+            text-transform: uppercase;
+            display: block;
+            margin: 1rem auto;
+            @include backgroundGradientTextClip;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+
+        &:hover &-text,
+        &:focus &-text {
+            background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+            @include backgroundGradientTextClip;
+        }
+    }
+
+    &__green--submit--enter {
+        width: 100%;
+        top: -.5rem;
+
+        &-text {
+            font-size: 2rem;
+        }
+    }
+
+    &__green--submit--forget {
+        top: .3rem;
+        font-size: .5rem;
+        background: transparent;
+        box-shadow: none;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
+    }
+
+    &__green--popup {
+        position: absolute;
+        padding: 0 2rem;
+        background-color: $color-green-primary;
+        border-radius: 1rem;
+        box-shadow: 0 0.7rem 1rem rgba($color-black, 0.45);
+        transition: background-color .3s ease-in;
+        margin-left: 2rem;
+        float: left;
+
+        &-text {
+            font-size: 90%;
+            text-transform: uppercase;
+            display: block;
+            margin: 1rem auto;
+            @include backgroundGradientTextClip;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+
+        &:hover &-text,
+        &:focus &-text {
+            background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+            @include backgroundGradientTextClip;
+        }
+    }
+
+    &__green--question {
+        position: absolute;
+        top: -1rem;
+        right: 4rem;
+        background-color: $color-green-primary; 
+        transform: rotate(45deg) scale(.4);
+        transition: background-color .3s ease-in;
+        padding: 0rem 1.7rem;
+        border-radius: 1rem;
+
+        &-mark {
+            font-size: 225%;
+            text-transform: uppercase;
+            display: block;
+            margin: 1rem auto;
+            transform: rotate(-45deg);
+            @include backgroundGradientTextClip;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+
+        &:hover &-mark,
+        &:focus &-mark {
+            background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+            @include backgroundGradientTextClip;
+        }
+    }
+
+    &__red {
+        float: left;
+        width: 100%;
+    }
+
+    &__orange {
+        width: 60%;
+        float: left;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__animated {
+        position: relative;
+        width: 100%;
+        height: 21.5rem;
+        box-shadow: 0 1rem .5rem rgba($color-black, .5);
+        transition: all .2s;
+
+        &-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        &:active {
+            box-shadow: 0 0.6rem .7rem $color-black;
+            transform: translateY(.3rem) scale(.99);
+        }
+    }
+
+    &__arrow {
+        position: relative;
+        width: 100%;
+        float: left;
+        background-color: $color-green-primary;
+        border-radius: 1rem;
+        box-shadow: 0 0.7rem 1rem rgba($color-black, 0.45);
+        transition: background-color .3s ease-in;
+
+        &-text {
+            font-size: 2vw;
+            text-transform: uppercase;
+            display: block;
+            margin: 1rem auto;
+            @include backgroundGradientTextClip;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+
+        &:hover &-text,
+        &:focus &-text {
+            background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+            @include backgroundGradientTextClip;
+        }
+    }
+
+    &__login {
+        width: 40%;
+        float: left;
+        display: block;
+    }
+    
+}

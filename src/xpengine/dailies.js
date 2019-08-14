@@ -1,25 +1,8 @@
-/* eslint-disable */
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Parse = require("parse");
-const R = require("ramda");
+import * as Parse from "parse";
+import * as R from 'ramda';
 ;
-//Server timestamps for everything except login daily bonus
-var DailyManager;
+export var DailyManager;
 (function (DailyManager) {
-    DailyManager.initializeUserDailies = (user) => {
-        const userDailies = new Parse.Object("UserMilestones");
-        userDailies.set("dailyAuctionWin", 0);
-        userDailies.set("dailyAuctionListing", 0);
-        userDailies.set("dailyBugReport", 0);
-        userDailies.set("dailyConstructiveFeedback", 0);
-        userDailies.set("userId", user.id);
-        userDailies.save()
-            .then((milestone) => {
-            console.log("Created User Dailies within the database");
-        })
-            .catch(console.error);
-    };
     const incrementSave = (pobject, propertyName) => {
         pobject.increment(propertyName);
         pobject.set(propertyName + "Timestamp", new Date(Date.now()));
@@ -95,7 +78,6 @@ var DailyManager;
                 daily.set("dailyConstructiveFeedbackTimestamp", new Date(Date.now()));
                 break;
         }
-        daily.save().catch(console.error);
     }
     function getNecessaryTimestamp(daily, dailyName) {
         switch (dailyName.toUpperCase()) {
@@ -198,4 +180,4 @@ var DailyManager;
             });
         }
     }
-})(DailyManager = exports.DailyManager || (exports.DailyManager = {}));
+})(DailyManager || (DailyManager = {}));

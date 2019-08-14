@@ -1,8 +1,3 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
-
 /**
  * @by Evoloot Enterprises Inc.
  * @author Victor V. Piccoli
@@ -44,6 +39,7 @@ export class Keyboard extends Phaser.Keyboard {
         this.keys.set('ENTER', this.addKey(Phaser.Keyboard.ENTER));
         this.keys.set('BACKSPACE', this.addKey(Phaser.Keyboard.BACKSPACE));
         this.keys.set('ESC', this.addKey(Phaser.Keyboard.ESC));
+        console.log('Keyboard created');
         this.enableKeyboard();
     }
     /**

@@ -1,8 +1,3 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
-
 /**
  * @by Evoloot Enterprises Inc.
  * @author Victor V. Piccoli
@@ -11,7 +6,7 @@ import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js'
  * @extends {Phaser.Sprite}
  */
 export class TurningHands extends Phaser.Sprite {
-    constructor(game, side, x, y, keyboard = null) {
+    constructor(game, side, x, y, keyboard) {
         //, x, y,
         super(game, x, y, 'cc_panel_hands');
         this.anchor.setTo(0.5);
@@ -44,23 +39,21 @@ export class TurningHands extends Phaser.Sprite {
      * - plays 'default' animation by default.
      */
     keyListeners() {
-        if (this.keyboard) {
-            if (this.side === 'Right') {
-                this.keyboard.setKeyOnDown('R', () => {
-                    this.animations.play('pressedRight');
-                });
-                this.keyboard.setKeyOnUp('R', () => {
-                    this.animations.play('defaultRight');
-                });
-            }
-            if (this.side === 'Left') {
-                this.keyboard.setKeyOnDown('L', () => {
-                    this.animations.play('pressedLeft');
-                });
-                this.keyboard.setKeyOnUp('L', () => {
-                    this.animations.play('defaultLeft');
-                });
-            }
+        if (this.side === 'Right') {
+            this.keyboard.setKeyOnDown('R', () => {
+                this.animations.play('pressedRight');
+            });
+            this.keyboard.setKeyOnUp('R', () => {
+                this.animations.play('defaultRight');
+            });
+        }
+        if (this.side === 'Left') {
+            this.keyboard.setKeyOnDown('L', () => {
+                this.animations.play('pressedLeft');
+            });
+            this.keyboard.setKeyOnUp('L', () => {
+                this.animations.play('defaultLeft');
+            });
         }
     }
 

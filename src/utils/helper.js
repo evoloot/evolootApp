@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { Building } from "../prefabs/Building";
 
 //////////////////////////////////////////////////////////////////////////////
@@ -167,19 +166,25 @@ export class Helper {
     static sceneMapPopupSetter(scene) {
         let text;
 
-        const warning = document.getElementById('warning');
-        const arena = document.getElementById('arena');
-
         switch (scene) {
+            /*
+            case ('SceneForum'):
+                text = '<p>Would you like to enter the Forum ?</p>';
+                this.sceneMapPopupContext = { scene, text };
+                console.log(`Enter ${scene} ?`);
+                break;
+                */
             case ('SceneAuction'):
-                arena.style.display = 'block';
-                 break;
+                text = `<p class="paragraph">Would you like to enter the Arena ?</p>`;
+                this.sceneMapPopupContext = { scene, text };
+                console.log(`Enter ${scene} ?`);
+                break;
             default:
-                 warning.style.display = 'block';
-                
+                text = `<p class="paragraph">Sorry, this area is in construction.</p>
+                        <p class="paragraph">Staff members only. ;)</p>`;
+                this.sceneMapPopupContext = { scene, text };
+                console.log(`Not Available!`);
         }
-
-        this.buildLocation = null;
     }
 
     /**

@@ -1,11 +1,7 @@
-/* eslint-disable */
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const table_1 = require("./table");
-const level_1 = require("./level");
-const Phaser = require("phaser-ce");
+import { EXPTABLE } from "./table";
+import { LEVELREQUIREMENTSTABLE } from "./level";
 const createExpFromAction = ({ type, modifier }) => {
-    return table_1.EXPTABLE[type] * modifier;
+    return EXPTABLE[type] * modifier;
 };
 /**
  * Standardizes the exp action to a lowercase form for easier
@@ -13,7 +9,7 @@ const createExpFromAction = ({ type, modifier }) => {
  * @param {IGameAction} {type, modifier}
  * @returns {IGameAction}
  */
-exports.standardizeExpType = ({ type, modifier }) => {
+export const standardizeExpType = ({ type, modifier }) => {
     return { type: type.toLocaleLowerCase(), modifier };
 };
 const createFinalExp = (amount) => {
@@ -25,7 +21,7 @@ const createFinalExp = (amount) => {
  * @returns {number} level
  */
 const calculateLevel = (expAmount) => {
-    const level = level_1.LEVELREQUIREMENTSTABLE.findIndex(value => expAmount < value);
+    const level = LEVELREQUIREMENTSTABLE.findIndex(value => expAmount < value);
     return level == -1 ? 1 : level;
 };
 /**
@@ -43,8 +39,8 @@ const logger = (value) => {
  * @param {Array<IGameAction>} actions
  * @returns {number}
  */
-exports.outputExpAmount = (actions) => {
-    return logger(actions.map(exports.standardizeExpType).reduce((prev, current) => {
+export const outputExpAmount = (actions) => {
+    return logger(actions.map(standardizeExpType).reduce((prev, current) => {
         return prev + createExpFromAction(current);
     }, 0));
 };
@@ -53,7 +49,7 @@ exports.outputExpAmount = (actions) => {
  *  and converting exp so that we can store it in the database.
  * @param {*} player
  */
-function addExpSignals(player) {
+export function addExpSignals(player) {
     player.expSignal = new Phaser.Signal();
     player.expStack = [];
     player.convertExpSignal = new Phaser.Signal();
@@ -62,35 +58,31 @@ function addExpSignals(player) {
     expSignal.add(handleExpAction, player, 0, player.expStack);
     convertExpSignal.add(handleExpConversion, player, 0, player.expStack);
 }
-exports.addExpSignals = addExpSignals;
 /**
  * Handles experience actions by pushing them onto the player exp stack.
  * @export
  * @param {IGameAction} {type, modifier}
  * @param {Array<IGameAction>} expStack
  */
-function handleExpAction({ type, modifier }, expStack) {
-    expStack.push(exports.standardizeExpType({ type, modifier }));
+export function handleExpAction({ type, modifier }, expStack) {
+    expStack.push(standardizeExpType({ type, modifier }));
 }
-exports.handleExpAction = handleExpAction;
 /**
  * Handles player experience by converting it into experience points.
  * @export
  * @param {Array<IGameAction>} expStack
  */
-function handleExpConversion(expStack) {
-    const exp = exports.outputExpAmount(expStack);
+export function handleExpConversion(expStack) {
+    const exp = outputExpAmount(expStack);
     const playerLevel = calculateLevel(exp);
     //Send information to the server
     sendServerData(expStack, exp, playerLevel);
 }
-exports.handleExpConversion = handleExpConversion;
-function sendServerData(actionStack, experience, currentLevel) {
+export function sendServerData(actionStack, experience, currentLevel) {
     console.log("Data being sent to server...");
     console.log(actionStack, experience);
 }
-exports.sendServerData = sendServerData;
 const test = [
     { type: "post", modifier: 1.0 }
 ];
-exports.outputExpAmount(test);
+outputExpAmount(test);

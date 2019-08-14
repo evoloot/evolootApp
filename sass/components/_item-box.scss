@@ -1,0 +1,77 @@
+.item-box {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    &__image {
+        display: block;
+
+        &-image {
+            display: block;
+            margin: 0 auto;
+            width: 75%;
+            height: 34vh;
+            box-shadow: 0 .7rem .8rem rgba($color-black, 0.7);
+        }
+    }
+    
+    &__list {
+        display: block;
+        list-style: none;
+    }
+
+    &__item {
+        display: block;
+        font-size: 3.9vh;
+
+        &:not(:last-child) {
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__search-item {
+        width: 25%;
+        float: left;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    /*
+    &__checkbox-label-text {
+        position: relative;
+        display: inline-block;
+        background: $color-white;
+        @include backgroundGradientTextClip;
+    }
+    */
+
+    &__button-list-item {
+        display: block;
+
+        &:not(:last-child) {
+            margin-bottom: 2.7rem;
+        }
+    }
+
+    &__checkbox-label {
+        display: block;
+        cursor: pointer;
+        font-size: 3.9vh;
+        padding: .5rem;
+        text-align: center;
+        background-color: $color-green-primary;
+        border-radius: 1rem;
+        box-shadow: 0 0.7rem 1rem rgba($color-black, 0.45);
+        transition: background-color .3s ease-in;
+
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+    }
+
+    &__checkbox-label:hover .header-box__return {
+        background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+        @include backgroundGradientTextClip;
+    }
+}

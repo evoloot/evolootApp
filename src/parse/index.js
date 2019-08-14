@@ -1,7 +1,4 @@
-/* eslint-disable */
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Parse = require("parse");
+import * as Parse from 'parse';
 //@ts-ignores
 Parse.serverURL = "https://parseapi.back4app.com";
 Parse.initialize('81X6CAml1OkjiBkHvz8NHRMtqblGkUrxuLf7DE4e', 'W9anKkCxFzcD9JCiCgNY8tZN122CEqUtmhsOpdWn', '5k77ksv7VK5Fvpa2Yi1XrgOZwsItVXbpXdJXqW5d');
@@ -32,3 +29,31 @@ Parse.initialize('81X6CAml1OkjiBkHvz8NHRMtqblGkUrxuLf7DE4e', 'W9anKkCxFzcD9JCiCg
 //   }
 // );
 // ;
+
+/*
+
+const Avatar = Parse.Object.extend("Avatar");
+const myNewObject = new Avatar();
+
+myNewObject.set('userId', 'A string');
+myNewObject.set('Body', 'A string');
+myNewObject.set('facialHair', 'A string');
+myNewObject.set('mouth', 'A string');
+myNewObject.set('hairstyle', 'A string');
+myNewObject.set('level', 1);
+myNewObject.set('experience', 1);
+myNewObject.set('eyeColour', 'A string');
+myNewObject.set('hairColour', 'A string');
+myNewObject.set('achievementScore', 1);
+myNewObject.save().then(
+   (result) => {
+     if (typeof document !== 'undefined') document.write(`Avatar created: ${JSON.stringify(result)}`);
+     console.log('Avatar created', result);
+   },
+   (error) => {
+     if (typeof document !== 'undefined') document.write(`Error while creating Avatar: ${JSON.stringify(error)}`);
+     console.error('Error while creating Avatar: ', error);
+   }
+);
+
+*/

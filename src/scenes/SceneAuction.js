@@ -1,25 +1,5 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
-import WebFont from 'webfontloader';
-
-// JSON OBJECT
-import arenaJsonObject from '../assets/data/battleGUI.json';
-import characterJsonObject from '../assets/data/characterNew.json';
-
-// DATA
-import arenaJsonPath from '../assets/data/battleGUI.txt';
-import characterJsonPath from '../assets/data/characterNew.txt';
-
-// IMAGES/SPRITESHEETS
-import arenaAtlas from '../assets/images/battleGUI.png';
-import characterAtlas from '../assets/images/characterNew.png';
-
-import { Style } from '../utils/style';
-import AuctionItem from '../parse/AuctionItem';
-import * as user from '../parse/user';
-import * as parse from 'parse';
+import { SceneManager } from '../managers/SceneManager';
+import * as AuctionTemplates from '../templates/SceneAuctionTemplates';
 
 /**
  * @by Evoloot Enterprises Inc.
@@ -29,450 +9,1025 @@ import * as parse from 'parse';
  * @extends {Phaser.State}
  */
 export class SceneAuction extends Phaser.State {
-    constructor() {
-        super();
-    }
+	constructor() {
+		super();
+	}
 
-    init() {
-        this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
-        this.game.scale.pageAlignHorizontally = true;
-        this.game.scale.pageAlignVertically = true;
-    }
+	preload() { }
 
-    preload() {
-        this.loadJsonData();
-        this.loadFonts();
-        this.loadImages();
-        this.loadSpriteSheets();
+	create() {
+		// The key names will need to be received from server.
+		this.itemKeysArray = [
+			{
+				name: 'Airwolf',
+				id: 'Airwolf',
+				image: 'Airwolf.jpeg',
+				format: 'cartridge',
+				platform: 'SNES',
+				location: 'US',
+			},
+			{
+				name: 'Banana Prince',
+				id: 'Banana_Prince',
+				image: 'Banana_Prince.jpeg',
+				format: 'cartridge',
+				platform: 'SNES',
+				location: 'US',
+			},
+			{
+				name: 'Dragon\'s Lair',
+				id: 'Dragons_Lair',
+				image: 'Dragons_Lair.jpeg',
+				format: 'cartridge',
+				platform: 'SNES',
+				location: 'US',
+			},
+			{
+				name: '8 Eyes',
+				id: '8_Eyes',
+				image: '8_Eyes.png',
+				format: 'cartridge',
+				platform: 'SNES',
+				location: 'US',
+			}
+		];
 
-        this.temporaryAsyncLoader();
-    }
+		this.stateStack = [];
 
-    // TEST PURPOSES
-    // it will be required a live server in order to update and display real time information
-    async temporaryAsyncLoader() {
-        this.auctionItem = new AuctionItem();
-        this.currentUser = user.currentUser();
-        let item;
+		this.sellOptionStack = {};
+		this.buyOptionStack = {};
+		this.sceneModal;
+		this.sceneReturn;
 
-        /*
-        if (sessionStorage.getItem('itemId'))
-            this.auctionItemId = sessionStorage.getItem('itemId');  */
+		this.createModalStates();
+		this.nextStateLevel('start');
 
-        this.load.onLoadComplete.addOnce(() => {
-            this.createScenario();
+		this.setButtonFunctions('start');
+	}
 
-            // HERE name of the challenger, the current user, update assets to the new ones Adam sent
-            this.createInformationDisplayers();
+	update() {
+		this.return();
+	}
 
-            /// current item price //////////////////
-            //const startingBid = item.startingBid.toFixed(2);
-            this.initialPrice = this.game.add.text(
-                this.game.world.centerX + 15,
-                this.game.world.centerY + 1342,
-                '0000152.25',
-                Style.setText(this.pricePanel, '#21c900', '21px', 'Digital'));
-
-            /// current auction time left //////////////////
-            this.initialTime = this.game.add.text(
-                this.game.world.centerX + 60,
-                this.game.world.centerY + 1242,
-                '07:00:00',
-                Style.setText(this.timePanel, '#e0ba2d', '22px', 'Digital'));
-
-
-            this.player01Name = this.game.add.text(
-                this.game.world.centerX - 564,
-                this.game.world.centerY + 972,
-                'iamapotato',
-                Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
-
-            this.player02Name = this.game.add.text(
-                this.game.world.centerX + 564,
-                this.game.world.centerY + 972,
-                this.currentUser.get('username'),
-                Style.setText(this.player02BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
-
-
-            this.player01Name.anchor.setTo(.5);
-            this.player02Name.anchor.setTo(.5);
-
-            /* or
-           this.initialPrice = this.game.add.text(
-               this.game.world.centerX + 15,
-               this.game.world.centerY + 1330,
-               '0000152.25',
-               Style.setText(this.pricePanel, '#21c900', '81px', 'Digital')); 
-           
-            /// current auction time left //////////////////
-           this.initialTime = this.game.add.text(
-               this.game.world.centerX + 60,
-               this.game.world.centerY + 1234,
-               '07:00:00',
-               Style.setText(this.timePanel, '#e0ba2d', '84px', 'Digital')); 
-       });
- 
-       this.initialPrice.anchor.setTo(.5);
-       this.initialTime.anchor.setTo(.5);
-*/
-
-        });
-
-        try {
-
-            //item = await this.auctionItem.retrieveAuctionItem('D4J143pHWB');
-            //console.log(item);
-            this.load.start();
-        }
-        catch (err) {
-            console.log(err);
-        }
-
-
-    }
-
-    /**
-     * Loads fonts for Phaser.
+	/**
+     * Updates list of item images each time the serch field receives a key input.
+     * @param {string} query The word being typed.
+     * @param {string} filter The filter option value.
+     * @param {string} action The action(buying, selling...).
      */
-    loadFonts() {
-        WebFont.load({
-            custom: {
-                families: [
-                    'Fixedsyswoff',
-                    'Digital'
-                ]
-            }
-        });
-    }
+	updateResult(query, action, currentStateLevel, filter = 'select') {
+		/*
+        <option value="null">-- Select --</option>
+        <option value="sellRate">Seller Rate</option>
+        <option value="content">Contents</option>
+        <option value="condition">Condition</option>
+        <option value="format">Format</option>
+        <option value="platform">Platform</option>
+        <option value="location">Location</option>
+        */
 
-    loadSpriteSheets() {
-        this.game.load.atlasJSONHash('character', characterAtlas, characterJsonPath);
-        this.game.load.atlasJSONHash('arena', arenaAtlas, arenaJsonPath);
-    }
+		const resultList = document.getElementById('searchList');
+		if (resultList) resultList.innerHTML = '';
 
-    /**
-    * Loads single images.
-    */
-    loadImages() {
-        //this.game.load.image('tileSet', tileSet); // maybe not necessary here
-        //this.game.load.image('temporarybg', temporaryBG);
-        //this.game.load.image('white_layer', whiteLayer);
-    }
+		this.itemKeysArray.map((e, i) => {
+			// make filter cases for buying cases.
+			/*
+            value="select"
+            value="sellRate"
+            value="content"
+            value="condition"
+            value="format"
+            value="platform"
+            value="location"
+            */
 
-    /**
-    * Loads json files.
-    * - 'Texts' are usually used for data checking.
-    * - 'Tilemap' is for any scene that requires map.
-    */
-    loadJsonData() {
-        //this.game.load.text('character', characterAssetsJsonPath); 
-    }
+			//  If typed word is different than -1, it matches.
+			if (e.name.toLowerCase().indexOf(query.toLowerCase()) != -1) {
+				// Everytime 'if' condition passes, we add the element to the result list in the html page.
+				// limit is 8 
+				if (i < 8) {
+					if (resultList) resultList.innerHTML += `
+                                            <li class="item-box__search-item">
+                                                <button id="${e.id}" class="button button__search-item" value="${e.id}">
+                                                    <img src="./assets/images/${e.image}" alt="Item Photo">
+                                                </button>
+                                                <p class="paragraph">${e.name}</p>
+                                            </li>`;
 
-    // TEST
-    async liveQueryTest() {
-        
-        let query = new parse.Query('Auction');
+					this.getInformation(e, action, currentStateLevel);
+				}
+			}
+		});
+	}
 
-        try {
-            let subscription = await query.subscribe();
-            console.log(subscription);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    create() {
-
-        this.createPlayers();
-        this.createQueue();
-        this.createButtons();
-
-        this.kick = this.attackAnimationHandler('kick');
-        this.closePunch = this.attackAnimationHandler('closePunch');
-        this.closerSlash = this.attackAnimationHandler('closerSlash');
-        this.fartherSlash = this.attackAnimationHandler('fartherSlash');
-        this.buttonsFunctionality();
-
-        // TEST
-        this.liveQueryTest();
-
-        // common UI components setup
-        this.UIComponents = [
-            this.initialTime,
-            this.initialPrice,
-            this.pricePanel,
-            this.timePanel,
-            this.queue,
-            this.buttonKick,
-            this.buttonPunch,
-            this.buttonSpecial,
-            this.buttonWeapon,
-            this.buttonItemInfo,
-            this.player01BaseHealth,
-            this.player02BaseHealth,
-            this.player01Health,
-            this.player02Health
-        ];
-
-        this.UIComponents.forEach(component => {
-            component.scale.setTo(4);
-            component.anchor.setTo(.5);
-            component.smoothed = false;
-        });
-
-        this.player02BaseHealth.scale.setTo(-4, 4);
-        this.player02Health.scale.setTo(-4, 4);
-
-    }
-
-    update() {
-
-        if (this.game.camera.y < 2704) {
-            this.game.camera.y += 100; //this.game.camera.y += 4; for debug purposes
-        }
-    }
-
-    /**
-     * Generate Frame names array.
-     * @param {string} prefix Start of the hash name, like 'MediumMasculine_OverWorld_Down'.
-     * @param {number} defaultFrameStart The default frame number to the animation.
-     * @param {number} begining The number where the frames start.
-     * @param {number} ending The number where the frames end.
+	/**
+     * Turns all items(elements) current on display into an Array, then add a click Event Listener to each of them.
+     * @param {Object} item The specific item object that is attached to the button function.
+     * @param {string} action The action(buying, selling...).
      */
-    generateFrameNamesArray(prefix, defaultFrameStart, begining, ending) {
-        const suffix = '.png';
-        const framesArray = Phaser.Animation.generateFrameNames(prefix, begining, ending, suffix, 0);
+	getInformation(item, action, currentStateLevel) {
+		const resultsArr = Array.from(document.querySelectorAll('.button__search-item'));
 
-        framesArray.push(prefix + defaultFrameStart + suffix);
+		if (resultsArr)
+			resultsArr.forEach(button => {
 
-        return framesArray;
-    }
+				button.addEventListener('click', e => {
+					e.preventDefault();
 
-    attackedAnimationHandler(player01Position, player02Position) {
-        const attacked = this.game.add.tween(this.player01);
+					if (action === 'sell') this.sellOptionStack.item = item;
+					else if (action === 'buy') this.buyOptionStack.item = item;
 
-        const anim = this.player01.animations;
+					// Go to next screen
+					this.nextStateLevel(`${action}_${parseInt(currentStateLevel) + 1}`);
+				});
+			});
+	}
 
-        attacked.to({ x: this.player01.x - 700, y: this.player01.y - 450, angle: 300 }, 1000, Phaser.Easing.Out);
-        attacked.onStart.add(() => {
-            anim.play('damaged');
-        });
+	/**
+     * Determines what dialog shall be displayed.
+     * @param {string} mapKey The mapkey is the key composed by the action and its current level, ex: sell_1.
+     * - if left without a mapKey, the return will be a space.
+     */
+	setDialog(mapKey = 'null_00') {
+		// change names of entries, 
+		// is this the correct place?
+		this.buyDialogs = [
+			this.buyDialog = '<p class="paragraph"> What are you looking for today ? </p>'
+		];
 
-        attacked.onComplete.add(
-            () => {
-                anim.play('idle');
-                this.player01.x = player01Position.x;
-                this.player01.y = player01Position.y;
-                this.player01.angle = 0;
+		this.sellDialogs = [
+			this.sellDialog = '<p class="paragraph"> What are you looking to sell today ? </p>',
+			null,
+			this.sellDialogUsedState = '<p class="paragraph"> Is the item new or used ? </p>',
+			this.sellDialogPictureUpload = '<p class="paragraph"> Now, take a photo or upload a picture! </p>',
+			this.sellDialogContentCondition = '<p class="paragraph"> Select the contents you\'re selling and its condition. </p>',
+			this.sellDialogAuctionSetup = '<p class="paragraph"> Setup your auction specifications. </p>',
+			this.sellDialogEnd = '<p class="paragraph"> Congratulations, your item is in display! </p>'
+		];
 
-                this.player02.x = player02Position.x;
+		const search = `
+                <div class="search">
+                    <input type="search" class="search__field search__field--big" placeholder="Search..." id="searchField">
+                    <button class="button button__search" disabled="true">
+                        <i class="button__search-icon fas fa-search"></i>
+                    </button>
+                </div>`;
+		const searchFilter = `
+                <div class="search">
+                    <input type="search" class="search__field search__field" placeholder="Search..." id="searchField">
+                    <button class="button button__search" disabled="true">
+                        <i class="button__search-icon fas fa-search"></i>
+                    </button>
+                    <select class="search__select" id="searchFilter">
+                        <option value="-- Select --">-- Select --</option>
+                        <option value="sellRate">Seller Rate</option>
+                        <option value="condition">Condition</option>
+                        <option value="format">Format</option>
+                        <option value="platform">Platform</option>
+                        <option value="location">Location</option>
+                    </select>
+                </div>`;
 
-                [
-                    this.buttonKick,
-                    this.buttonPunch,
-                    this.buttonWeapon,
-                    this.buttonSpecial
-                ].forEach(e => e.inputEnabled = true);
-            }
-        );
+		const action = mapKey.split('_')[0];
+		const currentStateLevel = mapKey.split('_')[1];
+		let dialog;
 
-        attacked.start();
-    }
+		switch (action) {
+			case 'search':
+				if (currentStateLevel === '0') return search;
+				else if (currentStateLevel === '1') return searchFilter;
+				break;
+			case 'sell':
+				dialog = `${this.sellDialogs[currentStateLevel]}`;
+				break;
+			case 'buy':
+				dialog = `${this.buyDialogs[currentStateLevel]}`;
+				break;
+			default:
+				return '&nbsp;';
+		}
 
-    attackAnimationHandler(move) {
-        const attack = this.game.add.tween(this.player02);
+		return ` 
+            <figure class="dialog">
+                <img src="assets/images/oldMan.png" alt="Old Man" class="dialog__character">
+                <div class="dialog__balloon">
+                    ${dialog}
+                </div>
+            </figure>`;
+	}
 
-        const anim = this.player02.animations;
+	setDynamicHeaderBox() {
 
-        const initialPlayer01Position = { x: this.player01.x, y: this.player01.y };
-        const initialPlayer02Position = { x: this.player02.x, y: this.player02.y };
+	}
 
-        attack.to({ x: this.player02.x - 340, y: this.player02.y }, 1000, Phaser.Easing.In);
-        attack.onStart.add(() => {
-            anim.play('moveRight');
-            [
-                this.buttonKick,
-                this.buttonPunch,
-                this.buttonWeapon,
-                this.buttonSpecial
-            ].forEach(e => e.inputEnabled = false);
-        });
+	/**
+     * Sets the functionality of the current 'content' components of the current modal state and level(if present).
+     * @param {string} mapKey The mapkey is the key composed by the action and its current level(if more than 1), eg: action_2.
+     */
+	setButtonFunctions(mapKey = 'start') {
+		const action = mapKey.split('_')[0];
+		const currentStateLevel = mapKey.split('_')[1];
 
-        attack.onComplete.add(
-            () => {
-                anim.play(move).onComplete.add(() => {
-                    this.attackedAnimationHandler(initialPlayer01Position, initialPlayer02Position);
-                    anim.play('idle');
+		switch (action) {
+			case 'sell':
+				this.sell(action, currentStateLevel);
+				break;
+			case 'buy':
+				this.buy(action, currentStateLevel);
+				break;
+			case 'start':
+				this.entrance();
+		}
+	}
 
-                }, this);
-            }
-        );
+	/**
+	 * Functionality collection of the Start state.
+	 * - The buttons will direct the user to a more specific state.
+	 */
+	entrance() {
+		document.getElementById('buy').addEventListener('click', e => {
+			console.log('buy clicked');
+			this.nextStateLevel('buy_0');
+		});
 
-        return attack;
-    }
+		document.getElementById('sell').addEventListener('click', e => {
+			e.preventDefault();
+			console.log('sell clicked');
+			this.nextStateLevel('sell_0');
+		});
 
-    createScenario() {
-        // arena background //////////////////////////
-        this.arena = this.game.add.sprite(0, 0, 'arena', 'BattleBack.png');
-        this.arena.anchor.setTo(0);
-        this.arena.scale.setTo(1);
-        this.arena.width = 1600;
-        this.arena.height = 3400;
-        this.arena.smoothed = false;
-        this.game.world.setBounds(0, 0, 1600, 3400); // this sets where the camera starts at
-        /////////////////////////////////////////////
-    }
+		document.getElementById('featured').addEventListener('click', e => {
+			console.log('featured clicked');
+		});
 
-    createPlayers() {
-        // some characters //////////////////////////////
-        // the winning player / this will be live reloading, meaning that it will be constantly changing as bets are being placed
-        this.player01 = this.game.add.sprite(
-            this.game.world.centerX - 180,
-            this.game.world.centerY + 1420,
-            'character', 'Medium_Feminine_Battle_Idle2.png'
-        );
+		document.getElementById('showdown').addEventListener('click', e => {
+			console.log('showdown clicked');
+		});
+	}
 
-        // the player who just joined
-        this.player02 = this.game.add.sprite(
-            this.game.world.centerX + 180,
-            this.game.world.centerY + 1420,
-            'character', 'Medium_Feminine_Battle_Idle2.png'
-        );
+	/**
+	 * Functionality collection of the Buy state.
+	 * - Each level has a specific set of functions given to its elements accordingly.
+	 * @param {String} action current action.
+	 * @param {String} currentStateLevel current level of the action.
+	 */
+	buy(action, currentStateLevel) {
+		if (currentStateLevel === '0') {
+			const videoGames = document.getElementById('videoGames');
+			const tradingCards = document.getElementById('tradingCards');
+			const comics = document.getElementById('comics');
+			const boardGames = document.getElementById('boardGames');
 
-        this.player01.scale.setTo(4);
-        this.player02.scale.setTo(-4, 4); // character facing left
+			if (videoGames) videoGames.addEventListener('click', e => {
+				e.preventDefault();
+				console.log('videoGames clicked');
+				// save buy option
+				this.buyOptionStack.category = 'videoGames';
+				this.nextStateLevel('buy_1');
+			});
 
-        [
-            this.player01,
-            this.player02
-        ].forEach(player => {
-            player.smoothed = false;
-            player.anchor.setTo(0.5);
+			if (tradingCards) tradingCards.addEventListener('click', e => {
+				e.preventDefault();
+				console.log('tradingCards clicked');
+			});
 
-            // adding animations for different sprites
-            // note: notice that first redundant part: 'Medium_Feminine ?
-            player.animations.add('moveRight', this.generateFrameNamesArray('Medium_Feminine_OverWorld_Body_Right', 2, 1, 3), 7, true);
-            player.animations.add('idle', this.generateFrameNamesArray('Medium_Feminine_Battle_Idle', 2, 1, 3), 7, true);
-            player.animations.add('guard', this.generateFrameNamesArray('Medium_Feminine_Battle_Block', 2, 1, 3), 7, false);
-            player.animations.add('damaged', this.generateFrameNamesArray('Medium_Feminine_Battle_Damaged', 2, 1, 3), 7, false);
-            player.animations.add('closePunch', this.generateFrameNamesArray('Medium_Feminine_Battle_Punch-Closer', 2, 1, 3), 7, false);
-            player.animations.add('fartherPunch', this.generateFrameNamesArray('Medium_Feminine_Battle_Punch-Farther', 2, 1, 3), 7, false);
-            player.animations.add('closerSlash', this.generateFrameNamesArray('Medium_Feminine_Battle_Slash-Closer', 2, 1, 3), 7, false);
-            player.animations.add('fartherSlash', this.generateFrameNamesArray('Medium_Feminine_Battle_Slash-Farther', 2, 1, 3), 7, false);
-            player.animations.add('kick', this.generateFrameNamesArray('Medium_Feminine_Battle_Kick', 2, 1, 3), 7, false);
+			if (comics) comics.addEventListener('click', e => {
+				e.preventDefault();
+				console.log('comics clicked');
+			});
 
-            player.animations.play('idle');
-        });
-    }
+			if (boardGames) boardGames.addEventListener('click', e => {
+				e.preventDefault();
+				console.log('boardGames clicked');
+			});
+		} else if (currentStateLevel === '1') {
+			const text = document.getElementById('searchField');
 
-    createQueue() {
-        // UI components
-        //queue
-        this.queue = this.game.add.sprite(
-            this.game.world.centerX - 632,
-            this.game.world.centerY + 864,
-            'arena', 'ActionQueue_Act+Next.png'
-        );
-    }
+			//const filter = document.getElementById('searchFilter');
 
-    createButtons() {
-        // interaction buttons ///////////
-        this.buttonKick = this.game.add.sprite(
-            this.game.world.centerX - 475,
-            this.game.world.centerY + 1250,
-            'arena', 'ActionButton_Kick.png'
-        );
-        this.buttonPunch = this.game.add.sprite(
-            this.game.world.centerX - 692,
-            this.game.world.centerY + 1250,
-            'arena', 'ActionButton_Punch.png'
-        );
-        this.buttonWeapon = this.game.add.sprite(
-            this.game.world.centerX - 692,
-            this.game.world.centerY + 1440,
-            'arena', 'ActionButton_Weapon.png'
-        );
-        this.buttonSpecial = this.game.add.sprite(
-            this.game.world.centerX - 475,
-            this.game.world.centerY + 1440,
-            'arena', 'ActionButton_Special.png'
-        );
-        this.buttonItemInfo = this.game.add.sprite(
-            this.game.world.centerX,
-            this.game.world.centerY + 1640,
-            'arena', 'ItemInfo-Bottom_Closed.png'
-        );
-    }
+			if (text)
+				text.addEventListener('input', e => {
+					e.preventDefault();
+					this.updateResult(text.value, action, currentStateLevel);
+				});
 
-    buttonsFunctionality() {
-        [
-            this.buttonKick,
-            this.buttonPunch,
-            this.buttonWeapon,
-            this.buttonSpecial
-        ].forEach(e => e.inputEnabled = true);
+			/* 
+					filter.addEventListener('change', e => {
+						e.preventDefault();
 
-        this.buttonKick.events.onInputDown.add(target => {
-            this.kick.start();
-        });
-        this.buttonPunch.events.onInputDown.add(target => {
-            this.closePunch.start();
-        });
-        this.buttonWeapon.events.onInputDown.add(target => {
-            this.closerSlash.start();
-        });
-        this.buttonSpecial.events.onInputDown.add(target => {
-            this.fartherSlash.start();
-        });
+						// set attribute that will bear influence in 'updateResult'
+						console.log('filter changed');
+						this.updateResult(text.value, action, currentStateLevel filter.value);
+					});
+					*/
+		} else if (currentStateLevel === '2') {
+			console.log('bidding');
+		}
+	}
 
-        //this.buttonItemInfo;
-    }
+	/**
+	 * Functionality collection of the Sell state.
+	 * - Each level has a specific set of functions given to its elements accordingly.
+	 * @param {String} action current action.
+	 * @param {String} currentStateLevel current level of the action.
+	 */
+	sell(action, currentStateLevel) {
+		if (currentStateLevel === '0') { 
+			const videoGames = document.getElementById('videoGames');
+			const tradingCards = document.getElementById('tradingCards');
+			const comics = document.getElementById('comics');
+			const boardGames = document.getElementById('boardGames');
 
-    createInformationDisplayers() {
-        // players information displayers //////////////
-        this.player01BaseHealth = this.game.add.sprite(
-            this.game.world.centerX - 524,
-            this.game.world.centerY + 970,
-            'arena', 'PlayerGuage_Base.png'
-        );
-        this.player02BaseHealth = this.game.add.sprite(
-            this.game.world.centerX + 524,
-            this.game.world.centerY + 970,
-            'arena', 'PlayerGuage_Base.png'
-        );
-        this.player01Health = this.game.add.sprite(
-            this.game.world.centerX - 530,
-            this.game.world.centerY + 970,
-            'arena', 'PlayerGuage_Health.png'
-        );
-        this.player02Health = this.game.add.sprite(
-            this.game.world.centerX + 530,
-            this.game.world.centerY + 970,
-            'arena', 'PlayerGuage_Health.png'
-        );
+			if (videoGames) videoGames.addEventListener('click', e => {
+				e.preventDefault();
+				console.log('videoGames clicked');
+				// save sell option
+				this.sellOptionStack.category = 'videoGames';
+				this.nextStateLevel('sell_1'); 
+			});
+
+			if (tradingCards) tradingCards.addEventListener('click', e => {
+				e.preventDefault();
+				console.log('tradingCards clicked');
+			});
+
+			if (comics) comics.addEventListener('click', e => {
+				e.preventDefault();
+				console.log('comics clicked');
+			});
+
+			if (boardGames) boardGames.addEventListener('click', e => {
+				e.preventDefault();
+				console.log('boardGames clicked');
+			});
+
+			// Others
+
+		}
+		///////////////////////////////////////////////////
+		else if (currentStateLevel === '1') {
+			this.preview(currentStateLevel);
+			// new
+			if (document.getElementById('nintendo'))
+				document.getElementById('nintendo').addEventListener('click', e => {
+					e.preventDefault();
+
+					// save sell option
+					this.sellOptionStack.company = 'nintendo';
+
+					this.nextStateLevel('sell_2');
+				});
+		} else if (currentStateLevel === '2') {
+			this.preview(currentStateLevel);
+			// new
+			if (document.getElementById('consoles'))
+				document.getElementById('consoles').addEventListener('click', e => {
+					e.preventDefault();
+
+					// save sell option
+					this.sellOptionStack.console = 'consoles';
+
+					this.nextStateLevel('sell_3');
+				});
+		}
+		else if (currentStateLevel === '3') {
+			this.preview(currentStateLevel);
+
+			console.log('here');
+			// new
+			if (document.getElementById('nes'))
+				document.getElementById('nes').addEventListener('click', e => {
+					e.preventDefault();
+
+					// save sell option
+					this.sellOptionStack.product = 'nes';
+
+					this.nextStateLevel('sell_4');
+				});
+		}
+		else if (currentStateLevel === '4') {
+			this.preview(currentStateLevel);
+			// new
+			if (document.getElementById('consoleGames'))
+				document.getElementById('consoleGames').addEventListener('click', e => {
+					e.preventDefault();
+
+					// save sell option
+					this.sellOptionStack.consoleItem = 'consoleGames';
+
+					this.nextStateLevel('sell_5');
+				});
+
+			/////////////////////////////////////////////////////////////////////
+		} else if (currentStateLevel === '5') {
+			this.preview(currentStateLevel);
+			const text = document.getElementById('searchField');
+
+			if (text)
+				text.addEventListener('input', e => {
+					e.preventDefault();
+					this.updateResult(text.value, action, currentStateLevel);
+				});
+		}
+
+		else if (currentStateLevel === '6') {
+			this.preview(currentStateLevel);
+			// new
+			if (document.getElementById('new'))
+				document.getElementById('new').addEventListener('click', e => {
+					e.preventDefault();
+
+					// save sell option
+					this.sellOptionStack.condition = 'new';
+
+					this.nextStateLevel('sell_7');
+				});
+
+			// used
+			if (document.getElementById('used'))
+				document.getElementById('used').addEventListener('click', e => {
+					e.preventDefault();
+
+					// save sell option
+					this.sellOptionStack.condition = 'used';
+
+					this.nextStateLevel('sell_7');
+				});
+		} else if (currentStateLevel === '7') {
+			this.preview(currentStateLevel);
+			let fileList;
+
+			// take picture (if mobile) or choose from gallery(both mobile and desktop), then:
+			if (document.getElementById('file'))
+				document.getElementById('file').addEventListener('change', e => {
+					e.preventDefault();
+
+					fileList = e.target.files;
+					const picture = document.getElementById('picture');
+
+					// exclude text from 'picture'
+					const pictureArea = document.querySelector('.drop-area__text');
+
+					// adds file picture 
+					for (let i = 0; i < fileList.length; i++) {
+						if (fileList[i].type.match(/^image\//)) {
+							//let file = fileList[i];
+							if (pictureArea)
+								pictureArea.parentNode.removeChild(pictureArea);
+						} else {
+							console.log('Something is wrong with this file:' + fileList[i]);
+						}
+					}
+
+					if (fileList && picture)
+						// show picture as background of the button.
+						picture.src = URL.createObjectURL(fileList[0]);
+
+					picture.style.visibility = 'visible';
+				});
+
+			// confirm saves and  go to next screen if an image(s) exist
+			document.getElementById('confirm').addEventListener('click', e => {
+				if (fileList) {
+					this.sellOptionStack.photo = fileList[0];
+
+					this.nextStateLevel('sell_8');
+				} else {
+					console.log('Select or take a photo of your item first!');
+				}
+			});
+		} else if (currentStateLevel === '8') {
+			this.preview(currentStateLevel);
+			// Probably will have changes
+			const markup = `
+					<div class="popup" id="id03">
+						<div class="popup__content">
+
+							<div class="row">
+								<button class="button button__orange" id="ok">
+									<img src="./assets/images/cc_button_silver.png" alt="ok">
+								</button>
+							</div>
+
+						</div>
+					</div>`;
+
+			const buttonExtras = document.querySelector('.button__green--popup');
+			const extras = document.getElementById('extras');
+			const disc = document.getElementById('disc');
+			const instructions = document.getElementById('instructions');
+			const box = document.getElementById('box');
+
+			disc.onchange = () => {
+				const discRadios = document.getElementsByName('disc');
+				disc.checked ? discRadios.forEach(radioButton => radioButton.disabled = false) : discRadios.forEach(radioButton => { radioButton.disabled = true; radioButton.checked = false; });
+			};
+
+			instructions.onchange = () => {
+				const instructionsRadios = document.getElementsByName('instructions');
+				instructions.checked ? instructionsRadios.forEach(radioButton => radioButton.disabled = false) : instructionsRadios.forEach(radioButton => { radioButton.disabled = true; radioButton.checked = false; });
+
+			};
+
+			box.onchange = () => {
+				const boxRadios = document.getElementsByName('box');
+				box.checked ? boxRadios.forEach(radioButton => radioButton.disabled = false) : boxRadios.forEach(radioButton => { radioButton.disabled = true; radioButton.checked = false; });
+
+			};
+
+			extras.onchange = () => {
+				const extrasRadios = document.getElementsByName('extras');
+
+				if (extras.checked) {
+					this.sellOptionStack.extrasDescription = 'No description provided.';
+					buttonExtras.disabled = false;
+					extrasRadios.forEach(radioButton => radioButton.disabled = false);
+				} else {
+					buttonExtras.disabled = true;
+					extrasRadios.forEach(radioButton => { radioButton.disabled = true; radioButton.checked = false; });
+				}
+			};
+
+			// Contents Help
+			document.querySelector('.button__green--question').addEventListener('click', e => {
+				// Shows modal with explanation
+				const paragraph = `
+					<div class="popup__text">
+						<p class="paragraph--secondary">                             
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati adipisci eveniet earum ab architecto exercitationem amet molestias quos dolore in maxime fugiat laborum, vel, tempora nostrum maiores, vitae assumenda laboriosam?
+						</p>
+					</div>`;
+
+				// Shows modal
+				this.insertPopup(markup);
+
+				const popup = document.getElementById('id03');
+				const popupText = document.querySelector('.popup__content');
+
+				// insert text
+				popupText.insertAdjacentHTML('afterbegin', paragraph);
+
+				// 'ok' button to close
+				document.getElementById('ok').addEventListener('click', e => {
+					e.preventDefault();
+
+					if (popup) popup.parentNode.removeChild(popup);
+				});
+			});
+
+			buttonExtras.addEventListener('click', e => {
+				e.preventDefault();
+				// Shows modal with explanation, a textfield and 
+				const textArea = `
+						<div class="popup__text">
+							<p class="paragraph--secondary">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							</p>
+						</div>
+						<div class="row">
+							<textarea rows="15" cols="90" id="extrasDescription"></textarea> 
+						</div>`;
+
+				// Show modal
+				this.insertPopup(markup);
+
+				const popup = document.getElementById('id03');
+				const popupText = document.querySelector('.popup__content');
+
+				// insert text are after text
+				popupText.insertAdjacentHTML('afterbegin', textArea);
+				let extrasDescription = document.getElementById('extrasDescription');
+
+				if (this.sellOptionStack.extrasDescription) extrasDescription.value = this.sellOptionStack.extrasDescription;
+
+				// ok button to confirm/close
+				document.getElementById('ok').addEventListener('click', e => {
+					e.preventDefault();
+
+					if (document.getElementById('extras').checked) {
+						if (extrasDescription.value.trim() === '') {
+							this.sellOptionStack.extrasDescription = 'No description provided.';
+						} else {
+							this.sellOptionStack.extrasDescription = extrasDescription.value.trim();
+						}
+					} else {
+						this.sellOptionStack.extrasDescription = null;
+					}
+
+					if (popup) popup.parentNode.removeChild(popup);
+				});
+			});
+
+			document.querySelector('.button__green--submit').addEventListener('click', e => {
+				e.preventDefault();
+				let allGood = false;
+
+				[
+					extras,
+					disc,
+					instructions,
+					box,
+				].forEach(e => {
+					document.getElementsByName(e.id).forEach(radio => {
+						if (radio.checked) {
+
+							// Saves condition of item check, also means that the item was selected
+							this.sellOptionStack[radio.name] = radio.value;
+							allGood = true;
+						}
+					});
+				});
+
+				if (allGood) {
+					// Saves information
+					console.log(this.sellOptionStack);
+
+					// Goes to next screen
+					this.nextStateLevel('sell_9');
+				} else {
+					console.log('You cannot leave everything blank!');
+				}
+
+			});
+
+		} else if (currentStateLevel === '9') { 
+			const auctionStyleRadios = document.getElementsByName('auctionStyle');
+			const auctionLengthRadios = document.getElementsByName('auctionLength');
+			const minimumBidPriceRadios = document.getElementsByName('auctionMinimumPrice');
+			const startingPrice = document.getElementById('auctionStartingPrice');
+			const reserveInteger = document.getElementById('auctionReserveInteger');
+			const reserveCent = document.getElementById('auctionReserveCent');
+			// shipping
+			const returnPolicy = document.getElementById('auctionReturnPolicy');
+			const confirm = document.querySelector('.button__green--submit');
+
+			this.preview(currentStateLevel);
+			console.log('Auction Setup');
+			// In blank for now, more information required for validation/verification of information.
+			if (confirm) confirm.addEventListener('click', e => {
+				e.preventDefault();
+				let valid = true;
+
+				if (auctionStyleRadios) {
+					const auctionStyle = Array.from(auctionStyleRadios).find(radio => radio.checked === true);
+					this.sellOptionStack[auctionStyle.name] = auctionStyle.value;
+				}
+
+				if (auctionLengthRadios) {
+					const auctionLength = Array.from(auctionLengthRadios).find(radio => radio.checked === true);
+					this.sellOptionStack[auctionLength.name] = auctionLength.value;
+				}
+
+				if (minimumBidPriceRadios) {
+					const minimumBidPrice = Array.from(minimumBidPriceRadios).find(radio => radio.checked === true);
+					this.sellOptionStack[minimumBidPrice.name] = minimumBidPrice.value;
+				}
+
+				if (startingPrice)
+					startingPrice.value && startingPrice.value >= 1 ? this.sellOptionStack[startingPrice.id] = `${Math.floor(startingPrice.value)}` : valid = false;
+
+				if (reserveInteger && reserveCent) {
+					let dollar = reserveInteger.value && reserveInteger.value >= 1 ? Math.floor(reserveInteger.value) : valid = false;
+					let cent = reserveCent.value && reserveCent.value >= 0 ? Math.round(reserveCent.value) : valid = false;
+
+					if (valid) this.sellOptionStack['auctionReserveValue'] = `${dollar}.${cent}`;
+				}
+				if (returnPolicy && returnPolicy.value !== '-- Select --')
+					this.sellOptionStack[returnPolicy.id] = returnPolicy.value;
+				else
+					valid = false;
+
+				if (valid) {
+					// Send Data to server
+					console.log(this.sellOptionStack);
+
+					this.nextStateLevel('sell_10');
+				}
+			});
 
 
-        // time panel
-        this.timePanel = this.game.add.sprite(
-            this.game.world.centerX + 8,
-            this.game.world.centerY + 1242,
-            'arena', 'Backboard_TIME.png'
-        );
+		} else if (currentStateLevel === '10') {
+			this.preview(currentStateLevel);
+			console.log('The End');
 
-        // price panel
-        this.pricePanel = this.game.add.sprite(
-            this.game.world.centerX - 10,
-            this.game.world.centerY + 1338,
-            'arena', 'Backboard_VALUE.png'
-        );
-    }
+			// sell again?
+			document.getElementById('sellAgain').addEventListener('click', e => {
+				e.preventDefault();
 
+				this.stateStack.splice(1);
+
+				this.sellOptionStack = {};
+
+				this.nextStateLevel('sell_0');
+			});
+
+			// back to map
+			document.getElementById('map').addEventListener('click', e => {
+				e.preventDefault();
+
+				this.reset();
+
+				SceneManager.goto('SceneMap');
+			});
+
+			// listing ?
+		}
+	}
+
+	/**
+     * Sets the specific navigation, header, dialog and content box based on the 'mapKey' to show on the screen.
+	 * - Each page is that is not heavy game based will usually be composed by a html modal on top. 
+	 * - calls insertNewModalContent() function.
+	 * - calls setsetButtonFunctions() function.
+	 * - inserts current state to the stateStack Array, if not yet added.
+     * @param {string} mapKey The mapkey is the key composed by the action and its current level(if more than 1), eg: action_2.
+     */
+	nextStateLevel(mapKey) {
+		const modalTemplate = `
+            <div class="arena" id="modal">
+                <div class="header" id="header">
+                    ${this.pageState.get(mapKey).header}
+                    ${this.pageState.get(mapKey).dialog}
+                </div>
+
+                <div class="arena__content-grid" id="content-box">
+                   ${this.pageState.get(mapKey).content}
+                </div>
+                <div class="footer" id="footer">
+                    ${this.pageState.get(mapKey).footer}
+                </div>
+            </div>`;
+
+		this.insertNewModalContent(modalTemplate);
+		this.setButtonFunctions(mapKey);
+
+		if (!this.stateStack.find(e => e === mapKey)) this.stateStack.push(mapKey);
+
+	}
+
+	/**
+	 * Creates a Map to keep the modal states this scene will have.
+	 * - Each page state has a key associted to the action and its level(if present).
+	 * - Each modal object is usually composed by the main elements of navigation, header, content and footer.
+	 * - The attributes are html strings.
+	 */
+	createModalStates() {
+		this.pageState = new Map();
+
+		this.pageState.set('start', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog(),
+			content: AuctionTemplates.contentBox,
+			footer: '&nbsp'
+		});
+
+		/*------------ SELL -----------*/
+		this.pageState.set('sell_0', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('sell_0'),
+			content: AuctionTemplates.contentBoxOptions,
+			footer: '&nbsp'
+		});
+
+		this.pageState.set('sell_1', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('search_0'),
+			content: AuctionTemplates.contentBoxOptionsCompany,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		this.pageState.set('sell_2', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('search_0'),
+			content: AuctionTemplates.contentBoxOptionsConsole,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		this.pageState.set('sell_3', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('search_0'),
+			content: AuctionTemplates.contentBoxOptionsProduct,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		this.pageState.set('sell_4', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('search_0'),
+			content: AuctionTemplates.contentBoxOptionsConsoleItems,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		this.pageState.set('sell_5', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('search_0'),
+			content: AuctionTemplates.contentBoxSearch,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		this.pageState.set('sell_6', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('sell_2'),
+			content: AuctionTemplates.contentBoxSellUsedState,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		this.pageState.set('sell_7', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('sell_3'),
+			content: AuctionTemplates.contentBoxSellPicureDrop,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		this.pageState.set('sell_8', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('sell_4'),
+			content: AuctionTemplates.contentBoxSellContentsCondition,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		this.pageState.set('sell_9', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('sell_5'),
+			content: AuctionTemplates.contentBoxSellAuctionSetup,
+			footer: AuctionTemplates.stepsFooter
+		});
+		this.pageState.set('sell_10', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('sell_6'),
+			content: AuctionTemplates.contentBoxSellEnd,
+			footer: AuctionTemplates.stepsFooter
+		});
+
+		/*------------ BUY -----------*/
+		this.pageState.set('buy_0', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('buy_0'),
+			content: AuctionTemplates.contentBoxOptions,
+			footer: '&nbsp'
+		});
+
+		this.pageState.set('buy_1', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('search_1'),
+			content: AuctionTemplates.contentBoxSearch,
+			footer: '&nbsp'
+		});
+
+		this.pageState.set('buy_2', {
+			header: AuctionTemplates.headerBox,
+			dialog: this.setDialog('buy_2'),
+			content: AuctionTemplates.contentBoxBiding,
+			footer: '&nbsp'
+		});
+	}
+
+	/**
+	 * Displays a new popup modal to the top a Scene.
+	 * @param {string} popupTemplate : A html string.
+	 */
+	insertPopup(popupTemplate) {
+		const body = document.getElementById('root');
+		body.insertAdjacentHTML('afterbegin', popupTemplate);
+	}
+
+	/**
+	 * Displays a new modal to the top a Scene.
+	 * - This removes and replaces any current modal displaying.
+	 * - Modal is inserted inside the 'root' container.
+	 * @param {string} modalTemplate : A html string.
+	 */
+	insertNewModalContent(modalTemplate) {
+		if (this.sceneModal)
+			this.sceneModal.parentNode.removeChild(this.sceneModal);
+
+		const body = document.getElementById('root');
+		body.insertAdjacentHTML('afterbegin', modalTemplate);
+		this.sceneModal = document.getElementById('modal');
+		this.sceneReturn = document.getElementById('return');
+	}
+
+	// Deprecated
+	processSceneExit() {
+		//Return to previous Scene
+		SceneManager.pop();
+	}
+
+	/**
+     * Sets a preview window of how the item will look like when at the auction.
+     * @param {string} step current auction setup step.
+     */
+	preview(step) {
+		const steps = document.getElementsByClassName('footer__step');
+		const preview = document.getElementById('preview');
+
+		const stepCount = parseInt(step) - 1;
+		// if first, set to active
+		if (stepCount === 0)
+			steps[stepCount].classList.add('footer__step--active');
+		else if (stepCount === 9) { // if last, change to done
+			Array.from(steps).map(e => {
+				if (e) e.parentNode.removeChild(e);
+			});
+
+			preview.insertAdjacentHTML('beforebegin', '<p class="paragraph footer__step-done">Done!</p>');
+		} else {
+			// else, mark current as active and all previous as 'done'
+			steps[stepCount].classList.add('footer__step--active');
+			for (let i = 0; i < stepCount; ++i)
+				steps[i].classList.add('footer__step--finish');
+		}
+
+		preview.addEventListener('click', e => {
+			e.preventDefault();
+
+			this.insertPopup(`
+                <div class="arena" id="demo">
+                    <div class="header" id="header">
+                        ${this.headerTitle}
+                    </div>
+
+                    <div class="arena__content-grid" id="content-box">
+                        ${AuctionTemplates.contentBoxBiding}
+                    </div>
+                    <div class="footer" id="footer">
+                        &nbsp;
+                    </div>
+                </div>`);
+
+			const itemPhoto = document.getElementById('itemPhoto');
+			const buttonSlot = document.getElementById('buttonSlot');
+			const demo = document.getElementById('demo');
+			let replace = document.getElementById('bid');
+			demo.style.zIndex = '2500';
+
+			if (this.sellOptionStack.photo) {
+				itemPhoto.src = URL.createObjectURL(this.sellOptionStack.photo);
+				itemPhoto.alt = this.sellOptionStack.item.name;
+			}
+
+			if (replace) replace.parentNode.removeChild(replace);
+
+			buttonSlot.insertAdjacentHTML('afterbegin', `
+                <button class="button button__green--submit" id="ok">
+                    <h2 class="button__green--submit-text header-secondary">Ok</h2>
+                </button>`);
+
+			let ok = document.getElementById('ok');
+
+			ok.addEventListener('click', event => {
+				event.preventDefault();
+
+				if (demo) demo.parentNode.removeChild(demo);
+
+				console.log('close');
+			});
+
+			console.log('preview clicked!!!');
+		});
+	}
+
+	/**
+	 * Returns to previous state or state level(if existent), else, returns to a previous Scene.
+	 * - Case there is a previous state, it will remove the current(last) from the stateStack Array.
+	 */
+	return() {
+
+		if (this.sceneReturn.checked) {
+			console.log(this.stateStack);
+			this.stateStack.pop();
+			console.log(this.stateStack);
+
+
+			if (this.stateStack.length > 0) {
+				const previousTemplate = this.stateStack[this.stateStack.length - 1];
+				this.nextStateLevel(previousTemplate);
+			} else {
+				console.log('I\'ve been checked.');
+
+				this.reset();
+
+				SceneManager.goto('SceneMap');
+			}
+
+		}
+	}
 
 	/**
 	 * Destroys, kills, remove modals, or turn to null ALL objects of THIS Scene. 
 	 * - Use when heading to another Scene.
 	 */
-    shutdown() {
-        // REMEMBER THAT IT IS VERY IMPORTANT TO DESTROY EVERYTHING HERE!
-    }
+	reset() {
+		if (this.sceneModal)
+			this.sceneModal.parentNode.removeChild(this.sceneModal);
+
+		this.sceneModal = null;
+		this.sceneReturn = null;
+		this.itemKeysArray = null;
+		this.stateStack = null;
+		this.sellOptionStack = null;
+		this.buyOptionStack = null;
+	}
+
+	shutdown() {
+	}
 }

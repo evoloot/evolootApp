@@ -1,4 +1,3 @@
-"use strict";
 /* Game Interpreter for processing game actions
  * and outputting them for users
  */

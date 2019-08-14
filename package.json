@@ -1,41 +1,77 @@
 {
-  "name": "evoloot",
+  "name": "evoloot-game",
+  "productName": "Evoloot",
   "version": "0.1.0",
-  "private": true,
+  "description": "A game application designed for integrating Auction with Facebook",
+  "main": "main.js",
+  "scripts": {
+    "start": "npm-run-all --parallel devServer electron",
+    "devServer": "webpack-dev-server --mode development --env.dev",
+    "electron": "electron ./main.js",
+    "build": "webpack --mode production --env.production",
+    "electron:package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64  --prune=true --out=release-builds",
+    "electron:package-win": "electron-packager . evoloot-game --overwrite --asar --platform=win32 --arch=ia32  --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Evoloot\"",
+    "electron:package-linux": "electron-packager . evoloot-game --overwrite --asar --platform=linux --arch=x64  --prune=true --out=release-builds",
+    "package": "npm-run-all build electron:package-mac electron:package-win electron:package-linux"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KinoAR/evoloot.git"
+  },
+  "keywords": [
+    "evoloot",
+    "game",
+    "Facebook",
+    "Auction",
+    "programming"
+  ],
+  "author": "Kino A Rose",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KinoAR/evoloot/issues"
+  },
+  "homepage": "https://github.com/KinoAR/evoloot#readme",
   "dependencies": {
-    "parse": "^2.5.1",
-    "phaser-ce": "^2.13.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
+    "@types/parse": "^2.1.0",
+    "@types/ramda": "^0.25.47",
+    "electron-squirrel-startup": "^1.0.0",
+    "helmet": "^3.12.1",
+    "jquery": "^3.3.1",
+    "parse": "^2.1.0",
+    "phaser-ce": "^2.12.0",
+    "ramda": "^0.25.0",
+    "watch": "^1.0.2",
     "webfontloader": "^1.6.28"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "csp-html-webpack-plugin": "^3.0.1",
+    "css-loader": "^1.0.1",
+    "electron": "^5.0.0-beta.3",
+    "electron-packager": "^13.0.1",
+    "electron-prebuilt-compile": "^4.0.0",
+    "eslint": "^5.12.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
     "expose-loader": "^0.7.5",
-    "node-sass": "^4.12.0",
-    "ramda": "^0.26.1",
-    "raw-loader": "^3.0.0",
-    "react-router-dom": "^5.0.1"
+    "express": "^4.16.3",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "markdown-pdf": "^9.0.0",
+    "node-sass": "^4.10.0",
+    "reload": "^2.3.0",
+    "resolve-url-loader": "^3.0.0",
+    "sass": "^1.14.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "yarn-run-all": "^3.1.1"
   }
 }

@@ -44,15 +44,4 @@ export class Style {
             align: "center"
         };
     }
-
-    static setText(sprite, hexColor, fontSize, fontFamily, strokeThickness = 0) {
-        return {
-            fill: hexColor,
-            font: `${fontSize} ${fontFamily}`,
-            align: 'right', 
-            wordWrap: true, 
-            wordWrapWidth: sprite.width,
-            strokeThickness: strokeThickness
-        };
-    }
 }

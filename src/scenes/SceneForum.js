@@ -1,0 +1,71 @@
+import { SceneManager } from "../managers/SceneManager";
+import { Style } from "../utils/style";
+/**
+ * An interactive forum for players to interact w/ other players. Deprecated, needs complete rewrite.
+ * @class SceneForum
+ * @extends {Phaser.State}
+ */
+export class SceneForum extends Phaser.State {
+    constructor() {
+        super();
+    }
+    create() {
+        this.sceneForumSubcategories = document.getElementById('id04');
+        this.sceneForumThreads = document.getElementById('id05');
+        this.sceneForumQuickSelection = document.getElementById('quick-selection');
+        console.log('SceneForum');
+        this._goBack();
+        this._temporaryOptions('Sub-Categories', this.game.world.centerX, this.game.world.centerY, () => {
+            this.sceneForumSubcategories.style.display = 'block';
+        });
+        // category modal
+        this.quickSelectionOptions();
+    }
+    update() {
+    }
+    processSceneExit() {
+        //Return to previous Scene
+        SceneManager.pop();
+    }
+    quickSelectionOptions() {
+        $('#quick-selection').click(() => {
+            const nav = $('.main-options');
+            nav.slideToggle(200);
+            console.log('quick selection options clicked');
+        });
+        $('#quick-selection02').click(() => {
+            const nav = $('.main-options');
+            nav.slideToggle(200);
+            console.log('quick selection options clicked');
+        });
+        $('#close-modal').click(() => {
+            const nav = $('.main-options');
+            nav.slideToggle(200);
+            this.sceneForumSubcategories.style.display = 'none';
+        });
+        $('#close-modal02').click(() => {
+            const nav = $('.main-options');
+            nav.slideToggle(200);
+            this.sceneForumThreads.style.display = 'none';
+        });
+        // TESTING
+        $('#sub-category01').click(() => {
+            this.sceneForumThreads.style.display = 'block';
+        });
+    }
+    _temporaryOptions(text, x, y, callback) {
+        const back = this.game.add.text(x, y, text, Style.getTitle());
+        back.inputEnabled = true;
+        back.anchor.add(0.5, 0);
+        back.events.onInputUp.add(callback, this);
+    }
+    _goBack() {
+        const posX = this.game.world.centerX - 180;
+        const posY = 650;
+        const btn = this.game.add.sprite(posX, posY, 'back');
+        btn.inputEnabled = true;
+        btn.events.onInputUp.add(() => SceneManager.goto('SceneMap'), this);
+    }
+    shutdown() {
+    }
+}

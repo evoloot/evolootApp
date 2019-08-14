@@ -1,34 +1,4 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
-import WebFont from 'webfontloader';
-
-// JSON OBJECT
-import characterAssetsJsonObject from '../assets/data/character.json';
-
-// JSON DATA 
-import characterAssetsJsonPath from '../assets/data/character.txt';
-
-// IMAGES/SPRITESHEETS
-import characterAtlas from '../assets/images/character.png';
-import colorWheel from '../assets/images/color_wheel.png';
-import tileSet from '../assets/images/tileSet.png';
-import temporaryBG from '../assets/images/temporarybg.png';
-import tvBG from '../assets/images/TV_BG.png';
-import whiteLayer from '../assets/images/white_layer.png';
-import blackLayer from '../assets/images/black_layer.png';
-import backButton from '../assets/images/back.png';
-import continueButton from '../assets/images/continue.png';
-import greyWheel from '../assets/images/grey_wheel.png';
-import colourGradient from '../assets/images/colour_gradient_large.png';
-import characterPreview from '../assets/images/character_preview.png';
-import panelHands from '../assets/images/cc_panel_hands.png';
-import panelButton from '../assets/images/cc_panel_button.png';
-import arrows from '../assets/images/Menu_Arrows.png';
-import palette from '../assets/images/Menu_Palette.png';
-import eyes from '../assets/images/eye_color_button.png';
-
+import { SceneManager } from '../managers/SceneManager';
 import { Piece } from '../prefabs/Piece';
 import { TurningHands } from '../prefabs/TurningHands';
 import { OptionArrows } from '../prefabs/OptionArrows';
@@ -36,6 +6,9 @@ import { ColorPalette } from '../prefabs/ColorPalette';
 import { TextButton } from '../prefabs/TextButton';
 import { Helper } from '../utils/helper';
 import { Keyboard } from '../prefabs/Keyboard';
+import * as CustomizationTemplates from '../templates/SceneCustomizationTemplates';
+import * as Auth from '../parse/user';
+import * as Parse from 'parse';
 
 /**
  * @by Evoloot Enterprises Inc.
@@ -49,17 +22,8 @@ export class SceneCustomization extends Phaser.State {
 		super();
 	}
 
-	init() {
-        this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
-        this.game.scale.pageAlignHorizontally = true;
-		this.game.scale.pageAlignVertically = true;
-    }
-
 	preload() {
-		this.loadJsonData();
-        this.loadFonts();
-        this.loadImages();
-        this.loadSpriteSheets();
+		this.addJSONLists();
 	}
 
 	create() {
@@ -75,61 +39,168 @@ export class SceneCustomization extends Phaser.State {
 		this.game.add.image(350, 112, 'TV_BG');
 		this.character = {};
 
-		this.addJSONLists();
 		this.addCustomizableElementsPanel();
+
+		////////////
+		this.stateStack = [];
+		this.SceneModal;
+		this.sceneReturn;
+
+		this.createModalStates();
+
+		// Generic, must be made global
+		this.nextStateLevel('start'); // Helper.nextStateLevel(mapKey, this.setButtonFunctions() {...});
+
+
+		this.setButtonFunctions('start');
+		/////////////
+	}
+
+	update() {
+		this.return();
 	}
 
 	/**
-     * Loads fonts for Phaser.
+     * Sets the specific navigation, header, dialog and content box based on the 'mapKey' to show on the screen.
+	 * - Each page is that is not heavy game based will usually be composed by a html modal on top. 
+	 * - calls insertNewModalContent() function.
+	 * - calls setsetButtonFunctions() function.
+	 * - inserts current state to the stateStack Array, if not yet added.
+     * @param {String} mapKey The mapkey is the key composed by the action and its current level(if more than 1), eg: action_2.
      */
-    loadFonts() {
-        WebFont.load({
-            custom: {
-                families: [
-                    'Fixedsyswoff'
-                ]
-            }
-        });
-    }
+	nextStateLevel(mapKey) {
+		const modalTemplate = `
+			<div id="modal">
+				${this.pageState.get(mapKey).nav}
+				${this.pageState.get(mapKey).header}
+				${this.pageState.get(mapKey).content}
+				${this.pageState.get(mapKey).footer}
+			</div>`;
 
-    /**
-     * Loads single images.
-     */
-    loadImages() {
-		this.game.load.image('color_wheel', colorWheel);
-		this.game.load.image('tileSet', tileSet); // maybe not necessary here
-		this.game.load.image('temporarybg', temporaryBG);
-		this.game.load.image('TV_BG', tvBG);
-		this.game.load.image('white_layer', whiteLayer);
-		this.game.load.image('black_layer', blackLayer);
-		this.game.load.image('back', backButton);
-		this.game.load.image('continue', continueButton);
-		this.game.load.image('grey_wheel', greyWheel);
-		this.game.load.image('colour_gradient_large', colourGradient);
-		this.game.load.image('character_preview', characterPreview);
-    }
+		this.insertNewModalContent(modalTemplate);
+		this.setButtonFunctions(mapKey);
 
-    /**
-     * Loads sprite sheets.
-     */
-    loadSpriteSheets() {
-		// Loading Atlas Spritesheet
-        this.game.load.atlasJSONHash('character', characterAtlas , characterAssetsJsonPath); //characterAtlas,
-		
-        this.game.load.spritesheet('cc_panel_hands', panelHands, 48, 43, 4, 0, 0);
-        this.game.load.spritesheet('cc_panel_button', panelButton, 224, 59, 2, 0, 0);
-        this.game.load.spritesheet('arrows', arrows, 30, 31, 4, 1, 1);
-        this.game.load.spritesheet('palette', palette, 41, 41, 2, 0, 0); 
-        this.game.load.spritesheet('eyes', eyes, 48, 43, 2, 0, 0);
-    }
+		if (!this.stateStack.find(e => e === mapKey)) this.stateStack.push(mapKey);
 
-    /**
-     * Loads json files.
-     * - 'Texts' are usually used for data checking.
-     * - 'Tilemap' is for any scene that requires map.
+	}
+
+	/**
+	 * Creates a Map to keep the modal states this scene will have.
+	 * - Each page state has a key associted to the action and its level(if present).
+	 * - Each modal object is usually composed by the main elements of navigation, header, content and footer.
+	 * - The attributes are html strings.
+	 */
+	createModalStates() {
+		this.pageState = new Map();
+
+		this.pageState.set('start', {
+			nav: CustomizationTemplates.headerBox,
+			header: CustomizationTemplates.tvHeader,
+			content: '&nbsp',
+			footer: CustomizationTemplates.tvFooter
+		});
+
+		this.pageState.set('register', {
+			nav: CustomizationTemplates.headerBox,
+			header: CustomizationTemplates.tvHeader,
+			content: CustomizationTemplates.tvForm,
+			footer: '&nbsp'
+		});
+	}
+
+	/**
+	 * Displays a new modal to the top a Scene.
+	 * - This removes and replaces any current modal displaying.
+	 * - Modal is inserted inside the 'root' container.
+	 * @param {String} modalTemplate : A html String.
+	 */
+	insertNewModalContent(modalTemplate) {
+		if (this.SceneModal)
+			this.SceneModal.parentNode.removeChild(this.SceneModal);
+
+		const body = document.getElementById('root');
+		body.insertAdjacentHTML('afterbegin', modalTemplate); // this.modalTemplate01
+		//this.sceneCustomizationModalTitleRow = document.getElementById('title_row');
+		//this.sceneCustomizationModalButtonRow = document.getElementById('button_row');
+
+
+		this.SceneModal = document.getElementById('modal');
+		this.sceneReturn = document.getElementById('return');
+	}
+
+	/**
+     * Sets the functionality of the current 'content' components of the current modal state and level(if present).
+     * @param {String} mapKey The mapkey is the key composed by the action and its current level(if more than 1), eg: action_2.
      */
-    loadJsonData() {
-    }
+	setButtonFunctions(mapKey) {
+		const username = document.getElementById('username');
+		const email = document.getElementById('email');
+		const confirmEmail = document.getElementById('confirmEmail');
+		const password = document.getElementById('password');
+		const confirmPassword = document.getElementById('confirmPassword');
+		const firstName = document.getElementById('firstName');
+		const lastName = document.getElementById('lastName');
+		const birthday = document.getElementById('birthday');
+		const city = document.getElementById('city');
+		const province = document.getElementById('province');
+
+		const next = document.getElementById('continue');
+		const save = document.getElementById('save');
+
+		const fieldValues = new Map();
+
+		switch (mapKey) {
+
+			case 'start':
+
+				if (next)
+					next.addEventListener('click', event => {
+						event.preventDefault();
+
+						if (this.keyboard) this.keyboard.destroyKeyboard();
+
+						this.nextStateLevel('register');
+					});
+
+				if (this.sceneTitleBegin)
+					this.sceneTitleBegin.addEventListener('click', event => {
+						event.preventDefault();
+
+						this.reset();
+
+						SceneManager.goto('SceneCustomization');
+					});
+				break;
+			case 'register':
+
+				if (save)
+					save.addEventListener('click', async event => {
+						event.preventDefault();
+
+						try {
+							fieldValues.set('username', username.value);
+							fieldValues.set('email', email.value);
+							fieldValues.set('confirmEmail', confirmEmail.value);
+							fieldValues.set('password', password.value);
+							fieldValues.set('confirmPassword', confirmPassword.value);
+							fieldValues.set('firstName', firstName.value);
+							fieldValues.set('lastName', lastName.value);
+							fieldValues.set('birthday', birthday.value);
+							fieldValues.set('city', city.value);
+							fieldValues.set('province', province.value);
+
+							// Validade Data
+							this.saveData(fieldValues);
+
+						} catch (error) {
+							console.log(error);
+						}
+					});
+				break;
+			case 'forget':
+
+		}
+	}
 
 	/** 
 	 * Custom panel item factory
@@ -487,7 +558,7 @@ export class SceneCustomization extends Phaser.State {
      * the character from all angles/sides.
      */
 	addTurnCharacter() {
-		if (!this.keyboard) this.keyboard = new Keyboard(this.game); //null 
+		if (!this.keyboard) this.keyboard = new Keyboard(this.game);
 
 		this.lHand = new TurningHands(this.game, 'Left', this.game.world.centerX, 600, this.keyboard);
 		this.rHand = new TurningHands(this.game, 'Right', this.game.world.centerX + 50, 600, this.keyboard);
@@ -630,7 +701,7 @@ export class SceneCustomization extends Phaser.State {
      * Adds character Pieces' data.
      */
 	addJSONLists() {
-		this.characterPieces = characterAssetsJsonObject.frames; 
+		this.characterPieces = JSON.parse(this.game.cache.getText('Character_Pieces')).frames;
 
 		this.categories = ['none', 'A'];
 		this.sizes = ['Large_Feminine', 'Medium_Feminine', 'Small_Feminine', 'Large_Masculine', 'Medium_Masculine', 'Small_Masculine'];
@@ -670,11 +741,78 @@ export class SceneCustomization extends Phaser.State {
 		this.characterShuffle();
 	}
 
-	/** 
-	 * Destroys, kills, remove modals, or turn to null ALL objects of THIS Scene.
-	 */  
-	shutdown() {
-		this.keyboard.destroyKeyboard();
+	/**
+	 * Saves the user information.
+	 * - Saves user data to the database if the information provided is valid.
+	 * @param {Map<any>} inputFields 
+	 */
+	async saveData(inputFields) {
+		const username = inputFields.get('username');
+		const email = inputFields.get('email');
+		const password = inputFields.get('password');
+
+		// post userData to server
+		try {      
+			const userEssentials = await Auth.signUpUser(username, email, password);
+
+			await this.saveAvatar(userEssentials);
+
+			this.reset();
+
+			SceneManager.goto('SceneTitle');
+
+			//return this.result;
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	/**
+	 * Saves character to the current user being created(the 'parent').
+	 * @param {*} user a valid user.
+	 */
+	saveAvatar(user) {
+		const Character = Parse.Object.extend('Character');
+		const myNewObject = new Character();
+
+		const localCharacter = JSON.parse(sessionStorage.getItem('character'));
+
+		myNewObject.set('body', JSON.stringify(localCharacter.body));
+		myNewObject.set('facialhair', JSON.stringify(localCharacter.facialhair));
+		myNewObject.set('hairstyle', JSON.stringify(localCharacter.hairstyle));
+		myNewObject.set('upperbody', JSON.stringify(localCharacter.upperbody));
+		myNewObject.set('lowerbody', JSON.stringify(localCharacter.lowerbody));
+		myNewObject.set('headwear', JSON.stringify(localCharacter.headwear));
+		myNewObject.set('facewear', JSON.stringify(localCharacter.facewear));
+		myNewObject.set('hands', JSON.stringify(localCharacter.hands));
+		myNewObject.set('footwear', JSON.stringify(localCharacter.footwear));
+		myNewObject.set('weapon', JSON.stringify(localCharacter.weapon));
+		myNewObject.set('eyecolour', JSON.stringify(localCharacter.eyecolour));
+		myNewObject.set('level', 1);
+		myNewObject.set('experience', 1);
+		//myNewObject.set('eyeColour', 'A String');
+		//myNewObject.set('hairColour', 'A String');
+		//myNewObject.set('mouth', 'A String');
+		myNewObject.set('achievementScore', 1);
+
+		myNewObject.set('parent', user);
+
+		return myNewObject.save();
+	}
+
+	/**
+	 * Destroys, kills, remove modals, or turn to null ALL objects of THIS Scene. 
+	 * - Use when heading to another Scene.
+	 */
+	reset() {
+		if (this.SceneModal)
+			this.SceneModal.parentNode.removeChild(this.SceneModal);
+
+		if (this.keyboard) this.keyboard.destroyKeyboard();
+
+		this.SceneModal = null;
+		this.sceneReturn = null;
+		this.pageState = null;
 
 		this.categories = null;
 		this.sizes = null;
@@ -694,5 +832,29 @@ export class SceneCustomization extends Phaser.State {
 		this.optionArrows = null;
 		this.lHand.destroy();
 		this.rHand.destroy();
+	}
+
+	/**
+	 * Returns to previous state or state level(if existent), else, returns to a previous Scene.
+	 * - Case there is a previous state, it will remove the current(last) from the stateStack Array.
+	 */
+	return() {
+
+		if (this.sceneReturn && this.sceneReturn.checked) {
+			this.stateStack.pop();
+
+			if (this.stateStack.length > 0) {
+				const previousTemplate = this.stateStack[this.stateStack.length - 1];
+				this.nextStateLevel(previousTemplate);
+			} else {
+				this.reset();
+
+				SceneManager.goto('SceneTitle');
+			}
+
+		}
+	}
+
+	shutdown() {
 	}
 }

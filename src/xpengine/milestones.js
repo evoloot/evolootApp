@@ -1,25 +1,8 @@
-/* eslint-disable */
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Parse = require("parse");
-const R = require("ramda");
+import * as Parse from "parse";
+import * as R from 'ramda';
 ;
-var MilestoneManager;
+export var MilestoneManager;
 (function (MilestoneManager) {
-    MilestoneManager.initializeUserMilestones = (user) => {
-        const userMilestone = new Parse.Object("UserMilestones");
-        userMilestone.set("winAuction", 0);
-        userMilestone.set("upgradeAuction", 0);
-        userMilestone.set("gainPositiveFeedback", 0);
-        userMilestone.set("inviteFriend", 0);
-        userMilestone.set("shareContent", 0);
-        userMilestone.set("userId", user.id);
-        userMilestone.save()
-            .then((milestone) => {
-            console.log("Created User Milestone within the database");
-        })
-            .catch(console.error);
-    };
     const incrementSave = (pobject, propertyName) => {
         pobject.increment(propertyName);
         pobject.save().then((milestone) => {
@@ -371,4 +354,4 @@ var MilestoneManager;
                 break;
         }
     }
-})(MilestoneManager = exports.MilestoneManager || (exports.MilestoneManager = {}));
+})(MilestoneManager || (MilestoneManager = {}));

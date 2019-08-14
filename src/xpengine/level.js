@@ -1,7 +1,4 @@
-/* eslint-disable */
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LEVELREQUIREMENTSTABLE = [
+export const LEVELREQUIREMENTSTABLE = [
     0,
     100,
     200,

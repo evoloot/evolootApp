@@ -1,9 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Parse = require("parse");
-const R = require("ramda");
+import * as Parse from 'parse';
+import * as R from 'ramda';
 /* Baas for database objects */
-var PObject;
+export var PObject;
 (function (PObject) {
     /**
      * Returns an extended parse Object constructor
@@ -29,28 +27,11 @@ var PObject;
             entity: entity
         };
     };
-    /**
-    * Removes a property from the Parse.Object; must be saved
-    * to take effect on the Cloud.
-    * @param {Parse.Object} entity
-    * @param {string} property
-    */
-    PObject.unset = (entity, property) => {
-        return entity.unset(property);
-    };
     PObject.get = (entity, property) => {
         return entity.get(property);
     };
-    /**
-     * Destroys the parse object removing it completely from the cloud.
-     * @param {Parse.Object} entity
-     * @returns {Promise<Parse.Object>}
-     */
-    PObject.destroy = (entity) => {
-        return entity.destroy();
-    };
-})(PObject = exports.PObject || (exports.PObject = {}));
-var PQuery;
+})(PObject || (PObject = {}));
+export var PQuery;
 (function (PQuery) {
     PQuery.setupQueryEqualTo = (className, field) => {
         const query = new Parse.Query(PObject.extendClass(className));
@@ -69,4 +50,4 @@ var PQuery;
         return PQuery.setupQueryEqualTo(className, field)(value).first();
     };
     // export const 
-})(PQuery = exports.PQuery || (exports.PQuery = {}));
+})(PQuery || (PQuery = {}));

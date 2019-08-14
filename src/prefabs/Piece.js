@@ -1,13 +1,4 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
-
-// JSON OBJECT
-import characterAssetsJsonObject from '../assets/data/character.json';
-
 import { Helper } from '../utils/helper';
-import { Keyboard } from './Keyboard';
 import '../libs/asyncPath';
 
 /**
@@ -38,10 +29,7 @@ export class Piece extends Phaser.Sprite {
             this.frameName = characterPart;
         }
 
-        // If a speed preference have been chosen before, set speeds to these values, else sets them to default.
-        this.manualSpeed = localStorage.getItem('manualSpeed') ? parseInt(localStorage.getItem('manualSpeed')) : 160; 
-        this.autoSpeed = localStorage.getItem('autoSpeed') ? parseInt(localStorage.getItem('autoSpeed')) : 160; 
-
+        this.speed = 160;
         this.game.physics.arcade.enable(this);
         this.body.collideWorldBounds = true;
         this.smoothed = false; // solves size focus problems
@@ -89,7 +77,7 @@ export class Piece extends Phaser.Sprite {
         this.animations.add('left', this.moveLeftFrameName, 7, true);
         this.animations.add('right', this.moveRightFrameName, 7, true);
 
-        this.characterPieces = characterAssetsJsonObject.frames; //
+        this.characterPieces = JSON.parse(this.game.cache.getText('Character_Pieces')).frames;
 
         this.game.add.existing(this);
 
@@ -143,19 +131,19 @@ export class Piece extends Phaser.Sprite {
     addKeyboardListener() {
         if (this.keyboard.keys.get('W').isDown || this.keyboard.arrows.up.isDown) {
             this.removeTweensOnManualMove();
-            this.body.velocity.y = -this.manualSpeed;
+            this.body.velocity.y = -this.speed;
         }
         else if (this.keyboard.keys.get('S').isDown || this.keyboard.arrows.down.isDown) {
             this.removeTweensOnManualMove();
-            this.body.velocity.y = this.manualSpeed;
+            this.body.velocity.y = this.speed;
         }
         if (this.keyboard.keys.get('A').isDown || this.keyboard.arrows.left.isDown) {
             this.removeTweensOnManualMove();
-            this.body.velocity.x = -this.manualSpeed;
+            this.body.velocity.x = -this.speed;
         }
         else if (this.keyboard.keys.get('D').isDown || this.keyboard.arrows.right.isDown) {
             this.removeTweensOnManualMove();
-            this.body.velocity.x = this.manualSpeed;
+            this.body.velocity.x = this.speed;
         }
     }
 
@@ -189,29 +177,23 @@ export class Piece extends Phaser.Sprite {
      * @param {Piece} sprite : Phaser.Sprite object.
      */
     moveTo(sprite) {
-        this.game.input.onTap.add((pointer, isDoubleClick) => {
+        this.game.input.onDown.add(() => {
             // remove all tweens executing on sprite
             this.game.tweens.removeFrom(sprite.body);
-
-            if (isDoubleClick && Helper.buildLocation) {
-                const buildLocation = Helper.buildLocation.scene;
-
-                Helper.sceneMapPopupSetter(buildLocation);
-            } else if (!Helper.buildLocation)
-                this.move = this.game.add.tween(sprite.body);
-
-            else if (!isDoubleClick && Helper.buildLocation) {
-                const buildLocation = Helper.buildLocation.scene;
-
+            this.move = this.game.add.tween(sprite.body);
+            
+            if (Helper.buildLocation) {
                 this.game.input.x = Helper.buildLocation.x;
                 this.game.input.y = Helper.buildLocation.y;
+                const scene = Helper.buildLocation.scene;
 
-                this.move = this.game.add.tween(sprite.body);
+
+                //if (Helper.buildLocation.scene)
                 this.move.onComplete.add(() => {
-                    Helper.sceneMapPopupSetter(buildLocation);
+                    Helper.sceneMapPopupSetter(scene);
                 });
+                //else
             }
-
             let aPath = [];
             const block = {
                 Origin: sprite.body,
@@ -223,7 +205,7 @@ export class Piece extends Phaser.Sprite {
                         const ex = (e.X * 16) - (sprite.body.width / 2 - 10);
                         const ey = (e.Y * 16);
                         aPath.push({ x: ex, y: ey });
-                        this.move.to({ x: ex, y: ey }, this.autoSpeed);
+                        this.move.to({ x: ex, y: ey }, 170);
                     });
                     this.move.start();
                     sprite.setPath(aPath);

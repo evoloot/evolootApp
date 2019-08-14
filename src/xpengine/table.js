@@ -1,7 +1,4 @@
-/* eslint-disable */
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EXPTABLE = {
+export const EXPTABLE = {
     post: 1,
     invitefriend: 1,
     winauction: 1,
@@ -22,7 +19,6 @@ exports.EXPTABLE = {
     showdownparticipation: 1,
     overtimeactivation: 1,
     overtimeparticipation: 1,
-    //Daily login bonus
     dailylogin: 1,
     logoffbonus: 1,
     //Win Auction MileStones
