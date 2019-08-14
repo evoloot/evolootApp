@@ -1,7 +1,4 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
+import { Helper } from "../utils/helper";
 
 /**
  * @by Evoloot Enterprises Inc.
@@ -19,7 +16,9 @@ export class ColorPalette extends Phaser.Sprite {
             super(game, x, y, 'palette');
         this.swatchBMD = this.game.make.bitmapData();
         this.swatchBMD.load('colour_gradient_large');
-        this.anchor.setTo(0, -0.25);
+
+        this.anchor.setTo(.5);
+
         this.inputEnabled = true;
         this.height = 40;
         this.width = 40;
@@ -64,14 +63,16 @@ export class ColorPalette extends Phaser.Sprite {
      * @param {String} side which side of the colour wheel the palette will appear.
      */
     showPalette(side) {
-        let height = this.y;
-        //console.log(this.key);
+        let height = this.y - (this.swatchBMD.height / 2);
+        
         if (this.key === 'eyes')
             height = this.y - 60;
-        if (side === 'Left')
-            this.swatch = this.game.add.sprite((this.x - this.swatchBMD.width) - 10, height, this.swatchBMD);
-        else
-            this.swatch = this.game.add.sprite((this.x + this.width) + 10, height, this.swatchBMD);
+        if (side === 'Left') {
+            this.swatch = this.game.add.sprite((this.x - this.width / 2) - this.swatchBMD.width, height, this.swatchBMD);
+        } else {
+            this.swatch = this.game.add.sprite(this.x + this.width / 2, height, this.swatchBMD);
+        }
+
         this.swatch.inputEnabled = true;
         this.swatch.events.onInputDown.add(this.startSwatch, this);
         this.swatch.events.onInputOut.add(this.stopSwatch, this);

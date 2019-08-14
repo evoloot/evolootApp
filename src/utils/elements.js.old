@@ -1,0 +1,33 @@
+export const elements = {
+    sceneTitleModal: document.getElementById('id01'),
+    sceneTitleLogin: document.getElementById('login'),
+    sceneTitleBegin: document.getElementById('begin'),
+
+    sceneMapConfirmationPopup: document.getElementById('id03'),
+    sceneMapEnterQuestion: document.getElementById('enter-question'),
+    sceneMapConfirmation: document.getElementById('yes'),
+    sceneMapNegation: document.getElementById('no'),
+
+    sceneForumSubcategories: document.getElementById('id04'),
+    sceneForumThreads: document.getElementById('id05'),
+    sceneForumQuickSelection: document.getElementById('quick-selection'),
+
+    sceneAuctionEntrance: document.getElementById('id06'),
+    sceneAuctionEntranceReturn: document.getElementById('return'),
+
+    sceneCustomizationModal: document.getElementById('id02'),
+    sceneCustomizationModalTitleRow: document.getElementById('title_row'),
+    sceneCustomizationModalButtonRow: document.getElementById('button_row'),
+    sceneCustomizationModalButtonRow02: document.getElementById('button_row-2'),
+    sceneCustomizationGoBack: document.getElementById('back'),
+    sceneCustomizationUsername: document.getElementById('username'),
+    sceneCustomizationEmail: document.getElementById('email'),
+    sceneCustomizationConfirmEmail: document.getElementById('confirmEmail'),
+    sceneCustomizationPassword: document.getElementById('password'),
+    sceneCustomizationConfirmPassword: document.getElementById('confirmPassword'),
+    sceneCustomizationFirstName: document.getElementById('firstName'),
+    sceneCustomizationLastName: document.getElementById('lastName'),
+    sceneCustomizationBirthday: document.getElementById('birthday'),
+    sceneCustomizationCity: document.getElementById('city'),
+    sceneCustomizationProvince: document.getElementById('province')
+};

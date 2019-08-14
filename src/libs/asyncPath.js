@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 /**
  * The MIT License (MIT)
  * Copyright (c) 2015 Mfoncho Che
@@ -40,6 +40,7 @@
 * @constructor
 * @param {Any} parent - The object that owns this plugin, usually Phaser.PluginManager.
 **/
+
 
 
 Phaser.Plugin.asyncPath = function (parent) {
@@ -186,12 +187,12 @@ Phaser.Plugin.asyncPath = function (parent) {
 
 
     /**
-     * [this._debugPathcolor]
+     * [this_debugPathcolor]
      * @private
      * @default 0xFFFF00
      * @type {Base16 number}
      */
-    this._debugPathcolor = 0xFFFF00
+    this_debugPathcolor = 0xFFFF00
 
 
 
@@ -660,7 +661,7 @@ Object.defineProperty(Phaser.Plugin.asyncPath.prototype, "centerPaths", {
 
 Object.defineProperty(Phaser.Plugin.asyncPath.prototype, "debugColor", {
     set: function (hex_color) {
-        this._debugPathcolor = hex_color;
+        this_debugPathcolor = hex_color;
     },
     enumerable: true,
     configurable: true
@@ -1307,7 +1308,7 @@ Phaser.Plugin.asyncPath.prototype.CalculatePath = function (NodeGrid) {
  * @return {void} 
  */
 Phaser.Plugin.asyncPath.prototype.resolevedPathManager = function (){
-    var _this = this;
+    _this = this;
     Object.keys(this.pathResolvedCache).forEach( function (uid){
         if(_this.pathResolvedCache[uid] !== undefined){
             var Path = _this.pathResolvedCache[uid].path;
@@ -1719,8 +1720,8 @@ Phaser.Plugin.asyncPath.prototype.Manhattan = function (Node1, Node2) {
 Phaser.Plugin.asyncPath.prototype.debugger = function (path) {
         var length = path.length;
         this.graphics = this.game.add.graphics(path[0].x, path[0].y);
-        this.graphics.beginFill(this._debugPathcolor);
-        this.graphics.lineStyle(1, this._debugPathcolor, 1);
+        this.graphics.beginFill(this_debugPathcolor);
+        this.graphics.lineStyle(1, this_debugPathcolor, 1);
         var x = 0;
         var y = 0;
         for (var i = 0; i < length; i++) {

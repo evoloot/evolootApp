@@ -1,0 +1,75 @@
+.drop-area {
+    position: relative;
+    margin: .5rem auto;
+    width: 80%;
+
+    @include respond(medium-phone) {
+        width: 100%;
+    }
+
+    // invisible to humans :D
+    &__input {
+        @include invisibleElement;
+    }
+
+    &__form {
+        position: relative;
+        margin: 2rem auto;
+
+        @include respond(medium-phone) {
+            margin: 0 auto;
+        }
+    }
+
+    &__label {
+        display: block;
+        position: relative;
+        height: 25rem;
+        margin-bottom: 2rem;
+        border: $color-green-primary dashed .5rem;
+        border-radius: 1rem;
+        backface-visibility: hidden;
+        cursor: pointer;
+        transition: border .2s ease-in;
+
+        &:hover {
+            border: $color-green-tertiary dashed 1rem;
+        }
+    }
+
+    &__input:focus + &__label {
+        border: $color-green-tertiary dashed 1rem;
+        outline: .1rem dotted $color-black;
+	    outline: -webkit-focus-ring-color auto .5rem;
+    }
+
+    &__explanation {
+        position: relative;
+        margin: 3rem auto;
+        hyphens: auto;
+
+        @include respond(medium-phone) {
+            margin: 0 auto;
+        }
+    }
+
+    &__text {
+        font-size: 2.2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__photo {
+        position: absolute;
+        visibility: hidden;
+        display: block;
+        width: 95%;
+        height: 95%;
+        z-index: 6500;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

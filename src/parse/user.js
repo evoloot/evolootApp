@@ -1,51 +1,11 @@
 import * as Parse from 'parse';
 
 /**
- * user 
+ * Parse 
  * @author Kino A. Rose, Victor V. Piccoli
  */
 
 export const isValidEmail = (email) => /\w+@\w+\.\w{2,}/ig.test(email);
-
-/*
-export const retrieveEmail = async () => {
-    const User = Parse.Object.extend('_User');
-    const query = new Parse.Query(User);
-
-    try {
-        const userId = await Parse.User.current().id;
-        const user = await query.get(userId);
-        const userEmail = await user.get('email');
-
-        return userEmail;
-    }
-    catch (error) {
-        console.log(error);
-    }
-}*/
-
-export const updateUserAttribute = (column, newValue) => {
-    const user = currentUser();
-
-    user.set(column, newValue);
-
-    user.save();
-}
-
-export const retrieveUsername = async (userToFind) => {
-    const query = new Parse.Query(userToFind);
-
-    try {
-        const userId = userToFind.id;
-        const user = await query.get(userId);
-        const username = await user.get('username');
-
-        return username;
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
 
 /**
  * Signs up a user within parse, and sends out an authentication email.

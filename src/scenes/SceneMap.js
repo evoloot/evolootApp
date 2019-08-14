@@ -1,31 +1,13 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
-import WebFont from 'webfontloader';
-
-// JSON OBJECT
-import characterAssetsJsonObject from '../assets/data/character.json';
-
-// DATA
-import characterAssetsJsonPath from '../assets/data/character.txt';
-import islandAssetsJsonPath from '../assets/data/island.txt';
-import tileMapJson from '../assets/maps/SceneMap/map.txt';
-
-// IMAGES/SPRITESHEETS
-import islandAtlas from '../assets/images/island.png';
-import characterAtlas from '../assets/images/character.png';
-import tileSet from '../assets/images/tileSet.png';
-import temporaryBG from '../assets/images/temporarybg.png';
-import whiteLayer from '../assets/images/white_layer.png';
-
 import { Utils } from '../utils/utils';
+import { SceneManager } from '../managers/SceneManager';
+import { WindowManager } from '../managers/WindowManager';
 import { Building } from '../prefabs/Building';
 import { Piece } from '../prefabs/Piece';
 import { Helper } from '../utils/helper';
 import { Keyboard } from '../prefabs/Keyboard';
-import * as user from '../parse/user';
-import * as userCharacter from '../parse/userCharacter';
+import * as MapTemplates from '../templates/SceneMapTemplates';
+import * as Auth from '../parse/user';
+import * as Parse from 'parse';
 import { addExpSignals } from "../xpengine/engine";
 
 /** 
@@ -46,75 +28,173 @@ export class SceneMap extends Phaser.State {
      */
     init(entrance) {
         entrance ? this.entrance = entrance : this.entrance = null;
-        this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
-        this.game.scale.pageAlignHorizontally = true;
-        this.game.scale.pageAlignVertically = true;
-        
     }
 
     preload() {
-        this.loadJsonData();
-        this.loadFonts();
-        this.loadImages();
-        this.loadSpriteSheets();
-        
         this.loadCharacter();
     }
 
-    /**
-     * Loads fonts for Phaser.
-     */
-    loadFonts() {
-        WebFont.load({
-            custom: {
-                families: [
-                    'Fixedsyswoff'
-                ]
-            }
-        });
-    }
+    create() {
+        const body = document.getElementById('root');
+        body.insertAdjacentHTML('afterbegin', MapTemplates.alertPopup);
+        this.sceneMapConfirmationPopup = document.getElementById('id03');
+        this.sceneMapEnterQuestion = document.getElementById('enter-question');
+        this.sceneMapConfirmationPopup.style.display = 'none';
 
-    loadSpriteSheets() {
-		// Loading Atlas Spritesheet
-        this.game.load.atlasJSONHash('character', characterAtlas , characterAssetsJsonPath); //characterAtlas,
-		
-		// MAP
-		this.game.load.atlasJSONHash('island', islandAtlas, islandAssetsJsonPath);
-    }
+        //this.addVersionText();
+        ////////////
+        this.sceneMapConfirmationPopup;
 
-     /**
-     * Loads single images.
-     */
-    loadImages() {
-		this.game.load.image('tileSet', tileSet); // maybe not necessary here
-		this.game.load.image('temporarybg', temporaryBG);
-		this.game.load.image('white_layer', whiteLayer);
-    }
+        this.stateStack = [];
+        this.SceneModal;
+        this.sceneReturn;
 
-     /**
-     * Loads json files.
-     * - 'Texts' are usually used for data checking.
-     * - 'Tilemap' is for any scene that requires map.
-     */
-    loadJsonData() {
-        this.game.load.text('island', islandAssetsJsonPath); 
-		this.game.load.text('character', characterAssetsJsonPath); 
-		
-		
-		//this.game.load.text('isometrics', isometricsJson); // this is for the arena
-		
-		
-        this.game.load.tilemap('SceneMap', tileMapJson, null, Phaser.Tilemap.TILED_JSON);
-    }
+        this.createModalStates();
 
-    create() {}
+        // Generic, must be made global
+        this.nextStateLevel('start'); // Helper.nextStateLevel(mapKey, this.setButtonFunctions() {...});
+
+        this.setButtonFunctions('start');
+        /////////////
+
+    }
 
     update() {
         if (Helper.sceneMapPopupContext) {
-            //this.addPopUpWindow(); //Helper.sceneMapPopupContext.scene, Helper.sceneMapPopupContext.text
+            this.addPopUpWindow(Helper.sceneMapPopupContext.scene, Helper.sceneMapPopupContext.text);
             Helper.sceneMapPopupContext = null;
         }
         Helper.shuffleCharacter(this.game, this.character, [this.nightLayer], this.decorationAfterPlayer);
+
+        //this.return();
+    }
+
+
+	/**
+     * Sets the specific navigation, header, dialog and content box based on the 'mapKey' to show on the screen.
+	 * - Each page is that is not heavy game based will usually be composed by a html modal on top. 
+	 * - calls insertNewModalContent() function.
+	 * - calls setsetButtonFunctions() function.
+	 * - inserts current state to the stateStack Array, if not yet added.
+     * @param {string} mapKey The mapkey is the key composed by the action and its current level(if more than 1), eg: action_2.
+     */
+    nextStateLevel(mapKey) {
+        const modalTemplate = `<div id="modal">${this.pageState.get(mapKey).nav}</div>`;
+
+        this.insertNewModalContent(modalTemplate);
+        this.setButtonFunctions(mapKey);
+
+        if (!this.stateStack.find(e => e === mapKey)) this.stateStack.push(mapKey);
+    }
+
+    /**
+	 * Creates a Map to keep the modal states this scene will have.
+	 * - Each page state has a key associted to the action and its level(if present).
+	 * - Each modal object is usually composed by the main elements of navigation, header, content and footer.
+	 * - The attributes are html strings.
+	 */
+    createModalStates() {
+        this.pageState = new Map();
+
+        this.pageState.set('start', {
+            nav: MapTemplates.headerBox,
+            header: '&nbsp',
+            content: '&nbsp',
+            footer: '&nbsp'
+        });
+    }
+
+    /**
+	 * Displays a new modal to the top a Scene.
+	 * - This removes and replaces any current modal displaying.
+	 * - Modal is inserted inside the 'root' container.
+	 * @param {string} modalTemplate : A html string.
+	 */
+    insertNewModalContent(modalTemplate) {
+        if (this.SceneModal)
+            this.SceneModal.parentNode.removeChild(this.SceneModal);
+
+        const body = document.getElementById('root');
+        body.insertAdjacentHTML('afterbegin', modalTemplate);
+        this.SceneModal = document.getElementById('modal');
+        this.sceneReturn = document.getElementById('return');
+    }
+
+	/**Se
+     * Sets the functionality of the current 'content' components of the current modal state and level(if present).
+     * @param {string} mapKey The mapkey is the key composed by the action and its current level(if more than 1), eg: action_2.
+     */
+    setButtonFunctions(mapKey) {
+        const buttonMenu = document.querySelector('.header__nav-button--menu');
+        const buttonMenuBackground = document.querySelector('.header__background--1');
+        const buttonSettings = document.querySelector('.header__nav-button--settings');
+        const buttonSettingsBackground = document.querySelector('.header__background--2');
+
+        const menuCheckbox = document.getElementById('menu-toggle');
+        const settingsCheckbox = document.getElementById('settings-toggle');
+
+        const rangeAutoSpeed = document.getElementById('autoSpeed');
+        const rangeManualSpeed = document.getElementById('manualSpeed');
+        const showAutoSpeed = document.getElementById('autoSpeedShow');
+        const showManualSpeed = document.getElementById('manualSpeedShow');
+
+        switch (mapKey) {
+
+            case 'start':
+                this.userLogout();
+
+                // Respectively, when one of these buttons is clicked, it will turn other buttons to 'invisible'.
+                if (settingsCheckbox && menuCheckbox) {
+                    buttonSettings.addEventListener('click', event => {
+                        //event.stopPropagation(); solve events triggering twice?
+
+                        if(settingsCheckbox.checked) { 
+                            buttonMenu.style.zIndex = 5500;
+                            buttonMenuBackground.style.display = 'block';
+                        } else {
+                            buttonMenu.style.zIndex = -1;
+                            buttonMenuBackground.style.display = 'none';
+                        }
+                    });
+
+                    buttonMenu.addEventListener('click', event => {
+                        if (menuCheckbox.checked){
+                            buttonSettings.style.zIndex = 5500;
+                            buttonSettingsBackground.style.display = 'block';
+                        } else {
+                            buttonSettings.style.zIndex = -1;
+                            buttonSettingsBackground.style.display = 'none';
+                        }
+                    });
+                }
+
+                // On change, changes auto speed or manual speed of the character's pieces.
+                if (rangeAutoSpeed) {
+                    // default values on screen
+                    if(localStorage.getItem('autoSpeed')) {
+                        rangeAutoSpeed.value = Math.ceil(8000/parseInt(localStorage.getItem('autoSpeed')));
+                        showAutoSpeed.innerText = JSON.parse(localStorage.getItem('autoSpeedShow'));
+                    }
+
+                    // sets character's auto speed
+                    rangeAutoSpeed.addEventListener('change', event => {
+                        event.preventDefault();
+
+                        // 80 ---- 100 (max speed) ----> 533 ----- 15 (min speed)
+                        let autoSpeed = 8000/parseInt(event.target.value); // fast 80 - 400 slower
+
+                        this.characterAssembled.forEach((characterPiece, key) => {
+                            if (characterPiece.key) this.character[`${key}`].autoSpeed = autoSpeed;
+                        });
+
+                        localStorage.setItem('autoSpeed', JSON.stringify(autoSpeed));
+                        localStorage.setItem('autoSpeedShow', JSON.stringify(event.target.value));
+
+                        showAutoSpeed.innerText = event.target.value;
+                    });
+                }
+                break;
+        }
     }
 
     addVersionText() {
@@ -347,14 +427,14 @@ export class SceneMap extends Phaser.State {
      */
     async loadCharacter() {
 
-        this.characterPieces = characterAssetsJsonObject;
+        this.characterPieces = JSON.parse(this.game.cache.getText('character'));
 
         try {
-            //if (!localStorage.getItem('character') || localStorage.getItem('character') === undefined) {
-                this.convertedCharacter = await userCharacter.getCharacter(user.currentUser());
-                sessionStorage.setItem('character', JSON.stringify(this.convertedCharacter));
-            //} else
-               // this.convertedCharacter = JSON.parse(localStorage.getItem('character'));
+            if (!localStorage.getItem('character')) {
+                this.convertedCharacter = await this.getCharacter();
+                localStorage.setItem('character', JSON.stringify(this.convertedCharacter));
+            } else
+                this.convertedCharacter = JSON.parse(localStorage.getItem('character'));
 
             this.characterAssembled = new Map([
                 ['body', JSON.parse(this.convertedCharacter.body)],
@@ -387,6 +467,27 @@ export class SceneMap extends Phaser.State {
     }
 
     /**
+     * Retrieves user's character data from database.
+     */
+    async getCharacter() {
+        const Character = Parse.Object.extend('Character');
+        const query = new Parse.Query(Character);
+
+        try {
+            query.equalTo('parent', Auth.currentUser()).toJSON();
+            const search = await query.first();
+
+            const turn = JSON.stringify(search);
+            const character = JSON.parse(turn);
+
+            return character;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    /**
      * Adds character to the scene.
      * - He is placed at a custom entrance location(if existent) or on the boat.
      */
@@ -409,7 +510,7 @@ export class SceneMap extends Phaser.State {
         // calling an existent character
         this.characterAssembled.forEach((characterPiece, key) => {
             if (characterPiece.key)
-                this.character[`${key}`] = new Piece(this.game, characterPiece, this.wall, this.map, x, y, null,this.keyboard); 
+                this.character[`${key}`] = new Piece(this.game, characterPiece, this.wall, this.map, x, y, null, this.keyboard)
         });
         this.attachCharacterExpSystem(this.character);
     }
@@ -420,13 +521,12 @@ export class SceneMap extends Phaser.State {
 
     // TEST
     addWindow() {
-        //Add Window To Map Scene
-        /*
+        //Add Window To Map Scene 
         const testWindow = WindowManager.createWindow('', 100, 100, 125, 100);
         testWindow.setTextString('Evoloot The Game', true);
         testWindow.setWordWrap(true);
         testWindow.setWordWrapWidth(100);
-        this.game.add.existing(testWindow); */
+        this.game.add.existing(testWindow);
     }
 
     /* deprecated, too complex, needs a complete rewrite.
@@ -463,6 +563,69 @@ export class SceneMap extends Phaser.State {
         });
     }*/
 
+    /**
+     * Throws a popup window asking the user how he wants to proceed after an interaction with a building.
+     * - On corfimation: destroys popup, redirect user to next scene.
+     * - On negation: destroys popup, the user remains in the map.
+     * @param {string} scene key name of which scene to switch to.
+     * @param {string} text custom text content of the popup window.
+     */
+    addPopUpWindow(scene, text) {
+        let popupButtons = `&nbsp`;
+
+        if (scene) {
+            popupButtons = `${MapTemplates.popupButtonYesNo}`;
+        } else {
+            popupButtons = `${MapTemplates.popupButtonOk}`;
+        }
+
+        this.sceneMapEnterQuestion.insertAdjacentHTML('afterbegin', `
+            <div id='question-text'>${text}</div>
+        `);
+
+        this.sceneMapEnterQuestion.insertAdjacentHTML('afterend', `
+            <div id="buttons">${popupButtons}</div>
+        `);
+
+        this.sceneMapConfirmation = document.getElementById('yes');
+        this.sceneMapNegation = document.getElementById('no');
+
+        this.sceneMapConfirmationPopup.style.display = 'block';
+
+        const garbage = document.getElementById('question-text');
+        const garbage2 = document.getElementById('buttons');
+
+        if (this.sceneMapConfirmation)
+            this.sceneMapConfirmation.addEventListener('click', event => {
+                event.preventDefault();
+
+                if (garbage)
+                    garbage.parentNode.removeChild(garbage);
+
+                if (garbage2)
+                    garbage2.parentNode.removeChild(garbage2);
+
+                this.sceneMapConfirmationPopup.style.display = 'none';
+
+                this.reset();
+
+                SceneManager.goto(scene);
+            });
+
+        if (this.sceneMapNegation)
+            this.sceneMapNegation.addEventListener('click', event => {
+                event.preventDefault();
+
+                if (garbage)
+                    garbage.parentNode.removeChild(garbage);
+
+                if (garbage2)
+                    garbage2.parentNode.removeChild(garbage2);
+
+                this.sceneMapConfirmationPopup.style.display = 'none';
+            });
+
+    }
 
     // TEST, possibly deprecated.
     savePlayerPosition() {
@@ -470,12 +633,24 @@ export class SceneMap extends Phaser.State {
         this.playerPosition = new Phaser.Point(x, y);
     }
 
+    shutdown() {
+        //this.savePlayerPosition();
+    }
+
     /**
 	 * Destroys, kills, remove modals, or turn to null ALL objects of THIS Scene. 
+	 * - Use when heading to another Scene.
 	 */
-    shutdown() {
-         //this.savePlayerPosition();
+    reset() {
+        if (this.sceneMapConfirmationPopup.parentNode)
+            this.sceneMapConfirmationPopup.parentNode.removeChild(this.sceneMapConfirmationPopup);
 
+        if (this.SceneModal)
+            this.SceneModal.parentNode.removeChild(this.SceneModal);
+
+        this.stateStack = null;
+        this.SceneModal = null;
+        this.sceneReturn = null;
         this.timeZone = null;
 
         this.badTiles = null;
@@ -501,6 +676,66 @@ export class SceneMap extends Phaser.State {
         this.characterAssembled = null;
     }
 
+    /**
+     * Listens for any click in 'logout' and calls logout() async function. Needs improvement.
+     */
+    userLogout() {
+        const logout = document.getElementById('logout');
+
+        if (logout) logout.addEventListener('click', e => {
+            e.preventDefault();
+            console.log('I\'ve been clicked to logout :D');
+
+            this.logout();
+        });
+    }
+
+    /**
+     * Performs user logout, directing him to the SceneTitle.
+     * - It will remove 'remember' from localStorage, meaning the user will have to login next time.
+     * - It will remove user's character from localStorage.
+     */
+    async logout() {
+        try {
+            await Auth.signOut();
+
+            this.reset();
+
+            if (localStorage.getItem('remember')) localStorage.removeItem('remember');
+            if (localStorage.getItem('character')) localStorage.removeItem('character');
+
+            SceneManager.goto('SceneTitle');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    /**
+	 * Returns to previous state or state level(if existent), else, returns to a previous Scene.
+	 * - Case there is a previous state, it will remove the current(last) from the stateStack Array.
+	 */
+    return() {
+
+        if (this.sceneReturn && this.sceneReturn.checked) {
+            this.stateStack.pop();
+
+            if (this.stateStack.length > 0) {
+                const previousTemplate = this.stateStack[this.stateStack.length - 1];
+                this.nextStateLevel(previousTemplate);
+            } else {
+                console.log('I\'ve been checked.');
+
+                if (JSON.parse(localStorage.getItem('remember')).remember) {
+                    this.reset();
+
+                    SceneManager.goto('SceneTitle');
+                }
+                else this.logout();
+
+            }
+
+        }
+    }
 
     /**
      * Debug purposes.

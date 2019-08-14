@@ -1,0 +1,94 @@
+@mixin aspectRatioBox {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+@mixin clearfix { //appends a pseudo element after the element which will then clear the floats
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin centerXY {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin centerY {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin backgroundGradientTextClip {
+    background-clip: text;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin invisibleElement {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+@mixin verySmallRepositionToTop {
+    top: -1rem;
+}
+
+@mixin smallRepositionToTop {
+    top: -1.5rem;
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px, 0 - 370px: Small-phone
+601px - 750px, 371px - 450px: Medium-phone
+751px - 1000px, 451px - 650px:  Tablet 
+1001px - 1200px, 651px - 700px: Big-tablet 
+[1216px, 704px: Desktop
+*/
+
+/*
+$breakpoint argument choices:
+- small-phone 
+- medium-phone
+- tablet
+- big-tablet
+- desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+em = 16px
+*/
+@mixin respond($breakpoint) {
+    // By width
+    // 'rem' fails in media queries, so instead use 'em'
+    @if $breakpoint == small-phone {
+        // 600px, 370px
+        @media (max-width: 37.5em), (max-height: 23.125em) { @content }; // all "@content" passed where the mixin is used will be affect by this media query rule.
+    }
+    @if $breakpoint == medium-phone {
+        // 750px, 450px;
+        @media (max-width: 46.87em), (max-height: 28.125em) { @content }; 
+    }
+    @if $breakpoint == tablet {
+        // 1000px, 650px;
+        @media (max-width: 62.5em), (max-height: 40.625em) { @content }; 
+    }
+    @if $breakpoint == big-tablet {
+        // 1200px, 700px;
+        @media (max-width: 75em), (max-height: 43.75em) { @content }; 
+    }
+    @if $breakpoint == desktop {
+        // min: from 1216x704 and beyond
+        @media (min-width: 76em), (min-height: 44em) { @content }; 
+    }
+}

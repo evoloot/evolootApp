@@ -1,0 +1,45 @@
+.popup {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color-black, .7);
+    top: 0;
+    left: 0;
+    transition: all .4s;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 2500;
+    backface-visibility: hidden;
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        box-shadow:  0 .3rem .4rem $color-black;
+        border: 1.5rem ridge rgba($color-green-primary, .5);
+        border-radius: .5rem;
+        transform: translate(-50%, -50%);
+        background-color: $color-white;
+        background-image: linear-gradient(rgba($color-green-secondary, 0.1), rgba($color-green-secondary, 0.25));
+        padding: 3rem;
+        z-index: 3000;
+        width: 80rem;
+
+        // scale animation as the popup opens.
+        animation: scaleFromMiddle .4s linear;
+    }
+
+    &__text {
+        font-size: 3rem; 
+        margin-bottom: 4rem;
+
+        .paragraph {
+            text-shadow: 0 1rem 2rem rgba($color-black, 0.25);
+        }
+    }
+
+    &__text-area {
+        position: relative;
+        width: 85%;
+    }
+}

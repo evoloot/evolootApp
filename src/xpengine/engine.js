@@ -1,4 +1,3 @@
-/* eslint-disable */
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const table_1 = require("./table");

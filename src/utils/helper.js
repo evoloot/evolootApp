@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { Building } from "../prefabs/Building";
 
 //////////////////////////////////////////////////////////////////////////////
@@ -167,16 +166,24 @@ export class Helper {
     static sceneMapPopupSetter(scene) {
         let text;
 
-        const warning = document.getElementById('warning');
-        const arena = document.getElementById('arena');
-
         switch (scene) {
+            /*
+            case ('SceneForum'):
+                text = '<p>Would you like to enter the Forum ?</p>';
+                this.sceneMapPopupContext = { scene, text };
+                console.log(`Enter ${scene} ?`);
+                break;
+                */
             case ('SceneAuction'):
-                arena.style.display = 'block';
-                 break;
+                text = `<p class="paragraph">Would you like to enter the Arena ?</p>`;
+                this.sceneMapPopupContext = { scene, text };
+                console.log(`Enter ${scene} ?`);
+                break;
             default:
-                 warning.style.display = 'block';
-                
+                text = `<p class="paragraph">Sorry, this area is in construction.</p>
+                        <p class="paragraph">Staff members only. ;)</p>`;
+                this.sceneMapPopupContext = { scene, text };
+                console.log(`Not Available!`);
         }
 
         this.buildLocation = null;
@@ -187,7 +194,7 @@ export class Helper {
      * @param {Array<Phaser.Sprite>} spriteArray Any Object or objects with body.
      */
     static centralize(...spriteArray) {
-        spriteArray.forEach(e => e.anchor.setTo(0.5));
+        spriteArray.forEach(e => e.anchor.setTo(.5));
     }
 
     /**
@@ -197,5 +204,17 @@ export class Helper {
      */
     static enablePhysics(game, ...spriteArray) {
         spriteArray.forEach(e => game.physics.arcade.enable(e));
+    }
+
+    /**
+     * Resizes object according to the total screen size.
+     * @param {Phaser.Game} game this.game
+     * @param {Phaser.Sprite} object A Phaser sprite object
+     * @param {number} percentageWidth a width percentage, based in total width screen size (eg.: .85).
+     * @param {number} percentageHeight a height percentage, based in total height screen size (eg.: .85).
+     */
+    static resize(game, object, percentageWidth, percentageHeight) {
+        object.width = game.world.width * percentageWidth;
+        object.height = game.world.height * percentageHeight;
     }
 }

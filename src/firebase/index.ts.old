@@ -1,0 +1,18 @@
+import * as firebase from 'firebase'
+import * as R from 'ramda';
+import * as User from "./user";
+const config = {
+  apiKey: "AIzaSyD_bWAzcASMrm1wxxBdxKAfZAkLHkhA6TU",
+  authDomain: "evoloot.firebaseapp.com",
+  databaseURL: "https://evoloot.firebaseio.com",
+  projectId: "evoloot",
+  storageBucket: "evoloot.appspot.com",
+  messagingSenderId: "384034495512"
+};
+const app = firebase.initializeApp(config);
+User.Auth.signInWithEmailAndPassword("kinoarose@gmail.com", "FF2213")
+  .then((credentials) => {
+    console.log(credentials);
+  })
+  .catch(err => console.error(err));
+

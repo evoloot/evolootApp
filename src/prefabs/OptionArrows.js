@@ -1,7 +1,4 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
+import { Helper } from "../utils/helper";
 
 /**
  * @by Evoloot Enterprises Inc.
@@ -15,6 +12,7 @@ export class OptionArrows extends Phaser.Sprite {
         //, x, y,
         super(game, x, y, 'arrows');
         this.anchor.setTo(0.5);
+
         this.inputEnabled = true;
         game.add.existing(this);
         this.animations.add('defaultLeft', [0], 1, false);
@@ -31,12 +29,12 @@ export class OptionArrows extends Phaser.Sprite {
      * - Respectively plays its default animation, else plays on hover animation and scales to 1.1.
      */
     clickListeners() {
-        this.events.onInputOut.add(() => {
-            this.game.add.tween(this.scale).to({ x: 1, y: 1 }, 150, Phaser.Easing.Linear.None, true);
+        this.events.onInputUp.add(() => {
+            //this.game.add.tween(this.scale).to({ x: 1, y: 1 }, 150, Phaser.Easing.Linear.None, true);
             this.animations.play(`default${this.side}`);
         }, this);
-        this.events.onInputOver.add(() => {
-            this.game.add.tween(this.scale).to({ x: 1.1, y: 1.1 }, 150, Phaser.Easing.Linear.None, true);
+        this.events.onInputDown.add(() => {
+            //this.game.add.tween(this.scale).to({ x: 1.1, y: 1.1 }, 150, Phaser.Easing.Linear.None, true);
             this.animations.play(`hover${this.side}`);
         });
     }

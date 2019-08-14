@@ -1,13 +1,4 @@
-/* eslint-disable */
-import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
-import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
-import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
-
-// JSON OBJECT
-import characterAssetsJsonObject from '../assets/data/character.json';
-
 import { Helper } from '../utils/helper';
-import { Keyboard } from './Keyboard';
 import '../libs/asyncPath';
 
 /**
@@ -26,15 +17,14 @@ export class Piece extends Phaser.Sprite {
             this.tint = piece.tint;
             this.frameName = piece.key;
             this.isEnabled = true;
-            this.anchor.setTo(0.5);
             this.scale.setTo(2);
             this.map = map;
             this.wall = wall;
             this.keyboard = keyboard;
         }
         else { // For customization.
-            this.width = 250;
-            this.height = 250;
+            this.width = this.game.world.width * .2;
+            this.height = this.game.world.height * .5;
             this.frameName = characterPart;
         }
 
@@ -45,6 +35,8 @@ export class Piece extends Phaser.Sprite {
         this.game.physics.arcade.enable(this);
         this.body.collideWorldBounds = true;
         this.smoothed = false; // solves size focus problems
+
+        this.anchor.setTo(.5);
 
         // The "Physical" body size
         // starts at 11x 44y;
@@ -89,7 +81,7 @@ export class Piece extends Phaser.Sprite {
         this.animations.add('left', this.moveLeftFrameName, 7, true);
         this.animations.add('right', this.moveRightFrameName, 7, true);
 
-        this.characterPieces = characterAssetsJsonObject.frames; //
+        this.characterPieces = JSON.parse(this.game.cache.getText('character')).frames;
 
         this.game.add.existing(this);
 

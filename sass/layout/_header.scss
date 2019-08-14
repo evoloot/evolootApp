@@ -1,0 +1,227 @@
+.header {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 3rem auto 1rem auto;
+
+    @include respond(medium-phone) {
+        margin: 2rem auto 1rem auto;
+    }
+
+    &__checkbox {
+        @include invisibleElement;
+    }
+
+    &__header {
+        width: 60%;
+        font-size: 7rem;
+        margin: 0 auto;
+        text-shadow: 0 1rem 2rem rgba($color-black, 0.25);
+
+        @include respond(medium-phone){
+            font-size: 5rem;
+        }
+    }
+
+    &__background {
+        position: fixed;
+        width: 8rem;
+        height: 7rem;
+        z-index: 4500;
+        
+        background-color: $color-green-secondary;
+
+        transition: all .8s ease-out;
+    }
+
+    &__background--1 {
+        top: 2rem;  //2rem
+        right: 2rem;
+    }
+
+    &__background--2 {
+        bottom: 2rem;
+        right: 2rem;
+    }
+
+    &__nav {
+        height: 100vh;
+        top: 0;
+        position: fixed;
+        display: inline-block;
+        z-index: 5000;
+
+        opacity: 0;
+        width: 0;
+        right: -10%;
+
+        transition: opacity .8s ease-out;
+
+        &-list{
+            position: absolute;
+            list-style: none;
+            text-align: center;
+            @include centerXY;
+        }
+
+        &-item{
+            margin: 2rem;
+        }
+
+        &-link{
+            display: inline;
+            text-decoration: none;
+            font-size: 7rem;
+            color: $color-white;
+        }
+    }
+    
+    &__nav-button {
+        position: fixed;
+        cursor: pointer;
+        width: 10rem;
+        height: 9rem;
+        border-radius: .7rem;
+       
+        font-size: 300%;
+        background-color: $color-green-primary;
+        box-shadow: 0 .7rem 1rem rgba($color-black, .45);
+        padding: 1rem 2.5rem;
+        z-index: 5500;
+        text-align: center;
+        transition: background-color .3s ease-in;
+        
+        &:hover,
+        &:focus {
+            background-color: $color-green-tertiary;
+        }
+
+        @include respond(medium-phone) {
+            width: 9rem;
+            height: 8rem;
+        }
+
+        &--return {
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 3000;
+
+            &:hover,
+            &:focus {
+                animation: shakeLeftRight .3s ease-in;
+            }
+        }
+        
+    }
+
+    &__nav-button--menu {
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+
+    &__nav-button--settings {
+        bottom: 1.5rem;
+        right: 1.5rem;
+
+        i {
+            color: $color-white;
+            transform: translate(-5%, 5%);
+
+            @include respond(medium-phone) {
+                transform: translate(-15%, 0%);
+            }
+        }
+    }
+
+    &__checkbox--1:checked ~ &__background--1,
+    &__checkbox--2:checked ~ &__background--2 {
+        transform: scale(100) rotate(180deg);
+    }
+
+    &__checkbox--1:checked ~ &__nav--1 {
+        opacity: 1;
+        width: 100%;
+        right: 0;
+    }
+
+    &__checkbox--2:checked ~ &__nav--2{
+        opacity: 1;
+        width: 100%;
+        right: 0;
+    }
+
+    &__return {
+        position: relative;
+        display: inline-block;
+        background: $color-white;
+        @include backgroundGradientTextClip;
+    }
+
+    &__menu {
+        position: relative;
+        margin-bottom: 1.4rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 4.5rem;
+            height: .5rem;
+            background: $color-white;
+            display: inline-block;
+        }
+
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &::before { top: -1.2rem; } 
+        &::after { top: 1.2rem; }
+
+    }
+
+    &__nav-button--return:hover &__return,
+    &__nav-button--return:focus &__return,
+    &__nav-button--settings:hover &__settings,
+    &__checkbox--2:focus + &__nav-button--settings &__settings {
+        background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+        @include backgroundGradientTextClip;
+    }
+
+    &__nav-button:hover &__menu,
+    &__checkbox--1:focus + &__nav-button &__menu {
+        background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+    }
+
+    &__nav-button:hover &__menu::before,
+    &__checkbox--1:focus + &__nav-button &__menu::before {
+        background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+        top: -1.5rem;
+    }
+
+    &__nav-button:hover &__menu::after,
+    &__checkbox--1:focus + &__nav-button &__menu::after {
+        background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
+        top: 1.5rem;
+    }
+
+    // turns menu icon into an X
+    &__checkbox:checked + &__nav-button--menu &__menu {
+        background: transparent;
+    }
+
+    &__checkbox:checked + &__nav-button--menu &__menu::before {
+        top: 0;
+        transform: rotate(135deg); // 180 - 45
+    }
+
+    &__checkbox:checked + &__nav-button--menu &__menu::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+
+}

@@ -1,0 +1,4 @@
+#Tue Jun 04 16:49:36 BRT 2019
+base.0=/home/lypzis/Desktop/workstation/phaserProjects/evoloot-mobile/evoloot/platforms/android/app/build/intermediates/transforms/dex/release/0
+path.0=classes.dex
+renamed.0=classes.dex
