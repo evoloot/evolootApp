@@ -1,6 +1,7 @@
 {
   "name": "evoloot",
   "version": "0.1.0",
+  "homepage": "https://evoloot.github.io/evolootApp/",
   "private": true,
   "dependencies": {
     "parse": "^2.5.1",
@@ -13,6 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "expose-loader": "^0.7.5",
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
     "ramda": "^0.26.1",
     "raw-loader": "^3.0.0",
