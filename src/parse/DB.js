@@ -1,6 +1,12 @@
 import * as Parse from 'parse';
 import * as R from 'ramda';
 
+
+/**
+ * DB 
+ * @author Kino A. Rose
+ */
+
 /* Manage Parse Queries */
 
 /* Parse Post Queries */
