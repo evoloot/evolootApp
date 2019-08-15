@@ -170,12 +170,6 @@ export class SceneAuction extends Phaser.State {
 
     // TEST
     async liveQueryTest() {
-        const client = new parse.LiveQueryClient({
-            applicationId: '81X6CAml1OkjiBkHvz8NHRMtqblGkUrxuLf7DE4e',
-            serverURL: 'wss://evoloottest.back4app.io', // Example: 'wss://livequerytutorial.back4app.io'
-            javascriptKey: 'W9anKkCxFzcD9JCiCgNY8tZN122CEqUtmhsOpdWn'
-        });
-        client.open();
         
         let query = new parse.Query('Auction');
 
