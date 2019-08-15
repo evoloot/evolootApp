@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
-import './parse/index';
+import { BrowserRouter } from 'react-router-dom';
+import Parse from 'parse';
+import environment from './environment';
 import './sass/main.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+Parse.serverURL = environment.serverURL;
+Parse.liveQueryServerURL = environment.liveQueryServerURL;
+Parse.initialize(
+    environment.applicationID,
+    environment.javaScriptKey
+);
 
 const app = (
     <BrowserRouter>
