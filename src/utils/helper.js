@@ -106,7 +106,7 @@ export class Helper {
      * @param {string} side sixth part of the key.
      * @param {string} hand seventh part of the key.
      * @return Object containing the necessary information for loading the specific spritesheet.
-     */ 
+     */
     static pieceKeyFinder(characterPieces, size, gender, scenario, type, category, side, hand = null) {
         let pieceInformation = [size, gender, scenario, type, category, side];
 
@@ -173,29 +173,86 @@ export class Helper {
         switch (scene) {
             case ('SceneAuction'):
                 arena.style.display = 'block';
-                 break;
+                break;
             default:
-                 warning.style.display = 'block';
-                
+                warning.style.display = 'block';
+
         }
 
         this.buildLocation = null;
     }
 
     /**
-     * Centers sprites.
-     * @param {Array<Phaser.Sprite>} spriteArray Any Object or objects with body.
+     * Calculates remaining time difference, subtracting the
+     * 'startDate' from the 'length'.
+     * @param {number} startDate the start date to count from. 
+     * @param {number} length the length(in days).
+     * @returns object containing: day(s), hour(s) and minute(s) remaining.
      */
-    static centralize(...spriteArray) {
-        spriteArray.forEach(e => e.anchor.setTo(0.5));
+    static calculateRemainingTime = (startDate, length) => {
+
+        const actualDate = new Date();
+        const timeLeft = Math.abs(actualDate - startDate);
+        const fullDay = 24 * 60 * 60 * 1000; // in milliseconds
+        const fullHour = 60 * 60 * 1000; // in milliseconds
+
+        let days = Math.floor(timeLeft / fullDay);
+        let hours = Math.floor((timeLeft - days * fullDay) / fullHour);
+        let minutes = Math.round((timeLeft - days * fullDay - hours * fullHour) / 60000);
+
+        days = Math.floor((length * fullDay - timeLeft) / fullDay);
+        hours = 24 - hours;
+        minutes = 60 - minutes;
+
+        if (minutes === 60) {
+            hours++;
+            minutes = 0;
+        }
+        if (hours === 24) {
+            days++;
+            hours = 0;
+        }
+
+        if (days < 0)
+            return 'expired';
+        else
+            return {
+                days,
+                hours,
+                minutes
+            }
     }
 
     /**
-     * Enable physics in sprites.
-     * @param {Phaser.Game} game this.game.
-     * @param {Array<Phaser.Sprite>} spriteArray Any Object or objects with body.
+     * Adjust a number to a decimal look,
+     * good for using in "clocks"
+     * eg.: '7' will be turned into '07'
+     * @param {number} number 
+     * @returns string
      */
-    static enablePhysics(game, ...spriteArray) {
-        spriteArray.forEach(e => game.physics.arcade.enable(e));
+    static updateTime(number) {
+        return number < 10 ? '0' + number : number;
+    }
+
+    /**
+     * Executes a given callback function each second(1000ms)
+     * @param {function} callback 
+     * @returns a function
+     */
+    static regressiveTimer(callback) {
+        callback();
+
+        this.timeout = window.setTimeout(() => {
+            this.regressiveTimer(callback);
+        }, 1000);
+    }
+
+    /**
+     * Clears 'window.setTimeout()'.
+     * - Use it to stop 'regressiveTimer()'
+     */
+    static stopRegressiveTimer() {
+        console.log('cleared');
+        window.clearTimeout(this.timeout);
     }
 }

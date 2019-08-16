@@ -176,3 +176,16 @@ class Register extends Component {
 }
 
 export default Register;
+
+/*
+ import * as db from '../../parse/DB';
+import * as user from '../../parse/user';
+        db.postCustomer(
+            {
+                lastName: 'Homeless',
+                firstName: 'Alfred',
+                birthDate:  new Date('09/04/1995'),
+                user: user.currentUser()
+            }
+        );
+*/

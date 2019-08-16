@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import AuctionItem from '../../../../parse/AuctionItem';
 import * as user from '../../../../parse/user';
+import { Helper } from '../../../../utils/helper';
 
 import ButtonReturn from '../../../../components/Navigation/buttonReturn';
 import NavMenu from '../../../../components/Navigation/navMenu';
@@ -85,37 +86,6 @@ class Part04 extends Component {
         this.displayObject(index);
     }
 
-    calculateRemainingTime = (startDate, auctionLength) => {
-
-        const actualDate = new Date();
-        const timeLeft = Math.abs(actualDate - startDate);
-        const fullDay = 24 * 60 * 60 * 1000; // in milliseconds
-        const fullHour = 60 * 60 * 1000; // in milliseconds
-
-        let days = Math.floor(timeLeft / fullDay);
-        let hours = Math.floor((timeLeft - days * fullDay) / fullHour);
-        let minutes = Math.round((timeLeft - days * fullDay - hours * fullHour) / 60000);
-
-        days = Math.floor((auctionLength * fullDay - timeLeft) / fullDay);
-        hours = 24 - hours;
-        minutes = 60 - minutes;
-
-        if (minutes === 60) {
-            hours++;
-            minutes = 0;
-        }
-        if (hours === 24) {
-            days++;
-            hours = 0;
-        }
-
-        if (days < 0)
-            return 'expired';
-        else
-            return [days + 'd', hours + 'h', minutes + 'm'].join(':');
-
-    }
-
     displayObject = async (number) => {
 
         if (this.state.auctionItems.length > 0)
@@ -132,7 +102,7 @@ class Part04 extends Component {
 
                 const auctionItem = this.state.auctionItems[number];
 
-                const timeLeft = this.calculateRemainingTime(auctionItem.startingDate, auctionItem.auctionLength);
+                const timeLeft = Helper.calculateRemainingTime(auctionItem.startingDate, auctionItem.auctionLength);
 
                 if (!this.state.currentAuctionItem || this.state.currentAuctionItemIndex !== number) {
                     this.setState({
@@ -143,7 +113,7 @@ class Part04 extends Component {
                                 <img src={auctionItem.pictures[0].url()} alt="item" className="auction-item__picture" />
                                 <ol className="auction-item__information-list">
                                     <li className="auction-item__information-item">current price: ${auctionItem.startingBid}</li>
-                                    <li className="auction-item__information-item">time left: {timeLeft}</li>
+                                    <li className="auction-item__information-item">time left: {`${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m`}</li>
 
                                     <li className="auction-item__information-item">
                                         <button

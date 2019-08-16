@@ -177,6 +177,18 @@ class AuctionItem extends Parse.Object {
         }
     }
 
+    retrievePureAuctionItem = async (id) => {
+        const query = new Parse.Query(this);
+
+        try {
+            const object = await query.get(id);
+
+            return object;
+        } catch (err) {
+            console.log(err + ' table does not exist!');
+        }
+    }
+
     postAuctionItem = async (currentUser, auctionParams) => {
 
         try {
@@ -245,7 +257,15 @@ class AuctionItem extends Parse.Object {
             this.setSellerContact(sellerContact);
             this.setParent(currentUser);
 
-            return this.save();
+            const item = await this.save();
+
+            //* creates a new auction for this item
+            const Auction = Parse.Object.extend('Auction');
+            const myNewObject = new Auction();
+
+            myNewObject.set('auctionItem', item);
+            myNewObject.save();
+            ///////////////////////////////////////
 
         } catch (err) {
             console.log(err);

@@ -94,6 +94,7 @@ class Part10 extends Component {
             //send the data
             auctionItem.postAuctionItem(user.currentUser(), this.state.sellParams);
 
+
             this.props.history.push('/evolootApp/auction/sell/part11');
         }
 

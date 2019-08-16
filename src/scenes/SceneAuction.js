@@ -3,6 +3,7 @@ import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
 import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
 import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
 import WebFont from 'webfontloader';
+import Parse from 'parse';
 
 // JSON OBJECT
 import arenaJsonObject from '../assets/data/battleGUI.json';
@@ -17,9 +18,9 @@ import arenaAtlas from '../assets/images/battleGUI.png';
 import characterAtlas from '../assets/images/characterNew.png';
 
 import { Style } from '../utils/style';
+import { Helper } from '../utils/helper';
 import AuctionItem from '../parse/AuctionItem';
 import * as user from '../parse/user';
-import * as parse from 'parse';
 
 /**
  * @by Evoloot Enterprises Inc.
@@ -44,90 +45,89 @@ export class SceneAuction extends Phaser.State {
         this.loadFonts();
         this.loadImages();
         this.loadSpriteSheets();
-
-        this.temporaryAsyncLoader();
     }
 
     // TEST PURPOSES
     // it will be required a live server in order to update and display real time information
     async temporaryAsyncLoader() {
-        this.auctionItem = new AuctionItem();
-        this.currentUser = user.currentUser();
-        let item;
 
-        /*
-        if (sessionStorage.getItem('itemId'))
-            this.auctionItemId = sessionStorage.getItem('itemId');  */
+        this.createScenario();
 
-        this.load.onLoadComplete.addOnce(() => {
-            this.createScenario();
+        // HERE name of the challenger, the current user, update assets to the new ones Adam sent
+        this.createInformationDisplayers();
 
-            // HERE name of the challenger, the current user, update assets to the new ones Adam sent
-            this.createInformationDisplayers();
+        ///////////////////////////////////////////////////////////////////////
+        const item = this.auction.get('auctionItem');
+        let price;
+        let time;
 
-            /// current item price //////////////////
-            //const startingBid = item.startingBid.toFixed(2);
-            this.initialPrice = this.game.add.text(
-                this.game.world.centerX + 15,
-                this.game.world.centerY + 1342,
-                '0000152.25',
-                Style.setText(this.pricePanel, '#21c900', '21px', 'Digital'));
+        if (!this.auction.get('currentItemPrice')) {
+            price = item.getStartingBid();
+        } else {
+            price = this.auction.get('currentItemPrice');
+        }
 
-            /// current auction time left //////////////////
-            this.initialTime = this.game.add.text(
-                this.game.world.centerX + 60,
-                this.game.world.centerY + 1242,
-                '07:00:00',
-                Style.setText(this.timePanel, '#e0ba2d', '22px', 'Digital'));
+        /// current item price //////////////////
+        //const startingBid = item.startingBid.toFixed(2);
+        this.initialPrice = this.game.add.text(
+            this.game.world.centerX + 15,
+            this.game.world.centerY + 1342,
+            price.toFixed(2), //'0000152.25',
+            Style.setText(this.pricePanel, '#21c900', '21px', 'Digital'));
 
+        /// current auction time left //////////////////
+        this.initialTime = this.game.add.text(
+            this.game.world.centerX + 60,
+            this.game.world.centerY + 1242,
+            '07:00:00',
+            Style.setText(this.timePanel, '#e0ba2d', '22px', 'Digital'));
 
-            this.player01Name = this.game.add.text(
-                this.game.world.centerX - 564,
-                this.game.world.centerY + 972,
-                'iamapotato',
-                Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
-
-            this.player02Name = this.game.add.text(
-                this.game.world.centerX + 564,
-                this.game.world.centerY + 972,
-                this.currentUser.get('username'),
-                Style.setText(this.player02BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
-
-
-            this.player01Name.anchor.setTo(.5);
-            this.player02Name.anchor.setTo(.5);
-
-            /* or
-           this.initialPrice = this.game.add.text(
-               this.game.world.centerX + 15,
-               this.game.world.centerY + 1330,
-               '0000152.25',
-               Style.setText(this.pricePanel, '#21c900', '81px', 'Digital')); 
-           
-            /// current auction time left //////////////////
-           this.initialTime = this.game.add.text(
-               this.game.world.centerX + 60,
-               this.game.world.centerY + 1234,
-               '07:00:00',
-               Style.setText(this.timePanel, '#e0ba2d', '84px', 'Digital')); 
-       });
- 
-       this.initialPrice.anchor.setTo(.5);
-       this.initialTime.anchor.setTo(.5);
-*/
-
+        Helper.regressiveTimer(() => {
+            console.log('executed');
+            time = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength());
+            this.initialTime.text = `${Helper.updateTime(time.days)}:${Helper.updateTime(time.hours)}:${Helper.updateTime(time.minutes)}`;
         });
+        //////////////////////////////////////////////////////////////////////
 
-        try {
+        this.createPlayerNames();
 
-            //item = await this.auctionItem.retrieveAuctionItem('D4J143pHWB');
-            //console.log(item);
-            this.load.start();
-        }
-        catch (err) {
-            console.log(err);
-        }
+        this.player02BaseHealth.scale.setTo(-4, 4);
+        this.player02Health.scale.setTo(-4, 4);
 
+
+        this.createPlayers();
+        this.createQueue();
+        this.createButtons();
+
+        this.kick = this.attackAnimationHandler('kick');
+        this.closePunch = this.attackAnimationHandler('closePunch');
+        this.closerSlash = this.attackAnimationHandler('closerSlash');
+        this.fartherSlash = this.attackAnimationHandler('fartherSlash');
+        this.buttonsFunctionality();
+
+        // common UI components setup
+        this.UIComponents = [
+            this.queue,
+            this.buttonKick,
+            this.buttonPunch,
+            this.buttonSpecial,
+            this.buttonWeapon,
+            this.buttonItemInfo,
+            this.pricePanel,
+            this.timePanel,
+            this.initialTime,
+            this.initialPrice,
+            this.player01BaseHealth,
+            this.player02BaseHealth,
+            this.player01Health,
+            this.player02Health
+        ];
+
+        this.UIComponents.forEach(component => {
+            component.scale.setTo(4);
+            component.anchor.setTo(.5);
+            component.smoothed = false;
+        });
 
     }
 
@@ -170,59 +170,38 @@ export class SceneAuction extends Phaser.State {
 
     // TEST
     async liveQueryTest() {
-        
-        let query = new parse.Query('Auction');
+        this.auctionItem = new AuctionItem();
+        this.currentUser = user.currentUser();
 
-        try {
-            let subscription = await query.subscribe();
-            console.log(subscription);
-        } catch (err) {
-            console.log(err);
+        const auctionItem = new AuctionItem();
+        const query = new Parse.Query('Auction');
+
+        if (sessionStorage.getItem('itemId')) {
+            try {
+                this.auctionItemId = sessionStorage.getItem('itemId');
+                const item = await auctionItem.retrievePureAuctionItem(this.auctionItemId);
+                query.equalTo('auctionItem', item);
+                this.auction = await query.first();
+                const subscription = await query.subscribe();
+
+                subscription.on('open', () => {
+                    console.log('connection opened :D');
+                    this.temporaryAsyncLoader();
+                });
+
+                subscription.on('update', object => {
+                    console.log('object updated :D');
+                });
+            }
+            catch (err) {
+                console.log(err);
+            }
         }
     }
 
     create() {
-
-        this.createPlayers();
-        this.createQueue();
-        this.createButtons();
-
-        this.kick = this.attackAnimationHandler('kick');
-        this.closePunch = this.attackAnimationHandler('closePunch');
-        this.closerSlash = this.attackAnimationHandler('closerSlash');
-        this.fartherSlash = this.attackAnimationHandler('fartherSlash');
-        this.buttonsFunctionality();
-
         // TEST
         this.liveQueryTest();
-
-        // common UI components setup
-        this.UIComponents = [
-            this.initialTime,
-            this.initialPrice,
-            this.pricePanel,
-            this.timePanel,
-            this.queue,
-            this.buttonKick,
-            this.buttonPunch,
-            this.buttonSpecial,
-            this.buttonWeapon,
-            this.buttonItemInfo,
-            this.player01BaseHealth,
-            this.player02BaseHealth,
-            this.player01Health,
-            this.player02Health
-        ];
-
-        this.UIComponents.forEach(component => {
-            component.scale.setTo(4);
-            component.anchor.setTo(.5);
-            component.smoothed = false;
-        });
-
-        this.player02BaseHealth.scale.setTo(-4, 4);
-        this.player02Health.scale.setTo(-4, 4);
-
     }
 
     update() {
@@ -249,66 +228,70 @@ export class SceneAuction extends Phaser.State {
     }
 
     attackedAnimationHandler(player01Position, player02Position) {
-        const attacked = this.game.add.tween(this.player01);
+        if (this.player01) {
+            const attacked = this.game.add.tween(this.player01);
 
-        const anim = this.player01.animations;
+            const anim = this.player01.animations;
 
-        attacked.to({ x: this.player01.x - 700, y: this.player01.y - 450, angle: 300 }, 1000, Phaser.Easing.Out);
-        attacked.onStart.add(() => {
-            anim.play('damaged');
-        });
+            attacked.to({ x: this.player01.x - 700, y: this.player01.y - 450, angle: 300 }, 1000, Phaser.Easing.Out);
+            attacked.onStart.add(() => {
+                anim.play('damaged');
+            });
 
-        attacked.onComplete.add(
-            () => {
-                anim.play('idle');
-                this.player01.x = player01Position.x;
-                this.player01.y = player01Position.y;
-                this.player01.angle = 0;
+            attacked.onComplete.add(
+                () => {
+                    anim.play('idle');
+                    this.player01.x = player01Position.x;
+                    this.player01.y = player01Position.y;
+                    this.player01.angle = 0;
 
-                this.player02.x = player02Position.x;
+                    this.player02.x = player02Position.x;
 
+                    [
+                        this.buttonKick,
+                        this.buttonPunch,
+                        this.buttonWeapon,
+                        this.buttonSpecial
+                    ].forEach(e => e.inputEnabled = true);
+                }
+            );
+
+            attacked.start();
+        }
+    }
+
+    attackAnimationHandler(move) {
+        if (this.player01) {
+            const attack = this.game.add.tween(this.player02);
+
+            const anim = this.player02.animations;
+
+            const initialPlayer01Position = { x: this.player01.x, y: this.player01.y };
+            const initialPlayer02Position = { x: this.player02.x, y: this.player02.y };
+
+            attack.to({ x: this.player02.x - 340, y: this.player02.y }, 1000, Phaser.Easing.In);
+            attack.onStart.add(() => {
+                anim.play('moveRight');
                 [
                     this.buttonKick,
                     this.buttonPunch,
                     this.buttonWeapon,
                     this.buttonSpecial
-                ].forEach(e => e.inputEnabled = true);
-            }
-        );
+                ].forEach(e => e.inputEnabled = false);
+            });
 
-        attacked.start();
-    }
+            attack.onComplete.add(
+                () => {
+                    anim.play(move).onComplete.add(() => {
+                        this.attackedAnimationHandler(initialPlayer01Position, initialPlayer02Position);
+                        anim.play('idle');
 
-    attackAnimationHandler(move) {
-        const attack = this.game.add.tween(this.player02);
+                    }, this);
+                }
+            );
 
-        const anim = this.player02.animations;
-
-        const initialPlayer01Position = { x: this.player01.x, y: this.player01.y };
-        const initialPlayer02Position = { x: this.player02.x, y: this.player02.y };
-
-        attack.to({ x: this.player02.x - 340, y: this.player02.y }, 1000, Phaser.Easing.In);
-        attack.onStart.add(() => {
-            anim.play('moveRight');
-            [
-                this.buttonKick,
-                this.buttonPunch,
-                this.buttonWeapon,
-                this.buttonSpecial
-            ].forEach(e => e.inputEnabled = false);
-        });
-
-        attack.onComplete.add(
-            () => {
-                anim.play(move).onComplete.add(() => {
-                    this.attackedAnimationHandler(initialPlayer01Position, initialPlayer02Position);
-                    anim.play('idle');
-
-                }, this);
-            }
-        );
-
-        return attack;
+            return attack;
+        }
     }
 
     createScenario() {
@@ -324,13 +307,20 @@ export class SceneAuction extends Phaser.State {
     }
 
     createPlayers() {
+        const playerAnimations = [];
+
         // some characters //////////////////////////////
         // the winning player / this will be live reloading, meaning that it will be constantly changing as bets are being placed
-        this.player01 = this.game.add.sprite(
-            this.game.world.centerX - 180,
-            this.game.world.centerY + 1420,
-            'character', 'Medium_Feminine_Battle_Idle2.png'
-        );
+        if (this.auction.get('winningPlayer')) {
+            this.player01 = this.game.add.sprite(
+                this.game.world.centerX - 180,
+                this.game.world.centerY + 1420,
+                'character', 'Medium_Feminine_Battle_Idle2.png'
+            );
+
+            this.player01.scale.setTo(4);
+            playerAnimations.push(this.player01);
+        }
 
         // the player who just joined
         this.player02 = this.game.add.sprite(
@@ -339,13 +329,11 @@ export class SceneAuction extends Phaser.State {
             'character', 'Medium_Feminine_Battle_Idle2.png'
         );
 
-        this.player01.scale.setTo(4);
-        this.player02.scale.setTo(-4, 4); // character facing left
 
-        [
-            this.player01,
-            this.player02
-        ].forEach(player => {
+        this.player02.scale.setTo(-4, 4); // character facing left
+        playerAnimations.push(this.player02);
+
+        playerAnimations.forEach(player => {
             player.smoothed = false;
             player.anchor.setTo(0.5);
 
@@ -363,6 +351,27 @@ export class SceneAuction extends Phaser.State {
 
             player.animations.play('idle');
         });
+    }
+
+    createPlayerNames() {
+        if (this.player01) {
+            this.player01Name = this.game.add.text(
+                this.game.world.centerX - 564,
+                this.game.world.centerY + 972,
+                'iamapotato',
+                Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
+
+            this.player01Name.anchor.setTo(.5);
+        }
+
+        this.player02Name = this.game.add.text(
+            this.game.world.centerX + 564,
+            this.game.world.centerY + 972,
+            this.currentUser.get('username'),
+            Style.setText(this.player02BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
+
+
+        this.player02Name.anchor.setTo(.5);
     }
 
     createQueue() {
@@ -412,17 +421,22 @@ export class SceneAuction extends Phaser.State {
             this.buttonSpecial
         ].forEach(e => e.inputEnabled = true);
 
+
         this.buttonKick.events.onInputDown.add(target => {
-            this.kick.start();
+            if (this.player01)
+                this.kick.start();
         });
         this.buttonPunch.events.onInputDown.add(target => {
-            this.closePunch.start();
+            if (this.player01)
+                this.closePunch.start();
         });
         this.buttonWeapon.events.onInputDown.add(target => {
-            this.closerSlash.start();
+            if (this.player01)
+                this.closerSlash.start();
         });
         this.buttonSpecial.events.onInputDown.add(target => {
-            this.fartherSlash.start();
+            if (this.player01)
+                this.fartherSlash.start();
         });
 
         //this.buttonItemInfo;
@@ -468,181 +482,36 @@ export class SceneAuction extends Phaser.State {
     }
 
 
-	/**
-	 * Destroys, kills, remove modals, or turn to null ALL objects of THIS Scene. 
-	 * - Use when heading to another Scene.
-	 */
+    /**
+     * Destroys, kills, remove modals, or turn to null ALL objects of THIS Scene. 
+     * - Use when heading to another Scene.
+     */
     shutdown() {
+        console.log('shutdown')
         // REMEMBER THAT IT IS VERY IMPORTANT TO DESTROY EVERYTHING HERE!
+        Helper.stopRegressiveTimer();
     }
 }
 
 
 /*
-import React, { Component } from 'react';
-import './App.css';
-
-import * as Parse from 'parse';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      todo: null,
-      todosList: []
-    }
-
-    Parse.serverURL = "https://todotutorial.back4app.io";
-    Parse.initialize('j3dBLz81KYQPLUKsmuP0ahny8d1vsPjLpw0fUtxR', 'kIBgtNiI0637TDIwxlReLrq5yHSTyw95hJmvCGnz');
-
-    this.createSubscription();
-  }
-
-  componentDidMount() {
-    //this.getNewTodoList();
-  }
-
-  componentDidUpdate() {
-
-  }
-
-  createSubscription = async () => {
-    this.query = new Parse.Query('message');
-
-    try {
-      let subscription = await this.query.subscribe();
-      let result = await this.query.ascending('createdAt').limit(25).find();
-      this.messages = new Set(result);
 
 
+            /* or
+           this.initialPrice = this.game.add.text(
+               this.game.world.centerX + 15,
+               this.game.world.centerY + 1330,
+               '0000152.25',
+               Style.setText(this.pricePanel, '#21c900', '81px', 'Digital'));
 
-      // this event is triggered if successfully connected
-      subscription.on('open', () => {
-        this.getNewTodoList();
-        console.log('subscription opened :D');
-      });
+            /// current auction time left //////////////////
+           this.initialTime = this.game.add.text(
+               this.game.world.centerX + 60,
+               this.game.world.centerY + 1234,
+               '07:00:00',
+               Style.setText(this.timePanel, '#e0ba2d', '84px', 'Digital'));
+       });
 
-      subscription.on('create', object => {
-        this.messages.add(object);
-        this.getNewTodoList();
-        console.log('Object created :D');
-      });
-
-      subscription.on('delete', object => {
-        this.messages.forEach(message => {
-          if (message.id === object.id)
-            this.messages.delete(message);
-        });
-        this.getNewTodoList();
-        console.log('Object destroyed D:');
-      });
-
-      subscription.on('update', object => {
-        this.getNewTodoList();
-        console.log('Object updated :D');
-      });
-
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  onChangeHandler = event => {
-
-    if (event.target.value.trim() !== '')
-      this.setState({
-        todo: event.target.value
-      });
-  }
-
-  onClickHandler = () => {
-    if (this.state.todo) {
-      let Message = Parse.Object.extend('message');
-      const message = new Message();
-
-      message.set('name', this.state.todo);
-      message.set('completed', false);
-      message.save();
-
-      const input = document.querySelector('input');
-      input.value = '';
-    }
-  }
-
-  getNewTodoList = () => {
-    this.setState({
-      todosList: [...this.messages]
-    });
-  }
-
-  updateTodo = event => {
-    this.state.todosList.forEach(e => {
-      if (e.id === event.target.id) {
-        e.set('completed', event.target.checked);
-        e.save();
-      }
-    });
-    console.log('update?');
-  }
-
-  deleteChecked = () => {
-    this.state.todosList.forEach(e => {
-      if (e.get('completed')) {
-        e.destroy();
-      }
-    });
-  }
-
-  deleteAll = () => {
-    this.state.todosList.forEach(e => {
-      e.destroy();
-    });
-  }
-
-  displayTodosList = () => {
-    console.log('getting here?');
-
-    
-
-    return this.state.todosList.map(message => {
-      console.log(message.get('completed'));
-
-      return (
-        <li key={message.id}>
-          <label htmlFor={message.id}>{message.get('name')}</label>
-          <input
-            type="checkbox"
-            name={message.get('name')}
-            id={message.id}
-            onChange={this.updateTodo}
-            
-            checked={message.get('completed')} />
-        </li>
-      );
-    });
-
-  }
-
-  render() {
-    const todosList = this.displayTodosList();
-
-    return (
-      <div className="App">
-        <input type="text" onChange={this.onChangeHandler} />
-        <button onClick={this.onClickHandler}>ADD</button>
-
-        <ol>
-          {todosList}
-        </ol>
-
-        <button onClick={this.deleteAll}>DELETE ALL</button>
-        <button onClick={this.deleteChecked}>DELETE COMPLETED</button>
-
-        </div>
-        );
-      }
-    }
-    
-    export default App;
-    */
+       this.initialPrice.anchor.setTo(.5);
+       this.initialTime.anchor.setTo(.5);
+*/

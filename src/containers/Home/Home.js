@@ -7,7 +7,6 @@ import Forget from './Forget/Forget';
 
 class Home extends Component {
 
-
     render() {
         return (
             <React.Fragment>

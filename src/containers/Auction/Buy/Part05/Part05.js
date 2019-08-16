@@ -16,14 +16,14 @@ class Part05 extends Component {
 
         this.state = {
             buyParams: [
-    
+
             ],
         };
 
         if (this.props.location.buyParams !== undefined)
             this.state.buyParams.push(...this.props.location.buyParams);
 
-            
+
     }
 
     componentDidMount() {
@@ -33,7 +33,7 @@ class Part05 extends Component {
 
         const itemId = this.state.buyParams.find(el => el.auctionItem);
 
-        if(itemId && itemId !== undefined)
+        if (itemId && itemId !== undefined)
             sessionStorage.setItem('itemId', itemId['auctionItem'].id);
     }
 
@@ -51,7 +51,8 @@ class Part05 extends Component {
                     data={{
                         pathname: '/evolootApp/auction/buy/part04',
                         buyParams: this.state.buyParams
-                    }} />
+                    }}
+                    gameToDestroy={this.destroyGame} />
 
                 <NavMenu destroy={this.destroyGame} />
 
