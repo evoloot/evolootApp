@@ -53,7 +53,6 @@ export class SceneAuction extends Phaser.State {
 
         this.createScenario();
 
-        // HERE name of the challenger, the current user, update assets to the new ones Adam sent
         this.createInformationDisplayers();
 
         ///////////////////////////////////////////////////////////////////////
@@ -83,26 +82,24 @@ export class SceneAuction extends Phaser.State {
             Style.setText(this.timePanel, '#e0ba2d', '22px', 'Digital'));
 
         Helper.regressiveTimer(() => {
-            console.log('executed');
             time = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength());
             this.initialTime.text = `${Helper.updateTime(time.days)}:${Helper.updateTime(time.hours)}:${Helper.updateTime(time.minutes)}`;
         });
         //////////////////////////////////////////////////////////////////////
 
+        this.createPlayers();
         this.createPlayerNames();
 
-        this.player02BaseHealth.scale.setTo(-4, 4);
-        this.player02Health.scale.setTo(-4, 4);
-
-
-        this.createPlayers();
         this.createQueue();
         this.createButtons();
 
+        // TWEENS :D HEEY NASTY STUFF HERE
         this.kick = this.attackAnimationHandler('kick');
         this.closePunch = this.attackAnimationHandler('closePunch');
         this.closerSlash = this.attackAnimationHandler('closerSlash');
         this.fartherSlash = this.attackAnimationHandler('fartherSlash');
+        //////////////////////////////////
+
         this.buttonsFunctionality();
 
         // common UI components setup
@@ -129,6 +126,8 @@ export class SceneAuction extends Phaser.State {
             component.smoothed = false;
         });
 
+        this.player02BaseHealth.scale.setTo(-4, 4);
+        this.player02Health.scale.setTo(-4, 4);
     }
 
     /**
@@ -182,15 +181,16 @@ export class SceneAuction extends Phaser.State {
                 const item = await auctionItem.retrievePureAuctionItem(this.auctionItemId);
                 query.equalTo('auctionItem', item);
                 this.auction = await query.first();
-                const subscription = await query.subscribe();
+                this.subscription = await query.subscribe();
 
-                subscription.on('open', () => {
+                this.subscription.on('open', () => {
                     console.log('connection opened :D');
                     this.temporaryAsyncLoader();
                 });
 
-                subscription.on('update', object => {
+                this.subscription.on('update', object => {
                     console.log('object updated :D');
+                    this.initialPrice.text = this.auction.get('currentItemPrice').toFixed(2);
                 });
             }
             catch (err) {
@@ -228,7 +228,8 @@ export class SceneAuction extends Phaser.State {
     }
 
     attackedAnimationHandler(player01Position, player02Position) {
-        if (this.player01) {
+        if (this.player01 && this.player02) {
+            console.log('getting here?');
             const attacked = this.game.add.tween(this.player01);
 
             const anim = this.player01.animations;
@@ -247,12 +248,8 @@ export class SceneAuction extends Phaser.State {
 
                     this.player02.x = player02Position.x;
 
-                    [
-                        this.buttonKick,
-                        this.buttonPunch,
-                        this.buttonWeapon,
-                        this.buttonSpecial
-                    ].forEach(e => e.inputEnabled = true);
+                    this.enableButtons();
+                    this.auctionFreshStart(); // This won't work inside 'update' HERE
                 }
             );
 
@@ -261,7 +258,7 @@ export class SceneAuction extends Phaser.State {
     }
 
     attackAnimationHandler(move) {
-        if (this.player01) {
+        if (this.player01 && this.player02) {
             const attack = this.game.add.tween(this.player02);
 
             const anim = this.player02.animations;
@@ -272,12 +269,7 @@ export class SceneAuction extends Phaser.State {
             attack.to({ x: this.player02.x - 340, y: this.player02.y }, 1000, Phaser.Easing.In);
             attack.onStart.add(() => {
                 anim.play('moveRight');
-                [
-                    this.buttonKick,
-                    this.buttonPunch,
-                    this.buttonWeapon,
-                    this.buttonSpecial
-                ].forEach(e => e.inputEnabled = false);
+                this.enableButtons(false);
             });
 
             attack.onComplete.add(
@@ -306,72 +298,80 @@ export class SceneAuction extends Phaser.State {
         /////////////////////////////////////////////
     }
 
-    createPlayers() {
-        const playerAnimations = [];
+    createPlayer(playerWinning = false) {
+        let x = this.game.world.centerX;
+        let y = this.game.world.centerY + 1420;
 
+        // left or right (respectively)
+        x = playerWinning ? x - 180 : x + 180;
+
+        // later it will create the characters pieces of the user, probably an async function then
+        const player = this.game.add.sprite(x, y, 'character', 'Medium_Feminine_Battle_Idle2.png');
+
+        // Facing right or left (respectively)
+        playerWinning ? player.scale.setTo(4) : player.scale.setTo(-4, 4);
+
+        player.smoothed = false;
+        player.anchor.setTo(0.5);
+
+        // adding animations for different sprites
+        // note: notice that first redundant part: 'Medium_Feminine ?
+        player.animations.add('moveRight', this.generateFrameNamesArray('Medium_Feminine_OverWorld_Body_Right', 2, 1, 3), 7, true);
+        player.animations.add('idle', this.generateFrameNamesArray('Medium_Feminine_Battle_Idle', 2, 1, 3), 7, true);
+        player.animations.add('guard', this.generateFrameNamesArray('Medium_Feminine_Battle_Block', 2, 1, 3), 7, false);
+        player.animations.add('damaged', this.generateFrameNamesArray('Medium_Feminine_Battle_Damaged', 2, 1, 3), 7, false);
+        player.animations.add('closePunch', this.generateFrameNamesArray('Medium_Feminine_Battle_Punch-Closer', 2, 1, 3), 7, false);
+        player.animations.add('fartherPunch', this.generateFrameNamesArray('Medium_Feminine_Battle_Punch-Farther', 2, 1, 3), 7, false);
+        player.animations.add('closerSlash', this.generateFrameNamesArray('Medium_Feminine_Battle_Slash-Closer', 2, 1, 3), 7, false);
+        player.animations.add('fartherSlash', this.generateFrameNamesArray('Medium_Feminine_Battle_Slash-Farther', 2, 1, 3), 7, false);
+        player.animations.add('kick', this.generateFrameNamesArray('Medium_Feminine_Battle_Kick', 2, 1, 3), 7, false);
+
+        player.animations.play('idle');
+
+        return player;
+    }
+
+    createPlayers() {
         // some characters //////////////////////////////
         // the winning player / this will be live reloading, meaning that it will be constantly changing as bets are being placed
         if (this.auction.get('winningPlayer')) {
-            this.player01 = this.game.add.sprite(
-                this.game.world.centerX - 180,
-                this.game.world.centerY + 1420,
-                'character', 'Medium_Feminine_Battle_Idle2.png'
-            );
-
-            this.player01.scale.setTo(4);
-            playerAnimations.push(this.player01);
+            this.player01 = this.createPlayer(true);
         }
 
         // the player who just joined
-        this.player02 = this.game.add.sprite(
-            this.game.world.centerX + 180,
-            this.game.world.centerY + 1420,
-            'character', 'Medium_Feminine_Battle_Idle2.png'
-        );
-
-
-        this.player02.scale.setTo(-4, 4); // character facing left
-        playerAnimations.push(this.player02);
-
-        playerAnimations.forEach(player => {
-            player.smoothed = false;
-            player.anchor.setTo(0.5);
-
-            // adding animations for different sprites
-            // note: notice that first redundant part: 'Medium_Feminine ?
-            player.animations.add('moveRight', this.generateFrameNamesArray('Medium_Feminine_OverWorld_Body_Right', 2, 1, 3), 7, true);
-            player.animations.add('idle', this.generateFrameNamesArray('Medium_Feminine_Battle_Idle', 2, 1, 3), 7, true);
-            player.animations.add('guard', this.generateFrameNamesArray('Medium_Feminine_Battle_Block', 2, 1, 3), 7, false);
-            player.animations.add('damaged', this.generateFrameNamesArray('Medium_Feminine_Battle_Damaged', 2, 1, 3), 7, false);
-            player.animations.add('closePunch', this.generateFrameNamesArray('Medium_Feminine_Battle_Punch-Closer', 2, 1, 3), 7, false);
-            player.animations.add('fartherPunch', this.generateFrameNamesArray('Medium_Feminine_Battle_Punch-Farther', 2, 1, 3), 7, false);
-            player.animations.add('closerSlash', this.generateFrameNamesArray('Medium_Feminine_Battle_Slash-Closer', 2, 1, 3), 7, false);
-            player.animations.add('fartherSlash', this.generateFrameNamesArray('Medium_Feminine_Battle_Slash-Farther', 2, 1, 3), 7, false);
-            player.animations.add('kick', this.generateFrameNamesArray('Medium_Feminine_Battle_Kick', 2, 1, 3), 7, false);
-
-            player.animations.play('idle');
-        });
+        if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
+            this.player02 = this.createPlayer(false);
+        }
     }
 
-    createPlayerNames() {
+    async createPlayerNames() {
         if (this.player01) {
-            this.player01Name = this.game.add.text(
-                this.game.world.centerX - 564,
-                this.game.world.centerY + 972,
-                'iamapotato',
-                Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
+            try {
+                const aUser = this.auction.get('winningPlayer');
+                const test = await user.retrieveUser(aUser);
 
-            this.player01Name.anchor.setTo(.5);
+                this.player01Name = this.game.add.text(
+                    this.game.world.centerX - 564,
+                    this.game.world.centerY + 972,
+                    this.auction.get('winningPlayer').get('username'),
+                    Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
+
+                this.player01Name.anchor.setTo(.5);
+            } catch (err) {
+                console.log(err);
+            }
         }
 
-        this.player02Name = this.game.add.text(
-            this.game.world.centerX + 564,
-            this.game.world.centerY + 972,
-            this.currentUser.get('username'),
-            Style.setText(this.player02BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
+        if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
+            this.player02Name = this.game.add.text(
+                this.game.world.centerX + 564,
+                this.game.world.centerY + 972,
+                this.currentUser.get('username'),
+                Style.setText(this.player02BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
 
 
-        this.player02Name.anchor.setTo(.5);
+            this.player02Name.anchor.setTo(.5);
+        }
     }
 
     createQueue() {
@@ -413,30 +413,105 @@ export class SceneAuction extends Phaser.State {
         );
     }
 
-    buttonsFunctionality() {
+    async auctionFreshStart() {
+
+        try {
+            this.enableButtons(false);
+
+            // player2 is set to be the winner
+            this.auction.set('winningPlayer', user.currentUser());
+
+            // updates current item price
+            if (!this.auction.get('currentItemPrice'))
+                this.auction.set('currentItemPrice', this.auction.get('auctionItem').getStartingBid());
+
+            await this.auction.save();
+
+            if (this.player01Name)
+                this.player01Name.text = this.auction.get('winningPlayer').get('username'); //user.currentUser().get('username');
+            else {
+                // becomes player1 (create)
+                this.player01Name = this.game.add.text(
+                    this.game.world.centerX - 564,
+                    this.game.world.centerY + 972,
+                    this.auction.get('winningPlayer').get('username'), //user.currentUser().get('username')
+                    Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
+
+                this.player01Name.anchor.setTo(.5);
+            }
+
+            if (this.player01) {
+                this.player01.destroy();
+            }
+
+            this.player01 = this.createPlayer(true);
+
+            // player2 name deleted
+            this.player02Name.destroy();
+            this.player02.destroy();
+
+            console.log('Hello');
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    enableButtons(enable = true) {
         [
             this.buttonKick,
             this.buttonPunch,
             this.buttonWeapon,
             this.buttonSpecial
-        ].forEach(e => e.inputEnabled = true);
+        ].forEach(e => e.inputEnabled = enable);
+    }
 
+    buttonsFunctionality() {
+        this.enableButtons();
 
-        this.buttonKick.events.onInputDown.add(target => {
-            if (this.player01)
-                this.kick.start();
-        });
         this.buttonPunch.events.onInputDown.add(target => {
-            if (this.player01)
+            if (this.player01) {
+                console.log(target);
+                //increase currentItemPrice .25 value
+                this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + .25);
+                this.auction.save();
+
                 this.closePunch.start();
+            }
+            else
+                this.auctionFreshStart();
+        });
+        this.buttonKick.events.onInputDown.add(target => {
+            if (this.player01) {
+                //increase currentItemPrice .5 value
+                this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + .5);
+                this.auction.save();
+
+                this.kick.start();
+            }
+            else
+                this.auctionFreshStart();
         });
         this.buttonWeapon.events.onInputDown.add(target => {
-            if (this.player01)
+            if (this.player01) {
+                //increase currentItemPrice 1 value
+                this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + 1);
+                this.auction.save();
+
                 this.closerSlash.start();
+            }
+            else
+                this.auctionFreshStart();
         });
         this.buttonSpecial.events.onInputDown.add(target => {
-            if (this.player01)
+            if (this.player01) {
+                //increase currentItemPrice 2 value
+                this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + 2);
+                this.auction.save();
+
                 this.fartherSlash.start();
+            }
+            else
+                this.auctionFreshStart();
         });
 
         //this.buttonItemInfo;

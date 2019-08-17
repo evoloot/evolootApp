@@ -32,6 +32,20 @@ export const updateUserAttribute = (column, newValue) => {
     user.save();
 }
 
+export const retrieveUser = async (userToFind) => {
+    const query = new Parse.Query(userToFind);
+
+    try {
+        const userId = userToFind.id;
+        const user = await query.get(userId);
+
+        return user;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
 export const retrieveUsername = async (userToFind) => {
     const query = new Parse.Query(userToFind);
 
