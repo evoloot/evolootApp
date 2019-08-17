@@ -52,7 +52,6 @@ export class SceneAuction extends Phaser.State {
     async temporaryAsyncLoader() {
 
         this.createScenario();
-
         this.createInformationDisplayers();
 
         ///////////////////////////////////////////////////////////////////////
@@ -92,12 +91,6 @@ export class SceneAuction extends Phaser.State {
 
         this.createQueue();
         this.createButtons();
-
-        // TWEENS :D HEEY NASTY STUFF HERE
-        this.kick = this.attackAnimationHandler('kick');
-        this.closePunch = this.attackAnimationHandler('closePunch');
-        this.closerSlash = this.attackAnimationHandler('closerSlash');
-        this.fartherSlash = this.attackAnimationHandler('fartherSlash');
         //////////////////////////////////
 
         this.buttonsFunctionality();
@@ -189,8 +182,22 @@ export class SceneAuction extends Phaser.State {
                 });
 
                 this.subscription.on('update', object => {
-                    console.log('object updated :D');
                     this.initialPrice.text = this.auction.get('currentItemPrice').toFixed(2);
+                    console.log('I updated :D');
+
+                    // this will trigger for both :), joining and winner respectively
+                    //if(this.player02 && this.player02.alive)   console.log('Player02 Exists');
+                    //else console.log('Nobody Here with that name');
+
+                    
+                    if(this.auction.get('winningPlayer').id !== user.currentUser().id) {
+                        this.timeToReset = true;
+                        console.log('Im losing');
+                    } 
+                    else {
+                        console.log('Im winning');
+                    };
+                    
                 });
             }
             catch (err) {
@@ -208,6 +215,21 @@ export class SceneAuction extends Phaser.State {
 
         if (this.game.camera.y < 2704) {
             this.game.camera.y += 100; //this.game.camera.y += 4; for debug purposes
+        }
+
+        if (this.timeToUpdate) { // need to know if I'm currently P1(winning) or P2(attacker)
+            console.log('I executed an action.');
+            this.action.start();
+            this.timeToUpdate = false;
+            // IS ON UPDATE EXECUTING AFTER THIS?
+        }
+
+        if(this.timeToReset) {
+            this.createPlayers(); // there are two player01
+            this.createPlayerNames(); // the player01 name is there
+            this.enableButtons();
+
+            this.timeToReset = false;
         }
     }
 
@@ -227,29 +249,18 @@ export class SceneAuction extends Phaser.State {
         return framesArray;
     }
 
-    attackedAnimationHandler(player01Position, player02Position) {
+    attackedAnimationHandler() { //player01Position, player02Position
         if (this.player01 && this.player02) {
-            console.log('getting here?');
             const attacked = this.game.add.tween(this.player01);
-
-            const anim = this.player01.animations;
 
             attacked.to({ x: this.player01.x - 700, y: this.player01.y - 450, angle: 300 }, 1000, Phaser.Easing.Out);
             attacked.onStart.add(() => {
-                anim.play('damaged');
+                this.player01.animations.play('damaged');
             });
 
             attacked.onComplete.add(
                 () => {
-                    anim.play('idle');
-                    this.player01.x = player01Position.x;
-                    this.player01.y = player01Position.y;
-                    this.player01.angle = 0;
-
-                    this.player02.x = player02Position.x;
-
-                    this.enableButtons();
-                    this.auctionFreshStart(); // This won't work inside 'update' HERE
+                    this.auctionFreshStart();
                 }
             );
 
@@ -261,22 +272,17 @@ export class SceneAuction extends Phaser.State {
         if (this.player01 && this.player02) {
             const attack = this.game.add.tween(this.player02);
 
-            const anim = this.player02.animations;
-
-            const initialPlayer01Position = { x: this.player01.x, y: this.player01.y };
-            const initialPlayer02Position = { x: this.player02.x, y: this.player02.y };
-
             attack.to({ x: this.player02.x - 340, y: this.player02.y }, 1000, Phaser.Easing.In);
             attack.onStart.add(() => {
-                anim.play('moveRight');
+                this.animations.play('moveRight');
                 this.enableButtons(false);
             });
 
             attack.onComplete.add(
                 () => {
-                    anim.play(move).onComplete.add(() => {
-                        this.attackedAnimationHandler(initialPlayer01Position, initialPlayer02Position);
-                        anim.play('idle');
+                    this.animations.play(move).onComplete.add(() => {
+                        this.attackedAnimationHandler(); 
+                        this.animations.play('idle');
 
                     }, this);
                 }
@@ -328,10 +334,15 @@ export class SceneAuction extends Phaser.State {
 
         player.animations.play('idle');
 
+        this.animations = player.animations;
+
         return player;
     }
 
     createPlayers() {
+        if (this.player01) this.player01.destroy();
+        if (this.player02) this.player02.destroy();
+
         // some characters //////////////////////////////
         // the winning player / this will be live reloading, meaning that it will be constantly changing as bets are being placed
         if (this.auction.get('winningPlayer')) {
@@ -342,9 +353,17 @@ export class SceneAuction extends Phaser.State {
         if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
             this.player02 = this.createPlayer(false);
         }
+
+        this.kick = this.attackAnimationHandler('kick');
+        this.closePunch = this.attackAnimationHandler('closePunch');
+        this.closerSlash = this.attackAnimationHandler('closerSlash');
+        this.fartherSlash = this.attackAnimationHandler('fartherSlash');
     }
 
     async createPlayerNames() {
+        if (this.player01Name)
+            this.player01Name.destroy();
+
         if (this.player01) {
             try {
                 const aUser = this.auction.get('winningPlayer');
@@ -416,8 +435,6 @@ export class SceneAuction extends Phaser.State {
     async auctionFreshStart() {
 
         try {
-            this.enableButtons(false);
-
             // player2 is set to be the winner
             this.auction.set('winningPlayer', user.currentUser());
 
@@ -427,10 +444,14 @@ export class SceneAuction extends Phaser.State {
 
             await this.auction.save();
 
+            if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id))
+                this.enableButtons();
+            else
+                this.enableButtons(false);
+
             if (this.player01Name)
                 this.player01Name.text = this.auction.get('winningPlayer').get('username'); //user.currentUser().get('username');
             else {
-                // becomes player1 (create)
                 this.player01Name = this.game.add.text(
                     this.game.world.centerX - 564,
                     this.game.world.centerY + 972,
@@ -465,53 +486,37 @@ export class SceneAuction extends Phaser.State {
         ].forEach(e => e.inputEnabled = enable);
     }
 
+    setAction(increment, tween) {
+        if (this.auction.get('winningPlayer').id !== user.currentUser().id) {
+
+            this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + increment);
+
+            this.timeToUpdate = true;
+            this.action = tween;
+        }
+        else if (!this.auction.get('winningPlayer'))
+            this.auctionFreshStart();
+    }
+
     buttonsFunctionality() {
-        this.enableButtons();
+        if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id))
+            this.enableButtons();
 
         this.buttonPunch.events.onInputDown.add(target => {
-            if (this.player01) {
-                console.log(target);
-                //increase currentItemPrice .25 value
-                this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + .25);
-                this.auction.save();
-
-                this.closePunch.start();
-            }
-            else
-                this.auctionFreshStart();
+            //increase currentItemPrice .25 value
+            this.setAction(.25, this.closePunch);
         });
         this.buttonKick.events.onInputDown.add(target => {
-            if (this.player01) {
-                //increase currentItemPrice .5 value
-                this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + .5);
-                this.auction.save();
-
-                this.kick.start();
-            }
-            else
-                this.auctionFreshStart();
+            //increase currentItemPrice .5 value
+            this.setAction(.5, this.kick);
         });
         this.buttonWeapon.events.onInputDown.add(target => {
-            if (this.player01) {
-                //increase currentItemPrice 1 value
-                this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + 1);
-                this.auction.save();
-
-                this.closerSlash.start();
-            }
-            else
-                this.auctionFreshStart();
+            //increase currentItemPrice 1 value
+            this.setAction(1, this.closerSlash);
         });
         this.buttonSpecial.events.onInputDown.add(target => {
-            if (this.player01) {
-                //increase currentItemPrice 2 value
-                this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + 2);
-                this.auction.save();
-
-                this.fartherSlash.start();
-            }
-            else
-                this.auctionFreshStart();
+            //increase currentItemPrice 2 value
+            this.setAction(2, this.fartherSlash);
         });
 
         //this.buttonItemInfo;
