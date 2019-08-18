@@ -224,7 +224,7 @@ export class SceneAuction extends Phaser.State {
             // IS ON UPDATE EXECUTING AFTER THIS?
         }
 
-        if(this.timeToReset) {
+        if(this.timeToReset && !((this.player02 && this.player02.alive) && this.game.tweens.isTweening(this.player02))) {
             this.createPlayers(); // there are two player01
             this.createPlayerNames(); // the player01 name is there
             this.enableButtons();
@@ -487,14 +487,14 @@ export class SceneAuction extends Phaser.State {
     }
 
     setAction(increment, tween) {
-        if (this.auction.get('winningPlayer').id !== user.currentUser().id) {
+        if (this.auction.get('winningPlayer') && (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
 
             this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + increment);
 
             this.timeToUpdate = true;
             this.action = tween;
         }
-        else if (!this.auction.get('winningPlayer'))
+        else 
             this.auctionFreshStart();
     }
 
