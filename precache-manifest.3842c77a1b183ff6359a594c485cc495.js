@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cc0b08f69c24f4edabbd771cae00a2e1",
+    "revision": "1b7375d72292ec9668186942ecd3c0f8",
     "url": "/evolootApp/index.html"
   },
   {
-    "revision": "231ebe9ca79fd5ae82e1",
+    "revision": "9a196ec669f95a558e40",
     "url": "/evolootApp/static/css/main.b4ba4768.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/evolootApp/static/js/2.9cc9932b.chunk.js"
   },
   {
-    "revision": "231ebe9ca79fd5ae82e1",
-    "url": "/evolootApp/static/js/main.59bbd874.chunk.js"
+    "revision": "9a196ec669f95a558e40",
+    "url": "/evolootApp/static/js/main.fdd2212c.chunk.js"
   },
   {
     "revision": "03857484132db450c7c2",
