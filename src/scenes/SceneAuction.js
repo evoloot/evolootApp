@@ -21,6 +21,7 @@ import { Style } from '../utils/style';
 import { Helper } from '../utils/helper';
 import AuctionItem from '../parse/AuctionItem';
 import * as user from '../parse/user';
+import * as userCharacter from '../parse/userCharacter';
 
 /**
  * @by Evoloot Enterprises Inc.
@@ -176,28 +177,62 @@ export class SceneAuction extends Phaser.State {
                 this.auction = await query.first();
                 this.subscription = await query.subscribe();
 
+                // who is participating?
+                this.players = await this.auction.get('queue');
+                if (this.players && this.players.length > 0) {
+                    if (this.players.find(player => player.id === this.currentUser.id) === undefined)
+                        this.players.push(this.currentUser);
+                } else {
+                    this.players = [this.currentUser];
+                }
+
+                //this.auction.set('queue', players);
+
                 this.subscription.on('open', () => {
                     console.log('connection opened :D');
                     this.temporaryAsyncLoader();
+
+                    this.auction.set('queue', this.players); //this.players
+                    this.auction.save();
                 });
 
                 this.subscription.on('update', object => {
                     this.initialPrice.text = this.auction.get('currentItemPrice').toFixed(2);
                     console.log('I updated :D');
 
-                    // this will trigger for both :), joining and winner respectively
-                    //if(this.player02 && this.player02.alive)   console.log('Player02 Exists');
-                    //else console.log('Nobody Here with that name');
+                    // update the 'queue' of all other players of course
+                    if (this.players.length !== object.get('queue').length) { // is this relyable???
+                        this.players = object.get('queue');
+                        console.log('Updating local queue');
+                    }
 
-                    
-                    if(this.auction.get('winningPlayer').id !== user.currentUser().id) {
-                        this.timeToReset = true;
+
+                    // Now I also need to know who executed an action and only update after that
+                    if (this.auction.get('winningPlayer').id !== user.currentUser().id) {
+                        
+                        if(this.imWinning)
+                            this.someoneAttacked = this.auction.get('firstServed');
+                        else
+                            this.timeToReset = true;
+
                         console.log('Im losing');
-                    } 
+                    }
                     else {
+                        this.imWinning = true;
                         console.log('Im winning');
                     };
-                    
+
+                });
+
+
+                this.subscription.on('close', () => {
+                    // when I'm leaving, remove me from the 'queue'
+                    const index = this.players.findIndex(player => player.id === this.currentUser.id);
+                    this.players.splice(index, 1);
+
+                    this.auction.set('queue', this.players); //this.players
+                    this.auction.save();
+                    console.log('Bye bye :D');
                 });
             }
             catch (err) {
@@ -217,20 +252,66 @@ export class SceneAuction extends Phaser.State {
             this.game.camera.y += 100; //this.game.camera.y += 4; for debug purposes
         }
 
-        if (this.timeToUpdate) { // need to know if I'm currently P1(winning) or P2(attacker)
+        if (this.timeToUpdate) {
             console.log('I executed an action.');
             this.action.start();
             this.timeToUpdate = false;
             // IS ON UPDATE EXECUTING AFTER THIS?
         }
 
-        if(this.timeToReset && !((this.player02 && this.player02.alive) && this.game.tweens.isTweening(this.player02))) {
-            this.createPlayers(); // there are two player01
-            this.createPlayerNames(); // the player01 name is there
+        if (this.timeToReset && !((this.player02 && this.player02.alive) && this.game.tweens.isTweening(this.player02))) {
+            this.createPlayers();
+            this.createPlayerNames();
             this.enableButtons();
 
+            console.log('Unfortunately, I reseted D:')
             this.timeToReset = false;
         }
+
+        // HOW TO AVOID THE INFINITE ANIMATION LOOP
+        if (this.someoneAttacked && this.imWinning) {
+            this.attacker();
+            this.someoneAttacked = null;
+            this.imWinning = false;
+        }
+    }
+
+    async attacker() {
+        try {
+            const firstServed = this.auction.get('firstServed');
+
+            const attackerCharacter = await userCharacter.getCharacter(firstServed.user);
+            const attackerName = await user.retrieveUsername(firstServed.user);
+
+            console.log(firstServed);
+
+            this.player02 = this.createPlayer(false);
+            this.player02Name = this.createPlayerName(attackerName, false);
+
+            switch (firstServed.action) {
+                case (.25):
+                    this.closePunch = this.attackAnimationHandler('closePunch', false);
+                    this.closePunch.start();
+                    break;
+                case (.5):
+                    this.kick = this.attackAnimationHandler('kick', false);
+                    this.kick.start();
+                    break;
+                case (1):
+                    this.closerSlash = this.attackAnimationHandler('closerSlash', false);
+                    this.closerSlash.start();
+                    break;
+                default:
+                    this.fartherSlash = this.attackAnimationHandler('fartherSlash', false);
+                    this.fartherSlash.start();
+            }
+
+
+            console.log('Im hurt :O');
+        } catch (err) {
+            console.log(err);
+        }
+
     }
 
     /**
@@ -249,7 +330,7 @@ export class SceneAuction extends Phaser.State {
         return framesArray;
     }
 
-    attackedAnimationHandler() { //player01Position, player02Position
+    attackedAnimationHandler(freshStart) { //player01Position, player02Position
         if (this.player01 && this.player02) {
             const attacked = this.game.add.tween(this.player01);
 
@@ -260,7 +341,12 @@ export class SceneAuction extends Phaser.State {
 
             attacked.onComplete.add(
                 () => {
-                    this.auctionFreshStart();
+                    if (freshStart) {
+                        this.auctionFreshStart();
+                        console.log('hello darkness my old friend');
+                    } else {
+                        this.timeToReset = true;
+                    }
                 }
             );
 
@@ -268,7 +354,7 @@ export class SceneAuction extends Phaser.State {
         }
     }
 
-    attackAnimationHandler(move) {
+    attackAnimationHandler(move, freshStart = true) {
         if (this.player01 && this.player02) {
             const attack = this.game.add.tween(this.player02);
 
@@ -281,7 +367,7 @@ export class SceneAuction extends Phaser.State {
             attack.onComplete.add(
                 () => {
                     this.animations.play(move).onComplete.add(() => {
-                        this.attackedAnimationHandler(); 
+                        this.attackedAnimationHandler(freshStart);
                         this.animations.play('idle');
 
                     }, this);
@@ -309,7 +395,7 @@ export class SceneAuction extends Phaser.State {
         let y = this.game.world.centerY + 1420;
 
         // left or right (respectively)
-        x = playerWinning ? x - 180 : x + 180;
+        playerWinning ? x -= 180 : x += 180;
 
         // later it will create the characters pieces of the user, probably an async function then
         const player = this.game.add.sprite(x, y, 'character', 'Medium_Feminine_Battle_Idle2.png');
@@ -360,36 +446,43 @@ export class SceneAuction extends Phaser.State {
         this.fartherSlash = this.attackAnimationHandler('fartherSlash');
     }
 
+    createPlayerName(name, playerWinning = false) {
+        let x = this.game.world.centerX;
+        let y = this.game.world.centerY + 972;
+
+        playerWinning ? x -= 564 : x += 564;
+
+        const nameText = this.game.add.text(
+            x,
+            y,
+            name,
+            Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3)
+        );
+
+        nameText.anchor.setTo(.5);
+
+        return nameText;
+    }
+
+    // NEED IMPROVEMENT HERE
     async createPlayerNames() {
-        if (this.player01Name)
-            this.player01Name.destroy();
+        if (this.player01Name) this.player01Name.destroy();
+
+        if(this.player02Name) this.player02Name.destroy();
 
         if (this.player01) {
             try {
                 const aUser = this.auction.get('winningPlayer');
-                const test = await user.retrieveUser(aUser);
+                await user.retrieveUser(aUser);
 
-                this.player01Name = this.game.add.text(
-                    this.game.world.centerX - 564,
-                    this.game.world.centerY + 972,
-                    this.auction.get('winningPlayer').get('username'),
-                    Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
-
-                this.player01Name.anchor.setTo(.5);
+                this.player01Name = this.createPlayerName(this.auction.get('winningPlayer').get('username'), true);
             } catch (err) {
                 console.log(err);
             }
         }
 
         if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
-            this.player02Name = this.game.add.text(
-                this.game.world.centerX + 564,
-                this.game.world.centerY + 972,
-                this.currentUser.get('username'),
-                Style.setText(this.player02BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
-
-
-            this.player02Name.anchor.setTo(.5);
+            this.player02Name = this.createPlayerName(this.currentUser.get('username'));
         }
     }
 
@@ -449,6 +542,7 @@ export class SceneAuction extends Phaser.State {
             else
                 this.enableButtons(false);
 
+
             if (this.player01Name)
                 this.player01Name.text = this.auction.get('winningPlayer').get('username'); //user.currentUser().get('username');
             else {
@@ -460,6 +554,7 @@ export class SceneAuction extends Phaser.State {
 
                 this.player01Name.anchor.setTo(.5);
             }
+
 
             if (this.player01) {
                 this.player01.destroy();
@@ -491,10 +586,15 @@ export class SceneAuction extends Phaser.State {
 
             this.auction.set('currentItemPrice', this.auction.get('currentItemPrice') + increment);
 
+            this.auction.set('firstServed', {
+                user: this.currentUser,
+                action: increment
+            });
+
             this.timeToUpdate = true;
             this.action = tween;
         }
-        else 
+        else
             this.auctionFreshStart();
     }
 
@@ -570,6 +670,9 @@ export class SceneAuction extends Phaser.State {
         console.log('shutdown')
         // REMEMBER THAT IT IS VERY IMPORTANT TO DESTROY EVERYTHING HERE!
         Helper.stopRegressiveTimer();
+
+        // closes connection
+        this.subscription.unsubscribe();
     }
 }
 
