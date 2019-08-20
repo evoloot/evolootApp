@@ -48,9 +48,48 @@ export class SceneAuction extends Phaser.State {
         this.loadSpriteSheets();
     }
 
-    // TEST PURPOSES
-    // it will be required a live server in order to update and display real time information
-    async temporaryAsyncLoader() {
+    create() {
+        this.createAuctionSubscription();
+    }
+
+    update() {
+        this.arenaStartCameraAnimation();
+        this.updateStateCases();
+    }
+
+    /**
+     * Loads fonts for Phaser.
+     */
+    loadFonts() {
+        WebFont.load({
+            custom: {
+                families: [
+                    'Fixedsyswoff',
+                    'Digital'
+                ]
+            }
+        });
+    }
+
+    loadSpriteSheets() {
+        this.game.load.atlasJSONHash('character', characterAtlas, characterJsonPath);
+        this.game.load.atlasJSONHash('arena', arenaAtlas, arenaJsonPath);
+    }
+
+    /**
+    * Loads single images.
+    */
+    loadImages() { }
+
+    /**
+    * Loads json files.
+    */
+    loadJsonData() { }
+
+    /**
+     * Starts game creating all of its components.
+     */
+    async startGame() {
 
         this.createScenario();
         this.createInformationDisplayers();
@@ -125,44 +164,17 @@ export class SceneAuction extends Phaser.State {
     }
 
     /**
-     * Loads fonts for Phaser.
+     * Creates Auction subscription for live updates(Live queries).
+     * - Finds Auction based on the auctionItem id and subscribes it.
+     * - On subscription open, starts game add the current user to the 
+     * "queue", if he is not already in there.
+     * - On subscription update, updates the price text, if auction queue is different than the local 
+     * stored, updates local queue. Verifies if user is not the winning player, if true, verifies if he was, 
+     * setting 'this.someoneAttacked', else, sets 'this.timeToReset' to true. Case he is the winning player,
+     * sets 'this.imWinning' to true.
+     * - On subscription close, removes this user from the "queue".
      */
-    loadFonts() {
-        WebFont.load({
-            custom: {
-                families: [
-                    'Fixedsyswoff',
-                    'Digital'
-                ]
-            }
-        });
-    }
-
-    loadSpriteSheets() {
-        this.game.load.atlasJSONHash('character', characterAtlas, characterJsonPath);
-        this.game.load.atlasJSONHash('arena', arenaAtlas, arenaJsonPath);
-    }
-
-    /**
-    * Loads single images.
-    */
-    loadImages() {
-        //this.game.load.image('tileSet', tileSet); // maybe not necessary here
-        //this.game.load.image('temporarybg', temporaryBG);
-        //this.game.load.image('white_layer', whiteLayer);
-    }
-
-    /**
-    * Loads json files.
-    * - 'Texts' are usually used for data checking.
-    * - 'Tilemap' is for any scene that requires map.
-    */
-    loadJsonData() {
-        //this.game.load.text('character', characterAssetsJsonPath); 
-    }
-
-    // TEST
-    async liveQueryTest() {
+    async createAuctionSubscription() {
         this.auctionItem = new AuctionItem();
         this.currentUser = user.currentUser();
 
@@ -177,7 +189,6 @@ export class SceneAuction extends Phaser.State {
                 this.auction = await query.first();
                 this.subscription = await query.subscribe();
 
-                // who is participating?
                 this.players = await this.auction.get('queue');
                 if (this.players && this.players.length > 0) {
                     if (this.players.find(player => player.id === this.currentUser.id) === undefined)
@@ -186,53 +197,43 @@ export class SceneAuction extends Phaser.State {
                     this.players = [this.currentUser];
                 }
 
-                //this.auction.set('queue', players);
-
                 this.subscription.on('open', () => {
-                    console.log('connection opened :D');
-                    this.temporaryAsyncLoader();
+                    this.startGame();
 
-                    this.auction.set('queue', this.players); //this.players
+                    this.auction.set('queue', this.players);
                     this.auction.save();
                 });
 
                 this.subscription.on('update', object => {
-                    this.initialPrice.text = this.auction.get('currentItemPrice').toFixed(2);
-                    console.log('I updated :D');
+                    if(this.auction.get('currentItemPrice'))
+                        this.initialPrice.text = this.auction.get('currentItemPrice').toFixed(2);
 
-                    // update the 'queue' of all other players of course
                     if (this.players.length !== object.get('queue').length) { // is this relyable???
                         this.players = object.get('queue');
-                        console.log('Updating local queue');
                     }
 
+                    if (this.auction.get('winningPlayer') && (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
 
-                    // Now I also need to know who executed an action and only update after that
-                    if (this.auction.get('winningPlayer').id !== user.currentUser().id) {
-                        
-                        if(this.imWinning)
+                        if (this.imWinning)
                             this.someoneAttacked = this.auction.get('firstServed');
                         else
                             this.timeToReset = true;
-
-                        console.log('Im losing');
                     }
                     else {
                         this.imWinning = true;
-                        console.log('Im winning');
                     };
-
                 });
 
-
                 this.subscription.on('close', () => {
-                    // when I'm leaving, remove me from the 'queue'
                     const index = this.players.findIndex(player => player.id === this.currentUser.id);
                     this.players.splice(index, 1);
 
-                    this.auction.set('queue', this.players); //this.players
+                    this.auction.set('queue', this.players);
                     this.auction.save();
-                    console.log('Bye bye :D');
+
+                    this.players = null;
+                    this.auction = null;
+                    this.currentUser = null;
                 });
             }
             catch (err) {
@@ -241,34 +242,35 @@ export class SceneAuction extends Phaser.State {
         }
     }
 
-    create() {
-        // TEST
-        this.liveQueryTest();
+    /**
+     * Scrolls 'camera' down to the arena.
+     */
+    arenaStartCameraAnimation() {
+        if (this.game.camera.y < 2704) {
+            this.game.camera.y += 4; //this.game.camera.y += 100; for debug purposes
+        }
     }
 
-    update() {
-
-        if (this.game.camera.y < 2704) {
-            this.game.camera.y += 100; //this.game.camera.y += 4; for debug purposes
-        }
-
+    /**
+     * This handles how the game should update based on the current global state
+     * of the auction and what was the role of the current user during the update.
+     * - First case is the user is player02 and executed an action.
+     * - Second case is if there is a player02 and it is not in the middle of an animation.
+     * - Third case is if user is player01 and someone attacked.
+     */
+    updateStateCases() {
         if (this.timeToUpdate) {
-            console.log('I executed an action.');
             this.action.start();
             this.timeToUpdate = false;
-            // IS ON UPDATE EXECUTING AFTER THIS?
         }
 
         if (this.timeToReset && !((this.player02 && this.player02.alive) && this.game.tweens.isTweening(this.player02))) {
             this.createPlayers();
             this.createPlayerNames();
-            this.enableButtons();
-
-            console.log('Unfortunately, I reseted D:')
+            this.enableActionButtons();
             this.timeToReset = false;
         }
 
-        // HOW TO AVOID THE INFINITE ANIMATION LOOP
         if (this.someoneAttacked && this.imWinning) {
             this.attacker();
             this.someoneAttacked = null;
@@ -276,14 +278,15 @@ export class SceneAuction extends Phaser.State {
         }
     }
 
+    /**
+     * Creates respective attacker which will appear to the winning player(player01).
+     */
     async attacker() {
         try {
             const firstServed = this.auction.get('firstServed');
 
             const attackerCharacter = await userCharacter.getCharacter(firstServed.user);
             const attackerName = await user.retrieveUsername(firstServed.user);
-
-            console.log(firstServed);
 
             this.player02 = this.createPlayer(false);
             this.player02Name = this.createPlayerName(attackerName, false);
@@ -306,8 +309,6 @@ export class SceneAuction extends Phaser.State {
                     this.fartherSlash.start();
             }
 
-
-            console.log('Im hurt :O');
         } catch (err) {
             console.log(err);
         }
@@ -330,7 +331,12 @@ export class SceneAuction extends Phaser.State {
         return framesArray;
     }
 
-    attackedAnimationHandler(freshStart) { //player01Position, player02Position
+    /**
+     * The player01 animation reaction to an attack.
+     * @param {boolean} freshStart whether it should update the state at the end of animation or not. 
+     * - Note that setting 'freshStart' to true in the wrong place will result into a REALLY bad thing.
+     */
+    attackedAnimationHandler(freshStart) {
         if (this.player01 && this.player02) {
             const attacked = this.game.add.tween(this.player01);
 
@@ -343,7 +349,6 @@ export class SceneAuction extends Phaser.State {
                 () => {
                     if (freshStart) {
                         this.auctionFreshStart();
-                        console.log('hello darkness my old friend');
                     } else {
                         this.timeToReset = true;
                     }
@@ -354,6 +359,12 @@ export class SceneAuction extends Phaser.State {
         }
     }
 
+    /**
+     * The player02 attack animation.
+     * @param {string} move name of the animation to play. 
+     * @param {boolean} freshStart whether it should update the state at the end of animation or not. 
+     * default is TRUE
+     */
     attackAnimationHandler(move, freshStart = true) {
         if (this.player01 && this.player02) {
             const attack = this.game.add.tween(this.player02);
@@ -361,7 +372,7 @@ export class SceneAuction extends Phaser.State {
             attack.to({ x: this.player02.x - 340, y: this.player02.y }, 1000, Phaser.Easing.In);
             attack.onStart.add(() => {
                 this.animations.play('moveRight');
-                this.enableButtons(false);
+                this.enableActionButtons(false);
             });
 
             attack.onComplete.add(
@@ -378,8 +389,10 @@ export class SceneAuction extends Phaser.State {
         }
     }
 
+    /**
+     * Creates arena scenario, the background.
+     */
     createScenario() {
-        // arena background //////////////////////////
         this.arena = this.game.add.sprite(0, 0, 'arena', 'BattleBack.png');
         this.arena.anchor.setTo(0);
         this.arena.scale.setTo(1);
@@ -387,9 +400,13 @@ export class SceneAuction extends Phaser.State {
         this.arena.height = 3400;
         this.arena.smoothed = false;
         this.game.world.setBounds(0, 0, 1600, 3400); // this sets where the camera starts at
-        /////////////////////////////////////////////
     }
 
+    /**
+     * Creates a player.
+     * @param {boolean} playerWinning respetively will place the player left(true) or right(false), 
+     * defaults to FALSE.
+     */
     createPlayer(playerWinning = false) {
         let x = this.game.world.centerX;
         let y = this.game.world.centerY + 1420;
@@ -425,17 +442,21 @@ export class SceneAuction extends Phaser.State {
         return player;
     }
 
+    /**
+     * Create players.
+     * - Verifies which players already exists and destroys them.
+     * - Creates player01 if there is a winningPlayer.
+     * - Creates player02 if there is no winningPlayer or there is and it is not me.
+     * - Assign tweens.
+     */
     createPlayers() {
         if (this.player01) this.player01.destroy();
         if (this.player02) this.player02.destroy();
 
-        // some characters //////////////////////////////
-        // the winning player / this will be live reloading, meaning that it will be constantly changing as bets are being placed
         if (this.auction.get('winningPlayer')) {
             this.player01 = this.createPlayer(true);
         }
 
-        // the player who just joined
         if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
             this.player02 = this.createPlayer(false);
         }
@@ -446,17 +467,27 @@ export class SceneAuction extends Phaser.State {
         this.fartherSlash = this.attackAnimationHandler('fartherSlash');
     }
 
+    /**
+     * Creates a player name and places it to its respective
+     * place, whether it is the winning(player01) or the losing(player02) player. 
+     * @param {string} name the player name.
+     * @param {boolean} playerWinning respetively will place the name left(true) or right(false), 
+     * defaults to FALSE.
+     */
     createPlayerName(name, playerWinning = false) {
         let x = this.game.world.centerX;
         let y = this.game.world.centerY + 972;
 
         playerWinning ? x -= 564 : x += 564;
 
-        const nameText = this.game.add.text(
-            x,
-            y,
-            name,
-            Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3)
+        const nameText = this.game.add.text(x, y, name,
+            Style.setText(
+                this.player01BaseHealth,
+                '#fff',
+                '36px',
+                'Fixedsyswoff',
+                3
+            )
         );
 
         nameText.anchor.setTo(.5);
@@ -464,11 +495,16 @@ export class SceneAuction extends Phaser.State {
         return nameText;
     }
 
-    // NEED IMPROVEMENT HERE
+    /**
+     * Creates the name of the players.
+     * - Verifies which names already exists and destroys them.
+     * - If there is a player01, creates its name.
+     * - creates player02 name if there is no winning player or you are player02.
+     */
     async createPlayerNames() {
         if (this.player01Name) this.player01Name.destroy();
 
-        if(this.player02Name) this.player02Name.destroy();
+        if (this.player02Name) this.player02Name.destroy();
 
         if (this.player01) {
             try {
@@ -486,9 +522,10 @@ export class SceneAuction extends Phaser.State {
         }
     }
 
+    /**
+     * Creates queue.
+     */
     createQueue() {
-        // UI components
-        //queue
         this.queue = this.game.add.sprite(
             this.game.world.centerX - 632,
             this.game.world.centerY + 864,
@@ -496,69 +533,57 @@ export class SceneAuction extends Phaser.State {
         );
     }
 
+    /**
+     * Creates interactive buttons.
+     * - action buttons are enabled if there is no winning player or you are player02.
+     */
     createButtons() {
-        // interaction buttons ///////////
-        this.buttonKick = this.game.add.sprite(
-            this.game.world.centerX - 475,
-            this.game.world.centerY + 1250,
-            'arena', 'ActionButton_Kick.png'
-        );
-        this.buttonPunch = this.game.add.sprite(
-            this.game.world.centerX - 692,
-            this.game.world.centerY + 1250,
-            'arena', 'ActionButton_Punch.png'
-        );
-        this.buttonWeapon = this.game.add.sprite(
-            this.game.world.centerX - 692,
-            this.game.world.centerY + 1440,
-            'arena', 'ActionButton_Weapon.png'
-        );
-        this.buttonSpecial = this.game.add.sprite(
-            this.game.world.centerX - 475,
-            this.game.world.centerY + 1440,
-            'arena', 'ActionButton_Special.png'
-        );
+        const firstColumn = this.game.world.centerX - 475;
+        const secondColumn = this.game.world.centerX - 692;
+        const firstRow = this.game.world.centerY + 1250;
+        const secondRow = this.game.world.centerY + 1440;
+
+        this.buttonKick = this.game.add.sprite(firstColumn, firstRow, 'arena', 'ActionButton_Kick.png');
+        this.buttonPunch = this.game.add.sprite(secondColumn, firstRow, 'arena', 'ActionButton_Punch.png');
+        this.buttonWeapon = this.game.add.sprite(secondColumn, secondRow, 'arena', 'ActionButton_Weapon.png');
+        this.buttonSpecial = this.game.add.sprite(firstColumn, secondRow, 'arena', 'ActionButton_Special.png');
+
         this.buttonItemInfo = this.game.add.sprite(
             this.game.world.centerX,
             this.game.world.centerY + 1640,
             'arena', 'ItemInfo-Bottom_Closed.png'
         );
+
+        if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id))
+            this.enableActionButtons();
     }
 
+    /**
+     * Triggers update of the auction by updating(saving) its new values.
+     * - Arriving here means that there is a new winning player for sure.
+     * - If the FIRST bid was sent, the 'currentItemPrice' is set to the 
+     * auctionItem 'startingBid' price. 
+     * - The action buttons are disabled if you're winning.
+     * - If there was a player01, its name gets recycled, else creates him a name.
+     * - The previous player01 gets destroyed. (note: maybe there is possible improved way to do this...).
+     * - Creates new player01 with user's character properties.
+     * - player02 gets destroyed along with its name.(note: maybe there is possible improved way to do this...).
+     */
     async auctionFreshStart() {
-
         try {
-            // player2 is set to be the winner
             this.auction.set('winningPlayer', user.currentUser());
 
-            // updates current item price
             if (!this.auction.get('currentItemPrice'))
                 this.auction.set('currentItemPrice', this.auction.get('auctionItem').getStartingBid());
 
             await this.auction.save();
 
-            if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id))
-                this.enableButtons();
-            else
-                this.enableButtons(false);
+            this.enableActionButtons(this.auction.get('winningPlayer').id !== user.currentUser().id);
 
+            this.player01Name ? this.player01Name.text = this.auction.get('winningPlayer').get('username')
+                : this.player01Name = this.createPlayerName(this.auction.get('winningPlayer').get('username'), true);
 
-            if (this.player01Name)
-                this.player01Name.text = this.auction.get('winningPlayer').get('username'); //user.currentUser().get('username');
-            else {
-                this.player01Name = this.game.add.text(
-                    this.game.world.centerX - 564,
-                    this.game.world.centerY + 972,
-                    this.auction.get('winningPlayer').get('username'), //user.currentUser().get('username')
-                    Style.setText(this.player01BaseHealth, '#fff', '36px', 'Fixedsyswoff', 3));
-
-                this.player01Name.anchor.setTo(.5);
-            }
-
-
-            if (this.player01) {
-                this.player01.destroy();
-            }
+            if (this.player01) this.player01.destroy();
 
             this.player01 = this.createPlayer(true);
 
@@ -566,13 +591,16 @@ export class SceneAuction extends Phaser.State {
             this.player02Name.destroy();
             this.player02.destroy();
 
-            console.log('Hello');
         } catch (err) {
             console.log(err);
         }
     }
 
-    enableButtons(enable = true) {
+    /**
+     * Enables action buttons, defaults to TRUE.
+     * @param {boolean} enable set it to true, to enable, false, to disable.
+     */
+    enableActionButtons(enable = true) {
         [
             this.buttonKick,
             this.buttonPunch,
@@ -581,6 +609,16 @@ export class SceneAuction extends Phaser.State {
         ].forEach(e => e.inputEnabled = enable);
     }
 
+    /**
+     * Executes an specific action that sets updates to the auction, respectively,
+     * the currentItemPrice, and firstServed(the first who performed an action before
+     * triggering the update).
+     * - If there is a winning player and It is not me, proceed with the action,
+     * else, it can only means that there is no one yet into the auction and then
+     * I was able to execute an action, leading to a fresh start.
+     * @param {number} increment the value increment the auction price.
+     * @param {Phaser.Tween} tween the respective tween to execute.
+     */
     setAction(increment, tween) {
         if (this.auction.get('winningPlayer') && (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
 
@@ -598,67 +636,43 @@ export class SceneAuction extends Phaser.State {
             this.auctionFreshStart();
     }
 
+    /**
+     * Assigns functions to existing buttons.
+     */
     buttonsFunctionality() {
-        if (!this.auction.get('winningPlayer') || (this.auction.get('winningPlayer').id !== user.currentUser().id))
-            this.enableButtons();
-
         this.buttonPunch.events.onInputDown.add(target => {
-            //increase currentItemPrice .25 value
             this.setAction(.25, this.closePunch);
         });
         this.buttonKick.events.onInputDown.add(target => {
-            //increase currentItemPrice .5 value
             this.setAction(.5, this.kick);
         });
         this.buttonWeapon.events.onInputDown.add(target => {
-            //increase currentItemPrice 1 value
             this.setAction(1, this.closerSlash);
         });
         this.buttonSpecial.events.onInputDown.add(target => {
-            //increase currentItemPrice 2 value
             this.setAction(2, this.fartherSlash);
         });
 
         //this.buttonItemInfo;
     }
 
+    /**
+     * Creates arena information displayers.
+     * - Respectively: base health containers, health bars, time panel, price panel;
+     */
     createInformationDisplayers() {
-        // players information displayers //////////////
-        this.player01BaseHealth = this.game.add.sprite(
-            this.game.world.centerX - 524,
-            this.game.world.centerY + 970,
-            'arena', 'PlayerGuage_Base.png'
-        );
-        this.player02BaseHealth = this.game.add.sprite(
-            this.game.world.centerX + 524,
-            this.game.world.centerY + 970,
-            'arena', 'PlayerGuage_Base.png'
-        );
-        this.player01Health = this.game.add.sprite(
-            this.game.world.centerX - 530,
-            this.game.world.centerY + 970,
-            'arena', 'PlayerGuage_Health.png'
-        );
-        this.player02Health = this.game.add.sprite(
-            this.game.world.centerX + 530,
-            this.game.world.centerY + 970,
-            'arena', 'PlayerGuage_Health.png'
-        );
+        let x = this.game.world.centerX;
+        let y = this.game.world.centerY;
 
+        this.player01BaseHealth = this.game.add.sprite(x - 524, y + 970, 'arena', 'PlayerGuage_Base.png');
+        this.player02BaseHealth = this.game.add.sprite(x + 524, y + 970, 'arena', 'PlayerGuage_Base.png');
 
-        // time panel
-        this.timePanel = this.game.add.sprite(
-            this.game.world.centerX + 8,
-            this.game.world.centerY + 1242,
-            'arena', 'Backboard_TIME.png'
-        );
+        this.player01Health = this.game.add.sprite(x - 530, y + 970, 'arena', 'PlayerGuage_Health.png');
+        this.player02Health = this.game.add.sprite(x + 530, y + 970, 'arena', 'PlayerGuage_Health.png');
 
-        // price panel
-        this.pricePanel = this.game.add.sprite(
-            this.game.world.centerX - 10,
-            this.game.world.centerY + 1338,
-            'arena', 'Backboard_VALUE.png'
-        );
+        this.timePanel = this.game.add.sprite(x + 8, y + 1242, 'arena', 'Backboard_TIME.png');
+
+        this.pricePanel = this.game.add.sprite(x - 10, y + 1338, 'arena', 'Backboard_VALUE.png');
     }
 
 
@@ -667,34 +681,41 @@ export class SceneAuction extends Phaser.State {
      * - Use when heading to another Scene.
      */
     shutdown() {
-        console.log('shutdown')
-        // REMEMBER THAT IT IS VERY IMPORTANT TO DESTROY EVERYTHING HERE!
         Helper.stopRegressiveTimer();
 
-        // closes connection
         this.subscription.unsubscribe();
+
+        this.player01BaseHealth.destroy();
+        this.player02BaseHealth.destroy();
+        this.player01Health.destroy();
+        this.player02Health.destroy();
+        this.timePanel.destroy();
+        this.pricePanel.destroy();
+
+        this.buttonPunch.destroy();
+        this.buttonKick.destroy();
+        this.buttonWeapon.destroy();
+        this.buttonSpecial.destroy();
+        this.buttonItemInfo.destroy();
+
+        if (this.player01) {
+            this.player01.destroy();
+            this.player01Name.destroy();
+        }
+
+        if (this.player02) {
+            this.player02.destroy();
+            this.player02Name.destroy();
+        }
+
+        this.queue.destroy();
+        this.initialTime.destroy();
+        this.initialPrice.destroy();
+
+        this.action = null;
+        this.timeToUpdate = null;
+        this.auctionItem = null;
+        this.auctionItemId = null;
+        this.subscription = null; // HERE
     }
 }
-
-
-/*
-
-
-            /* or
-           this.initialPrice = this.game.add.text(
-               this.game.world.centerX + 15,
-               this.game.world.centerY + 1330,
-               '0000152.25',
-               Style.setText(this.pricePanel, '#21c900', '81px', 'Digital'));
-
-            /// current auction time left //////////////////
-           this.initialTime = this.game.add.text(
-               this.game.world.centerX + 60,
-               this.game.world.centerY + 1234,
-               '07:00:00',
-               Style.setText(this.timePanel, '#e0ba2d', '84px', 'Digital'));
-       });
-
-       this.initialPrice.anchor.setTo(.5);
-       this.initialTime.anchor.setTo(.5);
-*/
