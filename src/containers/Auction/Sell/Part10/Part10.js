@@ -26,7 +26,9 @@ class Part10 extends Component {
         const auctionItem = new AuctionItem();
         const auctionStyleRadios = document.getElementsByName('auctionStyle');
         const auctionLengthRadios = document.getElementsByName('auctionLength');
-        const minimumBidPriceRadios = document.getElementsByName('auctionMinimumPrice');
+
+        const auctionName = document.getElementById('auctionName');
+
         const startingPrice = document.getElementById('auctionStartingPrice');
         const reserveInteger = document.getElementById('auctionReserveInteger');
         const reserveCent = document.getElementById('auctionReserveCent');
@@ -35,10 +37,19 @@ class Part10 extends Component {
 
         let valid = true;
 
+        if (auctionName && (auctionName.value.trim() !== ''))
+            if (this.state.sellParams.find(el => el['auctionName']) === undefined)
+                this.state.sellParams.push({ auctionName: auctionName.value });
+            else {
+                this.state.sellParams.splice(this.state.sellParams.findIndex(el => el['auctionName']), 1);
+                this.state.sellParams.push({ auctionName: auctionName.value });
+            }
+        else
+            valid = false;
+
         [
             auctionStyleRadios,
-            auctionLengthRadios,
-            minimumBidPriceRadios
+            auctionLengthRadios
         ].forEach(element => {
             if (element) {
                 const elementNames = Array.from(element).find(radio => radio.checked === true);
@@ -93,7 +104,6 @@ class Part10 extends Component {
         if (valid) {
             //send the data
             auctionItem.postAuctionItem(user.currentUser(), this.state.sellParams);
-
 
             this.props.history.push('/evolootApp/auction/sell/part11');
         }
@@ -208,7 +218,11 @@ class Part10 extends Component {
                                 </div>
 
                                 <div className="row u-very-small-margin-bottom">
-                                    <div className="col-1-of-4">
+                                    <label htmlFor="auctionName" className="label dialog__checkbox-label u-padding-none">
+                                        <p className="paragraph">Auction Name: </p>
+                                    </label>
+                                    <input type="text" id="auctionName" name="auctionName" />
+                                    {/* <div className="col-1-of-4">
                                         <div className="label dialog__checkbox-label u-padding-none">
                                             <p className="paragraph">Minimum Bid Price:</p>
                                         </div>
@@ -239,7 +253,8 @@ class Part10 extends Component {
                                             <input type="radio" name="auctionMinimumPrice" defaultValue="5" className="dialog__input" />
                                             <span className="dialog__checkmark--circle"></span>
                                         </label>
-                                    </div>
+                                    </div>*/}
+
                                 </div>
 
                                 <div className="row u-very-small-margin-bottom">

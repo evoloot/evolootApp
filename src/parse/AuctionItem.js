@@ -9,6 +9,10 @@ class AuctionItem extends Parse.Object {
         super('AuctionItem');
     }
 
+    getName() {
+        return this.get('name');
+    }
+
     getPictures() {
         return this.get('images');
     }
@@ -69,6 +73,9 @@ class AuctionItem extends Parse.Object {
         return this.get('parent');
     }
 
+    setName(string) {
+        this.set('name', string);
+    }
 
     setPictures(arrayOfFiles) {
         this.set('images', arrayOfFiles);
@@ -140,26 +147,27 @@ class AuctionItem extends Parse.Object {
             returnPolicy: auctionItem.getReturnPolicy(),
             auctionStyle: auctionItem.getAuctionStyle(),
             auctionLength: auctionItem.getAuctionLength(),
-            auctionMinBidPrice: auctionItem.getMinimumBidPrice(),
+            //auctionMinBidPrice: auctionItem.getMinimumBidPrice(),
             extrasDescription: auctionItem.getExtrasDescription(),
             extrasCondition: auctionItem.getExtrasCondition(),
             instructionsCondition: auctionItem.getInstructionsCondition(),
             itemCondition: auctionItem.getItemCondition(),
             sellerContact: auctionItem.getSellerContact(),
+            name: auctionItem.getName(),
             parent: auctionItem.getParent()
         }
     }
 
     retrieveAuctionItems = async () => {
         const query = new Parse.Query(this);
-        let auctionItems = [];
+        //let auctionItems = [];
 
         try {
             const arrayOfObjects = await query.find();
 
-            auctionItems = arrayOfObjects.map(auctionItem => this.setLocalAuctionItem(auctionItem));
+            //auctionItems = arrayOfObjects.map(auctionItem => this.setLocalAuctionItem(auctionItem));
 
-            return auctionItems;
+            return arrayOfObjects;//auctionItems;
         } catch (err) {
             console.log(err + ' table does not exist!');
         }
@@ -215,12 +223,13 @@ class AuctionItem extends Parse.Object {
             const itemInstructionsCondition = itemInformation.filter(el => el['instructions'])[0];
 
             //auction
+            const name = itemInformation.filter(el => el['auctionName'])[0];
             const itemReserve = itemInformation.filter(el => el['auctionReserveValue'])[0];
             const itemStartingPrice = itemInformation.filter(el => el['auctionStartingPrice'])[0];
             const itemAuctionReturnPolicy = itemInformation.filter(el => el['auctionReturnPolicy'])[0];
             const itemAuctionStyle = itemInformation.filter(el => el['auctionStyle'])[0];
             const itemAuctionLength = itemInformation.filter(el => el['auctionLength'])[0];
-            const itemAuctionMinimumPrice = itemInformation.filter(el => el['auctionMinimumPrice'])[0];
+            //const itemAuctionMinimumPrice = itemInformation.filter(el => el['auctionMinimumPrice'])[0];
 
             // retrieve current time, for startingdate
             const startDate = new Date();
@@ -231,13 +240,16 @@ class AuctionItem extends Parse.Object {
 
             this.setPictures(parseImageFiles);
 
+            this.setName(name.auctionName);
             this.setReserve(parseFloat(itemReserve.auctionReserveValue));
             this.setStartingBid(parseFloat(itemStartingPrice.auctionStartingPrice));
             this.setStartDate(startDate);
             this.setReturnPolicy(itemAuctionReturnPolicy.auctionReturnPolicy);
             this.setAuctionStyle(parseInt(itemAuctionStyle.auctionStyle, 10));
             this.setAuctionLength(parseInt(itemAuctionLength.auctionLength, 10));
-            this.setMinimumBidPrice(parseFloat(itemAuctionMinimumPrice.auctionMinimumPrice));
+
+            //HERE
+            //this.setMinimumBidPrice(parseFloat(itemAuctionMinimumPrice.auctionMinimumPrice));
 
             if (itemExtrasDescription && (itemExtrasDescription !== undefined))
                 this.setExtrasDescription(itemExtrasDescription.extrasDescription);

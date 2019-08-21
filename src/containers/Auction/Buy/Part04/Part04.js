@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 import AuctionItem from '../../../../parse/AuctionItem';
 import * as user from '../../../../parse/user';
+import Parse from 'parse';
 import { Helper } from '../../../../utils/helper';
 
 import ButtonReturn from '../../../../components/Navigation/buttonReturn';
 import NavMenu from '../../../../components/Navigation/navMenu';
+import Popup from '../../../../components/UI/popup';
 
 import './Part04.css';
 
@@ -15,15 +17,13 @@ class Part04 extends Component {
         super(props);
 
         this.state = {
-            buyParams: [
-
-            ],
-
+            buyParams: [],
             auctionItems: [],
             currentAuctionItem: null,
             currentAuctionItemIndex: 0,
             currentAuctionItemDetails: null,
-            firstLoad: false
+            firstLoad: false,
+            popup: null
         };
 
         if (this.props.location.buyParams !== undefined)
@@ -38,10 +38,10 @@ class Part04 extends Component {
     }
 
     setAuctionObjects = async () => {
-        const auctionItem = new AuctionItem();
+        this.auctionItem = new AuctionItem();
 
         try {
-            const items = await auctionItem.retrieveAuctionItems();
+            const items = await this.auctionItem.retrieveAuctionItems();
 
             this.setState({
                 auctionItems: items
@@ -87,33 +87,34 @@ class Part04 extends Component {
     }
 
     displayObject = async (number) => {
+        const Auction = Parse.Object.extend('Auction');
+        const query = new Parse.Query(Auction);
 
         if (this.state.auctionItems.length > 0)
             try {
-
-                if (!this.state.auctionItems[number].owner) {
-                    const ownerUserName = await user.retrieveUsername(this.state.auctionItems[number].parent);
-
-                    this.state.auctionItems[number] = {
-                        ...this.state.auctionItems[number],
-                        owner: ownerUserName
-                    }
-                }
-
-                const auctionItem = this.state.auctionItems[number];
-
-                const timeLeft = Helper.calculateRemainingTime(auctionItem.startingDate, auctionItem.auctionLength);
-
                 if (!this.state.currentAuctionItem || this.state.currentAuctionItemIndex !== number) {
+                    this.auctionItemForShow = this.auctionItem.setLocalAuctionItem(this.state.auctionItems[number]);
+
+                    query.equalTo('auctionItem', this.state.auctionItems[number]);
+                    const search = await query.first();
+    
+                    this.auctionItemForShow.price = search.get('currentItemPrice') ? search.get('currentItemPrice') : this.auctionItemForShow.startingBid;
+    
+                    this.auctionItemForShow.owner = await user.retrieveUser(this.state.auctionItems[number].getParent());
+    
+                    const timeLeft = Helper.calculateRemainingTime(this.auctionItemForShow.startingDate, this.auctionItemForShow.auctionLength);
+                    const time = `${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m`;
+
                     this.setState({
                         currentAuctionItemIndex: number,
                         firstLoad: true,
                         currentAuctionItem: (
                             <figure className="auction-item__box">
-                                <img src={auctionItem.pictures[0].url()} alt="item" className="auction-item__picture" />
+                                <h2 className="auction-item__title">{this.auctionItemForShow.name}</h2>
+                                <img src={this.auctionItemForShow.pictures[0].url()} alt="item" className="auction-item__picture" />
                                 <ol className="auction-item__information-list">
-                                    <li className="auction-item__information-item">current price: ${auctionItem.startingBid}</li>
-                                    <li className="auction-item__information-item">time left: {`${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m`}</li>
+                                    <li className="auction-item__information-item">current price: ${this.auctionItemForShow.price}</li>
+                                    <li className="auction-item__information-item">time left: {time}</li>
 
                                     <li className="auction-item__information-item">
                                         <button
@@ -132,24 +133,24 @@ class Part04 extends Component {
                         currentAuctionItemDetails: (
                             <React.Fragment>
                                 <li className="details__list-item">
-                                    <p className="topic">item condition:</p><p className="topic__content">{auctionItem.itemCondition}</p>
+                                    <p className="topic">item condition:</p><p className="topic__content">{this.auctionItemForShow.itemCondition}</p>
                                 </li>
                                 <li className="details__list-item details__list-item--description">
-                                    <p className="topic">details: </p><p className="topic__content">{auctionItem.extrasDescription}</p>
+                                    <p className="topic">details: </p><p className="topic__content">{this.auctionItemForShow.extrasDescription}</p>
                                 </li>
                                 <li className="details__list-item">
-                                    <p className="topic">return policy:</p><p className="topic__content">{auctionItem.returnPolicy}</p>
+                                    <p className="topic">return policy:</p><p className="topic__content">{this.auctionItemForShow.returnPolicy}</p>
                                 </li>
                                 <li className="details__list-item">
                                     <p className="topic">shipping</p>
                                 </li>
                                 <li className="details__list-item">
-                                    <p className="topic">seller:</p><p className="topic__content">{auctionItem.owner}</p>
+                                    <p className="topic">seller:</p><p className="topic__content">{this.auctionItemForShow.owner.get('username')}</p>
                                 </li>
                                 <li className="details__list-item">
                                 </li>
                                 <li className="details__list-item">
-                                    <p>contact:</p><p className="topic__content">{auctionItem.sellerContact}</p>
+                                    <p>contact:</p><p className="topic__content">{this.auctionItemForShow.sellerContact}</p>
                                 </li>
                                 <li className="details__list-item">
                                     <button className="button-alternative join-button" onClick={this.closeModal}>close</button>
@@ -165,18 +166,40 @@ class Part04 extends Component {
     }
 
     joinAuction = () => {
-        const currentItem = this.state.auctionItems[this.state.currentAuctionItemIndex];
+        if (this.auctionItemForShow.owner.id !== user.currentUser().id) {
+            const currentItem = this.state.auctionItems[this.state.currentAuctionItemIndex];
 
-        if (this.state.buyParams.find(el => el.auctionItem) === undefined)
-            this.state.buyParams.push({ auctionItem: currentItem });
-        else {
-            this.state.buyParams.splice(this.state.buyParams.findIndex(el => el.auctionItem), 1);
-            this.state.buyParams.push({ auctionItem: currentItem });
+            if (this.state.buyParams.find(el => el.auctionItem) === undefined)
+                this.state.buyParams.push({ auctionItem: currentItem });
+            else {
+                this.state.buyParams.splice(this.state.buyParams.findIndex(el => el.auctionItem), 1);
+                this.state.buyParams.push({ auctionItem: currentItem });
+            }
+
+            this.props.history.push({
+                pathname: '/evolootApp/auction/buy/part05',
+                buyParams: this.state.buyParams
+            });
+        } else {
+            this.setState({
+                popup: (
+                    <Popup
+                        type='message'
+                        click={this.closeWarning}>
+                        <div className="popup__text">
+                            <p className="paragraph">
+                                You're the owner of this auction...
+                            </p>
+                        </div>
+                    </Popup>
+                )
+            });
         }
+    }
 
-        this.props.history.push({
-            pathname: '/evolootApp/auction/buy/part05',
-            buyParams: this.state.buyParams
+    closeWarning = () => {
+        this.setState({
+            popup: null
         });
     }
 
@@ -221,6 +244,8 @@ class Part04 extends Component {
                     </div>
 
                 </div>
+
+                {this.state.popup}
             </div>
         );
     }

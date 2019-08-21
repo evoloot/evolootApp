@@ -5,6 +5,10 @@
     height: 100%;
 }
 
+.auction-item__title {
+    position: relative;
+}
+
 .auction-item__box {
     position: relative;
     display: flex;
@@ -13,6 +17,7 @@
     color: #000;
     border-radius: 1rem;
     border: solid #000 .3rem;
+    flex-wrap: wrap;
 }
 
 .auction-item__picture {
