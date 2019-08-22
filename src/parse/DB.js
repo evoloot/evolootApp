@@ -4,7 +4,7 @@ import * as R from 'ramda';
 
 /**
  * DB 
- * @author Kino A. Rose
+ * @author Kino A. Rose, Victor V. Piccoli
  */
 
 /* Manage Parse Queries */
@@ -227,7 +227,7 @@ export const getUserProfileByUser = (user) => {
  */
 export const getCustomerByUser = (user) => {
    const query = createQuery("Customer")
-   query.equal("user", user.id)
+   query.equalTo("user", user)
    return query.first()
 };
 

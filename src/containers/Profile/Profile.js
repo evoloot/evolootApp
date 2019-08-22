@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import * as user from '../../parse/user';
-
-//test 
-import * as testDB from '../../parse/DB';
+import * as db from '../../parse/DB';
 
 import NavMenu from '../../components/Navigation/navMenu';
 
@@ -12,15 +10,19 @@ class Profile extends Component {
         userInfo: null,
         popupText: null,
         popupInputType: null,
-        popupField: null
+        popupField: null,
+        initialized: false
     }
 
     componentDidMount() {
         this.passwordPopup = document.getElementById('password');
         this.popupInput = document.getElementById('popupInput');
+        this.popupInput2 = document.getElementById('popupInput2');
         this.popup = document.getElementById('popup');
+        this.popup2 = document.getElementById('popup2');
         this.passwordPopup.style.display = 'none';
         this.popup.style.display = 'none';
+        this.popup2.style.display = 'none';
 
         this.displayUserInformation();
     }
@@ -35,20 +37,52 @@ class Profile extends Component {
         }
     }
 
-    changeField = () => {
-        user.updateUserAttribute(this.state.popupField, this.popupInput.value);
+    changeField = event => {
+        event.preventDefault();
 
-        this.displayUserInformation();
+        if (this.popupInput.value.trim() !== '') {
+            user.updateUserAttribute(this.state.popupField, this.popupInput.value);
 
-        this.closePopups();
+            this.displayUserInformation();
+
+            this.closePopups();
+        }
+    }
+
+    changeCustomerField = async (event) => {
+        event.preventDefault();
+        let value;
+
+        if (this.state.popupField === 'birthDate')
+            value = new Date(this.popupInput2.value);
+        else
+            value = this.popupInput2.value;
+
+        console.log(value);
+        try {
+            if (this.popupInput2.value.trim() !== '') {
+                await user.updateUserCostumerAttribute(this.state.popupField, value);
+
+                this.displayUserInformation();
+
+                this.closePopups();
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 
     openResetPasswordPopup = () => {
         this.passwordPopup.style.display = 'block';
     }
 
-    openPopup = (field, type, text) => {
-        this.popup.style.display = 'block';
+    openPopup = (field, type, text, forUser = true) => {
+        if (forUser)
+            this.popup.style.display = 'block';
+        else {
+            this.popup2.style.display = 'block';
+        }
 
         this.setState({
             popupField: field,
@@ -60,15 +94,18 @@ class Profile extends Component {
     closePopups = () => {
         this.passwordPopup.style.display = 'none';
         this.popup.style.display = 'none';
+        this.popup2.style.display = 'none';
     }
 
     displayUserInformation = async () => {
         try {
             const currentUser = await user.currentUser();
+            const currentCustomer = await db.getCustomerByUser(currentUser);
 
-            // undefined
-            const something = await testDB.getCharacterByUser(currentUser);
-            console.log(something);
+
+
+
+
 
             this.setState({
                 userInfo: (
@@ -78,8 +115,8 @@ class Profile extends Component {
                                 <li className="profile__box-list-item">
                                     <p className="label">Email:</p>
                                     <p>{currentUser.get('email')}</p>
-                                    <button 
-                                    onClick={this.openPopup.bind(this, 'email', 'email', 'email')}>change</button>
+                                    <button
+                                        onClick={this.openPopup.bind(this, 'email', 'email', 'email')}>change</button>
                                 </li>
                                 <li className="profile__box-list-item">
                                     <p className="label">Password:</p>
@@ -93,20 +130,28 @@ class Profile extends Component {
                                 <li className="profile__box-list-item">
                                     <p className="label">Username:</p>
                                     <p>{currentUser.get('username')}</p>
-                                    <button 
-                                    onClick={this.openPopup.bind(this, 'username', 'text', 'username')}>change</button>
+                                    <button
+                                        onClick={this.openPopup.bind(this, 'username', 'text', 'username')}>change</button>
                                 </li>
                                 <li className="profile__box-list-item">
                                     <p className="label">First Name:</p>
-                                    <p>text</p>
+                                    <p>{currentCustomer.get('firstName')}</p>
+                                    <button
+                                        onClick={this.openPopup.bind(this, 'firstName', 'text', 'first name', false)}>change</button>
                                 </li>
                                 <li className="profile__box-list-item">
                                     <p className="label">Last Name:</p>
-                                    <p>text</p>
+                                    <p>{currentCustomer.get('lastName')}</p>
+                                    <button
+                                        onClick={this.openPopup.bind(this, 'lastName', 'text', 'last name', false)}>change</button>
                                 </li>
                                 <li className="profile__box-list-item">
                                     <p className="label">Birth Date:</p>
-                                    <p>text</p>
+                                    <p>
+                                        {`${currentCustomer.get('birthDate').getUTCDate()}/${currentCustomer.get('birthDate').getMonth() + 1}/${currentCustomer.get('birthDate').getFullYear()}`}
+                                    </p>
+                                    <button
+                                        onClick={this.openPopup.bind(this, 'birthDate', 'date', 'birth date', false)}>change</button>
                                 </li>
                                 <li className="profile__box-list-item">
                                     <p className="label">City:</p>
@@ -136,7 +181,6 @@ class Profile extends Component {
                     {this.state.userInfo}
                 </div>
 
-                {/*turn this into a component??? YES*/}
                 <div className="popup" id="popup">
                     <div className="popup__content">
 
@@ -153,6 +197,32 @@ class Profile extends Component {
                             <div className="col-1-of-2">
                                 <button className="button button__red" id="no"
                                     onClick={this.changeField}>Confirm</button>
+                            </div>
+
+                            <div className="col-1-of-2">
+                                <button className="button button__red" id="no"
+                                    onClick={this.closePopups}>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="popup" id="popup2">
+                    <div className="popup__content">
+
+                        <div className="popup__text" id="enter-question">
+                            <p className="paragraph">Enter your new {this.state.popupText}</p>
+                            <input
+                                className="form-box__input"
+                                id="popupInput2"
+                                type={this.state.popupInputType}
+                                placeholder={"your " + this.state.popupText} required />
+                        </div>
+
+                        <div className="row">
+                            <div className="col-1-of-2">
+                                <button className="button button__red" id="no"
+                                    onClick={this.changeCustomerField}>Confirm</button>
                             </div>
 
                             <div className="col-1-of-2">

@@ -32,6 +32,16 @@ export const updateUserAttribute = (column, newValue) => {
     user.save();
 }
 
+export const updateUserCostumerAttribute = async(column, newValue) => {
+    const query = new Parse.Query('Customer');
+    query.equalTo('user', currentUser());
+    const userCustomer = await query.first();
+
+    userCustomer.set(column, newValue);
+
+    userCustomer.save();
+}
+
 export const retrieveUser = async (userToFind) => {
     const query = new Parse.Query(userToFind);
 

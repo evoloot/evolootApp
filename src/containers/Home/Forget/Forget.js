@@ -17,20 +17,20 @@ class Forget extends Component {
 	 * - On sucess or fail, a feedback will be sent to the user on screen.
 	 * @param {string} email : string provided in the email text field. 
 	 */
-	resetPassword = email => {
+	resetPassword = async(email) => {
 		const messageValid = document.querySelector('.tv__reset--valid');
 		const messageError = document.querySelector('.tv__reset--error');
 
 		if (messageValid) messageValid.parentNode.removeChild(messageValid);
 		if (messageError) messageError.parentNode.removeChild(messageError);
 
-		user.resetPassword(email)
-			.then(response => {
-				this.email.insertAdjacentHTML('afterend', '<span class="tv__sigin-error tv__reset--valid">A Password Reset E-mail has been sent to you!</span>');
-			})
-			.catch(err => {
-				this.email.insertAdjacentHTML('afterend', '<span class="tv__sigin-error tv__reset--error">No user found with this e-mail!</span>');
-			});
+		try {
+			await user.resetPassword(email);
+			
+			this.email.insertAdjacentHTML('afterend', '<span class="tv__sigin-error tv__reset--valid">A Password Reset E-mail has been sent to you!</span>');
+		} catch(err) {
+			this.email.insertAdjacentHTML('afterend', '<span class="tv__sigin-error tv__reset--error">No user found with this e-mail!</span>');
+		}
 	}
 
 	/**

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import * as Auth from '../../../parse/user';
+import * as user from '../../../parse/user';
 import ButtonReturn from '../../../components/Navigation/buttonReturn';
 
 import logoImage from '../../../assets/images/logo.png';
@@ -55,46 +55,45 @@ class Login extends Component {
 	 * - If remember is checked, next time user 'logs in' the 'login' state will be jumped. 
 	 * This information is saved in the localStorage.
 	 * - On fail, will give the according feedback error to user on the screen.
-	 * @param {string} user user's username or email. 
+	 * @param {string} userInfo user's username or email. 
 	 * @param {string} pass user's password.
 	 * @param {string} remember 'remember' checkbox value.
 	 */
-    async loginUser(user, pass, remember) {
+    async loginUser(userInfo, pass, remember) {
         const place = document.getElementById('username');
         const message = document.querySelector('.tv__sigin-error');
 
-        Auth.signIn(user, pass)
-            .then(response => {
+        try {
+            await user.signIn(userInfo, pass);
 
-                if (remember) {
-                    // save user credentials in local storage if remember is checked
-                    if (remember.checked) localStorage.setItem('remember', JSON.stringify({ remember: true }));
-                    else localStorage.setItem('remember', JSON.stringify({ remember: false }));
+            if (remember) {
+                // save user credentials in local storage if remember is checked
+                if (remember.checked) localStorage.setItem('remember', JSON.stringify({ remember: true }));
+                else localStorage.setItem('remember', JSON.stringify({ remember: false }));
+            }
+
+            this.props.history.replace('/evolootApp/map');
+
+        } catch (err) {
+
+            let sendError;
+
+            if (place) {
+                if (message && message.parentNode) message.parentNode.removeChild(message);
+
+                switch (err.message) {
+                    case 'username/email is required.': sendError = '<span class="tv__sigin-error">Enter your Email/Username and Password!</span>';
+                        break;
+                    case 'password is required.': sendError = '<span class="tv__sigin-error">You must enter your password!</span>';
+                        break;
+                    case 'Invalid username/password.': sendError = '<span class="tv__sigin-error">Wrong Email/Username or Password!</span>';
+                        break;
+                    default: sendError = '';
                 }
 
-
-                this.props.history.replace('/evolootApp/map');
-            })
-            .catch(err => {
-
-                let sendError;
-
-                if (place) {
-                    if (message && message.parentNode) message.parentNode.removeChild(message);
-
-                    switch (err.message) {
-                        case 'username/email is required.': sendError = '<span class="tv__sigin-error">Enter your Email/Username and Password!</span>';
-                            break;
-                        case 'password is required.': sendError = '<span class="tv__sigin-error">You must enter your password!</span>';
-                            break;
-                        case 'Invalid username/password.': sendError = '<span class="tv__sigin-error">Wrong Email/Username or Password!</span>';
-                            break;
-                        default : sendError = '';
-                    }
-
-                    place.insertAdjacentHTML('afterend', sendError);
-                }
-            });
+                place.insertAdjacentHTML('afterend', sendError);
+            }
+        };
     }
 
     render() {

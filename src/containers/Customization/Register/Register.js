@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
 import * as user from '../../../parse/user';
+import * as db from '../../../parse/DB';
 import * as userCharacter from '../../../parse/userCharacter';
 import { DailyManager } from "../../../xpengine/dailies";
 import { MilestoneManager } from "../../../xpengine/milestones";
+
+
 
 import ButtonReturn from '../../../components/Navigation/buttonReturn';
 
@@ -29,7 +32,7 @@ class Register extends Component {
 	 * - Saves user data to the database if the information provided is valid.
 	 * @param {Map<any>} inputFields 
 	 */
-    saveData = () => {
+    saveData = async () => {
 
         const fieldValues = new Map(
             [
@@ -46,20 +49,29 @@ class Register extends Component {
             ]
         );
 
-        user.signUpUser(
-            fieldValues.get('username'),
-            fieldValues.get('email'),
-            fieldValues.get('password')
-        )
-            .then(response => {
-                userCharacter.saveUserAvatar(response);
-                this.initializeUserData(response);
+        try {
+            const response = await user.signUpUser(
+                fieldValues.get('username'),
+                fieldValues.get('email'),
+                fieldValues.get('password')
+            );
 
-                this.props.history.replace('/evolootApp/home');
-            })
-            .catch(err => {
-                console.log(err);
+            db.postCustomer({
+                lastName: fieldValues.get('lastName'),
+                firstName: fieldValues.get('firstName'),
+                birthDate: new Date(fieldValues.get('birthday')),
+                user: response
             });
+
+            userCharacter.saveUserAvatar(response);
+            this.initializeUserData(response);
+
+            this.props.history.replace('/evolootApp/home');
+
+        } catch (err) {
+            console.log(err);
+        }
+
     }
 
 	/** 
@@ -176,16 +188,3 @@ class Register extends Component {
 }
 
 export default Register;
-
-/*
- import * as db from '../../parse/DB';
-import * as user from '../../parse/user';
-        db.postCustomer(
-            {
-                lastName: 'Homeless',
-                firstName: 'Alfred',
-                birthDate:  new Date('09/04/1995'),
-                user: user.currentUser()
-            }
-        );
-*/
