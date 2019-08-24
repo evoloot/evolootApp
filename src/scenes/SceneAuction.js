@@ -16,6 +16,7 @@ import characterJsonPath from '../assets/data/characterNew.txt';
 // IMAGES/SPRITESHEETS
 import arenaAtlas from '../assets/images/battleGUI.png';
 import characterAtlas from '../assets/images/characterNew.png';
+import background from '../assets/images/black_layer.png';
 
 import { Style } from '../utils/style';
 import { Helper } from '../utils/helper';
@@ -79,7 +80,9 @@ export class SceneAuction extends Phaser.State {
     /**
     * Loads single images.
     */
-    loadImages() { }
+    loadImages() {
+        this.game.load.image('background', background);
+    }
 
     /**
     * Loads json files.
@@ -97,7 +100,6 @@ export class SceneAuction extends Phaser.State {
         ///////////////////////////////////////////////////////////////////////
         const item = this.auction.get('auctionItem');
         let price;
-        let time;
 
         if (!this.auction.get('currentItemPrice')) {
             price = item.getStartingBid();
@@ -120,10 +122,25 @@ export class SceneAuction extends Phaser.State {
             '07:00:00',
             Style.setText(this.timePanel, '#e0ba2d', '22px', 'Digital'));
 
+
+        this.timeAddition = 0;
+
         Helper.regressiveTimer(() => {
-            time = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength());
-            this.initialTime.text = `${Helper.updateTime(time.days)}:${Helper.updateTime(time.hours)}:${Helper.updateTime(time.minutes)}`;
+
+            this.time = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength(), this.timeAddition);
+            this.initialTime.text = `${Helper.updateTime(this.time.days)}:${Helper.updateTime(this.time.hours)}:${Helper.updateTime(this.time.minutes)}`;
+
+            if (this.time === 'expired') {
+                this.initialTime.text = '00:00:00';
+
+                // case where are people inside the auction
+                this.auction.set('closed', true);
+                this.auction.save();
+                console.log('This auction is over');
+            }
         });
+
+        if (this.time === 'expired') Helper.stopRegressiveTimer();
         //////////////////////////////////////////////////////////////////////
 
         this.createPlayers();
@@ -168,9 +185,10 @@ export class SceneAuction extends Phaser.State {
      * - Finds Auction based on the auctionItem id and subscribes it.
      * - On subscription open, starts game add the current user to the 
      * "queue", if he is not already in there.
-     * - On subscription update, updates the price text, if auction queue is different than the local 
-     * stored, updates local queue. Verifies if user is not the winning player, if true, verifies if he was, 
-     * setting 'this.someoneAttacked', else, sets 'this.timeToReset' to true. Case he is the winning player,
+     * - On subscription update checks if auction is not closed, if not, do the following: updates the price text, 
+     * if auction queue is different than the local stored, updates local queue.
+     * Verifies if user is not the winning player, if true, verifies if he was, setting 'this.someoneAttacked',
+     * else, sets 'this.timeToReset' to true. Case he is the winning player,
      * sets 'this.imWinning' to true.
      * - On subscription close, removes this user from the "queue".
      */
@@ -205,23 +223,66 @@ export class SceneAuction extends Phaser.State {
                 });
 
                 this.subscription.on('update', object => {
-                    if(this.auction.get('currentItemPrice'))
-                        this.initialPrice.text = this.auction.get('currentItemPrice').toFixed(2);
 
-                    if (this.players.length !== object.get('queue').length) { // is this relyable???
-                        this.players = object.get('queue');
+                    if (this.auction.get('closed')) {
+                        const getLost = this.game.world.centerX - 3000;
+
+                        this.buttonKick.x = getLost;
+                        this.buttonPunch.x = getLost;
+                        this.buttonSpecial.x = getLost;
+                        this.buttonWeapon.x = getLost;
+
+                        const winner = this.auction.get('winningPlayer') ? this.auction.get('winningPlayer').get('username') : 'no one'
+
+                        // show winner screen
+                        this.blackLayer = this.game.add.sprite(0, 0, 'background');
+                        this.blackLayer.width = 1600;
+                        this.blackLayer.height = 3400;
+
+                        this.gameOver = this.game.add.text(
+                            this.game.world.centerX,
+                            this.game.world.centerY + 1200,
+                            'Game Over',
+                            Style.setMessage(
+                                '#fff',
+                                '150px',
+                                'Fixedsyswoff',
+                                3
+                            )
+                        );
+
+                        this.winnerMessage = this.game.add.text(
+                            this.game.world.centerX,
+                            this.game.world.centerY + 1300,
+                            `The winner is: ${winner}`,
+                            Style.setMessage(
+                                '#fff',
+                                '50px',
+                                'Fixedsyswoff',
+                                3
+                            )
+                        );
+
+                        [this.gameOver, this.winnerMessage].forEach(e => e.anchor.setTo(.5));
+                    } else {
+                        if (this.auction.get('currentItemPrice'))
+                            this.initialPrice.text = this.auction.get('currentItemPrice').toFixed(2);
+
+                        if (this.players.length !== object.get('queue').length) { // is this relyable???
+                            this.players = object.get('queue');
+                        }
+
+                        if (this.auction.get('winningPlayer') && (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
+
+                            if (this.imWinning)
+                                this.someoneAttacked = this.auction.get('firstServed');
+                            else
+                                this.timeToReset = true;
+                        }
+                        else {
+                            this.imWinning = true;
+                        };
                     }
-
-                    if (this.auction.get('winningPlayer') && (this.auction.get('winningPlayer').id !== user.currentUser().id)) {
-
-                        if (this.imWinning)
-                            this.someoneAttacked = this.auction.get('firstServed');
-                        else
-                            this.timeToReset = true;
-                    }
-                    else {
-                        this.imWinning = true;
-                    };
                 });
 
                 this.subscription.on('close', () => {
@@ -246,9 +307,7 @@ export class SceneAuction extends Phaser.State {
      * Scrolls 'camera' down to the arena.
      */
     arenaStartCameraAnimation() {
-        if (this.game.camera.y < 2704) {
-            this.game.camera.y += 4; //this.game.camera.y += 100; for debug purposes
-        }
+        if (this.game.camera.y < 2704) this.game.camera.y += 100; //this.game.camera.y += 4; for debug purposes
     }
 
     /**
@@ -259,6 +318,15 @@ export class SceneAuction extends Phaser.State {
      * - Third case is if user is player01 and someone attacked.
      */
     updateStateCases() {
+        if (this.auction && this.auction.get('antiSniper')) {
+            this.timeAddition += 60000;
+            console.log('anti sniper activated!');
+
+            this.auction.set('antiSniper', false);
+            this.auction.save();
+            console.log('anti sniper deactivated!');
+        }
+
         if (this.timeToUpdate) {
             this.action.start();
             this.timeToUpdate = false;
@@ -629,6 +697,9 @@ export class SceneAuction extends Phaser.State {
                 action: increment
             });
 
+            if (this.time.days === 0 && this.time.hours === 0 && this.time.minutes === 0)
+                this.auction.set('antiSniper', true);
+
             this.timeToUpdate = true;
             this.action = tween;
         }
@@ -692,6 +763,11 @@ export class SceneAuction extends Phaser.State {
         this.timePanel.destroy();
         this.pricePanel.destroy();
 
+        if(this.winnerMessage && this.gameOver) {
+            this.winnerMessage.destroy();
+            this.gameOver.destroy();
+        }
+        
         this.buttonPunch.destroy();
         this.buttonKick.destroy();
         this.buttonWeapon.destroy();
@@ -716,6 +792,6 @@ export class SceneAuction extends Phaser.State {
         this.timeToUpdate = null;
         this.auctionItem = null;
         this.auctionItemId = null;
-        this.subscription = null; // HERE
+        this.subscription = null;
     }
 }

@@ -55,4 +55,13 @@ export class Style {
             strokeThickness: strokeThickness
         };
     }
+
+    static setMessage(hexColor, fontSize, fontFamily, strokeThickness = 0) {
+        return {
+            fill: hexColor,
+            font: `${fontSize} ${fontFamily}`,
+            align: 'center',
+            strokeThickness: strokeThickness
+        };
+    }
 }

@@ -103,7 +103,8 @@ class Part04 extends Component {
                     this.auctionItemForShow.owner = await user.retrieveUser(this.state.auctionItems[number].getParent());
     
                     const timeLeft = Helper.calculateRemainingTime(this.auctionItemForShow.startingDate, this.auctionItemForShow.auctionLength);
-                    const time = `${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m`;
+                    
+                    let time = timeLeft !== 'expired' ? `${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m` : '0d:0h:0m';
 
                     this.setState({
                         currentAuctionItemIndex: number,
@@ -113,7 +114,7 @@ class Part04 extends Component {
                                 <h2 className="auction-item__title">{this.auctionItemForShow.name}</h2>
                                 <img src={this.auctionItemForShow.pictures[0].url()} alt="item" className="auction-item__picture" />
                                 <ol className="auction-item__information-list">
-                                    <li className="auction-item__information-item">current price: ${this.auctionItemForShow.price}</li>
+                                    <li className="auction-item__information-item">current price: ${this.auctionItemForShow.price.toFixed(2)}</li>
                                     <li className="auction-item__information-item">time left: {time}</li>
 
                                     <li className="auction-item__information-item">

@@ -7,6 +7,7 @@
 
 .auction-item__title {
     position: relative;
+    width: 100%;
 }
 
 .auction-item__box {

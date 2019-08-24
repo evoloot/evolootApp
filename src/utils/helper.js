@@ -189,8 +189,8 @@ export class Helper {
      * @param {number} length the length(in days).
      * @returns object containing: day(s), hour(s) and minute(s) remaining.
      */
-    static calculateRemainingTime = (startDate, length) => {
-
+    static calculateRemainingTime = (startDate, length, timeAddition = 0) => {
+//  THIS DEFINITELY NEEDS REWORK
         const actualDate = new Date();
         const timeLeft = Math.abs(actualDate - startDate);
         const fullDay = 24 * 60 * 60 * 1000; // in milliseconds
@@ -198,19 +198,19 @@ export class Helper {
 
         let days = Math.floor(timeLeft / fullDay);
         let hours = Math.floor((timeLeft - days * fullDay) / fullHour);
-        let minutes = Math.round((timeLeft - days * fullDay - hours * fullHour) / 60000);
+        let minutes = Math.round(((timeLeft - days * fullDay - hours * fullHour) - timeAddition) / 60000);
 
         days = Math.floor((length * fullDay - timeLeft) / fullDay);
         hours = 24 - hours;
         minutes = 60 - minutes;
 
         if (minutes === 60) {
-            hours++;
-            minutes = 0;
+            hours--;
+            minutes = 59;
         }
+
         if (hours === 24) {
-            days++;
-            hours = 0;
+            hours = 23;
         }
 
         if (days < 0)
