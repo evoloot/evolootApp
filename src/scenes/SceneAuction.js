@@ -122,21 +122,24 @@ export class SceneAuction extends Phaser.State {
             '07:00:00',
             Style.setText(this.timePanel, '#e0ba2d', '22px', 'Digital'));
 
-
         this.timeAddition = 0;
 
-        Helper.regressiveTimer(() => {
-
-            this.time = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength(), this.timeAddition);
-            this.initialTime.text = `${Helper.updateTime(this.time.days)}:${Helper.updateTime(this.time.hours)}:${Helper.updateTime(this.time.minutes)}`;
-
-            if (this.time === 'expired') {
-                this.initialTime.text = '00:00:00';
-
-                // case where are people inside the auction
-                this.auction.set('closed', true);
-                this.auction.save();
-                console.log('This auction is over');
+        Helper.regressiveTimer(async() => {
+            try {
+                //const serverTime = await Parse.Cloud.run('getServerTime');
+                this.time = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength(), this.timeAddition);
+                this.initialTime.text = `${Helper.updateTime(this.time.days)}:${Helper.updateTime(this.time.hours)}:${Helper.updateTime(this.time.minutes)}`;
+    
+                if (this.time === 'expired') {
+                    this.initialTime.text = '00:00:00';
+    
+                    // case where are people inside the auction
+                    this.auction.set('closed', true);
+                    this.auction.save();
+                    console.log('This auction is over');
+                }
+            } catch (err){
+                console.log(err);
             }
         });
 
@@ -343,6 +346,14 @@ export class SceneAuction extends Phaser.State {
             this.attacker();
             this.someoneAttacked = null;
             this.imWinning = false;
+        }
+    }
+
+    async setTimer() {
+        try {
+
+        } catch(err) {
+            console.log(err);
         }
     }
 

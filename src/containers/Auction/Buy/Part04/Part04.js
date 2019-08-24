@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import AuctionItem from '../../../../parse/AuctionItem';
 import * as user from '../../../../parse/user';
 import Parse from 'parse';
+
 import { Helper } from '../../../../utils/helper';
 
 import ButtonReturn from '../../../../components/Navigation/buttonReturn';
@@ -101,7 +102,11 @@ class Part04 extends Component {
                     this.auctionItemForShow.price = search.get('currentItemPrice') ? search.get('currentItemPrice') : this.auctionItemForShow.startingBid;
     
                     this.auctionItemForShow.owner = await user.retrieveUser(this.state.auctionItems[number].getParent());
-    
+                    
+
+                    
+                    //const serverTime = await Parse.Cloud.run('getServerTime');
+
                     const timeLeft = Helper.calculateRemainingTime(this.auctionItemForShow.startingDate, this.auctionItemForShow.auctionLength);
                     
                     let time = timeLeft !== 'expired' ? `${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m` : '0d:0h:0m';

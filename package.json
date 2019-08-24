@@ -4,7 +4,9 @@
   "homepage": "https://evoloot.github.io/evolootApp/",
   "private": true,
   "dependencies": {
-    "parse": "^2.5.1",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.26",
+    "parse": "^2.6.0",
     "phaser-ce": "^2.13.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

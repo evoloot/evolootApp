@@ -1,4 +1,5 @@
 /* eslint-disable */
+import moment from 'moment-timezone';
 import { Building } from "../prefabs/Building";
 
 //////////////////////////////////////////////////////////////////////////////
@@ -190,9 +191,13 @@ export class Helper {
      * @returns object containing: day(s), hour(s) and minute(s) remaining.
      */
     static calculateRemainingTime = (startDate, length, timeAddition = 0) => {
-//  THIS DEFINITELY NEEDS REWORK
-        const actualDate = new Date();
-        const timeLeft = Math.abs(actualDate - startDate);
+
+        const hehe = moment();
+        const convert = hehe.tz('America/Toronto');
+
+        let timeLeft = Math.abs(convert._d - startDate);
+
+
         const fullDay = 24 * 60 * 60 * 1000; // in milliseconds
         const fullHour = 60 * 60 * 1000; // in milliseconds
 
@@ -212,6 +217,8 @@ export class Helper {
         if (hours === 24) {
             hours = 23;
         }
+
+        console.log(days + '/' + hours + '/' + minutes);
 
         if (days < 0)
             return 'expired';
