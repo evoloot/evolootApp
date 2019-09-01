@@ -38,6 +38,7 @@ const navMenu = props => {
             <nav className="header__nav header__nav--1">
                 <ul className="header__nav-list">
                     <li className="header__nav-item"><Link to="/evolootApp/profile" className="header__nav-link" onClick={destroyGame}>My Profile</Link></li>
+                    <li className="header__nav-item"><Link to="/evolootApp/stash" className="header__nav-link" onClick={destroyGame}>My Stash</Link></li>
                     <li className="header__nav-item"><Link to="/evolootApp/auction" className="header__nav-link" onClick={destroyGame}>Auction</Link></li>
                     <li className="header__nav-item"><Link to="/evolootApp/map" className="header__nav-link" onClick={destroyGame}>Map</Link></li>
                     <li className="header__nav-item"><Link to="/evolootApp" className="header__nav-link" onClick={logout}>Logout</Link></li>

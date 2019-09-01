@@ -218,8 +218,6 @@ export class Helper {
             hours = 23;
         }
 
-        console.log(days + '/' + hours + '/' + minutes);
-
         if (days < 0)
             return 'expired';
         else

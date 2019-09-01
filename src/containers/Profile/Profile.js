@@ -92,6 +92,9 @@ class Profile extends Component {
     }
 
     closePopups = () => {
+        this.popupInput.value = '';
+        this.popupInput2.value = '';
+
         this.passwordPopup.style.display = 'none';
         this.popup.style.display = 'none';
         this.popup2.style.display = 'none';
@@ -102,10 +105,11 @@ class Profile extends Component {
             const currentUser = await user.currentUser();
             const currentCustomer = await db.getCustomerByUser(currentUser);
 
-
-
-
-
+            const customer = {
+                firstName: currentCustomer.get('firstName') ? `${currentCustomer.get('firstName')}` : '',
+                lastName: currentCustomer.get('lastName') ? `${currentCustomer.get('lastName')}` : '',
+                birthdate: currentCustomer.get('birthDate') ? `${currentCustomer.get('birthDate').getUTCDate()}/${currentCustomer.get('birthDate').getMonth() + 1}/${currentCustomer.get('birthDate').getFullYear()}` : ''
+            }
 
             this.setState({
                 userInfo: (
@@ -135,20 +139,20 @@ class Profile extends Component {
                                 </li>
                                 <li className="profile__box-list-item">
                                     <p className="label">First Name:</p>
-                                    <p>{currentCustomer.get('firstName')}</p>
+                                    <p>{customer.firstName}</p>
                                     <button
                                         onClick={this.openPopup.bind(this, 'firstName', 'text', 'first name', false)}>change</button>
                                 </li>
                                 <li className="profile__box-list-item">
                                     <p className="label">Last Name:</p>
-                                    <p>{currentCustomer.get('lastName')}</p>
+                                    <p>{customer.lastName}</p>
                                     <button
                                         onClick={this.openPopup.bind(this, 'lastName', 'text', 'last name', false)}>change</button>
                                 </li>
                                 <li className="profile__box-list-item">
                                     <p className="label">Birth Date:</p>
                                     <p>
-                                        {`${currentCustomer.get('birthDate').getUTCDate()}/${currentCustomer.get('birthDate').getMonth() + 1}/${currentCustomer.get('birthDate').getFullYear()}`}
+                                        {customer.birthdate}
                                     </p>
                                     <button
                                         onClick={this.openPopup.bind(this, 'birthDate', 'date', 'birth date', false)}>change</button>

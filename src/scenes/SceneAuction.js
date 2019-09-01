@@ -124,22 +124,18 @@ export class SceneAuction extends Phaser.State {
 
         this.timeAddition = 0;
 
-        Helper.regressiveTimer(async() => {
-            try {
-                //const serverTime = await Parse.Cloud.run('getServerTime');
-                this.time = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength(), this.timeAddition);
-                this.initialTime.text = `${Helper.updateTime(this.time.days)}:${Helper.updateTime(this.time.hours)}:${Helper.updateTime(this.time.minutes)}`;
-    
-                if (this.time === 'expired') {
-                    this.initialTime.text = '00:00:00';
-    
-                    // case where are people inside the auction
-                    this.auction.set('closed', true);
-                    this.auction.save();
-                    console.log('This auction is over');
-                }
-            } catch (err){
-                console.log(err);
+        Helper.regressiveTimer(() => {
+            //const serverTime = await Parse.Cloud.run('getServerTime');
+            this.time = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength(), this.timeAddition);
+            this.initialTime.text = `${Helper.updateTime(this.time.days)}:${Helper.updateTime(this.time.hours)}:${Helper.updateTime(this.time.minutes)}`;
+
+            if (this.time === 'expired') {
+                this.initialTime.text = '00:00:00';
+
+                // case where are people inside the auction
+                this.auction.set('closed', true);
+                this.auction.save();
+                console.log('This auction is over');
             }
         });
 
@@ -346,14 +342,6 @@ export class SceneAuction extends Phaser.State {
             this.attacker();
             this.someoneAttacked = null;
             this.imWinning = false;
-        }
-    }
-
-    async setTimer() {
-        try {
-
-        } catch(err) {
-            console.log(err);
         }
     }
 
@@ -774,11 +762,11 @@ export class SceneAuction extends Phaser.State {
         this.timePanel.destroy();
         this.pricePanel.destroy();
 
-        if(this.winnerMessage && this.gameOver) {
+        if (this.winnerMessage && this.gameOver) {
             this.winnerMessage.destroy();
             this.gameOver.destroy();
         }
-        
+
         this.buttonPunch.destroy();
         this.buttonKick.destroy();
         this.buttonWeapon.destroy();

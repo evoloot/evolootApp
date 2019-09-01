@@ -102,10 +102,6 @@ class Part04 extends Component {
                     this.auctionItemForShow.price = search.get('currentItemPrice') ? search.get('currentItemPrice') : this.auctionItemForShow.startingBid;
     
                     this.auctionItemForShow.owner = await user.retrieveUser(this.state.auctionItems[number].getParent());
-                    
-
-                    
-                    //const serverTime = await Parse.Cloud.run('getServerTime');
 
                     const timeLeft = Helper.calculateRemainingTime(this.auctionItemForShow.startingDate, this.auctionItemForShow.auctionLength);
                     

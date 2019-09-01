@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import {parseInitializer} from './parse/index';
+import { StripeProvider } from 'react-stripe-elements';
+
+import { parseInitializer } from './parse/index';
 import './sass/main.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -9,9 +11,11 @@ import * as serviceWorker from './serviceWorker';
 parseInitializer();
 
 const app = (
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <StripeProvider apiKey='pk_test_2j7wM82Y93kG7lbYsgKhCSii003ePsEooo'>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </StripeProvider>
 );
 
 ReactDOM.render(app, document.getElementById('root'));

@@ -6,7 +6,7 @@ const popup = props => {
     switch (props.type) {
         case ('message'):
             component = (
-                <div className="popup" id="warning">
+                <div className="popup">
                     <div className="popup__content">
 
                         {props.children}

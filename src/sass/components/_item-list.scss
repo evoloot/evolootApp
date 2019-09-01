@@ -1,0 +1,38 @@
+.item-list {
+    list-style: none;
+
+    &__item {
+        padding: 1rem;
+    }
+
+    &__box {
+        display: flex;
+        border-bottom: solid 3px rgba(33, 201, 0, .1);
+        padding: 1rem 0;
+    }
+
+    &__box-image {
+        flex: 0 0 25%;
+        margin-right: 2rem;
+        
+        img {width: 100%};
+    }
+
+    &__box-information {
+        display: flex;
+        flex: 0 0 45%;
+        font-size: 4.5rem;
+        overflow: hidden;
+        text-align: left;
+        margin-right: auto;
+        padding: .7rem;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__box-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}

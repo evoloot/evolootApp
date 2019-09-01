@@ -331,6 +331,18 @@
         }
     }
 
+    &__green--small {
+        position: relative;
+        padding: 1rem 2rem;
+        background: $color-green-primary;
+        border: $color-green-primary;
+        color: #fff;
+        border-radius: .5rem;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-family: inherit;
+    }
+
     &__red {
         float: left;
         width: 100%;

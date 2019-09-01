@@ -6,6 +6,7 @@ import Customization from './containers/Customization/Customization';
 import Map from './containers/Map/Map';
 import Auction from './containers/Auction/Auction';
 import Profile from './containers/Profile/Profile';
+import Stash from './containers/Stash/Stash';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/evolootApp/profile" component={Profile} />
           <Route path="/evolootApp/map" component={Map} />
           <Route path="/evolootApp/auction" component={Auction} />
+          <Route path="/evolootApp/stash" component={Stash} />
           <Redirect from="/" to="/evolootApp/home" />
         </Switch>
       </div>
