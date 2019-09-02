@@ -132,7 +132,6 @@ class Stash extends Component {
 
   // HERE
   checkout = event => {
-
     const item = this.state.auctionItems.find(item => item.id === event.target.id);
 
     this.setState({
@@ -148,7 +147,7 @@ class Stash extends Component {
   }
 
   handleChange = change => {
-    change.complete ? this.setState({canPay: true}) : this.setState({canPay: false});
+    change.complete ? this.setState({ canPay: true }) : this.setState({ canPay: false });
   };
 
   render() {
