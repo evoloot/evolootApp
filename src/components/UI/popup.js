@@ -11,7 +11,7 @@ const popup = props => {
 
                         {props.children}
                         <div className="row">
-                            <button onClick={props.click}>Ok</button>
+                            <button className="button button__green--small" onClick={props.click}>Ok</button>
                         </div>
                     </div>
                 </div>
@@ -28,11 +28,11 @@ const popup = props => {
 
                         <div className="row">
                             <div className="col-1-of-2">
-                                <button>Yes</button>
+                                <button className="button button__green--small">Yes</button>
                             </div>
 
                             <div className="col-1-of-2">
-                                <button>No</button>
+                                <button className="button button__green--small">No</button>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,10 @@
 .opening {
-    @include aspectRatioBox;
+	@include aspectRatioBox;
+	position: relative;
 	background-image: linear-gradient(to right bottom, rgba($color-white, .47), rgba($color-white, .47)), url('../assets/images/temporarybg.png');
 	background-size: 100% 100%;
 	z-index: 500;
+	display: flex;
+	justify-content: center;
+	align-items: center;
  }

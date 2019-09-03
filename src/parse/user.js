@@ -79,9 +79,10 @@ export const retrieveUsername = async (userToFind) => {
  * @param {string} password
  * @returns {Promise<Parse.User>}
  */
-export const signUpUser = (username, email, password) => {
+export const signUpUser = (username, email, password, address) => {
     return Parse.User.signUp(username, password, {
-        email: email
+        email: email,
+        address : address
     })
 }
 
