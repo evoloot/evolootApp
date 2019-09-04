@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/evolootApp/precache-manifest.26dbc70ac139706e8a4e2833474125cb.js"
+  "/evolootApp/precache-manifest.8b552c6a653c1e1fe3a1b95c25aba8eb.js"
 );
 
 self.addEventListener('message', (event) => {
