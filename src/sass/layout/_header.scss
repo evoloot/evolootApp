@@ -28,8 +28,8 @@
     }
 
     &__background--1 {
-        top: 7rem;
-        right: 13.5rem;
+        top: 1.5rem;
+        right: 1.5rem;
     }
 
     &__background--2 {
@@ -55,6 +55,9 @@
             list-style: none;
             text-align: center;
             @include centerXY;
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 100%;
         }
 
         &-item{
@@ -101,13 +104,13 @@
     }
 
     &__nav-button--menu {
-        top: 6rem;
-        right: 13rem;
+        top: 1rem;
+        right: 1rem;
     }
 
     &__nav-button--settings {
-        bottom: 6rem;
-        right: 13rem;
+        bottom: 1rem;
+        right: 1rem;
 
         i {
             color: $color-white;

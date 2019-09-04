@@ -31,95 +31,95 @@ class Map extends Component {
      * @param {string} mapKey The mapkey is the key composed by the action and its current level(if more than 1), eg: action_2.
      */ /*
 setButtonFunctions(mapKey) {
-    const buttonMenu = document.querySelector('.header__nav-button--menu');
-    const buttonMenuBackground = document.querySelector('.header__background--1');
-    const buttonSettings = document.querySelector('.header__nav-button--settings');
-    const buttonSettingsBackground = document.querySelector('.header__background--2');
+   const buttonMenu = document.querySelector('.header__nav-button--menu');
+   const buttonMenuBackground = document.querySelector('.header__background--1');
+   const buttonSettings = document.querySelector('.header__nav-button--settings');
+   const buttonSettingsBackground = document.querySelector('.header__background--2');
 
-    const menuCheckbox = document.getElementById('menu-toggle');
-    const settingsCheckbox = document.getElementById('settings-toggle');
+   const menuCheckbox = document.getElementById('menu-toggle');
+   const settingsCheckbox = document.getElementById('settings-toggle');
 
-    const rangeAutoSpeed = document.getElementById('autoSpeed');
-    const rangeManualSpeed = document.getElementById('manualSpeed');
-    const showAutoSpeed = document.getElementById('autoSpeedShow');
-    const showManualSpeed = document.getElementById('manualSpeedShow');
+   const rangeAutoSpeed = document.getElementById('autoSpeed');
+   const rangeManualSpeed = document.getElementById('manualSpeed');
+   const showAutoSpeed = document.getElementById('autoSpeedShow');
+   const showManualSpeed = document.getElementById('manualSpeedShow');
 
-    switch (mapKey) {
+   switch (mapKey) {
 
-        case 'start':
-            this.userLogout();
+       case 'start':
+           this.userLogout();
 
-            // Respectively, when one of these buttons is clicked, it will turn other buttons to 'invisible'.
-            if (settingsCheckbox && menuCheckbox) {
-                buttonSettings.addEventListener('click', event => {
-                    //event.stopPropagation(); solve events triggering twice?
+           // Respectively, when one of these buttons is clicked, it will turn other buttons to 'invisible'.
+           if (settingsCheckbox && menuCheckbox) {
+               buttonSettings.addEventListener('click', event => {
+                   //event.stopPropagation(); solve events triggering twice?
 
-                    if(settingsCheckbox.checked) { 
-                        buttonMenu.style.zIndex = 5500;
-                        buttonMenuBackground.style.display = 'block';
-                    } else {
-                        buttonMenu.style.zIndex = -1;
-                        buttonMenuBackground.style.display = 'none';
-                    }
-                });
+                   if(settingsCheckbox.checked) { 
+                       buttonMenu.style.zIndex = 5500;
+                       buttonMenuBackground.style.display = 'block';
+                   } else {
+                       buttonMenu.style.zIndex = -1;
+                       buttonMenuBackground.style.display = 'none';
+                   }
+               });
 
-                buttonMenu.addEventListener('click', event => {
-                    if (menuCheckbox.checked){
-                        buttonSettings.style.zIndex = 5500;
-                        buttonSettingsBackground.style.display = 'block';
-                    } else {
-                        buttonSettings.style.zIndex = -1;
-                        buttonSettingsBackground.style.display = 'none';
-                    }
-                });
-            }
+               buttonMenu.addEventListener('click', event => {
+                   if (menuCheckbox.checked){
+                       buttonSettings.style.zIndex = 5500;
+                       buttonSettingsBackground.style.display = 'block';
+                   } else {
+                       buttonSettings.style.zIndex = -1;
+                       buttonSettingsBackground.style.display = 'none';
+                   }
+               });
+           }
 
-            // On change, changes auto speed or manual speed of the character's pieces.
-            if (rangeAutoSpeed && rangeManualSpeed) {
-                // default values on screen
-                if(localStorage.getItem('autoSpeed')) {
-                    rangeAutoSpeed.value = Math.ceil(8000/parseInt(localStorage.getItem('autoSpeed')));
-                    showAutoSpeed.innerText = JSON.parse(localStorage.getItem('autoSpeedShow'));
-                }
+           // On change, changes auto speed or manual speed of the character's pieces.
+           if (rangeAutoSpeed && rangeManualSpeed) {
+               // default values on screen
+               if(localStorage.getItem('autoSpeed')) {
+                   rangeAutoSpeed.value = Math.ceil(8000/parseInt(localStorage.getItem('autoSpeed')));
+                   showAutoSpeed.innerText = JSON.parse(localStorage.getItem('autoSpeedShow'));
+               }
 
-                if(localStorage.getItem('manualSpeed')) {
-                    rangeManualSpeed.value = parseInt(localStorage.getItem('manualSpeed')) / 4;
-                    showManualSpeed.innerText = parseInt(localStorage.getItem('manualSpeed')) / 4;
-                }
+               if(localStorage.getItem('manualSpeed')) {
+                   rangeManualSpeed.value = parseInt(localStorage.getItem('manualSpeed')) / 4;
+                   showManualSpeed.innerText = parseInt(localStorage.getItem('manualSpeed')) / 4;
+               }
 
-                // sets character's auto speed
-                rangeAutoSpeed.addEventListener('change', event => {
-                    event.preventDefault();
+               // sets character's auto speed
+               rangeAutoSpeed.addEventListener('change', event => {
+                   event.preventDefault();
 
-                    // 80 ---- 100 (max speed) ----> 533 ----- 15 (min speed)
-                    let autoSpeed = 8000/parseInt(event.target.value); // fast 80 - 400 slower
+                   // 80 ---- 100 (max speed) ----> 533 ----- 15 (min speed)
+                   let autoSpeed = 8000/parseInt(event.target.value); // fast 80 - 400 slower
 
-                    this.characterAssembled.forEach((characterPiece, key) => {
-                        if (characterPiece.key) this.character[`${key}`].autoSpeed = autoSpeed;
-                    });
+                   this.characterAssembled.forEach((characterPiece, key) => {
+                       if (characterPiece.key) this.character[`${key}`].autoSpeed = autoSpeed;
+                   });
 
-                    localStorage.setItem('autoSpeed', JSON.stringify(autoSpeed));
-                    localStorage.setItem('autoSpeedShow', JSON.stringify(event.target.value));
+                   localStorage.setItem('autoSpeed', JSON.stringify(autoSpeed));
+                   localStorage.setItem('autoSpeedShow', JSON.stringify(event.target.value));
 
-                    showAutoSpeed.innerText = event.target.value;
-                });
+                   showAutoSpeed.innerText = event.target.value;
+               });
 
-                // sets character's manual speed
-                rangeManualSpeed.addEventListener('change', event => {
-                    event.preventDefault();
-                    let manualSpeed = parseInt(event.target.value) * 4;  // slower 80 - 400 fast
+               // sets character's manual speed
+               rangeManualSpeed.addEventListener('change', event => {
+                   event.preventDefault();
+                   let manualSpeed = parseInt(event.target.value) * 4;  // slower 80 - 400 fast
 
-                    this.characterAssembled.forEach((characterPiece, key) => {
-                        if (characterPiece.key) this.character[`${key}`].manualSpeed = manualSpeed;
-                    });
+                   this.characterAssembled.forEach((characterPiece, key) => {
+                       if (characterPiece.key) this.character[`${key}`].manualSpeed = manualSpeed;
+                   });
 
-                    localStorage.setItem('manualSpeed', JSON.stringify(manualSpeed));
+                   localStorage.setItem('manualSpeed', JSON.stringify(manualSpeed));
 
-                    showManualSpeed.innerText = event.target.value;
-                });
-            }
-            break;
-    }
+                   showManualSpeed.innerText = event.target.value;
+               });
+           }
+           break;
+   }
 } */
 
     closePopups = () => {
@@ -143,7 +143,7 @@ setButtonFunctions(mapKey) {
                         <div className="row">
                             <Link
                                 onClick={this.closePopups}
-                                to='/evolootApp/map' className="button button__orange" id="no">No</Link>
+                                to='/evolootApp/map' className="button button__green--small" id="no">Ok</Link>
                         </div>
                     </div>
                 </div>
@@ -158,30 +158,31 @@ setButtonFunctions(mapKey) {
 
                         <div className="row">
                             <div className="col-1-of-2">
-                                <Link 
-                                onClick={this.destroyGame}
-                                to='/evolootApp/auction' className="button button__green" id="yes">Yes</Link>
+                                <Link
+                                    onClick={this.destroyGame}
+                                    to='/evolootApp/auction' className="button button__green--small" id="yes">Yes</Link>
 
                             </div>
 
                             <div className="col-1-of-2">
                                 <Link
                                     onClick={this.closePopups}
-                                    to='/evolootApp/map' className="button button__red" id="no">No</Link>
+                                    to='/evolootApp/map' className="button button__green--small" id="no">No</Link>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <NavMenu destroy={this.destroyGame}/>
+                <NavMenu destroy={this.destroyGame} />
 
 
-                <input type="checkbox" className="header__checkbox header__checkbox--2" id="settings-toggle" />
+               
+{/*
+     <input type="checkbox" className="header__checkbox header__checkbox--2" id="settings-toggle" />
                 <label className="header__nav-button header__nav-button--settings" htmlFor="settings-toggle">
                     <i className="fas fa-cog header__settings"></i>
                 </label>
-
-                <div className="header__background header__background--2">&nbsp;</div>
+    <div className="header__background header__background--2">&nbsp;</div>
 
                 <nav className="header__nav header__nav--2" >
                     <ul className="header__nav-list">
@@ -197,7 +198,8 @@ setButtonFunctions(mapKey) {
                                 <p className="header__nav-link" id="manualSpeedShow"> 60 </p></label>
                         </li>
                     </ul>
-                </nav>
+                </nav> */}
+                
 
                 <div id="map"></div>
             </React.Fragment >

@@ -17,7 +17,7 @@ class Forget extends Component {
 	 * - On sucess or fail, a feedback will be sent to the user on screen.
 	 * @param {string} email : string provided in the email text field. 
 	 */
-	resetPassword = async(email) => {
+	resetPassword = async (email) => {
 		const messageValid = document.querySelector('.tv__reset--valid');
 		const messageError = document.querySelector('.tv__reset--error');
 
@@ -26,9 +26,9 @@ class Forget extends Component {
 
 		try {
 			await user.resetPassword(email);
-			
+
 			this.email.insertAdjacentHTML('afterend', '<span class="tv__sigin-error tv__reset--valid">A Password Reset E-mail has been sent to you!</span>');
-		} catch(err) {
+		} catch (err) {
 			this.email.insertAdjacentHTML('afterend', '<span class="tv__sigin-error tv__reset--error">No user found with this e-mail!</span>');
 		}
 	}
@@ -44,45 +44,35 @@ class Forget extends Component {
 	render() {
 		return (
 
+			<div className="opening">
 
-			<div className="opening" id="modal">
+				<ButtonReturn history={this.props.history} />
 
-			<ButtonReturn history={this.props.history} />
-			
-	
-			<div className="tv" id="opening">
-	
-				<header className="tv__header">
-					<img src={logoImage} alt="Evoloot Logo" className="tv__logo" />
-				</header>
-	
-				<div className="tv__body" id="body">
-					<div className="form-box">
-						<div className="tv__body form-box__login-area" id="body">
-							<div className="row">
-								<p className="paragraph">Please enter your email address. You will</p>
-								<p className="paragraph">receive a link to create a new password.</p>
-							</div>
-							<div className="row">
-								<label htmlFor="email" className="label">E-mail</label>
-								<input type="email" name="username" id="email" className="form-box__input" placeholder="" autoFocus required />
+
+				<div className="opening__container form">
+
+					<header className="opening__header-box">
+						<img src={logoImage} alt="Evoloot Logo" className="logo" />
+					</header>
+
+					<main className="opening__main-box opening__main-box--column">
+						<div className="form__input-box">
+							<label htmlFor="email" className="form__label">Email</label>
+							<div className="form__input-field-box">
+								<input type="text" name="email" id="email" className="form__input-field" placeholder="myemail@anything.com" autoFocus required />
 							</div>
 						</div>
-					</div>
-				</div>
-	
-				<footer className="tv__footer" id="footer">
-					<div className="form-box__login-area">
-						<div className="row">
-							<button className="button button__green--submit button__green--submit--enter" id="reset"
+
+					</main>
+
+					<footer className="opening__footer-box">
+						<button className="button button__green--submit button__green--submit--enter" id="reset"
 							onClickCapture={this.forget}>
-								<h2 className="button__green--submit-text button__green--submit--enter-text header-secondary">Reset Password</h2>
-							</button>
-						</div>
-					</div>
-				</footer>
+							<h2 className="button__green--submit-text button__green--submit--enter-text header-secondary">Reset Password</h2>
+						</button>
+					</footer>
+				</div>
 			</div>
-		</div>
 		);
 	}
 }

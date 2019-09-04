@@ -144,7 +144,7 @@ class Part09 extends Component {
                     <div className="arena__content-grid" id="content-box">
 
                         <div className="row u-maximum-max-width">
-                            <div className="form">
+                            <div className="">
                                 <div className="row u-very-small-margin-bottom">
                                     <div className="col-1-of-2">
                                         <div className="dialog__header">

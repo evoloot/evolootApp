@@ -7,4 +7,47 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+
+	&__container {
+		max-width: 90rem;
+		display: inherit;
+		justify-content: space-between;
+		flex-direction: inherit;
+		height: 85vh;
+		align-items: inherit;
+	}
+
+	&__header-box {
+		position: relative;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__main-box {
+		position: relative;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+
+		.button {
+			width: 100%;
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+			}
+		}
+	}
+
+	&__main-box--column {
+		flex-direction: column;
+	}
+
+	&__footer-box {
+		position: relative;
+		width: 100%;
+		font-size: 2.5rem;
+	}
  }

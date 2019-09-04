@@ -89,7 +89,7 @@
         display: inline-block;
         position: absolute;
         left: 0;
-        top: 7rem;
+        top: 5rem;
         background: $color-red;
         padding: .5rem;
         color: $color-white;
@@ -106,6 +106,5 @@
 
     &__reset--error {
         background: $color-red;
-        top: 17rem;
     }
 }

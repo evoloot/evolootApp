@@ -5,6 +5,7 @@ import * as db from '../../../parse/DB';
 import * as userCharacter from '../../../parse/userCharacter';
 import { DailyManager } from "../../../xpengine/dailies";
 import { MilestoneManager } from "../../../xpengine/milestones";
+import {Helper} from '../../../utils/helper';
 
 import ButtonReturn from '../../../components/Navigation/buttonReturn';
 import Input from '../../../components/UI/input';
@@ -25,67 +26,27 @@ class Register extends Component {
 
     componentDidMount() {
         const registerForm = {
-            username: this.createFormElement('input', { type: 'text', placeholder: 'Your Username', id: 'Username' }, { required: true }),
-            firstName: this.createFormElement('input', { type: 'text', placeholder: 'Your First Name', id: 'First Name' }, { required: true }),
-            lastName: this.createFormElement('input', { type: 'text', placeholder: 'Your Last Name', id: 'Last Name' }, { required: true }),
-            birthday: this.createFormElement('input', { type: 'date', placeholder: 'mm/dd/yyyy', id: 'Birth Date' }, { required: true }),
+            username: Helper.createFormElement('input', { type: 'text', placeholder: 'Your Username', id: 'Username' }, { required: true }),
+            firstName: Helper.createFormElement('input', { type: 'text', placeholder: 'Your First Name', id: 'First Name' }, { required: true }),
+            lastName: Helper.createFormElement('input', { type: 'text', placeholder: 'Your Last Name', id: 'Last Name' }, { required: true }),
+            birthday: Helper.createFormElement('input', { type: 'date', placeholder: 'mm/dd/yyyy', id: 'Birth Date' }, { required: true }),
 
-            email: this.createFormElement('input', { type: 'email', placeholder: 'Your Email', id: 'Email' }, { required: true, emailFormat: true }),
-            confirmEmail: this.createFormElement('input', { type: 'email', placeholder: 'myemail@something.com', id: 'Confirm Email' }, { required: true, emailFormat: true, confirm: 'Email' }),
-            password: this.createFormElement('input', { type: 'password', placeholder: 'Your Password', id: 'Password' }, { required: true }),
-            confirmPassword: this.createFormElement('input', { type: 'password', placeholder: 'banana9', id: 'Confirm Password' }, { required: true, confirm: 'Password' }),
+            email: Helper.createFormElement('input', { type: 'email', placeholder: 'Your Email', id: 'Email' }, { required: true, emailFormat: true }),
+            confirmEmail: Helper.createFormElement('input', { type: 'email', placeholder: 'myemail@something.com', id: 'Confirm Email' }, { required: true, emailFormat: true, confirm: 'Email' }),
+            password: Helper.createFormElement('input', { type: 'password', placeholder: 'Your Password', id: 'Password' }, { required: true }),
+            confirmPassword: Helper.createFormElement('input', { type: 'password', placeholder: 'banana9', id: 'Confirm Password' }, { required: true, confirm: 'Password' }),
 
-            postalCode: this.createFormElement('input', { type: 'text', placeholder: 'Your Postal Code', id: 'Postal Code' }, { required: true }),
-            country: this.createFormElement('input', { type: 'text', placeholder: 'Your Country', id: 'Country' }, { required: true }),
-            province: this.createFormElement('input', { type: 'text', placeholder: 'Your Province', id: 'Province' }, { required: true }),
-            city: this.createFormElement('input', { type: 'text', placeholder: 'Your City', id: 'City' }, { required: true }),
-            addressStreet: this.createFormElement('input', { type: 'text', placeholder: 'Your Street', id: 'Street' }, { required: true }),
-            addressNumber: this.createFormElement('input', { type: 'number', placeholder: '123', id: 'Nº' }, { required: true }),
+            postalCode: Helper.createFormElement('input', { type: 'text', placeholder: 'Your Postal Code', id: 'Postal Code' }, { required: true }),
+            country: Helper.createFormElement('input', { type: 'text', placeholder: 'Your Country', id: 'Country' }, { required: true }),
+            province: Helper.createFormElement('input', { type: 'text', placeholder: 'Your Province', id: 'Province' }, { required: true }),
+            city: Helper.createFormElement('input', { type: 'text', placeholder: 'Your City', id: 'City' }, { required: true }),
+            addressStreet: Helper.createFormElement('input', { type: 'text', placeholder: 'Your Street', id: 'Street' }, { required: true }),
+            addressNumber: Helper.createFormElement('input', { type: 'number', placeholder: '123', id: 'Nº' }, { required: true }),
         }
 
         this.setState({
             registerForm: registerForm
-        })
-    }
-
-    /**
-     * @param {string} elementType e.g.: "input"
-     * @param {Object} elementConfig e.g.: In case of text inputs: {type:"text", placeholder:"Your Name"}
-     * @param {Object} validationParams e.g.: {required: true, minSize: 5, ...}
-     * @param {string} value e.g.: "Alfred"
-     */
-    createFormElement = (elementType, elementConfigParams, validationParams = {}, value = '') => {
-        switch (elementType) {
-            case ('input'):
-                return {
-                    elementType: elementType,
-                    elementConfig: {
-                        type: elementConfigParams.type,
-                        placeholder: elementConfigParams.placeholder,
-                        id: elementConfigParams.id
-                    },
-                    value: value,
-                    validation: validationParams,
-                    valid: false,
-                    touched: false
-                }
-            case ('select'):
-                return {
-                    elementType: 'select',
-                    elementConfig: {
-                        /*
-                        options: [
-                            { value: 'none', displayValue: '-- Select --' },
-                        ]
-                        */
-                    },
-                    value: 'none',
-                    validation: {},
-                    valid: false
-                }
-            default:
-                return -1
-        }
+        });
     }
 
     checkValidity = (value, rules) => {
@@ -323,9 +284,9 @@ class Register extends Component {
 
                 {this.state.popup}
 
-                <div className="opening opening--no-background-color">
+                <section className="opening opening--no-background-color">
                     {registerFormPart}
-                </div>
+                </section>
             </div>
         );
     }

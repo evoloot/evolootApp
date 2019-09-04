@@ -260,4 +260,46 @@ export class Helper {
         console.log('cleared');
         window.clearTimeout(this.timeout);
     }
+
+     /**
+     * Sets information for an input element.
+     * @param {string} elementType e.g.: "input", "select", ...
+     * @param {Object} elementConfig e.g.: In case of text inputs: {type:"text", placeholder:"Your Name"}
+     * @param {Object} validationParams e.g.: {required: true, minSize: 5, ...}
+     * @param {string} value e.g.: "Alfred"
+     * @returns object
+     */
+    static createFormElement = (elementType, elementConfigParams, validationParams = {}, value = '') => {
+        switch (elementType) {
+            case ('input'):
+                return {
+                    elementType: elementType,
+                    elementConfig: {
+                        type: elementConfigParams.type,
+                        placeholder: elementConfigParams.placeholder,
+                        id: elementConfigParams.id
+                    },
+                    value: value,
+                    validation: validationParams,
+                    valid: false,
+                    touched: false
+                }
+            case ('select'):
+                return {
+                    elementType: 'select',
+                    elementConfig: {
+                        /*
+                        options: [
+                            { value: 'none', displayValue: '-- Select --' },
+                        ]
+                        */
+                    },
+                    value: 'none',
+                    validation: {},
+                    valid: false
+                }
+            default:
+                return -1
+        }
+    }
 }
