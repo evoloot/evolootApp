@@ -66,10 +66,8 @@ class Forget extends Component {
 					</main>
 
 					<footer className="opening__footer-box">
-						<button className="button button__green--submit button__green--submit--enter" id="reset"
-							onClickCapture={this.forget}>
-							<h2 className="button__green--submit-text button__green--submit--enter-text header-secondary">Reset Password</h2>
-						</button>
+						<button className="button button__green--small" id="reset"
+							onClickCapture={this.forget}>Reset</button>
 					</footer>
 				</div>
 			</div>

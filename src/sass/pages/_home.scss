@@ -31,9 +31,11 @@
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
+		margin: 1rem 0;
 
 		.button {
 			width: 100%;
+			margin-top: 1rem;
 
 			&:not(:last-child) {
 				margin-right: 2rem;
@@ -49,5 +51,9 @@
 		position: relative;
 		width: 100%;
 		font-size: 2.5rem;
+
+		.header-secondary {
+			font-size: 1.5rem;
+		}
 	}
  }

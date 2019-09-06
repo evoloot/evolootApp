@@ -5,15 +5,15 @@
     background-image: linear-gradient(rgba($color-green-secondary, 0.1), rgba($color-green-secondary, 0.25));
     color:#000;
     padding: 3rem 5rem;
-    border: 1.5rem ridge rgba($color-green-primary, .5);
-    border-radius: .5rem;
     font-size: 3.5rem;
     overflow-y: auto;
     overflow-x: hidden;
 
+    @include greenBorder;
+
     .button__green--small {
         width: 40%;
-        margin-top: 2.5rem;
+        margin-top: 2rem;
 
         &:not(:last-child){
             margin-right: 2rem;

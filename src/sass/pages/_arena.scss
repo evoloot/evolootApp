@@ -10,11 +10,9 @@
     &__content-grid {
         position: relative;
         margin: 0 7rem 2.5rem 7rem;
-        border: 1.5rem ridge rgba($color-green-primary, .5);
-        box-shadow: 0 .7rem 1rem rgba(0,0,0, .45);
-        border-radius: .5rem;
         padding: 2rem;
-        //height: 42rem;
+
+        @include greenBorder;
     }
 
 

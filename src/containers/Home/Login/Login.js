@@ -133,15 +133,13 @@ class Login extends Component {
 
                             <div className="form__input-box">
                                 <input type="checkbox" id="remember-me"  defaultChecked="" className="dialog__input" />
-                                <label className="form__label dialog__checkbox-label" htmlFor="remember-me"><span class="dialog__checkmark"></span><p class="paragraph dialog__checkbox-name">Remember me</p></label>
+                                <label className="form__label dialog__checkbox-label" htmlFor="remember-me"><span className="dialog__checkmark"></span><p className="paragraph dialog__checkbox-name">Remember me</p></label>
                             </div>
                         </main>
 
                         <footer className="opening__footer-box">
-                            <button className="button button__green--submit button__green--submit--enter" id="enter"
-                                onClick={this.login}>
-                                <h2 className="button__green--submit-text button__green--submit--enter-text header-secondary">login</h2>
-                            </button>
+                            <button className="button button__green--small" id="enter"
+                                onClick={this.login}>Login</button>
                             <button className="button button__green--submit button__green--submit--forget" id="forget"
                                 onClick={this.goToForget}>
                                 <h2 className="button__green--submit-text header-secondary">Forgot your password?</h2>
@@ -155,154 +153,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-
-/*
-
-    checkValidity = (value, rules) => {
-        let isValid = true; // starts as valid
-
-        // depends on which rules we have
-        if (rules.required)
-            isValid = value.trim() !== '' && isValid; // basically checking if field value is empty or filled with white spaces
-
-        // another example
-        if (rules.minLength)
-            isValid = value.length >= rules.minLength && isValid;
-
-        if (rules.maxLength)
-            isValid = value.length <= rules.maxLength && isValid;
-
-        if (rules.emailFormat)
-            isValid = /\w+@\w+\.\w{2,}/ig.test(value) && isValid;
-
-        if (rules.confirm) ////HERE
-            isValid = (value === document.getElementById(rules.confirm).value) && isValid;
-
-        // passing 'isValid' to all the verifications will make sure that if
-        // it gets reproved in one of them, it won't pass in any other.
-        return isValid;
-    }
-
-    inputChangedHandler = (event, inputIdentifier) => {
-        // Here order form is cloned superficially
-        const updatedRegisterForm = { ...this.state.registerForm };
-        // And down here its objects are deeply cloned, for safely changing 'value'
-        const updatedFormElement = { ...updatedRegisterForm[inputIdentifier] };
-
-        updatedFormElement.value = event.target.value; // so the value is updated here
-        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
-
-        updatedFormElement.touched = true;
-
-        updatedRegisterForm[inputIdentifier] = updatedFormElement; // and then updated to the cloned form
-
-
-        const updatedRegisterFormKeys = Object.keys(updatedRegisterForm);
-
-        let formIsValid = true;
-        let formPart01IsValid = true;
-        let formPart02IsValid = true;
-        let formPart03IsValid = true;
-
-        for (let inputIdentifier in updatedRegisterForm) {
-            formIsValid = updatedRegisterForm[inputIdentifier].valid && formIsValid; // :D, remember if one is false, everything is!
-        }
-
-        updatedRegisterFormKeys.slice(0, 4).forEach(inputIdentifier => {
-            formPart01IsValid = updatedRegisterForm[inputIdentifier].valid && formPart01IsValid; // :D, remember if one is false, everything is!
-        });
-        updatedRegisterFormKeys.slice(4, 8).forEach(inputIdentifier => {
-            formPart02IsValid = updatedRegisterForm[inputIdentifier].valid && formPart02IsValid; // :D, remember if one is false, everything is!
-        });
-        updatedRegisterFormKeys.slice(8).forEach(inputIdentifier => {
-            formPart03IsValid = updatedRegisterForm[inputIdentifier].valid && formPart03IsValid; // :D, remember if one is false, everything is!
-        });
-
-        this.setState({
-            registerForm: updatedRegisterForm,
-            formIsValid: formIsValid,
-            formPart01IsValid: formPart01IsValid,
-            formPart02IsValid: formPart02IsValid,
-            formPart03IsValid: formPart03IsValid
-        });
-    }
-
-    renderInputs = () => {
-        const accumulator = [];
-
-        for (let input in this.state.registerForm) {
-            accumulator.push(
-                <Input
-                    key={input}
-                    label={this.state.registerForm[input].elementType}
-                    elementType={this.state.registerForm[input].elementType}
-                    elementConfig={this.state.registerForm[input].elementConfig}
-                    value={this.state.registerForm[input].value}
-                    invalid={!this.state.registerForm[input].valid}
-                    shouldValidate={this.state.registerForm[input].validation}
-                    touched={this.state.registerForm[input].touched}
-                    changed={event => this.inputChangedHandler(event, input)}
-                    required />
-            );
-        }
-
-        return accumulator;
-    }
-
-    continueRegister = () => {
-        this.setState(prevState => {
-            return {
-                registerStep: ++prevState.registerStep
-            }
-        });
-    }
-
-    backRegister = () => {
-        this.setState(prevState => {
-            return {
-                registerStep: --prevState.registerStep
-            }
-        });
-    }
-
-    closePopup = () => {
-        this.setState({
-            popup: null
-        });
-    }
-
-    registerHandler = event => {
-        event.preventDefault();
-
-        this.setState({ loading: true });
-
-        const registerForm = {};
-
-        for (let formElementIdentifier in this.state.registerForm) {
-            registerForm[formElementIdentifier] = this.state.registerForm[formElementIdentifier].value;
-        }
-
-        if ((registerForm.email !== registerForm.confirmEmail) && (registerForm.password !== registerForm.confirmPassword))
-            this.setState({
-                popup: <Popup type="message" click={this.closePopup}>
-                    <p className="paragraph" style={{ marginBottom: '2rem', fontSize: '3rem' }}>Something is wrong with your email and password!</p>
-                </Popup>
-            });
-        else if (registerForm.email !== registerForm.confirmEmail)
-            this.setState({
-                popup: <Popup type="message" click={this.closePopup}>
-                    <p className="paragraph" style={{ marginBottom: '2rem', fontSize: '3rem' }}>Something is wrong with your email!</p>
-                </Popup>
-            });
-        else if (registerForm.password !== registerForm.confirmPassword)
-            this.setState({
-                popup: <Popup type="message" click={this.closePopup}>
-                    <p className="paragraph" style={{ marginBottom: '2rem', fontSize: '3rem' }}>Something is wrong with your password!</p>
-                </Popup>
-            });
-        else
-            this.saveData(registerForm);
-
-    }
- */
