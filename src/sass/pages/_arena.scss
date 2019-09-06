@@ -14,9 +14,15 @@
         box-shadow: 0 .7rem 1rem rgba(0,0,0, .45);
         border-radius: .5rem;
         padding: 2rem;
-        height: 42rem;
+        //height: 42rem;
     }
 
+
+    &__content-grid--horizontal-scroll {
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+    
     &__content-grid-row {
         display: flex;
         overflow: auto;

@@ -9,10 +9,11 @@ const popup = props => {
                 <div className="popup">
                     <div className="popup__content">
 
-                        {props.children}
-                        <div className="row">
-                            <button className="button button__green--small" onClick={props.click}>Ok</button>
+                        <div className="popup__box">
+                            {props.children}
                         </div>
+                        <button className="button button__green--small" onClick={props.click}>Ok</button>
+
                     </div>
                 </div>
             );

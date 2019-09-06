@@ -51,6 +51,8 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin-bottom: 2rem;
+    width: 100%;
 }
 
 .header-secondary {
@@ -83,4 +85,14 @@ body {
     letter-spacing: -.05rem;
 }
 
-// NOTE - Add a paragraph secondary for long texts.
+.normal-title {
+    opacity: .8;
+}
+
+.normal-paragraph {
+    opacity: .6;
+}
+
+.money {
+    font-size: 3.5rem;
+}

@@ -306,7 +306,7 @@ export class SceneAuction extends Phaser.State {
      * Scrolls 'camera' down to the arena.
      */
     arenaStartCameraAnimation() {
-        if (this.game.camera.y < 2704) this.game.camera.y += 100; //this.game.camera.y += 4; for debug purposes
+        if (this.game.camera.y < 2704) this.game.camera.y += 4; //this.game.camera.y += 100; for debug purposes
     }
 
     /**

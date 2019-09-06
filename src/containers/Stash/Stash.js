@@ -103,8 +103,8 @@ class Stash extends Component {
               <li className="details__list-item">
                 <p className="topic">item condition:</p><p className="topic__content">{item.itemCondition}</p>
               </li>
-              <li className="details__list-item details__list-item--description">
-                <p className="topic">details: </p><p className="topic__content">{item.extrasDescription}</p>
+              <li className="details__list-item">
+                <p className="topic">details: </p><textarea className="topic__content" readOnly>{item.extrasDescription}</textarea>
               </li>
               <li className="details__list-item">
                 <p className="topic">return policy:</p><p className="topic__content">{item.returnPolicy}</p>

@@ -6,7 +6,7 @@ const item = props => (
             <img src={props.picture} alt={props.alt} />
         </div>
         <div className="item-list__box-information">
-            <h3 className="header-ellipsed">{props.name}</h3>
+            <h3 className="normal-title header-ellipsed">{props.name}</h3>
             <p className="paragraph">{'CAD$' + props.price.toFixed(2)}</p>
         </div>
         <div className="item-list__box-buttons">

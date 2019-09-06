@@ -11,6 +11,11 @@
     z-index: 2500;
     backface-visibility: hidden;
 
+    &__box {
+        position: relative;
+        margin-bottom: 2.5rem;
+    }
+
     &__content {
         position: absolute;
         top: 50%;
@@ -21,7 +26,7 @@
         transform: translate(-50%, -50%);
         background-color: $color-white;
         background-image: linear-gradient(rgba($color-green-secondary, 0.1), rgba($color-green-secondary, 0.25));
-        padding: 3rem;
+        padding: 2rem 3rem;
         z-index: 3000;
         width: 80rem;
 

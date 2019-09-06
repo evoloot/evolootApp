@@ -10,8 +10,6 @@ import ButtonReturn from '../../../../components/Navigation/buttonReturn';
 import NavMenu from '../../../../components/Navigation/navMenu';
 import Popup from '../../../../components/UI/popup';
 
-import './Part04.css';
-
 class Part04 extends Component {
 
     constructor(props) {
@@ -20,9 +18,6 @@ class Part04 extends Component {
         this.state = {
             buyParams: [],
             auctionItems: [],
-            currentAuctionItem: null,
-            currentAuctionItemIndex: 0,
-            currentAuctionItemDetails: null,
             firstLoad: false,
             popup: null
         };
@@ -30,22 +25,43 @@ class Part04 extends Component {
         if (this.props.location.buyParams !== undefined)
             this.state.buyParams.push(...this.props.location.buyParams);
 
-        this.setAuctionObjects();
+        this.retrieveOpenAuctions();
     }
 
     componentDidMount() {
-        this.auctionItemDetail = document.querySelector('.details__list');
-        this.auctionItemDetail.style.display = 'none';
     }
 
-    setAuctionObjects = async () => {
-        this.auctionItem = new AuctionItem();
+    retrieveOpenAuctions = async () => {
+        const auctionItem = new AuctionItem();
+        const Auction = Parse.Object.extend('Auction');
+
+        const query = new Parse.Query(Auction);
+
+        const auctionItems = [];
+
+        query.notEqualTo('closed', true);
+        query.include('auctionItem');
 
         try {
-            const items = await this.auctionItem.retrieveAuctionItems();
+            const auctions = await query.find();
+
+            auctions.forEach(auction => {
+                const item = auction.get('auctionItem');
+                const timeLeft = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength());
+
+                let time = timeLeft !== 'expired' ? `${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m` : '0d:0h:0m';
+
+                const formattedItem = {
+                    ...auctionItem.setLocalAuctionItem(item),
+                    price: auction.get('currentItemPrice'),
+                    timeLeft: time
+                };
+
+                auctionItems.push(formattedItem);
+            });
 
             this.setState({
-                auctionItems: items
+                auctionItems: auctionItems
             });
 
         } catch (err) {
@@ -53,129 +69,118 @@ class Part04 extends Component {
         }
     }
 
-    openModal = () => {
-        this.auctionItemDetail.style.display = 'block';
+    imageHandler = event => {
+        this.setState({
+            popup: <Popup
+            type="message"
+            click={this.closeWarning}>
+               <img src={event.target.src} alt="item" className=""/>
+        </Popup>
+        })
     }
 
-    closeModal = () => {
-        this.auctionItemDetail.style.display = 'none';
+    displayItems = auctionItems => {
+
+        return auctionItems.map(auctionItem => {
+            return (
+                <figure key={auctionItem.id} className="auction-item__box">
+                    <h2 className="auction-item__title header-ellipsed">{auctionItem.name}</h2>
+                    <div className="auction-item__information-box">
+                        <img src={auctionItem.pictures[0].url()} alt="item" className="auction-item__picture" onClick={this.imageHandler} />
+                        <ol className="auction-item__information-list">
+                            <li className="auction-item__information-item money"><p className="paragraph"> CAD${auctionItem.price.toFixed(2)}</p></li>
+                            <li className="auction-item__information-item"><p className="normal-paragraph">{auctionItem.timeLeft}</p></li>
+
+                            <li className="auction-item__information-item">
+                                <button
+                                    id={auctionItem.id}
+                                    className="button button__green--small"
+                                    onClick={this.showDetails}>
+                                    details</button>
+                            </li>
+                            <li className="auction-item__information-item">
+                                <button
+                                    id={auctionItem.id}
+                                    onClick={this.joinAuction}
+                                    className="button button__green--small">Join!</button>
+                            </li>
+                        </ol>
+                    </div>
+                </figure>
+            );
+        });
     }
 
-    goRight = () => {
-        let index = this.state.currentAuctionItemIndex;
+    showDetails = async (event) => {
+        const item = this.state.auctionItems.find(item => item.id === event.target.id);
+        const itemIndex = this.state.auctionItems.findIndex(item => item.id === event.target.id);
 
-        if (index < this.state.auctionItems.length - 1) {
-            ++index;
-        }
-        else {
-            index = 0;
-        }
+        const arrayCopy = [...this.state.auctionItems];
 
-        this.displayObject(index);
-    }
+        try {
+            let sellerName;
 
-    goLeft = () => {
-        let index = this.state.currentAuctionItemIndex;
+            if (!item.seller) {
+                const seller = await user.retrieveUser(item.parent);
 
-        if (index > 0) {
-            --index
-        }
-        else {
-            index = this.state.auctionItems.length - 1
-        }
+                sellerName = seller.get('username');
 
-        this.displayObject(index);
-    }
+                arrayCopy[itemIndex].seller = sellerName
 
-    displayObject = async (number) => {
-        const Auction = Parse.Object.extend('Auction');
-        const query = new Parse.Query(Auction);
-
-        if (this.state.auctionItems.length > 0)
-            try {
-                if (!this.state.currentAuctionItem || this.state.currentAuctionItemIndex !== number) {
-                    this.auctionItemForShow = this.auctionItem.setLocalAuctionItem(this.state.auctionItems[number]);
-
-                    query.equalTo('auctionItem', this.state.auctionItems[number]);
-                    const search = await query.first();
-    
-                    this.auctionItemForShow.price = search.get('currentItemPrice') ? search.get('currentItemPrice') : this.auctionItemForShow.startingBid;
-    
-                    this.auctionItemForShow.owner = await user.retrieveUser(this.state.auctionItems[number].getParent());
-
-                    const timeLeft = Helper.calculateRemainingTime(this.auctionItemForShow.startingDate, this.auctionItemForShow.auctionLength);
-                    
-                    let time = timeLeft !== 'expired' ? `${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m` : '0d:0h:0m';
-
-                    this.setState({
-                        currentAuctionItemIndex: number,
-                        firstLoad: true,
-                        currentAuctionItem: (
-                            <figure className="auction-item__box">
-                                <h2 className="auction-item__title">{this.auctionItemForShow.name}</h2>
-                                <img src={this.auctionItemForShow.pictures[0].url()} alt="item" className="auction-item__picture" />
-                                <ol className="auction-item__information-list">
-                                    <li className="auction-item__information-item">current price: ${this.auctionItemForShow.price.toFixed(2)}</li>
-                                    <li className="auction-item__information-item">time left: {time}</li>
-
-                                    <li className="auction-item__information-item">
-                                        <button
-                                            className="button-alternative details-button"
-                                            onClick={this.openModal}>
-                                            details</button>
-                                    </li>
-                                    <li className="auction-item__information-item">
-                                        <button
-                                            onClick={this.joinAuction}
-                                            className="button-alternative join-button">Join!</button>
-                                    </li>
-                                </ol>
-                            </figure>
-                        ),
-                        currentAuctionItemDetails: (
-                            <React.Fragment>
-                                <li className="details__list-item">
-                                    <p className="topic">item condition:</p><p className="topic__content">{this.auctionItemForShow.itemCondition}</p>
-                                </li>
-                                <li className="details__list-item details__list-item--description">
-                                    <p className="topic">details: </p><p className="topic__content">{this.auctionItemForShow.extrasDescription}</p>
-                                </li>
-                                <li className="details__list-item">
-                                    <p className="topic">return policy:</p><p className="topic__content">{this.auctionItemForShow.returnPolicy}</p>
-                                </li>
-                                <li className="details__list-item">
-                                    <p className="topic">shipping</p>
-                                </li>
-                                <li className="details__list-item">
-                                    <p className="topic">seller:</p><p className="topic__content">{this.auctionItemForShow.owner.get('username')}</p>
-                                </li>
-                                <li className="details__list-item">
-                                </li>
-                                <li className="details__list-item">
-                                    <p>contact:</p><p className="topic__content">{this.auctionItemForShow.sellerContact}</p>
-                                </li>
-                                <li className="details__list-item">
-                                    <button className="button-alternative join-button" onClick={this.closeModal}>close</button>
-                                </li>
-                            </React.Fragment>
-                        )
-                    });
-                }
+                this.setState({
+                    auctionItems: arrayCopy
+                });
             }
-            catch (err) {
-                console.log(err);
-            }
+            else
+                sellerName = item.seller
+
+            this.setState({
+                auctionItems: arrayCopy,
+                popup: (
+                    <Popup
+                        type="message"
+                        click={this.closeWarning}>
+
+                        <ol className="auction-item__information-list">
+                            <li className="details__list-item">
+                                <p className="topic">item condition:</p><p className="topic__content">{item.itemCondition}</p>
+                            </li>
+                            <li className="details__list-item">
+                                <p className="topic">details: </p><textarea className="topic__content" readOnly>{item.extrasDescription}</textarea>
+                            </li>
+                            <li className="details__list-item">
+                                <p className="topic">return policy:</p><p className="topic__content">{item.returnPolicy}</p>
+                            </li>
+                            <li className="details__list-item">
+                                <p className="topic">shipping</p>
+                            </li>
+                            <li className="details__list-item">
+                                <p className="topic">seller:</p><p className="topic__content">{sellerName}</p>
+                            </li>
+                            <li className="details__list-item">
+                            </li>
+                            <li className="details__list-item">
+                                <p>contact:</p><p className="topic__content">{item.sellerContact}</p>
+                            </li>
+                        </ol>
+                    </Popup>
+                ),
+                showItemDetails: true
+            });
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    joinAuction = () => {
-        if (this.auctionItemForShow.owner.id !== user.currentUser().id) {
-            const currentItem = this.state.auctionItems[this.state.currentAuctionItemIndex];
+    joinAuction = event => {
+        const item = this.state.auctionItems.find(item => item.id === event.target.id);
 
+        if (item.parent.id !== user.currentUser().id) {
             if (this.state.buyParams.find(el => el.auctionItem) === undefined)
-                this.state.buyParams.push({ auctionItem: currentItem });
+                this.state.buyParams.push({ auctionItem: item });
             else {
                 this.state.buyParams.splice(this.state.buyParams.findIndex(el => el.auctionItem), 1);
-                this.state.buyParams.push({ auctionItem: currentItem });
+                this.state.buyParams.push({ auctionItem: item });
             }
 
             this.props.history.push({
@@ -206,10 +211,15 @@ class Part04 extends Component {
     }
 
     render() {
-        this.displayObject(this.state.currentAuctionItemIndex);
+        let items = null;
+
+        if(this.state.auctionItems.length > 0)
+            items = this.displayItems(this.state.auctionItems);
+        else 
+            items = <h3 className="header-primary header-primary--small">-- Nothing here yet --</h3>
 
         return (
-            <div className="arena" id="modal">
+            <div className="arena">
                 <div className="header" id="header">
 
                     <ButtonReturn
@@ -229,16 +239,9 @@ class Part04 extends Component {
                     <div className="arena__content-grid" id="content-box">
 
                         <div className="auction-item">
-                            <button className="button-alternative arrow-button"
-                                onClick={this.goLeft}>&lt;</button>
-                            {this.state.currentAuctionItem}
-                            <button className="button-alternative arrow-button"
-                                onClick={this.goRight}>&gt;</button>
+                            {items}
+                            {this.state.popup}
                         </div>
-
-                        <ol className="details__list">
-                            {this.state.currentAuctionItemDetails}
-                        </ol>
 
                     </div>
                     <div className="footer" id="footer">

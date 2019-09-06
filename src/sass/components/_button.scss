@@ -4,6 +4,7 @@
     border: none;
     outline: none;
     transition: all .3s;
+    text-decoration: none;
 
     &__yellow {
         padding: .5rem;
@@ -337,11 +338,23 @@
         background: $color-green-primary;
         border: $color-green-primary;
         color: #fff;
-        border-radius: .5rem;
+        border-radius: 1rem;
         font-size: 3rem;
-        margin-bottom: 1rem;
         font-family: inherit;
-        box-shadow: 0 .5rem .6rem rgba(0,0,0, .2);
+        box-shadow: none;
+        top: 0;
+        transition: all .2s;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 .7rem #000;
+            top: -.7rem;
+        }
+
+        &:active {
+            top: 0;
+            box-shadow: none;
+        }
     }
 
     &__red {
