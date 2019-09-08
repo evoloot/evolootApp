@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/evolootApp/static/css/main.0e05567d.chunk.css",
-    "main.js": "/evolootApp/static/js/main.47935d2b.chunk.js",
-    "main.js.map": "/evolootApp/static/js/main.47935d2b.chunk.js.map",
+    "main.css": "/evolootApp/static/css/main.10f934a1.chunk.css",
+    "main.js": "/evolootApp/static/js/main.aeeb72d8.chunk.js",
+    "main.js.map": "/evolootApp/static/js/main.aeeb72d8.chunk.js.map",
     "runtime~main.js": "/evolootApp/static/js/runtime~main.9e87f265.js",
     "runtime~main.js.map": "/evolootApp/static/js/runtime~main.9e87f265.js.map",
-    "static/js/2.c3a08ee4.chunk.js": "/evolootApp/static/js/2.c3a08ee4.chunk.js",
-    "static/js/2.c3a08ee4.chunk.js.map": "/evolootApp/static/js/2.c3a08ee4.chunk.js.map",
+    "static/js/2.3688e498.chunk.js": "/evolootApp/static/js/2.3688e498.chunk.js",
+    "static/js/2.3688e498.chunk.js.map": "/evolootApp/static/js/2.3688e498.chunk.js.map",
     "index.html": "/evolootApp/index.html",
-    "precache-manifest.b1c5cde95c6b63a9b0b0709ef43059a1.js": "/evolootApp/precache-manifest.b1c5cde95c6b63a9b0b0709ef43059a1.js",
+    "precache-manifest.8676f76e57090bed8716855e34edd629.js": "/evolootApp/precache-manifest.8676f76e57090bed8716855e34edd629.js",
     "service-worker.js": "/evolootApp/service-worker.js",
-    "static/css/main.0e05567d.chunk.css.map": "/evolootApp/static/css/main.0e05567d.chunk.css.map",
+    "static/css/main.10f934a1.chunk.css.map": "/evolootApp/static/css/main.10f934a1.chunk.css.map",
     "static/media/Imports_Logo.png": "/evolootApp/static/media/Imports_Logo.e7332d44.png",
     "static/media/Menu_ReturnToMap.png": "/evolootApp/static/media/Menu_ReturnToMap.19c6d81a.png",
     "static/media/Menu_SellAgain.png": "/evolootApp/static/media/Menu_SellAgain.155a8df4.png",
@@ -32,7 +32,6 @@
     "static/media/island.txt": "/evolootApp/static/media/island.75e91c15.txt",
     "static/media/island.png": "/evolootApp/static/media/island.7a5f7da4.png",
     "static/media/map.txt": "/evolootApp/static/media/map.242791c3.txt",
-    "static/media/sampleVideo2.mp4": "/evolootApp/static/media/sampleVideo2.cc62b7da.mp4",
     "static/media/sell.gif": "/evolootApp/static/media/sell.08ca85bd.gif",
     "static/media/showDown.gif": "/evolootApp/static/media/showDown.f5dda25b.gif"
   }
