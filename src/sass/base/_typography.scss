@@ -20,7 +20,7 @@ body {
     line-height: 1.2;
     letter-spacing: -.2rem;
     text-rendering: optimizeLegibility;
-    color: $color-black;
+    color: $color-gray-dark-2;
 }
 
 .header-primary {
@@ -85,13 +85,9 @@ body {
     letter-spacing: -.05rem;
 }
 
-.normal-title {
-    opacity: .8;
-}
+.normal-title {}
 
-.normal-paragraph {
-    opacity: .6;
-}
+.normal-paragraph {}
 
 .money {
     font-size: 3.5rem;

@@ -343,15 +343,21 @@
         font-family: inherit;
         box-shadow: none;
         top: 0;
-        transition: all .2s;
+        transition: all .2s ease-out;
 
         &:hover,
         &:focus {
-            box-shadow: 0 .7rem #000;
+            box-shadow: 0 .8rem #43800a;
             top: -.7rem;
         }
 
         &:active {
+            top: .2rem;
+            box-shadow: none;
+        }
+
+        &:disabled,
+        &:disabled:hover {
             top: 0;
             box-shadow: none;
         }

@@ -165,8 +165,6 @@ class Register extends Component {
     registerHandler = event => {
         event.preventDefault();
 
-        this.setState({ loading: true });
-
         const registerForm = {};
 
         for (let formElementIdentifier in this.state.registerForm) {

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 import logoImage from '../../../assets/images/logo.png';
-import sampleVideo from '../../../assets/video/sampleVideo2.mp4';
-import beginButtonImage from '../../../assets/images/begin_journey.png';
-import loginButtonImage from '../../../assets/images/log_in.png';
-
 
 class Intro extends Component {
 

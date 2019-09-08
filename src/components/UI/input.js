@@ -14,7 +14,7 @@ const input = props => {
     }
 
     switch (props.elementType) {
-        case ('input'):
+        case ('input'): //HERE password and checkbox
             inputElement = <input
                 className={`form__input-field ${validInput}`}
                 {...props.elementConfig}

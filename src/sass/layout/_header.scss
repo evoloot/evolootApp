@@ -51,13 +51,15 @@
         transition: opacity .8s ease-out;
 
         &-list{
-            position: absolute;
+            position: relative;
             list-style: none;
             text-align: center;
-            @include centerXY;
             overflow-y: auto;
             overflow-x: hidden;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         &-item{
