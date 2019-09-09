@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/evolootApp/static/css/main.10f934a1.chunk.css",
-    "main.js": "/evolootApp/static/js/main.aeeb72d8.chunk.js",
-    "main.js.map": "/evolootApp/static/js/main.aeeb72d8.chunk.js.map",
+    "main.css": "/evolootApp/static/css/main.dfdb8491.chunk.css",
+    "main.js": "/evolootApp/static/js/main.ea2259b2.chunk.js",
+    "main.js.map": "/evolootApp/static/js/main.ea2259b2.chunk.js.map",
     "runtime~main.js": "/evolootApp/static/js/runtime~main.9e87f265.js",
     "runtime~main.js.map": "/evolootApp/static/js/runtime~main.9e87f265.js.map",
-    "static/js/2.3688e498.chunk.js": "/evolootApp/static/js/2.3688e498.chunk.js",
-    "static/js/2.3688e498.chunk.js.map": "/evolootApp/static/js/2.3688e498.chunk.js.map",
+    "static/js/2.961b04c1.chunk.js": "/evolootApp/static/js/2.961b04c1.chunk.js",
+    "static/js/2.961b04c1.chunk.js.map": "/evolootApp/static/js/2.961b04c1.chunk.js.map",
     "index.html": "/evolootApp/index.html",
-    "precache-manifest.8676f76e57090bed8716855e34edd629.js": "/evolootApp/precache-manifest.8676f76e57090bed8716855e34edd629.js",
+    "precache-manifest.a9a57255ced55abdd96e87fd4370c24e.js": "/evolootApp/precache-manifest.a9a57255ced55abdd96e87fd4370c24e.js",
     "service-worker.js": "/evolootApp/service-worker.js",
-    "static/css/main.10f934a1.chunk.css.map": "/evolootApp/static/css/main.10f934a1.chunk.css.map",
+    "static/css/main.dfdb8491.chunk.css.map": "/evolootApp/static/css/main.dfdb8491.chunk.css.map",
     "static/media/Imports_Logo.png": "/evolootApp/static/media/Imports_Logo.e7332d44.png",
     "static/media/Menu_ReturnToMap.png": "/evolootApp/static/media/Menu_ReturnToMap.19c6d81a.png",
     "static/media/Menu_SellAgain.png": "/evolootApp/static/media/Menu_SellAgain.155a8df4.png",
@@ -33,6 +33,7 @@
     "static/media/island.png": "/evolootApp/static/media/island.7a5f7da4.png",
     "static/media/map.txt": "/evolootApp/static/media/map.242791c3.txt",
     "static/media/sell.gif": "/evolootApp/static/media/sell.08ca85bd.gif",
-    "static/media/showDown.gif": "/evolootApp/static/media/showDown.f5dda25b.gif"
+    "static/media/showDown.gif": "/evolootApp/static/media/showDown.f5dda25b.gif",
+    "static/media/sprite.svg": "/evolootApp/static/media/sprite.b21f60e1.svg"
   }
 }
