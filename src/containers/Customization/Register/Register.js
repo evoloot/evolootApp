@@ -5,7 +5,7 @@ import * as db from '../../../parse/DB';
 import * as userCharacter from '../../../parse/userCharacter';
 import { DailyManager } from "../../../xpengine/dailies";
 import { MilestoneManager } from "../../../xpengine/milestones";
-import {Helper} from '../../../utils/helper';
+import { Helper } from '../../../utils/helper';
 
 import ButtonReturn from '../../../components/Navigation/buttonReturn';
 import Input from '../../../components/UI/input';
@@ -21,7 +21,9 @@ class Register extends Component {
         formPart01IsValid: false,
         formPart02IsValid: false,
         formPart03IsValid: false,
-        popup: null
+        popup: null,
+        showPassword: false,
+        showConfPassword: false,
     }
 
     componentDidMount() {
@@ -133,11 +135,50 @@ class Register extends Component {
                     shouldValidate={this.state.registerForm[input].validation}
                     touched={this.state.registerForm[input].touched}
                     changed={event => this.inputChangedHandler(event, input)}
+                    show={input === 'password' ? this.state.showPassword : this.state.showConfPassword}
+                    alternate={this.showOrHidePassword}
                     required />
             );
         }
 
         return accumulator;
+    }
+
+    showId = event => {
+        console.log(event.target.closest('.form__input-icon').id);
+    }
+
+    showOrHidePassword = event => {
+        let passwordElement;
+
+        if (event.target.closest('.form__input-icon').id === 'Password') {
+            passwordElement = document.getElementById('Password');
+
+            this.setState(prevState => {
+                return {
+                    showPassword: !prevState.showPassword
+                }
+            });
+
+            if (this.state.showPassword)
+                    passwordElement.setAttribute('type', 'password');
+                else
+                    passwordElement.setAttribute('type', 'text');
+        }
+        else {
+            passwordElement = document.getElementById('Confirm Password');
+
+            this.setState(prevState => {
+                return {
+                    showConfPassword: !prevState.showConfPassword
+                }
+            });
+
+            if (this.state.showConfPassword)
+                    passwordElement.setAttribute('type', 'password');
+                else
+                    passwordElement.setAttribute('type', 'text');
+        }
     }
 
     continueRegister = () => {

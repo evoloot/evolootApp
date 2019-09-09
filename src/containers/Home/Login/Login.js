@@ -12,13 +12,12 @@ class Login extends Component {
     state = {
         registerForm: null,
         formIsValid: false,
+        showPassword: false,
     }
 
     componentDidMount() {
 
         ///////
-        this.showHidePassword = document.querySelector('.button__search--hide-show');
-        this.eyeIcon = document.querySelector('.button__search-icon');
         this.remember = document.getElementById('remember-me');
         ////////
 
@@ -81,6 +80,8 @@ class Login extends Component {
                     invalid={!this.state.registerForm[input].valid}
                     shouldValidate={this.state.registerForm[input].validation}
                     touched={this.state.registerForm[input].touched}
+                    show={this.state.showPassword}
+                    alternate={this.showOrHidePassword}
                     changed={event => this.inputChangedHandler(event, input)}
                     required />
             );
@@ -96,22 +97,20 @@ class Login extends Component {
     }
 
     showOrHidePassword = () => { // needs an icon or image, right now it is invisible
-        // hide
-        if ('password' === this.password.getAttribute('type')) {
-            // change icon
-            if (this.eyeIcon) this.eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+        const passwordElement = document.getElementById('Password');
 
-            // change pass input type to text
-            this.password.setAttribute('type', 'text');
-        }
-        // show 
-        else {
-            // change icon 
-            if (this.eyeIcon) this.eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+        this.setState(prevState => {
 
-            // change pass input type to password
-            this.password.setAttribute('type', 'password');
-        }
+
+            return {
+                showPassword: !prevState.showPassword
+            }
+        });
+
+        if (this.state.showPassword)
+            passwordElement.setAttribute('type', 'password');
+        else
+            passwordElement.setAttribute('type', 'text');
     }
 
     login = event => {

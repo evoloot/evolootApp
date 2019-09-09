@@ -3,7 +3,7 @@
     text-align: center;
     background-color: #fff;
     background-image: linear-gradient(rgba($color-green-secondary, 0.1), rgba($color-green-secondary, 0.25));
-    padding: 3rem 5rem;
+    padding: 3rem 6rem;
     font-size: 3.5rem;
     overflow-y: auto;
     overflow-x: hidden;
@@ -33,6 +33,16 @@
         &:focus {
             border-bottom: solid gray .7rem;
         }  
+    }
+
+    &__input-icon {
+        position: absolute;
+        fill :$color-gray-dark-2;
+        height: 2.5rem;
+        width: 2.5rem;
+        right: -3rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     &__input-field--invalid {
