@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import ButtonReturn from '../../../../components/Navigation/buttonReturn';
 import NavMenu from '../../../../components/Navigation/navMenu';
-import DotSteps from '../../../../components/Navigation/dotSteps';
 
 import oldManImage from '../../../../assets/images/oldMan.png';
 import listingImage from '../../../../assets/images/isometrics/Menu_ViewListing.png'
@@ -47,7 +46,8 @@ class Part11 extends Component {
                                 </div>
 
 
-                                <button className="button button__icon--big" id="listing">
+                                <button className="button button__icon--big" id="listing"
+                                 onClick={() => this.props.history.push('/evolootApp/listing')}>
                                     <img className="button__icon-icon--small" src={listingImage} alt="listing" /> 
                                 </button>
                             </div>
@@ -77,7 +77,6 @@ class Part11 extends Component {
 
                     </div>
                     <div className="footer" id="footer">
-                        <DotSteps />
                     </div>
 
                 </div>

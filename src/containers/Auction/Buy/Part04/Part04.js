@@ -53,7 +53,7 @@ class Part04 extends Component {
 
                 const formattedItem = {
                     ...auctionItem.setLocalAuctionItem(item),
-                    price: auction.get('currentItemPrice'),
+                    price:auction.get('currentItemPrice') ? auction.get('currentItemPrice') : item.get('startingBid'),
                     timeLeft: time
                 };
 
