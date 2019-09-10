@@ -24,16 +24,16 @@ const popup = props => {
                     <div className="popup__content">
 
                         <div className="popup__text" id="enter-question">
-                            <p className="paragraph">Would you like to enter the Arena ?</p>
+                            {props.children}
                         </div>
 
                         <div className="row">
                             <div className="col-1-of-2">
-                                <button className="button button__green--small">Yes</button>
+                                <button className="button button__green--small" onClick={props.accept}>Yes</button>
                             </div>
 
                             <div className="col-1-of-2">
-                                <button className="button button__green--small">No</button>
+                                <button className="button button__green--small" onClick={props.cancel}>No</button>
                             </div>
                         </div>
                     </div>

@@ -18,6 +18,7 @@ const itemList = props => {
                             price={item.price}
                             firstButtonName={item.firstButtonName}
                             secondButtonName={item.secondButtonName}
+                            danger={props.danger}
                             firstButtonFunction={props.firstButtonFunction}
                             secondButtonFunction={props.secondButtonFunction}
                         />

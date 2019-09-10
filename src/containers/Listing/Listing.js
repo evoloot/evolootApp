@@ -34,15 +34,16 @@ class Listing extends Component {
             const auctions = await query.find();
 
             auctions.forEach(auction => {
-                
+
                 const item = auction.get('auctionItem');
 
-                if(item.get('parent').id === user.currentUser().id) {
+                if (item.get('parent').id === user.currentUser().id) {
                     const formattedItem = {
                         ...auctionItem.setLocalAuctionItem(item),
+                        auctionId: auction.id,
                         price: auction.get('currentItemPrice') ? auction.get('currentItemPrice') : item.get('startingBid')
                     };
-    
+
                     auctionItems.push(formattedItem);
                 }
             });
@@ -55,7 +56,7 @@ class Listing extends Component {
         }
     }
 
-    closeDetails = () => {
+    closePopup = () => {
         this.setState({
             popup: false
         })
@@ -89,7 +90,7 @@ class Listing extends Component {
                 popup: (
                     <Popup
                         type="message"
-                        click={this.closeDetails}>
+                        click={this.closePopup}>
 
                         <ol className="auction-item__information-list">
                             <li className="details__list-item">
@@ -121,13 +122,50 @@ class Listing extends Component {
         }
     }
 
-    deleteItem = event => {
-        const item = this.state.auctionItems.find(item => item.id === event.target.id);
-        const itemIndex = this.state.auctionItems.findIndex(item => item.id === event.target.id);
+    delete = async (item) => {
+        const Auction = Parse.Object.extend('Auction');
+
+        const query = new Parse.Query(Auction);
+
+        const itemIndex = this.state.auctionItems.findIndex(auctionItem => auctionItem.id === item.id);
+        console.log(itemIndex);
 
         const arrayCopy = [...this.state.auctionItems];
+        arrayCopy.splice(itemIndex, 1);
 
-        console.log(item);
+        query.equalTo('objectId', item.auctionId);
+        query.include('auctionItem');
+
+        try {
+            const auction = await query.first();
+            const auctionItem = auction.get('auctionItem');
+            await auctionItem.fetch();
+
+            await auctionItem.destroy();
+            await auction.destroy();
+        } catch (err) {
+            console.log(err);
+        }
+
+        this.setState({
+            popup: false,
+            auctionItems: arrayCopy
+        });
+    }
+
+    deleteItem = event => {
+        const item = this.state.auctionItems.find(item => item.id === event.target.id);
+
+        this.setState({
+            popup: (
+                <Popup
+                    type="question"
+                    accept={this.delete.bind(this, item)}
+                    cancel={this.closePopup}>
+                    <p className="">Are you sure? The process is irreversible and you might receive a penalty!</p>
+                </Popup>
+            )
+        });
     }
 
     render() {
@@ -143,12 +181,13 @@ class Listing extends Component {
         });
 
         const buy = (
-                <ItemList
-                    items={listOfItems}
-                    firstButtonFunction={this.showDetails}
-                    secondButtonFunction={this.deleteItem}
-                />
-            );
+            <ItemList
+                items={listOfItems}
+                danger={true}
+                firstButtonFunction={this.showDetails}
+                secondButtonFunction={this.deleteItem}
+            />
+        );
 
         return (
             <React.Fragment>
