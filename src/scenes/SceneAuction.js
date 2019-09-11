@@ -290,8 +290,6 @@ export class SceneAuction extends Phaser.State {
                     this.auction = null;
                     this.currentUser = null;
 
-                    console.log('got here!');
-
                     window.location.replace('/evolootApp/auction/buy/part04');
                 });
 
