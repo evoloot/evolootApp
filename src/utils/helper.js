@@ -192,10 +192,10 @@ export class Helper {
      */
     static calculateRemainingTime = (startDate, length, timeAddition = 0) => {
 
-        const hehe = moment();
-        const convert = hehe.tz('America/Toronto');
+        const momentTime = moment();
+        const convertedTime = momentTime.tz('America/Toronto');
 
-        let timeLeft = Math.abs(convert._d - startDate);
+        let timeLeft = Math.abs(convertedTime._d - startDate);
 
 
         const fullDay = 24 * 60 * 60 * 1000; // in milliseconds

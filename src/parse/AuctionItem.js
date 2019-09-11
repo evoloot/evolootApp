@@ -1,4 +1,5 @@
 import * as Parse from 'parse';
+import moment from 'moment-timezone';
 
 /**
  * AuctionItem 
@@ -200,6 +201,9 @@ class AuctionItem extends Parse.Object {
     postAuctionItem = async (currentUser, auctionParams) => {
 
         try {
+            const momentTime = moment();
+            const convertedTime = momentTime.tz('America/Toronto');
+
             // retrieve user email
             const sellerContact = currentUser.get('email');//await user.retrieveEmail();
             //console.log(sellerContact);
@@ -231,9 +235,6 @@ class AuctionItem extends Parse.Object {
             const itemAuctionLength = itemInformation.filter(el => el['auctionLength'])[0];
             //const itemAuctionMinimumPrice = itemInformation.filter(el => el['auctionMinimumPrice'])[0];
 
-            // retrieve current time, for startingdate
-            const startDate = new Date();
-
             const parseImageFiles = [];
             const parseImageFile = new Parse.File(itemImages[0].sellPictures.name, itemImages[0].sellPictures);
             parseImageFiles.push(parseImageFile);
@@ -243,7 +244,7 @@ class AuctionItem extends Parse.Object {
             this.setName(name.auctionName);
             this.setReserve(parseFloat(itemReserve.auctionReserveValue));
             this.setStartingBid(parseFloat(itemStartingPrice.auctionStartingPrice));
-            this.setStartDate(startDate);
+            this.setStartDate(convertedTime._d);
             this.setReturnPolicy(itemAuctionReturnPolicy.auctionReturnPolicy);
             this.setAuctionStyle(parseInt(itemAuctionStyle.auctionStyle, 10));
             this.setAuctionLength(parseInt(itemAuctionLength.auctionLength, 10));

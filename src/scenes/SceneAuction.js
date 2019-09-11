@@ -284,6 +284,17 @@ export class SceneAuction extends Phaser.State {
                     }
                 });
 
+                this.subscription.on('delete', () => {
+
+                    this.players = null;
+                    this.auction = null;
+                    this.currentUser = null;
+
+                    console.log('got here!');
+
+                    window.location.replace('/evolootApp/auction/buy/part04');
+                });
+
                 this.subscription.on('close', () => {
                     const index = this.players.findIndex(player => player.id === this.currentUser.id);
                     this.players.splice(index, 1);
