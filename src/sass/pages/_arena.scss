@@ -1,5 +1,7 @@
 .arena {
     @include aspectRatioBox;
+
+    
     
     display: block;
 	z-index: 1000;
@@ -9,8 +11,12 @@
 
     &__content-grid {
         position: relative;
-        margin: 0 7rem 2.5rem 7rem;
         padding: 2rem;
+        overflow: auto;
+
+        width: 100%;
+        max-width: 90rem;
+        margin: 0 auto;
 
         @include greenBorder;
     }

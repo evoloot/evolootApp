@@ -1,209 +1,225 @@
 import React, { Component } from 'react';
 
-import GridOfEight from '../../../../components/Grids/gridOfEight';
+import AuctionItem from '../../../../parse/AuctionItem';
+import * as user from '../../../../parse/user';
+import Parse from 'parse';
+
+import { Helper } from '../../../../utils/helper';
+
 import ButtonReturn from '../../../../components/Navigation/buttonReturn';
 import NavMenu from '../../../../components/Navigation/navMenu';
+import Popup from '../../../../components/UI/popup';
 
-import nintendoSwitchImage from '../../../../assets/images/isometrics/nintendo/Nintendo_Switch.png';
-import nintendoWiiUImage from '../../../../assets/images/isometrics/nintendo/Nintendo_Wii-U.png';
-import nintendoWiiImage from '../../../../assets/images/isometrics/nintendo/Nintendo_Wii.png';
-import nintendoN64Image from '../../../../assets/images/isometrics/nintendo/Nintendo_N64.png';
-import nintendoSNESImage from '../../../../assets/images/isometrics/nintendo/Nintendo_SNES.png';
-import nintendoNESImage from '../../../../assets/images/isometrics/nintendo/Nintendo_NES.png';
-import nintendoVirtualBoyImage from '../../../../assets/images/isometrics/nintendo/Nintendo_VirtualBoy.png';
-import nintendo3DSImage from '../../../../assets/images/isometrics/nintendo/Nintendo_3DS.png';
-import nintendoDSImage from '../../../../assets/images/isometrics/nintendo/Nintendo_DS.png';
-import nintendoGBAImage from '../../../../assets/images/isometrics/nintendo/Nintendo_GBA.png';
-import nintendoGBCImage from '../../../../assets/images/isometrics/nintendo/Nintendo_GBC.png';
-import nintendoGBImage from '../../../../assets/images/isometrics/nintendo/Nintendo_GB.png';
-import nintendoGameCubeImage from '../../../../assets/images/isometrics/nintendo/Nintendo_GameCube.png';
+class part03 extends Component {
 
-import atari2600Image from '../../../../assets/images/isometrics/atari/Atari_2600.png';
-import atari5200Image from '../../../../assets/images/isometrics/atari/Atari_5200.png';
-import atari7800Image from '../../../../assets/images/isometrics/atari/Atari_7800.png';
-import atariJaguarImage from '../../../../assets/images/isometrics/atari/Atari_Jaguar.png';
-import atariLynxImage from '../../../../assets/images/isometrics/atari/Atari_Lynx.png';
+    constructor(props) {
+        super(props);
 
-import microsoftXBoxImage from '../../../../assets/images/isometrics/microsoft/Microsoft_Xbox.png';
-import microsoftXBox360Image from '../../../../assets/images/isometrics/microsoft/Microsoft_Xbox-360.png';
-import microsoftXboxOneImage from '../../../../assets/images/isometrics/microsoft/Microsoft_Xbox-ONE.png';
+        this.state = {
+            buyParams: [],
+            auctionItems: [],
+            firstLoad: false,
+            popup: null
+        };
 
-import segaMasterSystemImage from '../../../../assets/images/isometrics/sega/SEGA_MasterSystem.png';
-import segaGenesisImage from '../../../../assets/images/isometrics/sega/SEGA_Genesis.png';
-import sega32XImage from '../../../../assets/images/isometrics/sega/SEGA_32X.png';
-import segaCDImage from '../../../../assets/images/isometrics/sega/SEGA_CD.png';
-import segaSaturnImage from '../../../../assets/images/isometrics/sega/SEGA_Saturn.png';
-import segaGameGearImage from '../../../../assets/images/isometrics/sega/SEGA_GameGear.png';
-import segaNomadImage from '../../../../assets/images/isometrics/sega/SEGA_Nomad.png';
-
-import sonyPS1Image from '../../../../assets/images/isometrics/sony/Sony_PS1.png';
-import sonyPS2Image from '../../../../assets/images/isometrics/sony/Sony_PS2.png';
-import sonyPS3Image from '../../../../assets/images/isometrics/sony/Sony_PS3.png';
-import sonyPS4Image from '../../../../assets/images/isometrics/sony/Sony_PS4.png';
-import sonyPSPImage from '../../../../assets/images/isometrics/sony/Sony_PSP.png';
-import sonyPSVitaImage from '../../../../assets/images/isometrics/sony/Sony_PS-Vita.png';
-
-class Part03 extends Component {
-
-    state = {
-        buyParams: [
-
-        ],
-
-        products: null
-    }
-
-    componentDidMount() {
         if (this.props.location.buyParams !== undefined)
             this.state.buyParams.push(...this.props.location.buyParams);
 
-        this.brandSwitchToShow(this.state.buyParams);
+        this.retrieveOpenAuctions();
     }
 
-    productClickHandler = event => {
-        if (this.state.buyParams.find(el => el.buyProduct) === undefined)
-            this.state.buyParams.push({ buyProduct: event.currentTarget.id });
-        else {
-            this.state.buyParams.splice(this.state.buyParams.findIndex(el => el.buyProduct), 1);
-            this.state.buyParams.push({ buyProduct: event.currentTarget.id });
-        }
+    componentDidMount() {
+    }
 
-        
-        this.props.history.push({
-            pathname: '/evolootApp/auction/buy/part04',
-            buyParams: this.state.buyParams
+    retrieveOpenAuctions = async () => {
+        const auctionItem = new AuctionItem();
+        const Auction = Parse.Object.extend('Auction');
+
+        const query = new Parse.Query(Auction);
+
+        const auctionItems = [];
+
+        query.notEqualTo('closed', true);
+        query.include('auctionItem');
+
+        try {
+            const auctions = await query.find();
+
+            auctions.forEach(auction => {
+                const item = auction.get('auctionItem');
+                const timeLeft = Helper.calculateRemainingTime(item.getStartDate(), item.getAuctionLength());
+
+                let time = timeLeft !== 'expired' ? `${timeLeft.days}d:${timeLeft.hours}h:${timeLeft.minutes}m` : '0d:0h:0m';
+
+                const formattedItem = {
+                    ...auctionItem.setLocalAuctionItem(item),
+                    price:auction.get('currentItemPrice') ? auction.get('currentItemPrice') : item.get('startingBid'),
+                    timeLeft: time
+                };
+
+                auctionItems.push(formattedItem);
+            });
+
+            this.setState({
+                auctionItems: auctionItems
+            });
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    imageHandler = event => {
+        this.setState({
+            popup: <Popup
+            type="message"
+            click={this.closeWarning}>
+               <img src={event.target.src} alt="item" className=""/>
+        </Popup>
+        })
+    }
+
+    displayItems = auctionItems => {
+
+        return auctionItems.map(auctionItem => {
+            return (
+                <figure key={auctionItem.id} className="auction-item__box">
+                    <h2 className="auction-item__title header-ellipsed">{auctionItem.name}</h2>
+                    <div className="auction-item__information-box">
+                        <img src={auctionItem.pictures[0].url()} alt="item" className="auction-item__picture" onClick={this.imageHandler} />
+                        <ol className="auction-item__information-list">
+                            <li className="auction-item__information-item money"><p className="paragraph"> CAD${auctionItem.price.toFixed(2)}</p></li>
+                            <li className="auction-item__information-item"><p className="normal-paragraph">{auctionItem.timeLeft}</p></li>
+
+                            <li className="auction-item__information-item">
+                                <button
+                                    id={auctionItem.id}
+                                    className="button button__green--small"
+                                    onClick={this.showDetails}>
+                                    details</button>
+                            </li>
+                            <li className="auction-item__information-item">
+                                <button
+                                    id={auctionItem.id}
+                                    onClick={this.joinAuction}
+                                    className="button button__green--small">Join!</button>
+                            </li>
+                        </ol>
+                    </div>
+                </figure>
+            );
         });
-        
     }
 
-    brandSwitchToShow = params => {
-        const company = params.find(el => el['buyCompany']).buyCompany;
+    showDetails = async (event) => {
+        const item = this.state.auctionItems.find(item => item.id === event.target.id);
+        const itemIndex = this.state.auctionItems.findIndex(item => item.id === event.target.id);
 
-        const nintendoConsolesHandhelds = [
-            { id: 'Nintendo-Switch', src: nintendoSwitchImage, alt: 'Nintendo Switch' },
-            { id: 'Nintendo-Wii-U', src: nintendoWiiUImage, alt: 'Wii U' },
-            { id: 'Nintendo-Wii', src: nintendoWiiImage, alt: 'Wii' },
-            { id: 'Nintendo-Gamecube', src: nintendoGameCubeImage, alt: 'GameCube' },
-            { id: 'Nintendo-64', src: nintendoN64Image, alt: 'Nintendo 64' },
-            { id: 'Nintendo-SNES', src: nintendoSNESImage, alt: 'Super Nintendo' },
-            { id: 'Nintendo-NES', src: nintendoNESImage, alt: 'Nintendo' },
-            { id: 'Nintendo-VirtualBoy', src: nintendoVirtualBoyImage, alt: 'Virtual Boy' },
-            { id: 'Nintendo-3DS', src: nintendo3DSImage, alt: 'Nintendo 3DS' },
-            { id: 'Nintendo-DS', src: nintendoDSImage, alt: 'Nintendo DS' },
-            { id: 'Nintendo-GameboyADVANCE', src: nintendoGBAImage, alt: 'Gameboy Advance' },
-            { id: 'Nintendo-GameboyCOLOUR', src: nintendoGBCImage, alt: 'Gameboy Color' },
-            { id: 'Nintendo-GameboyPOCKET', src: nintendoGBImage, alt: 'Gameboy' }
-        ];
+        const arrayCopy = [...this.state.auctionItems];
 
-        const atariConsoles = [
-            { id: 'Atari-2600', src: atari2600Image, alt: 'Atari 2600' },
-            { id: 'Atari-5200', src: atari5200Image, alt: 'Atari 5200' },
-            { id: 'Atari-7800', src: atari7800Image, alt: 'Atari 7800' },
-            { id: 'Atari-JAGUAR', src: atariJaguarImage, alt: 'Atari Jaguar' },
-            { id: 'Atari-LYNX', src: atariLynxImage, alt: 'Lynx' }
-        ];
+        try {
+            let sellerName;
 
-        const microsoftConsoles = [
-            { id: 'Microsoft-XBOX', src: microsoftXBoxImage, alt: 'XBOX' },
-            { id: 'Microsoft-XBOX360', src: microsoftXBox360Image, alt: 'XBOX 360' },
-            { id: 'Microsoft-XBONE', src: microsoftXboxOneImage, alt: 'XBOX ONE' }
-        ];
+            if (!item.seller) {
+                const seller = await user.retrieveUser(item.parent);
 
-        const segaConsoles = [
-            { id: 'SEGA-MasterSystem', src: segaMasterSystemImage, alt: 'Master System' },
-            { id: 'SEGA-Genesis', src: segaGenesisImage, alt: 'Genesis' },
-            { id: 'SEGA-32X', src: sega32XImage, alt: '32X' },
-            { id: 'SEGA-CD', src: segaCDImage, alt: 'SEGA CD' },
-            { id: 'SEGA-Saturn', src: segaSaturnImage, alt: 'Sega Saturn' },
-            { id: 'SEGA-GameGEAR', src: segaGameGearImage, alt: 'Game Gear' },
-            { id: 'SEGA-NOMAD', src: segaNomadImage, alt: 'Nomad' }
-        ];
+                sellerName = seller.get('username');
 
-        const sonyConsoles = [
-            { id: 'Sony-PS1', src: sonyPS1Image, alt: 'PlayStation' },
-            { id: 'Sony-PS2', src: sonyPS2Image, alt: 'PlayStation 2' },
-            { id: 'Sony-PS3', src: sonyPS3Image, alt: 'PlayStation 3' },
-            { id: 'Sony-PS4', src: sonyPS4Image, alt: 'PlayStation 4' },
-            { id: 'Sony-PSP', src: sonyPSPImage, alt: 'PSP' },
-            { id: 'Sony-PSVita', src: sonyPSVitaImage, alt: 'PSVita' }
-        ];
-
-        switch (company) {
-            case 'nintendo':
-                const buttons = nintendoConsolesHandhelds.map(el => {
-                    return (
-                        <button key={el.id} className="button button__icon button__icon--small" id={el.id}
-                            onClick={this.productClickHandler}>
-                            <img className="button__icon-icon--small button__icon-icon--small--no-padding " src={el.src} alt={el.alt} />
-                        </button>
-                    );
-                });
+                arrayCopy[itemIndex].seller = sellerName
 
                 this.setState({
-                    products: (
-                        <React.Fragment>
-                            <div className="arena__content-grid-row">
-                                {buttons.slice(0, 6)}
-                            </div>
-                            <div className="arena__content-grid-row">
-                                {buttons.slice(6, 12)}
-                            </div>
-                            <div className="arena__content-grid-row">
-                                {buttons.slice(12)}
-                            </div>
-                        </React.Fragment>
-                    )
+                    auctionItems: arrayCopy
                 });
-                break;
-            case 'sony':
-                this.setState({
-                    products: (
-                        <GridOfEight
-                            objects={sonyConsoles}
-                            images={true}
-                            click={this.productClickHandler} />
-                    )
-                });
-                break;
-            case 'microsoft':
-                this.setState({
-                    products: (
-                        <GridOfEight
-                            objects={microsoftConsoles}
-                            images={true}
-                            click={this.productClickHandler} />
-                    )
-                });
-                break;
-            case 'atari':
-                this.setState({
-                    products: (
-                        <GridOfEight
-                            objects={atariConsoles}
-                            images={true}
-                            click={this.productClickHandler} />
-                    )
-                });
-                break;
-            case 'sega':
-                this.setState({
-                    products: (
-                        <GridOfEight
-                            objects={segaConsoles}
-                            images={true}
-                            click={this.productClickHandler} />
-                    )
-                });
-                break;
-            default: return null;
+            }
+            else
+                sellerName = item.seller
+
+            this.setState({
+                auctionItems: arrayCopy,
+                popup: (
+                    <Popup
+                        type="message"
+                        click={this.closeWarning}>
+
+                        <ol className="auction-item__information-list" style={{width: '100%'}}>
+                            <li className="details__list-item">
+                                <p className="topic">item condition:</p><p className="topic__content">{item.itemCondition}</p>
+                            </li>
+                            <li className="details__list-item">
+                                <p className="topic">details: </p><textarea className="topic__content" readOnly>{item.extrasDescription}</textarea>
+                            </li>
+                            <li className="details__list-item">
+                                <p className="topic">return policy:</p><p className="topic__content">{item.returnPolicy}</p>
+                            </li>
+                            <li className="details__list-item">
+                                <p className="topic">shipping</p>
+                            </li>
+                            <li className="details__list-item">
+                                <p className="topic">seller:</p><p className="topic__content">{sellerName}</p>
+                            </li>
+                            <li className="details__list-item">
+                            </li>
+                            <li className="details__list-item">
+                                <p>contact:</p><p className="topic__content">{item.sellerContact}</p>
+                            </li>
+                        </ol>
+                    </Popup>
+                ),
+                showItemDetails: true
+            });
+        } catch (err) {
+            console.log(err);
         }
+    }
 
+    joinAuction = event => {
+        const item = this.state.auctionItems.find(item => item.id === event.target.id);
+
+        if (item.parent.id !== user.currentUser().id) {
+            if (this.state.buyParams.find(el => el.auctionItem) === undefined)
+                this.state.buyParams.push({ auctionItem: item });
+            else {
+                this.state.buyParams.splice(this.state.buyParams.findIndex(el => el.auctionItem), 1);
+                this.state.buyParams.push({ auctionItem: item });
+            }
+
+            this.props.history.push({
+                pathname: '/evolootApp/auction/buy/part05',
+                buyParams: this.state.buyParams
+            });
+        } else {
+            this.setState({
+                popup: (
+                    <Popup
+                        type='message'
+                        click={this.closeWarning}>
+                        <div className="popup__text">
+                            <p className="paragraph">
+                                You're the owner of this auction...
+                            </p>
+                        </div>
+                    </Popup>
+                )
+            });
+        }
+    }
+
+    closeWarning = () => {
+        this.setState({
+            popup: null
+        });
     }
 
     render() {
+        let items = null;
+
+        if(this.state.auctionItems.length > 0)
+            items = this.displayItems(this.state.auctionItems);
+        else 
+            items = <h3 className="header-primary header-primary--small">-- Nothing here yet --</h3>
 
         return (
-            <div className="arena" id="modal">
+            <div className="arena">
                 <div className="header" id="header">
 
                     <ButtonReturn
@@ -222,7 +238,10 @@ class Part03 extends Component {
                 <div className="row">
                     <div className="arena__content-grid" id="content-box">
 
-                        {this.state.products}
+                        <div className="auction-item">
+                            {items}
+                            {this.state.popup}
+                        </div>
 
                     </div>
                     <div className="footer" id="footer">
@@ -230,9 +249,11 @@ class Part03 extends Component {
                     </div>
 
                 </div>
+
+                {this.state.popup}
             </div>
         );
     }
 }
 
-export default Part03;
+export default part03;
