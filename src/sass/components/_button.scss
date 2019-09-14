@@ -344,6 +344,7 @@
         box-shadow: none;
         top: 0;
         transition: all .2s ease-out;
+        box-shadow: 0 .3rem #43800a;
 
         &:hover,
         &:focus {
@@ -353,13 +354,16 @@
 
         &:active {
             top: .2rem;
-            box-shadow: none;
+            box-shadow: 0 .3rem #43800a;
         }
 
         &:disabled,
         &:disabled:hover {
             top: 0;
             box-shadow: none;
+            background: $color-gray-light-4;
+            border: $color-gray-light-4;
+            box-shadow: 0 .3rem $color-gray-dark-2;
         }
     }
 

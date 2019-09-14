@@ -184,7 +184,7 @@ class part03 extends Component {
             }
 
             this.props.history.push({
-                pathname: '/evolootApp/auction/buy/part05',
+                pathname: '/evolootApp/auction/buy/part04',
                 buyParams: this.state.buyParams
             });
         } else {
