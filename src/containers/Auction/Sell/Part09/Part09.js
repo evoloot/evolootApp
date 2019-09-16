@@ -417,7 +417,7 @@ class Part09 extends Component {
                                 </div>
 
                                 <div className="row">
-                                    <button className="button button__green--submit"
+                                    <button className="button button__green--submit button__green--small"
                                         onClick={this.confirmHandler}>
                                         <h2 className="button__green--submit-text header-secondary">Confirm</h2>
                                     </button>
@@ -461,7 +461,7 @@ class Part09 extends Component {
         </p>
                         </div>
                         <div className="row">
-                            <button className="button button__orange" id="ok" onClick={this.closeExplanation}>
+                            <button className="button button__green--small" id="ok" onClick={this.closeExplanation}>
                                 <img src="./assets/images/cc_button_silver.png" alt="ok" />
                             </button>
                         </div>

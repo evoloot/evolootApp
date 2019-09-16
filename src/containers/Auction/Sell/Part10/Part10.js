@@ -304,7 +304,7 @@ class Part10 extends Component {
                                 </div>
 
                                 <div className="row">
-                                    <button className="button button__green--submit" id="confirm"
+                                    <button className="button button__green--submit button__green--small" id="confirm"
                                         onClick={this.confirmHandler}>
                                         <h2 className="button__green--submit-text header-secondary">Confirm</h2>
                                     </button>

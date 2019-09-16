@@ -70,7 +70,7 @@ class Part01 extends Component {
                         <div className="row u-maximum-max-width">
 
                             <div className="col-1-of-2">
-                                <button className="button button__icon button__icon--big-2" id={contentBoxOptionsObjects[0].id}
+                                <button className="button button__icon button__icon--big-2 button__green--small" id={contentBoxOptionsObjects[0].id}
                                     onClick={this.categoryClickHandler}>
                                     <img className="button__icon-icon--small" src={videoGamesImage} alt="Video Games" />
                                     <h2 className="button__icon-text--big header-secondary">{contentBoxOptionsObjects[0].innerText}</h2>
@@ -80,13 +80,13 @@ class Part01 extends Component {
                             <div className="col-1-of-2">
                                 <div className="row u-maximum-max-width">
                                     <div className="col-1-of-2">
-                                        <button className="button button__icon" id={contentBoxOptionsObjects[1].id} disabled>
+                                        <button className="button button__icon button__green--small" id={contentBoxOptionsObjects[1].id} disabled>
                                             <img className="button__icon-icon--small" src={tradingCardsImage} alt="Trading Cards" />
                                             <h2 className="button__icon-text--small header-secondary">{contentBoxOptionsObjects[1].innerText}</h2>
                                         </button>
                                     </div>
                                     <div className="col-1-of-2">
-                                        <button className="button button__icon" id={contentBoxOptionsObjects[2].id} disabled>
+                                        <button className="button button__icon button__green--small" id={contentBoxOptionsObjects[2].id} disabled>
                                             <img className="button__icon-icon--small" src={comicsImage} alt="Comics" />
                                             <h2 className="button__icon-text--small header-secondary">{contentBoxOptionsObjects[2].innerText}</h2>
                                         </button>
@@ -94,7 +94,7 @@ class Part01 extends Component {
                                 </div>
                                 <div className="row u-maximum-max-width">
                                     <div className="col-1-of-2">
-                                        <button className="button button__icon" id={contentBoxOptionsObjects[3].id} disabled>
+                                        <button className="button button__icon button__green--small" id={contentBoxOptionsObjects[3].id} disabled>
                                             <img className="button__icon-icon--small" src={boardGamesImage} alt="Board Games" />
                                             <h2 className="button__icon-text--small header-secondary">{contentBoxOptionsObjects[3].innerText}</h2>
                                         </button>
@@ -102,7 +102,7 @@ class Part01 extends Component {
 
 
                                     <div className="col-1-of-2">
-                                        <button className="button button__icon" id={contentBoxOptionsObjects[4].id} disabled>
+                                        <button className="button button__icon button__green--small" id={contentBoxOptionsObjects[4].id} disabled>
                                             <img className="button__icon-icon--small" src={othersImage} alt="Others" />
                                             <h2 className="button__icon-text--small header-secondary">{contentBoxOptionsObjects[4].innerText}</h2>
                                         </button>

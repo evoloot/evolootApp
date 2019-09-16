@@ -1,0 +1,17 @@
+.menu-bar {
+    position: relative;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 80rem;
+    margin-bottom: 1rem;
+
+    &__item {
+        position: relative;
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+}

@@ -83,7 +83,7 @@
             padding: 1rem;
             @include backgroundGradientTextClip;
         }
-
+/*
         &:hover,
         &:focus {
             background-color: $color-green-tertiary;
@@ -93,7 +93,7 @@
         &:focus &-icon  {
             background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
             @include backgroundGradientTextClip;
-        }     
+        }     */
         
     }
 
@@ -125,10 +125,14 @@
             font-size: 400%;
             margin-top: 1rem;
             padding: 0 1rem;
-            width: 55%;
+            width: 75%;
             
             background-color: $color-white;
             @include backgroundGradientTextClip;
+        }
+
+        &-icon--small-2 {
+            height: 8rem;
         }
 
         &-icon--small--no-padding {
@@ -154,7 +158,7 @@
         }
         
         &-text--small {
-            font-size: 2rem;
+            font-size: 1.5rem;
             text-transform: uppercase;
             margin-top: .7rem;
         }
@@ -164,6 +168,7 @@
             margin-top: 1rem;
         }
 
+        /*
         &:hover,
         &:focus {
             &:not(:disabled) {
@@ -193,6 +198,7 @@
             -webkit-text-fill-color: transparent;
             background-color: $color-gray-light-3;
         }
+        */
     }
 
     &__icon--small {
@@ -237,7 +243,7 @@
             padding: .5rem;
             @include backgroundGradientTextClip;
         }
-
+/*
         &:hover,
         &:focus {
             background-color: $color-green-tertiary;
@@ -248,6 +254,7 @@
             background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
             @include backgroundGradientTextClip;
         }
+        */
     }
 
     &__green--submit--enter {
@@ -367,9 +374,28 @@
         }
     }
 
+    &__menu {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-family: inherit;
+        font-size: 3.2rem;
+        background: $color-green-primary;
+        border-radius: .5rem;
+        padding: 1rem 2rem;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: $color-green-tertiary;
+        }
+    }
+
     &__green--small-red {
         background: $color-red;
         border: $color-red;
+        box-shadow: 0 .3rem $color-red;
 
         &:hover,
         &:focus {

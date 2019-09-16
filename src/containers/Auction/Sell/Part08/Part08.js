@@ -124,7 +124,7 @@ class Part08 extends Component {
                                                 {this.state.uploadArea}
                                             </label>
 
-                                            <button className="button button__green--submit" id="confirm"
+                                            <button className="button button__green--submit button__green--small" id="confirm"
                                                 onClick={this.confirmImageHanlder}>
                                                 <h2 className="button__green--submit-text header-secondary">Confirm</h2>
                                             </button>

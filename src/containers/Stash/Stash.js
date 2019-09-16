@@ -9,6 +9,7 @@ import NavMenu from '../../components/Navigation/navMenu';
 import CheckoutForm from '../../components/Checkout/checkoutForm';
 import ItemList from '../../components/UI/Items/itemList';
 import Popup from '../../components/UI/popup';
+import MenuBar from '../../components/UI/MenuBar/menuBar';
 
 class Stash extends Component {
 
@@ -20,7 +21,10 @@ class Stash extends Component {
     paying: false,
     canPay: false,
     itemToPay: null,
-    customer: {}
+    customer: {},
+    menuBarList: [
+      { name: 'Pending' }, { name: 'On The Way' }, { name: 'History' }
+    ]
   }
 
   componentDidMount() {
@@ -199,9 +203,16 @@ class Stash extends Component {
         <NavMenu />
 
         <div className="stash">
+          {/*
           <header className="stash__header">
             <h1 className="header-primary">My Stash</h1>
           </header>
+          */}
+          
+          <MenuBar 
+            list={this.state.menuBarList}
+            clickHandler={() => console.log('clicked')}
+            />
           <main className="stash__main">
             <div className="stash__content">
 

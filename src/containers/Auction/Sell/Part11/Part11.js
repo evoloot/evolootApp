@@ -46,9 +46,9 @@ class Part11 extends Component {
                                 </div>
 
 
-                                <button className="button button__icon--big" id="listing"
+                                <button className="button button__icon--big button__green--small" id="listing"
                                  onClick={() => this.props.history.push('/evolootApp/listing')}>
-                                    <img className="button__icon-icon--small" src={listingImage} alt="listing" /> 
+                                    <img className="button__icon-icon--small button__icon-icon--small-2" src={listingImage} alt="listing" /> 
                                 </button>
                             </div>
 
@@ -57,9 +57,9 @@ class Part11 extends Component {
                                     <h2 className="header-primary--small">Return to Map</h2>
                                 </div>
 
-                                <button className="button button__icon--big" id="returnToMap"
+                                <button className="button button__icon--big button__green--small" id="returnToMap"
                                 onClick={() => this.props.history.push('/evolootApp/map')}>
-                                    <img className="button__icon-icon--small" src={returnToMapImage} alt="return to map" /> 
+                                    <img className="button__icon-icon--small button__icon-icon--small-2" src={returnToMapImage} alt="return to map" /> 
                                 </button>
                             </div>
 
@@ -68,9 +68,9 @@ class Part11 extends Component {
                                     <h2 className="header-primary--small">Sell Again?</h2>
                                 </div>
 
-                                <button className="button button__icon--big" id="listing"
+                                <button className="button button__icon--big button__green--small" id="listing"
                                 onClick={() => this.props.history.push('/evolootApp/auction/sell/')}>
-                                    <img className="button__icon-icon--small" src={sellAgainImage} alt="sell again?"/> 
+                                    <img className="button__icon-icon--small  button__icon-icon--small-2" src={sellAgainImage} alt="sell again?"/> 
                                 </button>
                             </div>
                         </div>

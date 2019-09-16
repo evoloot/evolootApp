@@ -3,15 +3,26 @@ import * as user from '../../parse/user';
 import * as db from '../../parse/DB';
 
 import NavMenu from '../../components/Navigation/navMenu';
+import MenuBar from '../../components/UI/MenuBar/menuBar';
 
 class Profile extends Component {
 
     state = {
-        userInfo: null,
+
         popupText: null,
         popupInputType: null,
         popupField: null,
-        initialized: false
+        initialized: false,
+
+        userInfoDisplay: null,
+
+        loginInfo: null,
+        userInfo: null,
+        addressInfo: null,
+        
+        menuBarList: [
+            { name: 'Login' }, { name: 'Personal' }, { name: 'Address' }
+        ]
     }
 
     componentDidMount() {
@@ -100,6 +111,32 @@ class Profile extends Component {
         this.popup2.style.display = 'none';
     }
 
+    changeDisplay = event => {
+        const id = event.target.id;
+        let display = null;
+
+
+        console.log(id)
+
+        if (id === this.state.menuBarList[0].name)
+            display = this.state.loginInfo;
+        else if (id === this.state.menuBarList[1].name)
+            display = this.state.userInfo;
+        else
+            display = this.state.addressInfo;
+
+        this.setState({
+            userInfoDisplay: (
+                <div className="profile__content">
+                    <MenuBar
+                        list={this.state.menuBarList}
+                        clickHandler={this.changeDisplay} />
+                    {display}
+                </div>
+            )
+        })
+    }
+
     displayUserInformation = async () => {
         try {
             const currentUser = await user.currentUser();
@@ -112,8 +149,11 @@ class Profile extends Component {
             }
 
             this.setState({
-                userInfo: (
+                userInfoDisplay: (
                     <div className="profile__content">
+                        <MenuBar
+                            list={this.state.menuBarList}
+                            clickHandler={this.changeDisplay} />
                         <div className="profile__box">
                             <ol className="profile__box-list">
                                 <li className="profile__box-list-item">
@@ -129,38 +169,58 @@ class Profile extends Component {
                                 </li>
                             </ol>
                         </div>
-                        <div className="profile__box">
-                            <ol className="profile__box-list">
-                                <li className="profile__box-list-item">
-                                    <p className="label">Username:</p>
-                                    <p>{currentUser.get('username')}</p>
-                                    <button className="button button__green--small"
-                                        onClick={this.openPopup.bind(this, 'username', 'text', 'username')}>change</button>
-                                </li>
-                                <li className="profile__box-list-item">
-                                    <p className="label">First Name:</p>
-                                    <p>{customer.firstName}</p>
-                                    <button className="button button__green--small"
-                                        onClick={this.openPopup.bind(this, 'firstName', 'text', 'first name', false)}>change</button>
-                                </li>
-                                <li className="profile__box-list-item">
-                                    <p className="label">Last Name:</p>
-                                    <p>{customer.lastName}</p>
-                                    <button className="button button__green--small"
-                                        onClick={this.openPopup.bind(this, 'lastName', 'text', 'last name', false)}>change</button>
-                                </li>
-                                <li className="profile__box-list-item">
-                                    <p className="label">Birth Date:</p>
-                                    <p>
-                                        {customer.birthdate}
-                                    </p>
-                                    <button className="button button__green--small"
-                                        onClick={this.openPopup.bind(this, 'birthDate', 'date', 'birth date', false)}>change</button>
-                                </li>
-                            </ol>
-                        </div>
                     </div>
-                )
+                ),
+                loginInfo: (
+                    <div className="profile__box">
+                        <ol className="profile__box-list">
+                            <li className="profile__box-list-item">
+                                <p className="label">Email:</p>
+                                <p>{currentUser.get('email')}</p>
+                                <button className="button button__green--small"
+                                    onClick={this.openPopup.bind(this, 'email', 'email', 'email')}>change</button>
+                            </li>
+                            <li className="profile__box-list-item">
+                                <p className="label">Password:</p>
+                                <p>***</p>
+                                <button className="button button__green--small" onClick={this.openResetPasswordPopup}>reset</button>
+                            </li>
+                        </ol>
+                    </div>
+                ),
+                userInfo: (
+                    <div className="profile__box">
+                        <ol className="profile__box-list">
+                            <li className="profile__box-list-item">
+                                <p className="label">Username:</p>
+                                <p>{currentUser.get('username')}</p>
+                                <button className="button button__green--small"
+                                    onClick={this.openPopup.bind(this, 'username', 'text', 'username')}>change</button>
+                            </li>
+                            <li className="profile__box-list-item">
+                                <p className="label">First Name:</p>
+                                <p>{customer.firstName}</p>
+                                <button className="button button__green--small"
+                                    onClick={this.openPopup.bind(this, 'firstName', 'text', 'first name', false)}>change</button>
+                            </li>
+                            <li className="profile__box-list-item">
+                                <p className="label">Last Name:</p>
+                                <p>{customer.lastName}</p>
+                                <button className="button button__green--small"
+                                    onClick={this.openPopup.bind(this, 'lastName', 'text', 'last name', false)}>change</button>
+                            </li>
+                            <li className="profile__box-list-item">
+                                <p className="label">Birth Date:</p>
+                                <p>
+                                    {customer.birthdate}
+                                </p>
+                                <button className="button button__green--small"
+                                    onClick={this.openPopup.bind(this, 'birthDate', 'date', 'birth date', false)}>change</button>
+                            </li>
+                        </ol>
+                    </div>
+                ),
+                addressInfo: null
             });
         } catch (err) {
             console.log(err);
@@ -174,7 +234,7 @@ class Profile extends Component {
                 <NavMenu />
 
                 <div className="profile">
-                    {this.state.userInfo}
+                    {this.state.userInfoDisplay}
                 </div>
 
                 <div className="popup" id="popup">
@@ -191,12 +251,12 @@ class Profile extends Component {
 
                         <div className="row">
                             <div className="col-1-of-2">
-                                <button className="button button__green--small"   id="no"
+                                <button className="button button__green--small" id="no"
                                     onClick={this.changeField}>Confirm</button>
                             </div>
 
                             <div className="col-1-of-2">
-                                <button className="button button__green--small"   id="no"
+                                <button className="button button__green--small" id="no"
                                     onClick={this.closePopups}>Cancel</button>
                             </div>
                         </div>
@@ -217,12 +277,12 @@ class Profile extends Component {
 
                         <div className="row">
                             <div className="col-1-of-2">
-                                <button className="button button__green--small"   id="no"
+                                <button className="button button__green--small" id="no"
                                     onClick={this.changeCustomerField}>Confirm</button>
                             </div>
 
                             <div className="col-1-of-2">
-                                <button className="button button__green--small"   id="no"
+                                <button className="button button__green--small" id="no"
                                     onClick={this.closePopups}>Cancel</button>
                             </div>
                         </div>
@@ -239,12 +299,12 @@ class Profile extends Component {
 
                         <div className="row">
                             <div className="col-1-of-2">
-                                <button className="button button__green--small"   id="no"
+                                <button className="button button__green--small" id="no"
                                     onClick={this.resetPassword}>Yes</button>
                             </div>
 
                             <div className="col-1-of-2">
-                                <button className="button button__green--small"   id="no"
+                                <button className="button button__green--small" id="no"
                                     onClick={this.closePopups}>No</button>
                             </div>
                         </div>

@@ -6,13 +6,17 @@ import AuctionItem from '../../parse/AuctionItem';
 import NavMenu from '../../components/Navigation/navMenu';
 import ItemList from '../../components/UI/Items/itemList';
 import Popup from '../../components/UI/popup';
+import MenuBar from '../../components/UI/MenuBar/menuBar';
 
 class Listing extends Component {
     state = {
         auctionItems: [],
         selectedItemDetails: null,
         showItemDetails: false,
-        popup: null
+        popup: null,
+        menuBarList: [
+            { name: 'In Display' }, { name: 'Pending Shipment' }, { name: 'History' }
+        ]
     }
 
     componentDidMount() {
@@ -195,9 +199,14 @@ class Listing extends Component {
                 <NavMenu />
 
                 <div className="stash">
-                    <header className="stash__header">
+                    {/* <header className="stash__header">
                         <h1 className="header-primary">My Listing</h1>
-                    </header>
+                    </header> */}
+                   
+                    <MenuBar
+                        list={this.state.menuBarList}
+                        clickHandler={() => console.log('clicked')}
+                    />
                     <main className="stash__main">
                         <div className="stash__content">
 

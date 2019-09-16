@@ -73,7 +73,7 @@ class Part07 extends Component {
                                     <h2 className="header-primary--small">New</h2>
                                 </div>
 
-                                <button className="button button__icon--big" id="new"
+                                <button className="button button__icon--big button__green--small" id="new"
                                     onClick={this.newUsedClickHandler}>
                                     <i className="button__icon--big-icon fas fa-gamepad"></i>
                                 </button>
@@ -89,7 +89,7 @@ class Part07 extends Component {
                                     <h2 className="header-primary--small">Used</h2>
                                 </div>
 
-                                <button className="button button__icon--big" id="used"
+                                <button className="button button__icon--big button__green--small" id="used"
                                     onClick={this.newUsedClickHandler}>
                                     <i className="button__icon--big-icon fas fa-gamepad"></i>
                                 </button>
