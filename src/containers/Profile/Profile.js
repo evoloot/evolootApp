@@ -243,10 +243,10 @@ class Profile extends Component {
                         <div className="popup__text" id="enter-question">
                             <p className="paragraph">Enter your new {this.state.popupText}</p>
                             <input
-                                className="form-box__input"
+                                className="form__input-field"
                                 id="popupInput"
                                 type={this.state.popupInputType}
-                                placeholder={"your " + this.state.popupText} required />
+                                placeholder={"your " + this.state.popupText} required autoFocus/>
                         </div>
 
                         <div className="row">
@@ -269,10 +269,10 @@ class Profile extends Component {
                         <div className="popup__text" id="enter-question">
                             <p className="paragraph">Enter your new {this.state.popupText}</p>
                             <input
-                                className="form-box__input"
+                                className="form__input-field"
                                 id="popupInput2"
                                 type={this.state.popupInputType}
-                                placeholder={"your " + this.state.popupText} required />
+                                placeholder={"your " + this.state.popupText} required autoFocus/>
                         </div>
 
                         <div className="row">

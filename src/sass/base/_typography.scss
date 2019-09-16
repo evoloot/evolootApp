@@ -63,10 +63,11 @@ body {
 }
 
 .label {
+    /*
     background: linear-gradient($color-yellow-primary,$color-green-primary);
     @include backgroundGradientTextClip;
     
-    -webkit-text-stroke-width: .05rem;
+    -webkit-text-stroke-width: .05rem; */
 }
 
 .paragraph {

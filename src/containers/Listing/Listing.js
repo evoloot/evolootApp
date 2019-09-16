@@ -96,7 +96,7 @@ class Listing extends Component {
                         type="message"
                         click={this.closePopup}>
 
-                        <ol className="auction-item__information-list">
+                        <ol className="auction-item__information-list auction-item__information-list--popup">
                             <li className="details__list-item">
                                 <p className="topic">item condition:</p><p className="topic__content">{item.itemCondition}</p>
                             </li>

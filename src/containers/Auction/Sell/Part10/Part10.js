@@ -217,11 +217,11 @@ class Part10 extends Component {
                                     </div>
                                 </div>
 
-                                <div className="row u-very-small-margin-bottom">
+                                <div className="row u-very-small-margin-bottom form-box__input-box">
                                     <label htmlFor="auctionName" className="label dialog__checkbox-label u-padding-none">
                                         <p className="paragraph">Auction Name: </p>
                                     </label>
-                                    <input type="text" id="auctionName" name="auctionName" />
+                                    <input type="text" id="auctionName" name="auctionName" className="form__input-field" autoFocus/>
                                     {/* <div className="col-1-of-4">
                                         <div className="label dialog__checkbox-label u-padding-none">
                                             <p className="paragraph">Minimum Bid Price:</p>
@@ -257,46 +257,42 @@ class Part10 extends Component {
 
                                 </div>
 
-                                <div className="row u-very-small-margin-bottom">
+                                <div className="row u-very-small-margin-bottom form-box__input-box">
                                     <label className="label dialog__checkbox-label u-padding-none" htmlFor="auctionStartingPrice">
                                         <p className="paragraph">Starting Price:</p>
                                     </label>
 
-                                    <div className="dialog__checkbox-item">
                                         <div className="dialog__checkbox-item">
                                             <p className="label dialog__checkbox-label u-padding-none">
-                                                &nbsp;$<input type="number" min="1" id="auctionStartingPrice" className="dialog__number-input" />.00
+                                                &nbsp;$<input type="number" min="1" id="auctionStartingPrice" className="dialog__number-input form__input-field" />.00
                                             </p>
 
                                         </div>
-                                    </div>
                                 </div>
 
-                                <div className="row u-very-small-margin-bottom">
+                                <div className="row u-very-small-margin-bottom form-box__input-box">
                                     <label className="label dialog__checkbox-label u-padding-none" htmlFor="auctionReserveInteger">
                                         <p className="paragraph">Reserve:</p>
                                     </label>
 
-                                    <div className="dialog__checkbox-item">
                                         <div className="dialog__checkbox-item">
                                             <p className="label dialog__checkbox-label u-padding-none">
-                                                &nbsp;$<input type="number" min="1" id="auctionReserveInteger" className="dialog__number-input" />.<input type="number" min="0" defaultValue="0" id="auctionReserveCent" className="dialog__number-input" />
+                                                &nbsp;$<input type="number" min="1" id="auctionReserveInteger" className="dialog__number-input form__input-field" />.<input type="number" min="0" defaultValue="00" id="auctionReserveCent" className="dialog__number-input form__input-field" />
                                             </p>
                                         </div>
-                                    </div>
                                 </div>
-
-                                <div className="row u-very-small-margin-bottom">
+{/*<div className="row u-very-small-margin-bottom">
                                     <div className="label dialog__checkbox-label u-padding-none">
                                         <p className="paragraph">Shipping:</p>
                                     </div>
-                                </div>
+                                </div> */}
+                                
 
                                 <div className="row u-very-small-margin-bottom">
                                     <label className="label dialog__checkbox-label u-padding-none" htmlFor="auctionReturnPolicy">
                                         <p className="paragraph">Return Policy:&nbsp;</p>
                                     </label>
-                                    <select className="search__select" id="auctionReturnPolicy">
+                                    <select className="search__select button__green--small" id="auctionReturnPolicy">
                                         <option defaultValue="-- Select --">-- Select --</option>
                                         <option defaultValue="return">Returns Accepted</option>
                                         <option defaultValue="noReturn">Returns Not Accepted</option>

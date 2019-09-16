@@ -37,12 +37,13 @@
         cursor: pointer;
         transition: all .3s;
 
+        /*
         &:hover,
         &:active,
         &:focus {
             border: $color-green-tertiary solid .2rem;
             background: $color-green-tertiary;
             color: $color-yellow-primary;
-        }
+        } */
     }
 }

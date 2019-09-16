@@ -20,7 +20,7 @@ class Part09 extends Component {
 
         console.log(this.state.sellParams);
 
-        this.buttonExtras = document.querySelector('.button__green--popup');
+        this.buttonExtras = document.getElementById('button_extras');
         this.extras = document.getElementById('extras');
         this.disc = document.getElementById('disc');
         this.instructions = document.getElementById('instructions');
@@ -374,7 +374,7 @@ class Part09 extends Component {
                                                 <span className="dialog__checkmark"></span>
                                                 <p className="paragraph dialog__checkbox-name">Extras</p>
                                             </label>
-                                            <button className="button button__green--popup" disabled>
+                                            <button className="button button__green--small" id="button_extras" style={{fontSize: '1.5rem'}} disabled>
                                                 <h2 className="button__green--popup-text header-secondary">set description</h2>
                                             </button>
                                         </div>
@@ -445,7 +445,7 @@ class Part09 extends Component {
                         </div>
 
                         <div className="row">
-                            <button className="button button__orange" id="ok" onClick={this.closeDescription}>
+                            <button className="button button__green--small" id="ok" onClick={this.closeDescription}>
                                 <img src="./assets/images/cc_button_silver.png" alt="ok" />
                             </button>
                         </div>

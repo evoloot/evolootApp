@@ -332,11 +332,12 @@
             background-color: $color-green-tertiary;
         }
 
+        /*
         &:hover &-mark,
         &:focus &-mark {
             background: linear-gradient($color-yellow-primary, $color-yellow-secondary);
             @include backgroundGradientTextClip;
-        }
+        }*/
     }
 
     &__green--small {

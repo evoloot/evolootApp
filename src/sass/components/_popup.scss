@@ -45,10 +45,14 @@
 
     &__text {
         font-size: 3rem; 
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
 
         .paragraph {
             text-shadow: 0 1rem 2rem rgba($color-black, 0.25);
+        }
+
+        input {
+            margin-top: 1.7rem;
         }
     }
 
@@ -56,5 +60,6 @@
         position: relative;
         width: 85%;
         font-size: 2.2rem;
+        font-family: inherit;
     }
 }
